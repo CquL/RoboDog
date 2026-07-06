@@ -1,0 +1,12 @@
+# Large binary / data files excluded
+jezetek_navigation_amd64.tar
+*.db3
+
+# Build artifacts
+build/
+
+# Common ignores
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

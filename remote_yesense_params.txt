@@ -1,0 +1,55 @@
+
+===== params =====
+$ bash -lc 'source /opt/ros/noetic/setup.bash; source /home/ysc/jy_cog/drivers/setup.bash; echo port=$(rosparam get /yesense_imu_node/yesense_port 2>/dev/null || true); echo baud=$(rosparam get /yesense_imu_node/yesense_baudrate 2>/dev/null || true); echo frame=$(rosparam get /frame_id 2>/dev/null || true)'
+port=/dev/ttyS0
+baud=115200
+frame=lidar_link
+
+===== launch_yesense =====
+$ sed -n '1,220p' /home/ysc/jy_cog/drivers/share/yesense_imu/launch/yesense.launch 2>/dev/null || true; echo; readlink -f /home/ysc/jy_cog/drivers/share/yesense_imu/launch/yesense.launch 2>/dev/null || true
+<launch>
+  <node pkg="yesense_imu" type="yesense_imu_node" name="yesense_imu_node"  output = "screen" >
+    <param name="yesense_port"      type="string" value="/dev/ttyS0"/>
+    <param name="yesense_baudrate"  type="int"    value="115200"/>
+  </node>
+
+</launch>
+
+/home/ysc/jy_cog/drivers/share/yesense_imu/launch/yesense_dr.launch
+
+===== launch_dr =====
+$ sed -n '1,220p' /home/ysc/jy_cog/drivers/share/yesense_imu/launch/yesense_dr.launch 2>/dev/null || true
+<launch>
+  <node pkg="yesense_imu" type="yesense_imu_node" name="yesense_imu_node"  output = "screen" >
+    <param name="yesense_port"      type="string" value="/dev/ttyS0"/>
+    <param name="yesense_baudrate"  type="int"    value="115200"/>
+  </node>
+
+</launch>
+
+===== launch_nr =====
+$ sed -n '1,220p' /home/ysc/jy_cog/drivers/share/yesense_imu/launch/yesense_nr.launch 2>/dev/null || true
+<launch>
+  <node pkg="yesense_imu" type="yesense_imu_node" name="yesense_imu_node"  output = "screen" >
+    <param name="yesense_port"      type="string" value="/dev/ttyS9"/>
+    <param name="yesense_baudrate"  type="int"    value="115200"/>
+  </node>
+
+</launch>
+
+===== node_file =====
+$ file /home/ysc/jy_cog/drivers/lib/yesense_imu/yesense_imu_node; ldd /home/ysc/jy_cog/drivers/lib/yesense_imu/yesense_imu_node 2>/dev/null | sed -n '1,120p' || true
+/home/ysc/jy_cog/drivers/lib/yesense_imu/yesense_imu_node: ELF 64-bit LSB shared object, x86-64, version 1 (GNU/Linux), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=b696c039e7ea7316625e6ec5940cca9d55af581e, for GNU/Linux 3.2.0, with debug_info, not stripped
+	linux-vdso.so.1 (0x00007ffe3a7e7000)
+	libserial.so => not found
+	libroscpp.so => not found
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007fdcfa088000)
+	libroscpp_serialization.so => not found
+	librosconsole.so => not found
+	librostime.so => not found
+	libboost_thread.so.1.71.0 => /lib/x86_64-linux-gnu/libboost_thread.so.1.71.0 (0x00007fdcfa05a000)
+	libstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007fdcf9e78000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fdcf9d29000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fdcf9d0e000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fdcf9b1c000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007fdcfa13f000)

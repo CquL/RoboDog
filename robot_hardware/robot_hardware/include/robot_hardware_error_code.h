@@ -1,0 +1,13 @@
+#ifndef _ROBOT_HARDWARE_ERROR_CODE_H_
+#define _ROBOT_HARDWARE_ERROR_CODE_H_
+
+#define CMD_SUCCESS 0 //代表命令执行成功
+
+#define ERROR_ROBOT_HARDWARE_INIT 1001 //机器人硬件初始化错误
+#define ERROR_ROBOT_HARDWARE_STAND_UP 1002 //机器人站立错误
+#define ERROR_ROBOT_HARDWARE_LIE_DOWN 1003 //机器人趴下错误
+#define ERROR_ROBOT_HARDWARE_ACTION_FAILED 1004 //机器人动作执行失败
+#define ERROR_ROBOT_HARDWARE_MOVE 1005 //机器人移动错误
+#define ERROR_ROBOT_HARDWARE_STOP_MOVE 1006 //机器人停止移动错误
+#define CMD_ERROR -1
+#endif

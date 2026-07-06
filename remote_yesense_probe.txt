@@ -1,0 +1,541 @@
+
+===== identity =====
+$ hostname; date; ip -br addr
+ysc-perception
+Fri 03 Jul 2026 08:16:45 PM CST
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp3s0           UP             192.168.1.106/24 192.168.9.106/24 fe80::207:32ff:fec3:8dde/64 
+eno1             UP             192.168.2.106/24 fe80::207:32ff:fec3:8ddd/64 
+docker0          DOWN           172.17.0.1/16 fe80::42:21ff:fe37:b669/64 
+
+===== driver_scripts =====
+$ ls -la /home/ysc/jy_cog/drivers/scripts | sed -n '1,240p'; echo; ls -la /home/ysc/jy_cog/drivers/scripts/*imu* 2>/dev/null || true
+total 44
+drwxr-xr-x 3 root root 4096 May  8  2025 .
+drwxrwxr-x 6 root root 4096 May  8  2025 ..
+-rw-r--r-- 1 root root  489 Sep 12  2024 camera_driver.sh
+-rw-r--r-- 1 root root  440 Sep 12  2024 camera_driver_stop.sh
+-rw-r--r-- 1 root root  236 Sep 12  2024 imu_driver.sh
+-rw-r--r-- 1 root root  180 Sep 12  2024 imu_driver_stop.sh
+-rw-r--r-- 1 root root  423 Sep 12  2024 lidar_driver.sh
+-rw-r--r-- 1 root root  426 Sep 12  2024 lidar_driver_stop.sh
+drwxr-xr-x 2 root root 4096 May  8  2025 self
+-rw-r--r-- 1 root root  267 Sep 12  2024 urdf.sh
+-rw-r--r-- 1 root root  177 Sep 12  2024 urdf_stop.sh
+
+-rw-r--r-- 1 root root 236 Sep 12  2024 /home/ysc/jy_cog/drivers/scripts/imu_driver.sh
+-rw-r--r-- 1 root root 180 Sep 12  2024 /home/ysc/jy_cog/drivers/scripts/imu_driver_stop.sh
+
+===== imu_driver_sh =====
+$ sed -n '1,240p' /home/ysc/jy_cog/drivers/scripts/imu_driver.sh 2>/dev/null || true
+#!/bin/bash
+
+current_path=$(dirname `readlink -f $0`)
+package_name="yesense_imu"
+execute_name="yesense"
+
+bash $current_path/imu_driver_stop.sh
+sleep 1
+
+source $current_path/../setup.bash
+roslaunch ${package_name} ${execute_name}.launch
+
+===== imu_stop_sh =====
+$ sed -n '1,240p' /home/ysc/jy_cog/drivers/scripts/imu_driver_stop.sh 2>/dev/null || true
+#!/bin/bash
+execute_names=("yesense.launch")
+
+for execute_name in ${execute_names[*]}
+do
+ps aux | grep -e ${execute_name} | grep -v grep | awk '{print $2}' | xargs -i kill {}
+done
+
+===== yesense_files =====
+$ find /home/ysc/jy_cog/drivers -maxdepth 6 -type f 2>/dev/null | grep -Ei 'yesense|imu' | sort | sed -n '1,300p'
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuAllData.h
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuCmdResp.h
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuEulerAngle.h
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuLocation.h
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuMasterGnssData.h
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuQuaternion.h
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuUtcTime.h
+/home/ysc/jy_cog/drivers/lib/pkgconfig/yesense_imu.pc
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/__init__.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/__init__.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/_YesenseImuAllData.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/_YesenseImuCmdResp.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/_YesenseImuEulerAngle.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/_YesenseImuGnssData.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/_YesenseImuGpsData.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/_YesenseImuLocation.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/_YesenseImuMasterGnssData.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/_YesenseImuQuaternion.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/_YesenseImuSensorData.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/_YesenseIMUSetting.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/_YesenseImuSlaveGnssData.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/_YesenseImuStatus.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/msg/_YesenseImuUtcTime.py
+/home/ysc/jy_cog/drivers/lib/python3/dist-packages/yesense_imu/__pycache__/__init__.cpython-38.pyc
+/home/ysc/jy_cog/drivers/lib/yesense_imu/yesense_imu_node
+/home/ysc/jy_cog/drivers/scripts/imu_driver.sh
+/home/ysc/jy_cog/drivers/scripts/imu_driver_stop.sh
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package_YesenseImuAllData.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package_YesenseImuCmdResp.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package_YesenseImuEulerAngle.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package_YesenseImuGnssData.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package_YesenseImuGpsData.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package_YesenseImuLocation.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package_YesenseImuMasterGnssData.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package_YesenseImuQuaternion.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package_YesenseImuSensorData.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package_YesenseIMUSetting.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package_YesenseImuSlaveGnssData.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package_YesenseImuStatus.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/_package_YesenseImuUtcTime.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/YesenseImuAllData.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/YesenseImuCmdResp.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/YesenseImuEulerAngle.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/YesenseImuGnssData.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/YesenseImuGpsData.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/YesenseImuLocation.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/YesenseImuMasterGnssData.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/yesense_imu-msg.asd
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/YesenseImuQuaternion.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/YesenseImuSensorData.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/YesenseIMUSetting.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/YesenseImuSlaveGnssData.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/YesenseImuStatus.lisp
+/home/ysc/jy_cog/drivers/share/common-lisp/ros/yesense_imu/msg/YesenseImuUtcTime.lisp
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/_index.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/_index.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/YesenseImuAllData.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/YesenseImuCmdResp.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/YesenseImuEulerAngle.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/YesenseImuGnssData.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/YesenseImuGpsData.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/YesenseImuLocation.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/YesenseImuMasterGnssData.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/YesenseImuQuaternion.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/YesenseImuSensorData.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/YesenseIMUSetting.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/YesenseImuSlaveGnssData.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/YesenseImuStatus.js
+/home/ysc/jy_cog/drivers/share/gennodejs/ros/yesense_imu/msg/YesenseImuUtcTime.js
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/manifest.l
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/msg/YesenseImuAllData.l
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/msg/YesenseImuCmdResp.l
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/msg/YesenseImuEulerAngle.l
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/msg/YesenseImuGnssData.l
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/msg/YesenseImuGpsData.l
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/msg/YesenseImuLocation.l
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/msg/YesenseImuMasterGnssData.l
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/msg/YesenseImuQuaternion.l
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/msg/YesenseImuSensorData.l
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/msg/YesenseIMUSetting.l
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/msg/YesenseImuSlaveGnssData.l
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/msg/YesenseImuStatus.l
+/home/ysc/jy_cog/drivers/share/roseus/ros/yesense_imu/msg/YesenseImuUtcTime.l
+/home/ysc/jy_cog/drivers/share/tfs/launch/imu_tf.launch
+/home/ysc/jy_cog/drivers/share/yesense_imu/cmake/yesense_imuConfig.cmake
+/home/ysc/jy_cog/drivers/share/yesense_imu/cmake/yesense_imuConfig-version.cmake
+/home/ysc/jy_cog/drivers/share/yesense_imu/cmake/yesense_imu-msg-extras.cmake
+/home/ysc/jy_cog/drivers/share/yesense_imu/cmake/yesense_imu-msg-paths.cmake
+/home/ysc/jy_cog/drivers/share/yesense_imu/launch/yesense_dr.launch
+/home/ysc/jy_cog/drivers/share/yesense_imu/launch/yesense_nr.launch
+/home/ysc/jy_cog/drivers/share/yesense_imu/launch/yesense_rviz.launch
+/home/ysc/jy_cog/drivers/share/yesense_imu/msg/YesenseImuAllData.msg
+/home/ysc/jy_cog/drivers/share/yesense_imu/msg/YesenseImuCmdResp.msg
+/home/ysc/jy_cog/drivers/share/yesense_imu/msg/YesenseImuEulerAngle.msg
+/home/ysc/jy_cog/drivers/share/yesense_imu/msg/YesenseImuGnssData.msg
+/home/ysc/jy_cog/drivers/share/yesense_imu/msg/YesenseImuGpsData.msg
+/home/ysc/jy_cog/drivers/share/yesense_imu/msg/YesenseImuLocation.msg
+/home/ysc/jy_cog/drivers/share/yesense_imu/msg/YesenseImuMasterGnssData.msg
+/home/ysc/jy_cog/drivers/share/yesense_imu/msg/YesenseImuQuaternion.msg
+/home/ysc/jy_cog/drivers/share/yesense_imu/msg/YesenseImuSensorData.msg
+/home/ysc/jy_cog/drivers/share/yesense_imu/msg/YesenseIMUSetting.msg
+/home/ysc/jy_cog/drivers/share/yesense_imu/msg/YesenseImuSlaveGnssData.msg
+/home/ysc/jy_cog/drivers/share/yesense_imu/msg/YesenseImuStatus.msg
+/home/ysc/jy_cog/drivers/share/yesense_imu/msg/YesenseImuUtcTime.msg
+/home/ysc/jy_cog/drivers/share/yesense_imu/package.xml
+/home/ysc/jy_cog/drivers/share/yesense_imu/rviz/yesense.rviz
+
+===== yesense_grep =====
+$ grep -RInE 'tty|serial|baud|port|device|frame|yesense|imu' /home/ysc/jy_cog/drivers 2>/dev/null | grep -Ei 'yesense|imu|tty|baud|serial|device|port' | sed -n '1,260p'
+/home/ysc/jy_cog/drivers/scripts/imu_driver_stop.sh:2:execute_names=("yesense.launch")
+/home/ysc/jy_cog/drivers/scripts/self/postinst:89:  ln -sf $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense_dr.launch $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense.launch
+/home/ysc/jy_cog/drivers/scripts/self/postinst:92:  ln -sf $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense_dr.launch $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense.launch
+/home/ysc/jy_cog/drivers/scripts/self/postinst:95:  ln -sf $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense_dr.launch $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense.launch
+/home/ysc/jy_cog/drivers/scripts/self/postinst:98:  ln -sf $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense_dr.launch $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense.launch
+/home/ysc/jy_cog/drivers/scripts/self/postinst:101:  ln -sf $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense_nr.launch $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense.launch
+/home/ysc/jy_cog/drivers/scripts/self/postinst:104:  ln -sf $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense_nr.launch $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense.launch
+/home/ysc/jy_cog/drivers/scripts/self/postinst:107:  ln -sf $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense_dr.launch $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense.launch
+/home/ysc/jy_cog/drivers/scripts/self/postinst:111:  ln -sf $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense_dr.launch $home_path/jy_cog/drivers/share/yesense_imu/launch/yesense.launch
+/home/ysc/jy_cog/drivers/scripts/imu_driver.sh:4:package_name="yesense_imu"
+/home/ysc/jy_cog/drivers/scripts/imu_driver.sh:5:execute_name="yesense"
+/home/ysc/jy_cog/drivers/scripts/imu_driver.sh:7:bash $current_path/imu_driver_stop.sh
+/home/ysc/jy_cog/drivers/include/deep_msgs/Driver.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/Driver.h:184:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/Driver.h:198:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdMode.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdMode.h:161:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdMode.h:174:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdSet.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdSet.h:161:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdSet.h:174:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdInit.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdInit.h:175:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdInit.h:190:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdSway.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdSway.h:161:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdSway.h:174:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdPower.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdPower.h:161:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdPower.h:174:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/RobotLog.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/RobotLog.h:168:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/RobotLog.h:182:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdVideo.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdVideo.h:168:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdVideo.h:182:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/Gait.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/Gait.h:184:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/Gait.h:198:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/RobotMovement.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/RobotMovement.h:203:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/RobotMovement.h:222:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/RobotStatus.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/RobotStatus.h:182:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/RobotStatus.h:198:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdResp.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdResp.h:161:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdResp.h:174:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/Motor.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/Motor.h:184:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/Motor.h:198:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdGo.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdGo.h:161:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdGo.h:174:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/Battery.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/Battery.h:184:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/Battery.h:198:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdTurn.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdTurn.h:161:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/CmdTurn.h:174:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/RobotNav.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/deep_msgs/RobotNav.h:175:namespace serialization
+/home/ysc/jy_cog/drivers/include/deep_msgs/RobotNav.h:190:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:1:// Generated by gencpp from file yesense_imu/YesenseImuSlaveGnssData.msg
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:19:namespace yesense_imu
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:53:  typedef boost::shared_ptr< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> > Ptr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:54:  typedef boost::shared_ptr< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> const> ConstPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:58:typedef ::yesense_imu::YesenseImuSlaveGnssData_<std::allocator<void> > YesenseImuSlaveGnssData;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:60:typedef boost::shared_ptr< ::yesense_imu::YesenseImuSlaveGnssData > YesenseImuSlaveGnssDataPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:61:typedef boost::shared_ptr< ::yesense_imu::YesenseImuSlaveGnssData const> YesenseImuSlaveGnssDataConstPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:68:std::ostream& operator<<(std::ostream& s, const ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> & v)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:70:ros::message_operations::Printer< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> >::stream(s, "", v);
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:76:bool operator==(const ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator1> & lhs, const ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator2> & rhs)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:84:bool operator!=(const ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator1> & lhs, const ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator2> & rhs)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:90:} // namespace yesense_imu
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:102:struct IsMessage< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:107:struct IsMessage< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:112:struct IsFixedSize< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:117:struct IsFixedSize< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:122:struct HasHeader< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:127:struct HasHeader< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:133:struct MD5Sum< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:140:  static const char* value(const ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:146:struct DataType< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:150:    return "yesense_imu/YesenseImuSlaveGnssData";
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:153:  static const char* value(const ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:157:struct Definition< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:167:  static const char* value(const ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:175:namespace serialization
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:178:  template<class ContainerAllocator> struct Serializer< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:190:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:199:struct Printer< ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSlaveGnssData.h:201:  template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator>& v)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:1:// Generated by gencpp from file yesense_imu/YesenseImuStatus.msg
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:19:namespace yesense_imu
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:48:  typedef boost::shared_ptr< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> > Ptr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:49:  typedef boost::shared_ptr< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> const> ConstPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:53:typedef ::yesense_imu::YesenseImuStatus_<std::allocator<void> > YesenseImuStatus;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:55:typedef boost::shared_ptr< ::yesense_imu::YesenseImuStatus > YesenseImuStatusPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:56:typedef boost::shared_ptr< ::yesense_imu::YesenseImuStatus const> YesenseImuStatusConstPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:63:std::ostream& operator<<(std::ostream& s, const ::yesense_imu::YesenseImuStatus_<ContainerAllocator> & v)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:65:ros::message_operations::Printer< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> >::stream(s, "", v);
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:71:bool operator==(const ::yesense_imu::YesenseImuStatus_<ContainerAllocator1> & lhs, const ::yesense_imu::YesenseImuStatus_<ContainerAllocator2> & rhs)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:78:bool operator!=(const ::yesense_imu::YesenseImuStatus_<ContainerAllocator1> & lhs, const ::yesense_imu::YesenseImuStatus_<ContainerAllocator2> & rhs)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:84:} // namespace yesense_imu
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:96:struct IsMessage< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:101:struct IsMessage< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:106:struct IsFixedSize< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:111:struct IsFixedSize< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:116:struct HasHeader< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:121:struct HasHeader< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:127:struct MD5Sum< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:134:  static const char* value(const ::yesense_imu::YesenseImuStatus_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:140:struct DataType< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:144:    return "yesense_imu/YesenseImuStatus";
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:147:  static const char* value(const ::yesense_imu::YesenseImuStatus_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:151:struct Definition< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:160:  static const char* value(const ::yesense_imu::YesenseImuStatus_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:168:namespace serialization
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:171:  template<class ContainerAllocator> struct Serializer< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:182:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:191:struct Printer< ::yesense_imu::YesenseImuStatus_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuStatus.h:193:  template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::yesense_imu::YesenseImuStatus_<ContainerAllocator>& v)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:1:// Generated by gencpp from file yesense_imu/YesenseImuGpsData.msg
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:19:namespace yesense_imu
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:43:  typedef boost::shared_ptr< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> > Ptr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:44:  typedef boost::shared_ptr< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> const> ConstPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:48:typedef ::yesense_imu::YesenseImuGpsData_<std::allocator<void> > YesenseImuGpsData;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:50:typedef boost::shared_ptr< ::yesense_imu::YesenseImuGpsData > YesenseImuGpsDataPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:51:typedef boost::shared_ptr< ::yesense_imu::YesenseImuGpsData const> YesenseImuGpsDataConstPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:58:std::ostream& operator<<(std::ostream& s, const ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> & v)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:60:ros::message_operations::Printer< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> >::stream(s, "", v);
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:66:bool operator==(const ::yesense_imu::YesenseImuGpsData_<ContainerAllocator1> & lhs, const ::yesense_imu::YesenseImuGpsData_<ContainerAllocator2> & rhs)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:72:bool operator!=(const ::yesense_imu::YesenseImuGpsData_<ContainerAllocator1> & lhs, const ::yesense_imu::YesenseImuGpsData_<ContainerAllocator2> & rhs)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:78:} // namespace yesense_imu
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:90:struct IsMessage< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:95:struct IsMessage< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:100:struct IsFixedSize< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:105:struct IsFixedSize< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:110:struct HasHeader< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:115:struct HasHeader< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:121:struct MD5Sum< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:128:  static const char* value(const ::yesense_imu::YesenseImuGpsData_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:134:struct DataType< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:138:    return "yesense_imu/YesenseImuGpsData";
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:141:  static const char* value(const ::yesense_imu::YesenseImuGpsData_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:145:struct Definition< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:153:  static const char* value(const ::yesense_imu::YesenseImuGpsData_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:161:namespace serialization
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:164:  template<class ContainerAllocator> struct Serializer< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:174:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:183:struct Printer< ::yesense_imu::YesenseImuGpsData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGpsData.h:185:  template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::yesense_imu::YesenseImuGpsData_<ContainerAllocator>& v)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:1:// Generated by gencpp from file yesense_imu/YesenseImuSensorData.msg
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:19:#include <yesense_imu/YesenseImuQuaternion.h>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:20:#include <yesense_imu/YesenseImuEulerAngle.h>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:21:#include <yesense_imu/YesenseImuLocation.h>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:23:namespace yesense_imu
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:64:   typedef  ::yesense_imu::YesenseImuQuaternion_<ContainerAllocator>  _quaternion_type;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:67:   typedef  ::yesense_imu::YesenseImuEulerAngle_<ContainerAllocator>  _eulerAngle_type;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:70:   typedef  ::yesense_imu::YesenseImuLocation_<ContainerAllocator>  _location_type;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:77:  typedef boost::shared_ptr< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> > Ptr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:78:  typedef boost::shared_ptr< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> const> ConstPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:82:typedef ::yesense_imu::YesenseImuSensorData_<std::allocator<void> > YesenseImuSensorData;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:84:typedef boost::shared_ptr< ::yesense_imu::YesenseImuSensorData > YesenseImuSensorDataPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:85:typedef boost::shared_ptr< ::yesense_imu::YesenseImuSensorData const> YesenseImuSensorDataConstPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:92:std::ostream& operator<<(std::ostream& s, const ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> & v)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:94:ros::message_operations::Printer< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> >::stream(s, "", v);
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:100:bool operator==(const ::yesense_imu::YesenseImuSensorData_<ContainerAllocator1> & lhs, const ::yesense_imu::YesenseImuSensorData_<ContainerAllocator2> & rhs)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:112:bool operator!=(const ::yesense_imu::YesenseImuSensorData_<ContainerAllocator1> & lhs, const ::yesense_imu::YesenseImuSensorData_<ContainerAllocator2> & rhs)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:118:} // namespace yesense_imu
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:130:struct IsMessage< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:135:struct IsMessage< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:140:struct IsFixedSize< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:145:struct IsFixedSize< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:150:struct HasHeader< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:155:struct HasHeader< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:161:struct MD5Sum< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:168:  static const char* value(const ::yesense_imu::YesenseImuSensorData_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:174:struct DataType< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:178:    return "yesense_imu/YesenseImuSensorData";
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:181:  static const char* value(const ::yesense_imu::YesenseImuSensorData_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:185:struct Definition< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:193:"yesense_imu/YesenseImuQuaternion quaternion\n"
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:194:"yesense_imu/YesenseImuEulerAngle eulerAngle\n"
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:195:"yesense_imu/YesenseImuLocation location\n"
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:215:"MSG: yesense_imu/YesenseImuQuaternion\n"
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:222:"MSG: yesense_imu/YesenseImuEulerAngle\n"
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:228:"MSG: yesense_imu/YesenseImuLocation\n"
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:235:  static const char* value(const ::yesense_imu::YesenseImuSensorData_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:243:namespace serialization
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:246:  template<class ContainerAllocator> struct Serializer< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:262:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:271:struct Printer< ::yesense_imu::YesenseImuSensorData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:273:  template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::yesense_imu::YesenseImuSensorData_<ContainerAllocator>& v)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:286:    Printer< ::yesense_imu::YesenseImuQuaternion_<ContainerAllocator> >::stream(s, indent + "  ", v.quaternion);
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:289:    Printer< ::yesense_imu::YesenseImuEulerAngle_<ContainerAllocator> >::stream(s, indent + "  ", v.eulerAngle);
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuSensorData.h:292:    Printer< ::yesense_imu::YesenseImuLocation_<ContainerAllocator> >::stream(s, indent + "  ", v.location);
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:1:// Generated by gencpp from file yesense_imu/YesenseIMUSetting.msg
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:19:namespace yesense_imu
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:58:  typedef boost::shared_ptr< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> > Ptr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:59:  typedef boost::shared_ptr< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> const> ConstPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:63:typedef ::yesense_imu::YesenseIMUSetting_<std::allocator<void> > YesenseIMUSetting;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:65:typedef boost::shared_ptr< ::yesense_imu::YesenseIMUSetting > YesenseIMUSettingPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:66:typedef boost::shared_ptr< ::yesense_imu::YesenseIMUSetting const> YesenseIMUSettingConstPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:73:std::ostream& operator<<(std::ostream& s, const ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> & v)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:75:ros::message_operations::Printer< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> >::stream(s, "", v);
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:81:bool operator==(const ::yesense_imu::YesenseIMUSetting_<ContainerAllocator1> & lhs, const ::yesense_imu::YesenseIMUSetting_<ContainerAllocator2> & rhs)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:90:bool operator!=(const ::yesense_imu::YesenseIMUSetting_<ContainerAllocator1> & lhs, const ::yesense_imu::YesenseIMUSetting_<ContainerAllocator2> & rhs)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:96:} // namespace yesense_imu
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:108:struct IsMessage< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:113:struct IsMessage< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:118:struct IsFixedSize< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:123:struct IsFixedSize< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:128:struct HasHeader< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:133:struct HasHeader< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:139:struct MD5Sum< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:146:  static const char* value(const ::yesense_imu::YesenseIMUSetting_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:152:struct DataType< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:156:    return "yesense_imu/YesenseIMUSetting";
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:159:  static const char* value(const ::yesense_imu::YesenseIMUSetting_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:163:struct Definition< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:186:  static const char* value(const ::yesense_imu::YesenseIMUSetting_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:194:namespace serialization
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:197:  template<class ContainerAllocator> struct Serializer< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:210:} // namespace serialization
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:219:struct Printer< ::yesense_imu::YesenseIMUSetting_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseIMUSetting.h:221:  template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::yesense_imu::YesenseIMUSetting_<ContainerAllocator>& v)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:1:// Generated by gencpp from file yesense_imu/YesenseImuGnssData.msg
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:14:#include <ros/serialization.h>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:18:#include <yesense_imu/YesenseImuMasterGnssData.h>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:19:#include <yesense_imu/YesenseImuSlaveGnssData.h>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:21:namespace yesense_imu
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:40:   typedef  ::yesense_imu::YesenseImuMasterGnssData_<ContainerAllocator>  _master_type;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:43:   typedef  ::yesense_imu::YesenseImuSlaveGnssData_<ContainerAllocator>  _slave_type;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:50:  typedef boost::shared_ptr< ::yesense_imu::YesenseImuGnssData_<ContainerAllocator> > Ptr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:51:  typedef boost::shared_ptr< ::yesense_imu::YesenseImuGnssData_<ContainerAllocator> const> ConstPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:55:typedef ::yesense_imu::YesenseImuGnssData_<std::allocator<void> > YesenseImuGnssData;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:57:typedef boost::shared_ptr< ::yesense_imu::YesenseImuGnssData > YesenseImuGnssDataPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:58:typedef boost::shared_ptr< ::yesense_imu::YesenseImuGnssData const> YesenseImuGnssDataConstPtr;
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:65:std::ostream& operator<<(std::ostream& s, const ::yesense_imu::YesenseImuGnssData_<ContainerAllocator> & v)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:67:ros::message_operations::Printer< ::yesense_imu::YesenseImuGnssData_<ContainerAllocator> >::stream(s, "", v);
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:73:bool operator==(const ::yesense_imu::YesenseImuGnssData_<ContainerAllocator1> & lhs, const ::yesense_imu::YesenseImuGnssData_<ContainerAllocator2> & rhs)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:80:bool operator!=(const ::yesense_imu::YesenseImuGnssData_<ContainerAllocator1> & lhs, const ::yesense_imu::YesenseImuGnssData_<ContainerAllocator2> & rhs)
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:86:} // namespace yesense_imu
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:98:struct IsMessage< ::yesense_imu::YesenseImuGnssData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:103:struct IsMessage< ::yesense_imu::YesenseImuGnssData_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:108:struct IsFixedSize< ::yesense_imu::YesenseImuGnssData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:113:struct IsFixedSize< ::yesense_imu::YesenseImuGnssData_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:118:struct HasHeader< ::yesense_imu::YesenseImuGnssData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:123:struct HasHeader< ::yesense_imu::YesenseImuGnssData_<ContainerAllocator> const>
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:129:struct MD5Sum< ::yesense_imu::YesenseImuGnssData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:136:  static const char* value(const ::yesense_imu::YesenseImuGnssData_<ContainerAllocator>&) { return value(); }
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:142:struct DataType< ::yesense_imu::YesenseImuGnssData_<ContainerAllocator> >
+/home/ysc/jy_cog/drivers/include/yesense_imu/YesenseImuGnssData.h:146:    return "yesense_imu/YesenseImuGnssData";
+
+===== ros_runtime =====
+$ bash -lc 'source /opt/ros/noetic/setup.bash; source /home/ysc/jy_cog/drivers/setup.bash; echo ===rostopic_info===; rostopic info /imu/data || true; echo ===rosnode_info===; rosnode info /yesense_imu_node || true; echo ===rosparam_list===; rosparam list | grep -Ei "imu|yesense|serial|baud|port|device|frame" || true'
+===rostopic_info===
+Type: sensor_msgs/Imu
+
+Publishers: 
+ * /yesense_imu_node (http://ysc-perception:41429/)
+
+Subscribers: 
+ * /localization_node (http://ysc-perception:42225/)
+
+
+===rosnode_info===
+--------------------------------------------------------------------------------
+Node [/yesense_imu_node]
+Publications: 
+ * /imu/data [sensor_msgs/Imu]
+ * /rosout [rosgraph_msgs/Log]
+ * /yesense/command_resp [yesense_imu/YesenseImuCmdResp]
+
+Subscriptions: 
+ * /baudrate_query [unknown type]
+ * /baudrate_setting [unknown type]
+ * /freequency_query [unknown type]
+ * /freequency_setting [unknown type]
+ * /mode_query [unknown type]
+ * /mode_setting [unknown type]
+ * /nmea_query [unknown type]
+ * /nmea_setting [unknown type]
+ * /output_content_query [unknown type]
+ * /output_content_setting [unknown type]
+ * /production_query [unknown type]
+ * /standard_param_query [unknown type]
+ * /standard_param_setting [unknown type]
+ * /yesense/gyro_bias_estimate [unknown type]
+
+Services: 
+ * /yesense_imu_node/get_loggers
+ * /yesense_imu_node/set_logger_level
+
+
+contacting node http://ysc-perception:41429/ ...
+Pid: 2241
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (36909 - 127.0.0.1:55426) [12]
+    * transport: TCPROS
+ * topic: /imu/data
+    * to: /localization_node
+    * direction: outbound (36909 - 127.0.0.1:32854) [13]
+    * transport: TCPROS
+
+===rosparam_list===
+/enable_imu_bag
+/frame_id
+/frame_id_livox
+/move_base/LocalPlanner/map_frame
+/move_base/LocalPlanner/use_proportional_saturation
+/move_base/global_costmap/global_frame
+/move_base/global_costmap/robot_base_frame
+/move_base/local_costmap/global_frame
+/move_base/local_costmap/robot_base_frame
+/udp_receiver/port_num
+/udp_sender/motion_port
+/udp_sender/navigation_port
+/udp_sender/perception_port
+/yesense_imu_node/yesense_baudrate
+/yesense_imu_node/yesense_port
+
+===== processes =====
+$ ps -ef | grep -Ei 'imu|yesense|serial' | grep -v grep || true
+ysc         2141       1  0 17:33 ?        00:00:00 bash /home/ysc/jy_cog/drivers/scripts/imu_driver.sh
+ysc         2226    2141  0 17:33 ?        00:00:15 /usr/bin/python3 /opt/ros/noetic/bin/roslaunch yesense_imu yesense.launch
+ysc         2241    2226 17 17:33 ?        00:28:50 /home/ysc/jy_cog/drivers/lib/yesense_imu/yesense_imu_node __name:=yesense_imu_node __log:=/home/ysc/.ros/log/39d27386-76c2-11f1-b8af-2f3a7b4926d8/yesense_imu_node-1.log
+
+===== serial_devices =====
+$ ls -l /dev/ttyUSB* /dev/ttyACM* /dev/ttyS* /dev/ttyTHS* /dev/serial/by-id 2>/dev/null || true
+crwxrwxrwx 1 root dialout 4, 64 Jul  3 17:32 /dev/ttyS0
+crwxrwxrwx 1 root dialout 4, 65 Jul  3 17:35 /dev/ttyS1
+crwxrwxrwx 1 root dialout 4, 74 Jul  3 17:32 /dev/ttyS10
+crwxrwxrwx 1 root dialout 4, 75 Jul  3 17:32 /dev/ttyS11
+crwxrwxrwx 1 root dialout 4, 76 Jul  3 17:32 /dev/ttyS12
+crwxrwxrwx 1 root dialout 4, 77 Jul  3 17:32 /dev/ttyS13
+crwxrwxrwx 1 root dialout 4, 78 Jul  3 17:32 /dev/ttyS14
+crwxrwxrwx 1 root dialout 4, 79 Jul  3 17:32 /dev/ttyS15
+crwxrwxrwx 1 root dialout 4, 80 Jul  3 17:32 /dev/ttyS16
+crwxrwxrwx 1 root dialout 4, 81 Jul  3 17:32 /dev/ttyS17
+crwxrwxrwx 1 root dialout 4, 82 Jul  3 17:32 /dev/ttyS18
+crwxrwxrwx 1 root dialout 4, 83 Jul  3 17:32 /dev/ttyS19
+crwxrwxrwx 1 root dialout 4, 66 Jul  3 17:32 /dev/ttyS2
+crwxrwxrwx 1 root dialout 4, 84 Jul  3 17:32 /dev/ttyS20
+crwxrwxrwx 1 root dialout 4, 85 Jul  3 17:32 /dev/ttyS21
+crwxrwxrwx 1 root dialout 4, 86 Jul  3 17:32 /dev/ttyS22
+crwxrwxrwx 1 root dialout 4, 87 Jul  3 17:32 /dev/ttyS23
+crwxrwxrwx 1 root dialout 4, 88 Jul  3 17:32 /dev/ttyS24
+crwxrwxrwx 1 root dialout 4, 89 Jul  3 17:32 /dev/ttyS25
+crwxrwxrwx 1 root dialout 4, 90 Jul  3 17:32 /dev/ttyS26
+crwxrwxrwx 1 root dialout 4, 91 Jul  3 17:32 /dev/ttyS27
+crwxrwxrwx 1 root dialout 4, 92 Jul  3 17:32 /dev/ttyS28
+crwxrwxrwx 1 root dialout 4, 93 Jul  3 17:32 /dev/ttyS29
+crwxrwxrwx 1 root dialout 4, 67 Jul  3 17:32 /dev/ttyS3
+crwxrwxrwx 1 root dialout 4, 94 Jul  3 17:32 /dev/ttyS30
+crwxrwxrwx 1 root dialout 4, 95 Jul  3 17:32 /dev/ttyS31
+crwxrwxrwx 1 root dialout 4, 68 Jul  3 17:32 /dev/ttyS4
+crwxrwxrwx 1 root dialout 4, 69 Jul  3 17:32 /dev/ttyS5
+crwxrwxrwx 1 root dialout 4, 70 Jul  3 17:32 /dev/ttyS6
+crwxrwxrwx 1 root dialout 4, 71 Jul  3 17:32 /dev/ttyS7
+crwxrwxrwx 1 root dialout 4, 72 Jul  3 17:32 /dev/ttyS8
+crwxrwxrwx 1 root dialout 4, 73 Jul  3 17:32 /dev/ttyS9

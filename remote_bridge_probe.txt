@@ -1,0 +1,52 @@
+=== identity ===
+ysc-perception
+Mon 06 Jul 2026 12:23:45 PM CST
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp3s0           UP             192.168.1.106/24 192.168.9.106/24 fe80::207:32ff:fec3:8dde/64 
+eno1             UP             192.168.2.106/24 fe80::207:32ff:fec3:8ddd/64 
+docker0          DOWN           172.17.0.1/16 
+=== docker ps/images x30 ===
+NAMES     IMAGE     STATUS    COMMAND
+REPOSITORY       TAG                       IMAGE ID       CREATED       SIZE
+x30_livox_ros2   jezetek                   1e9ee5b5e672   2 days ago    3.45GB
+jezetek          navigation_system_amd64   acb12f2555b9   2 weeks ago   3.42GB
+=== host ROS installs ===
+/opt/ros/noetic
+Type: sensor_msgs/Imu
+
+Publishers: 
+ * /yesense_imu_node (http://ysc-perception:40479/)
+
+Subscribers: 
+ * /localization_node (http://ysc-perception:37549/)
+
+
+subscribed to [/imu/data]
+average rate: 200.651
+	min: 0.005s max: 0.005s std dev: 0.00001s window: 3
+average rate: 200.440
+	min: 0.005s max: 0.005s std dev: 0.00009s window: 3
+average rate: 199.482
+	min: 0.005s max: 0.005s std dev: 0.00004s window: 3
+average rate: 202.942
+	min: 0.005s max: 0.005s std dev: 0.00006s window: 3
+average rate: 199.434
+	min: 0.005s max: 0.005s std dev: 0.00000s window: 3
+average rate: 202.594
+	min: 0.005s max: 0.005s std dev: 0.00002s window: 3
+average rate: 198.646
+	min: 0.005s max: 0.005s std dev: 0.00000s window: 3
+average rate: 196.846
+	min: 0.005s max: 0.005s std dev: 0.00005s window: 3
+average rate: 200.886
+	min: 0.005s max: 0.005s std dev: 0.00001s window: 3
+average rate: 199.430
+=== host ros1_bridge ===
+=== x30 image ros1_bridge / ros env ===
+/opt/ros/humble
+rclpy
+sensor_msgs
+sensor_msgs_py
+tf2_sensor_msgs
+rclpy ok
+=== robot-bundle hints ===

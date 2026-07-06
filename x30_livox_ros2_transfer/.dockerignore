@@ -1,0 +1,10 @@
+**/.git
+**/.vscode
+**/__pycache__
+**/build
+**/install
+**/log
+*.tar
+*.tar.gz
+*.zip
+

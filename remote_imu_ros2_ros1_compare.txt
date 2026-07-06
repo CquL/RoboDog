@@ -1,0 +1,125 @@
+================ ROS2 Docker body IMU BEFORE restore ================
+NAMES          IMAGE                    STATUS
+x30_body_imu   x30_livox_ros2:jezetek   Up 8 minutes
+[INFO] [1783314090.977460107] [yesense_publisher]: serial port /dev/ttyS0
+
+[INFO] [1783314090.977536795] [yesense_publisher]: baudrate 115200
+
+[INFO] [1783314090.977547984] [yesense_publisher]: frame id imu_link
+
+[INFO] [1783314090.977553834] [yesense_publisher]: driver type linux_serial
+
+[INFO] [1783314090.984720562] [yesense_publisher]: driver type int 2
+
+[INFO] [1783314090.985324749] [yesense_publisher]: open linux serial
+
+[INFO] [1783314090.985348582] [yesense_publisher]: open serial port to decode msg!
+
+--- ROS2 /x30/body_imu info ---
+Type: sensor_msgs/msg/Imu
+
+Publisher count: 1
+
+Node name: yesense_publisher
+Node namespace: /
+Topic type: sensor_msgs/msg/Imu
+Endpoint type: PUBLISHER
+GID: 01.0f.41.96.1c.00.7e.45.00.00.00.00.00.00.12.03.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 0
+
+--- ROS2 /x30/body_imu hz ---
+average rate: 199.978
+	min: 0.005s max: 0.005s std dev: 0.00009s window: 201
+average rate: 199.983
+	min: 0.005s max: 0.005s std dev: 0.00009s window: 401
+average rate: 199.988
+	min: 0.005s max: 0.005s std dev: 0.00009s window: 602
+average rate: 199.987
+	min: 0.005s max: 0.005s std dev: 0.00009s window: 802
+--- ROS2 /x30/body_imu one message ---
+header:
+  stamp:
+    sec: 1783314595
+    nanosec: 928164478
+  frame_id: imu_link
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0
+orientation_covariance:
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+angular_velocity:
+  x: -0.003677007270882029
+  y: -0.001523550246713021
+  z: 0.00030454251596419795
+angular_velocity_covariance:
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+linear_acceleration:
+  x: 0.11594299972057343
+  y: 0.0917389988899231
+  z: 9.730276107788086
+linear_acceleration_covariance:
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+---
+================ Restore factory ROS1 IMU ================
+[imu] stopped x30_body_imu
+================ ROS1 factory /imu/data AFTER restore ================
+--- docker x30 containers ---
+NAMES     IMAGE     STATUS
+--- ROS1 /imu/data info ---
+Type: sensor_msgs/Imu
+
+Publishers: None
+
+Subscribers: 
+ * /localization_node (http://ysc-perception:37549/)
+
+
+--- ROS1 /imu/data hz ---
+subscribed to [/imu/data]
+no new messages
+no new messages
+no new messages
+no new messages
+no new messages
+--- ROS1 /imu/data one message ---
+================ Final IMU process/serial users ================
+
+[stderr]
+/opt/ros/noetic/etc/catkin/profile.d/1.ros_distro.sh: line 3: ROS_DISTRO: unbound variable
+
+SSH_EXIT=0

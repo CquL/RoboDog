@@ -1,0 +1,98 @@
+EXIT=0
+[build] root: /home/ysc/ros2_trans/x30_livox_ros2_transfer
+[build] image: x30_livox_ros2:jezetek
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  1.152MB
+Step 1/11 : FROM jezetek:navigation_system_amd64
+ ---> acb12f2555b9
+Step 2/11 : ENV DEBIAN_FRONTEND=noninteractive
+ ---> Using cache
+ ---> 258c962f2115
+Step 3/11 : SHELL ["/bin/bash", "-c"]
+ ---> Using cache
+ ---> 839c9a57e11d
+Step 4/11 : WORKDIR /ws
+ ---> Using cache
+ ---> b6e197a04bee
+Step 5/11 : COPY ws/src/ /ws/src/
+ ---> a79366f4b078
+Step 6/11 : RUN source /opt/ros/humble/setup.bash     && if [ -f /ws/src/livox_ros_driver2/package_ROS2.xml ]; then cp /ws/src/livox_ros_driver2/package_ROS2.xml /ws/src/livox_ros_driver2/package.xml; fi     && if [ -d /ws/src/livox_ros_driver2/launch_ROS2 ]; then rm -rf /ws/src/livox_ros_driver2/launch && cp -r /ws/src/livox_ros_driver2/launch_ROS2 /ws/src/livox_ros_driver2/launch; fi     && colcon build --cmake-args -DROS_EDITION=ROS2 -DHUMBLE_ROS=humble
+ ---> Running in 7799d7230512
+Starting >>> livox_ros_driver2
+]0;colcon build [0/5 done] [1 ongoing]Starting >>> yesense_interface
+]0;colcon build [0/5 done] [2 ongoing]Starting >>> x30_pointcloud_tools
+--- stderr: x30_pointcloud_tools
+[33mCMake Warning:
+  Manually-specified variables were not used by the project:
+
+    HUMBLE_ROS
+    ROS_EDITION
+
+[0m
+---
+]0;colcon build [0/5 done] [3 ongoing]Finished <<< x30_pointcloud_tools [23.5s]
+--- stderr: yesense_interface
+[33mCMake Warning:
+  Manually-specified variables were not used by the project:
+
+    HUMBLE_ROS
+    ROS_EDITION
+
+[0m
+---
+]0;colcon build [1/5 done] [2 ongoing]Finished <<< yesense_interface [31.6s]
+]0;colcon build [2/5 done] [1 ongoing]Starting >>> yesense_std_ros2
+]0;colcon build [2/5 done] [2 ongoing]Finished <<< livox_ros_driver2 [33.9s]
+]0;colcon build [3/5 done] [1 ongoing]Starting >>> x30_livox_bringup
+--- stderr: x30_livox_bringup
+[33mCMake Warning:
+  Manually-specified variables were not used by the project:
+
+    HUMBLE_ROS
+    ROS_EDITION
+
+[0m
+---
+]0;colcon build [3/5 done] [2 ongoing]Finished <<< x30_livox_bringup [0.95s]
+--- stderr: yesense_std_ros2
+[33mCMake Warning:
+  Manually-specified variables were not used by the project:
+
+    HUMBLE_ROS
+    ROS_EDITION
+
+[0m
+---
+]0;colcon build [4/5 done] [1 ongoing]Finished <<< yesense_std_ros2 [18.7s]
+]0;colcon build [5/5 done] [0 ongoing]
+Summary: 5 packages finished [50.5s]
+  4 packages had stderr output: x30_livox_bringup x30_pointcloud_tools yesense_interface yesense_std_ros2
+ ---> Removed intermediate container 7799d7230512
+ ---> b4ed4e47b172
+Step 7/11 : COPY config/ /config/
+ ---> 40a527264aba
+Step 8/11 : COPY docker/entrypoint.sh /entrypoint.sh
+ ---> c87ca1912277
+Step 9/11 : RUN chmod +x /entrypoint.sh     && echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc     && echo "if [ -f /ws/install/setup.bash ]; then source /ws/install/setup.bash; fi" >> /root/.bashrc
+ ---> Running in 8eeedb0ae044
+ ---> Removed intermediate container 8eeedb0ae044
+ ---> fecb0c2ac98d
+Step 10/11 : ENTRYPOINT ["/entrypoint.sh"]
+ ---> Running in 7ee35ef23ff4
+ ---> Removed intermediate container 7ee35ef23ff4
+ ---> 42f641aeddf5
+Step 11/11 : CMD ["ros2", "launch", "x30_livox_bringup", "x30_mid360_launch.py", "config_path:=/config/x30_multi_mid360_ros2.json", "xfer_format:=0", "multi_topic:=0", "publish_freq:=10.0", "frame_id:=lidar_link"]
+ ---> Running in fdaa1d88008c
+ ---> Removed intermediate container fdaa1d88008c
+ ---> 226e45993ee6
+Successfully built 226e45993ee6
+Successfully tagged x30_livox_ros2:jezetek
+[build] done
+REPOSITORY       TAG                       IMAGE ID       CREATED                  SIZE
+x30_livox_ros2   jezetek                   226e45993ee6   Less than a second ago   3.52GB
+jezetek          navigation_system_amd64   acb12f2555b9   2 weeks ago              3.42GB
+
+SSH_EXIT=0
