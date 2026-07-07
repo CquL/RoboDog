@@ -18,5 +18,4 @@ RUN chmod +x /entrypoint.sh \
     && echo "if [ -f /ws/install/setup.bash ]; then source /ws/install/setup.bash; fi" >> /root/.bashrc
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["ros2", "launch", "x30_livox_bringup", "x30_mid360_launch.py", "config_path:=/config/x30_multi_mid360_ros2.json", "xfer_format:=0", "multi_topic:=0", "publish_freq:=10.0", "frame_id:=lidar_link"]
-
+CMD ["ros2", "launch", "x30_livox_tools", "x30_mid360_launch.py", "config_path:=/config/x30_multi_mid360_ros2.json", "xfer_format:=0", "multi_topic:=0", "publish_freq:=10.0", "frame_id:=lidar_link"]

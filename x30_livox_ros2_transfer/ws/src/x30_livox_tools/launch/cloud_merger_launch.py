@@ -13,7 +13,7 @@ def generate_launch_description():
     min_clouds = LaunchConfiguration("min_clouds")
 
     merger = Node(
-        package="x30_pointcloud_tools",
+        package="x30_livox_tools",
         executable="time_window_cloud_merger",
         name="x30_cloud_merger",
         output="screen",

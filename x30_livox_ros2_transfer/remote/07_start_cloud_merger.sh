@@ -24,7 +24,7 @@ docker run -d \
   --ipc=host \
   --privileged \
   "${IMAGE}" \
-  ros2 run x30_pointcloud_tools time_window_cloud_merger --ros-args \
+  ros2 run x30_livox_tools time_window_cloud_merger --ros-args \
     -p input_topic:="${INPUT_TOPIC}" \
     -p output_topic:="${OUTPUT_TOPIC}" \
     -p output_frame:="${OUTPUT_FRAME}" \

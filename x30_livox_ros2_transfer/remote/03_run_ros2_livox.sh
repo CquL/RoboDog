@@ -22,7 +22,7 @@ docker run -d \
   --privileged \
   -v "${ROOT}/config:/config:ro" \
   "${IMAGE}" \
-  ros2 launch x30_livox_bringup x30_mid360_launch.py \
+  ros2 launch x30_livox_tools x30_mid360_launch.py \
     config_path:=/config/x30_multi_mid360_ros2.json \
     xfer_format:=0 \
     multi_topic:=0 \
