@@ -53,6 +53,22 @@ struct Options {
     bool help = false;
 };
 
+int32_t sendSingleZeroBaseline(
+    const std::shared_ptr<RobotHardwareInterface>& robot)
+{
+    RobotVelocityCommand zero{0.0, 0.0, 0.0};
+
+    const int32_t result =
+        robot->writeRobotVelocityCommand(zero);
+
+    std::cout
+        << "H2_LIVE_SINGLE_ZERO_BASELINE ret="
+        << result
+        << std::endl;
+
+    return result;
+}
+
 void printUsage(const char *program)
 {
     std::cerr
@@ -458,6 +474,9 @@ int main(int argc, char *argv[])
         return failWithStop(stop_guard, 70, "fsm-gate-rejected");
     }
 
+    // Establish a safe stationary state before the human countdown. This
+    // StopMove is separated from the non-zero stream by the full countdown,
+    // so its one-second vendor duration cannot overlap the motion stream.
     if (stop_guard.stopNow("baseline") != CMD_SUCCESS) {
         std::cerr << "Baseline zero/StopMove failed." << std::endl;
         return 71;
@@ -485,15 +504,22 @@ int main(int argc, char *argv[])
     if (g_stop_requested) {
         return failWithStop(stop_guard, 130, "signal-before-pre-stream-zero");
     }
-    if (stop_guard.stopNow("pre-stream-baseline") != CMD_SUCCESS) {
-        std::cerr << "Last-moment zero/StopMove failed." << std::endl;
-        return 72;
-    }
-    if (!interruptibleSleep(std::chrono::milliseconds(100))) {
-        return failWithStop(stop_guard, 130, "signal-after-pre-stream-zero");
+    if (sendSingleZeroBaseline(robot) != CMD_SUCCESS) {
+        std::cerr << "Single zero baseline failed." << std::endl;
+        return failWithStop(
+            stop_guard,
+            72,
+            "single-zero-baseline-failed");
     }
 
-    // Recheck immediately after the last-moment zero. The HAL performs a
+    if (!interruptibleSleep(std::chrono::milliseconds(500))) {
+        return failWithStop(
+            stop_guard,
+            130,
+            "signal-after-single-zero-baseline");
+    }
+
+    // Recheck after the single explicit zero has expired. The HAL performs a
     // second GetFsmId under its command mutex immediately before SetVelocity,
     // closing the remaining process-local time-of-check/time-of-use gap.
     int pre_stream_fsm = -1;

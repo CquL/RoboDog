@@ -14,7 +14,9 @@ namespace unitree_h2_live_motion {
 // sends exactly one bounded single-axis stream through
 // RobotHardwareInterface::writeRobotVelocityCommand(). Axis signs remain
 // uncalibrated until a protected on-robot test records physical motion.
-constexpr double kDefaultLinearSpeed = 0.08;
+//
+// Stage 06E remains capped at 0.10 m/s. In particular, 0.90 m/s is rejected.
+constexpr double kDefaultLinearSpeed = 0.10;
 constexpr double kDefaultYawSpeed = 0.08;
 constexpr double kMinLinearSpeed = 0.01;
 constexpr double kMinYawSpeed = 0.01;
