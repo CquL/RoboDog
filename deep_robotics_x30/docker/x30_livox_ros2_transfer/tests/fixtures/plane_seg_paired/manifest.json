@@ -1,0 +1,290 @@
+{
+  "fixtures": [
+    {
+      "blobs": [
+        {
+          "path": "mode3_flat_20260714_142726.plane_seg_paired/frames/000000_4325477021803/layer_00_elevation.f32le",
+          "sha256": "771fd24eda09867b55cd8768f071048e8676727414fc345794059a4d031246e4",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_20260714_142726.plane_seg_paired/frames/000000_4325477021803/layer_01_color.f32le",
+          "sha256": "e6c1c26fa71533cc036a943f6ded931e7c2d89bcaa0d9d6ab2cabd69a1e29acb",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_20260714_142726.plane_seg_paired/frames/000000_4325477021803/layer_02_slope.f32le",
+          "sha256": "194ce3352c95c206e79edeb3e97b104b15530f23a071c09f7421f827b1763a1b",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_20260714_142726.plane_seg_paired/frames/000000_4325477021803/layer_03_accessibility.f32le",
+          "sha256": "f938d56793fb7004d9cbba18bb35b0907db27fc8d7a6501a75223d31571cb9fe",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_20260714_142726.plane_seg_paired/frames/000001_4332476989548/layer_00_elevation.f32le",
+          "sha256": "742be3fba03ab7eaca1545c2af67d6533a0aa877044f26b175a25de5c8ec7229",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_20260714_142726.plane_seg_paired/frames/000001_4332476989548/layer_01_color.f32le",
+          "sha256": "fcaa51faa38ca98c90cc3015db11cc9e81120a39e4c88ee988d4697de60a1af9",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_20260714_142726.plane_seg_paired/frames/000001_4332476989548/layer_02_slope.f32le",
+          "sha256": "2afb676b3dec80714432232d1aff2103bf9751d2ee91a83f2da6892b6f6593d8",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_20260714_142726.plane_seg_paired/frames/000001_4332476989548/layer_03_accessibility.f32le",
+          "sha256": "06adbeae52edda2f689ca58aab512827f3b2ab4d5928b9ddce3c1d8cebd0f249",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_20260714_142726.plane_seg_paired/frames/000002_4339476980626/layer_00_elevation.f32le",
+          "sha256": "350056f1a662062e72d7e14c27660ee2b168df95f7087ca68b8b963c2f24a59d",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_20260714_142726.plane_seg_paired/frames/000002_4339476980626/layer_01_color.f32le",
+          "sha256": "08e569ee568508459b94c660a07c1f934fe2800d4eb190ecee2dc2c7584f2fb0",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_20260714_142726.plane_seg_paired/frames/000002_4339476980626/layer_02_slope.f32le",
+          "sha256": "3c9708ea48b48b4a7724bdca517657e75dd9398de74e150de416cd6fab24ce7d",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_20260714_142726.plane_seg_paired/frames/000002_4339476980626/layer_03_accessibility.f32le",
+          "sha256": "5ed9e42c4d3dfaa902cc0867fca5e628960c8e0571136d03c67755fbd94f5690",
+          "size_bytes": 40000
+        }
+      ],
+      "fixture_path": "mode3_flat_20260714_142726.plane_seg_paired.json",
+      "fixture_sha256": "b27c1b6bd9b047a601584b08fefb64166fffe88704e7f25ec562ed9e22db44d2",
+      "fixture_size_bytes": 38061,
+      "selected_frame_count": 3,
+      "source_bag_path": "x30_stair_baselines/mode3_flat_20260714_142726.bag",
+      "source_bag_sha256": "9a10296098fefdd9a969ed56892896bb1df13a2e7175194053660da98e3c0484"
+    },
+    {
+      "blobs": [
+        {
+          "path": "mode3_flat_repeat_20260714_150324.plane_seg_paired/frames/000000_6482676892427/layer_00_elevation.f32le",
+          "sha256": "98ab8baab63737377e76c6a7dcb51907cbfd921351ef839b4d30d77a038dd042",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_repeat_20260714_150324.plane_seg_paired/frames/000000_6482676892427/layer_01_color.f32le",
+          "sha256": "0ad60ce3296213ec5c22eac1466e5f46b1a77697a93d18562538505806d16fed",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_repeat_20260714_150324.plane_seg_paired/frames/000000_6482676892427/layer_02_slope.f32le",
+          "sha256": "ed1d1110228bc74998b8c103f2abbbafcf4ed3670200a0a59bc561dc680681af",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_repeat_20260714_150324.plane_seg_paired/frames/000000_6482676892427/layer_03_accessibility.f32le",
+          "sha256": "74a9fa1335c65b2555223e9a632cdd2dfebc2bc911e817f9b9ef5f8712fcb87e",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_repeat_20260714_150324.plane_seg_paired/frames/000001_6489677050047/layer_00_elevation.f32le",
+          "sha256": "56b796de4ac54f1d2542dbefe09ba1307fcec78146d20754a8d08719cbcf8a21",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_repeat_20260714_150324.plane_seg_paired/frames/000001_6489677050047/layer_01_color.f32le",
+          "sha256": "a48ed22eca82dad1197cb7ce4e42a2f660f07dda6ee89fc747c29d5cb5dd3786",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_repeat_20260714_150324.plane_seg_paired/frames/000001_6489677050047/layer_02_slope.f32le",
+          "sha256": "a7b77f5e86b16183d3afa1b3a3f8b3415258321ff2e56a0cffe3160894fdd52a",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_repeat_20260714_150324.plane_seg_paired/frames/000001_6489677050047/layer_03_accessibility.f32le",
+          "sha256": "a28187f10585b4b9b4f9548ca6ce7758288215ac3a3727aa11a2f4e35a5f4eb7",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_repeat_20260714_150324.plane_seg_paired/frames/000002_6496776979843/layer_00_elevation.f32le",
+          "sha256": "c8c3a2641ada7895957c5fcefc01dcf0244812e53cb64f10638f3409f7b64d41",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_repeat_20260714_150324.plane_seg_paired/frames/000002_6496776979843/layer_01_color.f32le",
+          "sha256": "aa59611cc8b4e1b089abb10aa42e54e0a7da1b53d9b8b7c7075448a4b457a5c0",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_repeat_20260714_150324.plane_seg_paired/frames/000002_6496776979843/layer_02_slope.f32le",
+          "sha256": "e76cc4195922596fae7f99fe50eafba4665675ffd7d1d734d33e66e55b24c41d",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_flat_repeat_20260714_150324.plane_seg_paired/frames/000002_6496776979843/layer_03_accessibility.f32le",
+          "sha256": "50c5e62ebb1114d1b81492023062bf8e5f92f65b1e26e610127f297e841987ba",
+          "size_bytes": 40000
+        }
+      ],
+      "fixture_path": "mode3_flat_repeat_20260714_150324.plane_seg_paired.json",
+      "fixture_sha256": "1eb134570200771ac8c599e0e622fb2139034fa5026a4a95ee935efea6bbf353",
+      "fixture_size_bytes": 37703,
+      "selected_frame_count": 3,
+      "source_bag_path": "x30_stair_baselines/mode3_flat_repeat_20260714_150324.bag",
+      "source_bag_sha256": "dbe7838b2291fa4d4122a042588a5de3a34ae69f23578879e6934dce49ecf423"
+    },
+    {
+      "blobs": [
+        {
+          "path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg_paired/frames/000000_10415277051020/layer_00_elevation.f32le",
+          "sha256": "a0d6847867462bb2ed5cfbe4578796365c7371d2ae9d02ac29ac0986aef7210f",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg_paired/frames/000000_10415277051020/layer_01_color.f32le",
+          "sha256": "87901ab8c5b54557f03b541048ce37cbe2745360681b0e35dd3f5dc57b5f038a",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg_paired/frames/000000_10415277051020/layer_02_slope.f32le",
+          "sha256": "c35cad6775d6843c13f9c16ddd326a803eb78854fa8965b0bdffdda095bd4bea",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg_paired/frames/000000_10415277051020/layer_03_accessibility.f32le",
+          "sha256": "28f5f04573f8dc80482b59cac76fd42a6880b08acb0779ef45b29badc2084fe7",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg_paired/frames/000001_10422576891212/layer_00_elevation.f32le",
+          "sha256": "3382ab93af428bf3f26adb9a7d6ef77704369dc54a661e0ef4886802cfc95c14",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg_paired/frames/000001_10422576891212/layer_01_color.f32le",
+          "sha256": "526f1b98336102dbb2773c4909c7c72578601f175ef898fd9d30fc77febf7122",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg_paired/frames/000001_10422576891212/layer_02_slope.f32le",
+          "sha256": "266aeec747309d6d370b45071a3ddf91d0e2d423a3a518158cae0b40353f1c7a",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg_paired/frames/000001_10422576891212/layer_03_accessibility.f32le",
+          "sha256": "e2976ed1b0cb3e0920ce4ae198ed9591842ce8df41b6b959a299d03ca15952fb",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg_paired/frames/000002_10429877290820/layer_00_elevation.f32le",
+          "sha256": "61fc41c7986249e583e3d7a76998b90068bfcb1c5c1d02ecb981cbc285dd29fd",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg_paired/frames/000002_10429877290820/layer_01_color.f32le",
+          "sha256": "3d5ff456158918d8e7e8b616dbbcf2c001e4c7066db78ad9abfef6f5c089b16a",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg_paired/frames/000002_10429877290820/layer_02_slope.f32le",
+          "sha256": "f07b05e2738341204b6938eb3132e05fd57bceffc4b6f0ece68d7de1336271fa",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg_paired/frames/000002_10429877290820/layer_03_accessibility.f32le",
+          "sha256": "ee1a250618b52edb482a92d80f033c68aeb27d4e4069106efa27763c59ff35d1",
+          "size_bytes": 40000
+        }
+      ],
+      "fixture_path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg_paired.json",
+      "fixture_sha256": "ee8837ec5246650b9bc43caa593a15c89d1e91ac7059be8f8c8e8b40201420c4",
+      "fixture_size_bytes": 39715,
+      "selected_frame_count": 3,
+      "source_bag_path": "x30_stair_baselines/mode3_measured_step_h022_d029_w035_20260714_160857.bag",
+      "source_bag_sha256": "db43a9de2ad8c030c43256761c269f9bf7cce1798206a253229b55827102d4e6"
+    },
+    {
+      "blobs": [
+        {
+          "path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000000_8209876900470/layer_00_elevation.f32le",
+          "sha256": "b4854db55cb1911df38a46c097de35d071c837b7883d07bdeab95137b8da636e",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000000_8209876900470/layer_01_color.f32le",
+          "sha256": "63911f7efa076d98ef4db69b780e124a6d00afc3578dc82330750e3dc5c6525c",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000000_8209876900470/layer_02_slope.f32le",
+          "sha256": "d4dd706b503cbb61860a297dac70d5501264f17fbea857375cca6b094b99ccea",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000000_8209876900470/layer_03_accessibility.f32le",
+          "sha256": "a12d8a07235d48d7c6bad8a0115010584c1620357c805ce9d38a27b68012afb9",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000001_8216877101549/layer_00_elevation.f32le",
+          "sha256": "b6859054b35b10874d8d5fab92ede497e522e8c73963529b5bcadb4f7938c6ca",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000001_8216877101549/layer_01_color.f32le",
+          "sha256": "912c49d86c49a7c2e9c330da47ec07b13e2089569fd8ccd61496f0d7f84f4eac",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000001_8216877101549/layer_02_slope.f32le",
+          "sha256": "2c0519d2fde47f744575bd53ef481b82b9eb374846120e57d656854ed11e89eb",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000001_8216877101549/layer_03_accessibility.f32le",
+          "sha256": "dfe90b335fd11e1139f9b2d16c9c177d80d89c05e440580ea3a3000b9b12bb97",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000002_8223876931627/layer_00_elevation.f32le",
+          "sha256": "dcf37983b5af20ecfa9cd2634f7ae7fe28bd794a5fb34d0f82f4953b21d4b0e5",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000002_8223876931627/layer_01_color.f32le",
+          "sha256": "b5d3ff487338d44fa536c460598e98333ce61a3a9b58f30a1f3e6eca99d4773f",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000002_8223876931627/layer_02_slope.f32le",
+          "sha256": "f9ad7b7ee592510a7cf1695f51153f48018fc1218cf9b07c6ef22224f1e76776",
+          "size_bytes": 40000
+        },
+        {
+          "path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000002_8223876931627/layer_03_accessibility.f32le",
+          "sha256": "ed985e1263ef7317cd496ddc1c7e95107660be98a9b253fc0a5d5abfc698a057",
+          "size_bytes": 40000
+        }
+      ],
+      "fixture_path": "mode3_object_probe_20260714_153211.plane_seg_paired.json",
+      "fixture_sha256": "75a0932d4dcb55387df1a93cab20ff531a9bddf34c997ffed3ece080d8365361",
+      "fixture_size_bytes": 39719,
+      "selected_frame_count": 3,
+      "source_bag_path": "x30_stair_baselines/mode3_object_probe_20260714_153211.bag",
+      "source_bag_sha256": "d6e240e3024b13184c05411f90c4eb2dd9727be1079d1ade67e0fe8490ed2391"
+    }
+  ],
+  "hashing": {
+    "algorithm": "sha256",
+    "fixture_file_bytes": "exact UTF-8 bytes including trailing newline",
+    "layer_blob_bytes": "exact bytes copied from ROS Float32MultiArray.data"
+  },
+  "schema": "x30-plane-seg-paired-manifest/v1"
+}

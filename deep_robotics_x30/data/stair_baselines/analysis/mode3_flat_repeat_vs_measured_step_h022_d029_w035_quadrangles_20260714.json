@@ -1,0 +1,264 @@
+{
+  "inputs": {
+    "reference": "D:\\Desktop\\RoboDog\\x30_stair_baselines\\analysis\\mode3_flat_repeat_20260714_150324",
+    "candidate": "D:\\Desktop\\RoboDog\\x30_stair_baselines\\analysis\\mode3_measured_step_h022_d029_w035_20260714_160857",
+    "expected_step_height_m": 0.22,
+    "height_tolerance_m": 0.03,
+    "gridmap_comparison": "D:\\Desktop\\RoboDog\\x30_stair_baselines\\analysis\\mode3_flat_repeat_vs_measured_step_h022_d029_w035_gridmap_20260714\\gridmap_comparison.json",
+    "expected_step_depth_m": 0.29,
+    "expected_step_width_m": 0.35
+  },
+  "reference": {
+    "frames": 142,
+    "groups": 714,
+    "groups_per_frame": {
+      "minimum": 2.0,
+      "median": 5.0,
+      "mean": 5.028169014084507,
+      "maximum": 10.0
+    },
+    "horizontal_groups": 705,
+    "nonhorizontal_groups": 9,
+    "mean_z_m": {
+      "minimum": -0.8225738406181335,
+      "median": -0.5094995498657227,
+      "mean": -0.5989299550318584,
+      "maximum": -0.5030104517936707
+    },
+    "area_m2": {
+      "minimum": 0.022474718279275052,
+      "median": 0.4870164785972424,
+      "mean": 0.8849075883509514,
+      "maximum": 3.120703748001201
+    },
+    "dominant_horizontal_z_bin_m": -0.5,
+    "top_horizontal_z_bins": [
+      {
+        "z_m": -0.5,
+        "groups": 365
+      },
+      {
+        "z_m": -0.76,
+        "groups": 74
+      },
+      {
+        "z_m": -0.78,
+        "groups": 50
+      },
+      {
+        "z_m": -0.68,
+        "groups": 49
+      },
+      {
+        "z_m": -0.58,
+        "groups": 27
+      },
+      {
+        "z_m": -0.66,
+        "groups": 26
+      },
+      {
+        "z_m": -0.7000000000000001,
+        "groups": 26
+      },
+      {
+        "z_m": -0.6,
+        "groups": 21
+      },
+      {
+        "z_m": -0.62,
+        "groups": 18
+      },
+      {
+        "z_m": -0.64,
+        "groups": 17
+      },
+      {
+        "z_m": -0.74,
+        "groups": 15
+      },
+      {
+        "z_m": -0.56,
+        "groups": 8
+      }
+    ]
+  },
+  "candidate": {
+    "frames": 147,
+    "groups": 895,
+    "groups_per_frame": {
+      "minimum": 2.0,
+      "median": 6.0,
+      "mean": 6.08843537414966,
+      "maximum": 12.0
+    },
+    "horizontal_groups": 890,
+    "nonhorizontal_groups": 5,
+    "mean_z_m": {
+      "minimum": -0.8009650707244873,
+      "median": -0.5901588201522827,
+      "mean": -0.6066089718534959,
+      "maximum": -0.4507550597190857
+    },
+    "area_m2": {
+      "minimum": 0.00018652662670826103,
+      "median": 0.288068315659582,
+      "mean": 0.6700168707406391,
+      "maximum": 3.839308715894081
+    },
+    "dominant_horizontal_z_bin_m": -0.5,
+    "top_horizontal_z_bins": [
+      {
+        "z_m": -0.5,
+        "groups": 351
+      },
+      {
+        "z_m": -0.66,
+        "groups": 85
+      },
+      {
+        "z_m": -0.58,
+        "groups": 74
+      },
+      {
+        "z_m": -0.78,
+        "groups": 62
+      },
+      {
+        "z_m": -0.6,
+        "groups": 61
+      },
+      {
+        "z_m": -0.68,
+        "groups": 53
+      },
+      {
+        "z_m": -0.76,
+        "groups": 47
+      },
+      {
+        "z_m": -0.64,
+        "groups": 45
+      },
+      {
+        "z_m": -0.72,
+        "groups": 38
+      },
+      {
+        "z_m": -0.7000000000000001,
+        "groups": 24
+      },
+      {
+        "z_m": -0.74,
+        "groups": 16
+      },
+      {
+        "z_m": -0.56,
+        "groups": 14
+      }
+    ]
+  },
+  "expected_elevated_surface": {
+    "reference_ground_z_m": -0.5,
+    "expected_center_z_m": -0.28,
+    "reference_groups_in_band": 0,
+    "candidate_groups_in_band": 0,
+    "global_distinct_signature": false
+  },
+  "local_region_check": {
+    "gridmap_comparison": "D:\\Desktop\\RoboDog\\x30_stair_baselines\\analysis\\mode3_flat_repeat_vs_measured_step_h022_d029_w035_gridmap_20260714\\gridmap_comparison.json",
+    "bounds_m": {
+      "x": [
+        1.0200000000000002,
+        1.2
+      ],
+      "y": [
+        -0.2699999999999999,
+        0.15000000000000002
+      ]
+    },
+    "reference_ground_z_m": -0.7932642698287964,
+    "expected_top_z_m": -0.5732642698287964,
+    "reference": {
+      "groups": 0,
+      "frames": 0,
+      "center_x_m": null,
+      "center_y_m": null,
+      "top_z_m": null,
+      "top_z_error_m": null,
+      "visible_extent_x_m": null,
+      "visible_extent_y_m": null,
+      "area_m2": null,
+      "frame_detection_ratio": 0.0
+    },
+    "candidate": {
+      "groups": 90,
+      "frames": 90,
+      "center_x_m": {
+        "minimum": 1.0951800048351288,
+        "median": 1.1027016639709473,
+        "mean": 1.1072969343927173,
+        "maximum": 1.1280231773853302
+      },
+      "center_y_m": {
+        "minimum": -0.08856824226677418,
+        "median": -0.05997404735535383,
+        "mean": -0.06114648338407278,
+        "maximum": -0.02249724417924881
+      },
+      "top_z_m": {
+        "minimum": -0.5989540815353394,
+        "median": -0.5899256765842438,
+        "mean": -0.5897450784842173,
+        "maximum": -0.5796229243278503
+      },
+      "top_z_error_m": {
+        "minimum": -0.025689811706542942,
+        "median": -0.01666140675544736,
+        "mean": -0.01648080865542091,
+        "maximum": -0.006358654499053928
+      },
+      "visible_extent_x_m": {
+        "minimum": 0.09524381160736084,
+        "median": 0.14054632186889648,
+        "mean": 0.13882688019010755,
+        "maximum": 0.19143891334533691
+      },
+      "visible_extent_y_m": {
+        "minimum": 0.305609866976738,
+        "median": 0.34019820392131805,
+        "mean": 0.34556108762820564,
+        "maximum": 0.40534061193466187
+      },
+      "area_m2": {
+        "minimum": 0.03142193104096691,
+        "median": 0.046681138434124136,
+        "mean": 0.04502019879625657,
+        "maximum": 0.05877447377746403
+      },
+      "frame_detection_ratio": 0.6122448979591837
+    },
+    "dimensions": {
+      "expected_depth_x_m": 0.29,
+      "expected_width_y_m": 0.35,
+      "observed_depth_x_m": 0.14054632186889648,
+      "observed_width_y_m": 0.34019820392131805,
+      "note": "quadrangle extents are visible support patches, not guaranteed full physical dimensions",
+      "depth_error_m": -0.1494536781311035,
+      "width_error_m": -0.009801796078681924
+    },
+    "distinct_local_surface_detected": true
+  },
+  "level_pair_check": {
+    "reference_frames_with_matching_pair": 58,
+    "reference_matching_pairs": 160,
+    "candidate_frames_with_matching_pair": 71,
+    "candidate_matching_pairs": 212
+  },
+  "comparison": {
+    "additional_groups": 181,
+    "decision_basis": "GridMap-localized support surface",
+    "distinct_expected_elevated_surface_detected": true,
+    "interpretation": "candidate contains an additional expected-height surface signature"
+  }
+}

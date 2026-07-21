@@ -1,0 +1,25 @@
+<launch>
+
+    <node name="udp_receiver" pkg="message_transformer_cpp" type="udp_receiver" output="screen" respawn="true">
+        <param name="port_num" value="43897" />
+        <param name="add_tail" value="false"/>
+    </node>
+    <node name="udp_sender" pkg="message_transformer_cpp" type="udp_sender" output="screen" respawn="true">
+        <param name="motion_port" value="43893"/>
+        <param name="motion_ip" value="10.21.31.103"/>
+        <param name="perception_port" value="43897"/>
+        <param name="perception_ip" value="10.21.31.105"/>
+        <param name="eth_inf" value="ethbus"/>
+        <param name="navigation_port" value="43897"/>
+        <param name="navigation_ip" value="10.21.31.106"/>
+    </node>
+    <node name="app_port" pkg="message_transformer_cpp" type="app_port" output="screen" respawn="true">
+        <param name="port_num" value="43899"/>
+        <param name="obstacle_threshold" value="0.8"/>
+        <param name="vel_x_limit" value="0.5"/>  
+        <param name="vel_y_limit" value="0.3"/>  
+    </node>
+    <node pkg="message_transformer_cpp" type="gridmap_port" name="gridmap_port" >
+      <param name = "sport_ip"    type ="string"  value="10.21.31.103" />
+    </node>
+</launch>

@@ -1,0 +1,56 @@
+{
+  "input": {
+    "bag": "x30_stair_baselines/mode3_object_probe_20260714_153211.bag",
+    "pcap": "x30_gridmap_captures/20260714_153211_mode3_object_probe.pcap",
+    "reference_bag": "x30_stair_baselines/mode3_flat_repeat_20260714_150324.bag"
+  },
+  "integrity": {
+    "bag_sha256": "D6E240E3024B13184C05411F90C4EB2DD9727BE1079D1ADE67E0FE8490ED2391",
+    "pcap_sha256": "DE6CA3C2B0C5BB3C098BCA3046FD3D762F360E582899492FCB9B65851B027971",
+    "quadrangle_frames": 141,
+    "tcp_frames_matched": 141,
+    "maximum_xyz_error": 0.0
+  },
+  "pipeline_change": {
+    "reference_nondegenerate_quadrangles": 714,
+    "object_probe_nondegenerate_quadrangles": 821,
+    "object_probe_max_points_per_frame": 56
+  },
+  "voxel_occupancy": {
+    "grid_resolution_m": 0.05,
+    "stable_xy_cells_shifted_up_at_least_0_10_m": 19,
+    "height_shift_m": {
+      "minimum": 0.10,
+      "median": 0.15,
+      "mean": 0.15789473684210525,
+      "maximum": 0.20
+    },
+    "main_added_region_approx_m": {
+      "x_min": 0.80,
+      "x_max": 1.15,
+      "y_min": -0.20,
+      "y_max": 0.10,
+      "z_min": -0.65,
+      "z_max": -0.55
+    }
+  },
+  "object_top_quadrangles": {
+    "selection": "center x 0.85..1.20, center y -0.30..0.20, mean z -0.66..-0.53",
+    "groups": 106,
+    "frames_detected": 102,
+    "total_frames": 141,
+    "frame_detection_rate": 0.723404255319149,
+    "median_center_m": {
+      "x": 1.0724999010562897,
+      "y": -0.052699432708323
+    },
+    "median_reference_floor_z_m": -0.7655837833881378,
+    "median_object_top_z_m": -0.5837757885456085,
+    "estimated_elevation_m": 0.1818079948425293,
+    "median_x_extent_m": 0.20634010434150696,
+    "median_y_extent_m": 0.3474246971309185,
+    "median_area_m2": 0.06761316151243857
+  },
+  "interpretation": "The placed object is visible in the factory voxel cloud, is converted to horizontal quadrangles, and those XYZ points are transmitted unchanged to TCP port 49999.",
+  "caveat": "Dimensions are approximate results from 5 cm voxel occupancy and fitted quadrangles, not physical measurements."
+}

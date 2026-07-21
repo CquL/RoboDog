@@ -1,0 +1,2 @@
+$ file /opt/robot/share/vmap/lib/plane_seg_ros/plane_seg_ros
+/opt/robot/share/vmap/lib/plane_seg_ros/plane_seg_ros: ELF 64-bit LSB shared object, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=b443e0118ba90d6105d580d7e28f583192aa2078, for GNU/Linux 3.7.0, not stripped

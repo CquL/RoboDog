@@ -1,0 +1,132 @@
+
+===== IDENTITY =====
+STAGE=06c
+RELEASE=/home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4
+LOG=/home/unitree/p2_unitreeH2/logs/h2_pc2_stage06c_20260720_093359_5297.log
+DATE=2026-07-20T09:33:59+08:00
+HOSTNAME=unitree-H2-pc2
+USER=unitree
+ARCH=x86_64
+BOOT_ID=4a38359f-d42a-4f9e-a55c-6fbe04aba4d5
+CONTROL_LOCK_OK=/home/unitree/p2_unitreeH2/build/h2_control_gate_state/h2_hal_control.lock
+
+===== NETWORK AND VENDOR DDS CONFIG =====
+/home/unitree/slam_config/cyclone_go2_B2_ws/cyclonedds.xml: OK
+ETH0_AND_PC1_REACHABILITY_OK
+1474 /home/unitree/graph_pid_ws/install/lib/dog_control_cmd/dog_cmd eth0 --ros-args
+1476 /home/unitree/graph_pid_ws/install/lib/dog_control/sport_switch --ros-args
+
+===== BUNDLE MANIFEST AND OWNERSHIP =====
+./README.md: OK
+./bin/robot_test_unitree_h2: OK
+./bin/robot_test_unitree_h2_live_motion: OK
+./bin/unitree_h2_direct_api_contract_test: OK
+./bin/unitree_h2_factory_contract_test: OK
+./bin/unitree_h2_live_motion_plan_test: OK
+./config/unitree_h2.yaml: OK
+./lib/libddsc.so: OK
+./lib/libddscxx.so: OK
+./lib/libmc_sdk_zsl_1_x86_64.so: OK
+./lib/librobot_hardware.so: OK
+./lib/libyaml-cpp.so.0.7.0: OK
+./meta/build-info.txt: OK
+./meta/image-id.txt: OK
+./meta/sdk2-commit.txt: OK
+./meta/symlinks.txt: OK
+./scripts/06_pc2_h2_getters_rpc_gate.sh: OK
+./scripts/07_pc2_h2_zero_stop_gate.sh: OK
+./scripts/08_pc2_h2_single_axis_motion_gate.sh: OK
+./scripts/h2_pc2_hal_gate_common.sh: OK
+./scripts/tests/test_h2_gate_schema_offline.sh: OK
+MANIFEST_SHA256=d8f1170b40a73e21ef7ded35b5a04ef7fe0a3bc97ed69f8cb6e3b82f63e79ebe
+
+===== PRIVATE LIBRARY CONTRACT =====
+/home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/lib/libddsc.so: OK
+/home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/lib/libddscxx.so: OK
+/home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/bin/robot_test_unitree_h2: ELF 64-bit LSB pie executable, x86-64, version 1 (GNU/Linux), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=f9ebb998e81ea808228e078c137a4b2b82a24d99, for GNU/Linux 3.2.0, with debug_info, not stripped
+  Class:                             ELF64
+  Machine:                           Advanced Micro Devices X86-64
+	linux-vdso.so.1 (0x00007ffff55bf000)
+	librobot_hardware.so => /home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/lib/librobot_hardware.so (0x00007ff418322000)
+	libyaml-cpp.so.0.7 => /home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/lib/libyaml-cpp.so.0.7 (0x00007ff4182e3000)
+	libmc_sdk_zsl_1_x86_64.so => /home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/lib/libmc_sdk_zsl_1_x86_64.so (0x00007ff41829f000)
+	libstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007ff41804d000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007ff41802b000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ff417e02000)
+	libddsc.so.0 => /home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/lib/libddsc.so.0 (0x00007ff417cf1000)
+	libddscxx.so.0 => /home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/lib/libddscxx.so.0 (0x00007ff417ae7000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007ff417a00000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007ff418717000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007ff4179f9000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007ff4179f4000)
+/home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/bin/robot_test_unitree_h2_live_motion: ELF 64-bit LSB pie executable, x86-64, version 1 (GNU/Linux), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=cdbe6b2afbfb2530235ec67be6013e2ce0fba494, for GNU/Linux 3.2.0, with debug_info, not stripped
+  Class:                             ELF64
+  Machine:                           Advanced Micro Devices X86-64
+	linux-vdso.so.1 (0x00007ffce5d51000)
+	librobot_hardware.so => /home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/lib/librobot_hardware.so (0x00007f7424fca000)
+	libyaml-cpp.so.0.7 => /home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/lib/libyaml-cpp.so.0.7 (0x00007f7424f8b000)
+	libmc_sdk_zsl_1_x86_64.so => /home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/lib/libmc_sdk_zsl_1_x86_64.so (0x00007f7424f47000)
+	libstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f7424cf5000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f7424cd3000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f7424aaa000)
+	libddsc.so.0 => /home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/lib/libddsc.so.0 (0x00007f7424999000)
+	libddscxx.so.0 => /home/unitree/p2_unitreeH2/build/unitree_h2_pc2_native_amd64_stage06c_to_06e_20260716_r4/lib/libddscxx.so.0 (0x00007f742478f000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f74246a8000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f74253c9000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f74246a1000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f742469c000)
+PRIVATE_BUNDLE_LDD_OK
+H2_COMMON_GATE_PRECONDITIONS_OK
+
+===== OFFLINE CONTRACT TESTS =====
+UNITREE_H2_FACTORY_CONTRACT_OK
+[UnitreeH2] Connected read-only check passed, FSM ID=601
+[UnitreeH2] Initialized on DDS interface fake-h2-nic. allow_motion_commands=false, allow_state_changing_actions=false
+[UnitreeH2] Non-zero velocity rejected by safety interlock.
+[UnitreeH2] Non-zero velocity rejected by safety interlock.
+[UnitreeH2] State-changing action rejected by safety interlock: stand_up
+[UnitreeH2] Connected read-only check passed, FSM ID=601
+[UnitreeH2] Initialized on DDS interface fake-h2-nic. allow_motion_commands=true, allow_state_changing_actions=true
+[UnitreeH2] Unsupported action rejected before SDK call: lie_down
+[UnitreeH2] Unsupported action rejected before SDK call: unknown_h2_action
+[UnitreeH2] Connected read-only check passed, FSM ID=601
+[UnitreeH2] Initialized on DDS interface fake-h2-nic. allow_motion_commands=true, allow_state_changing_actions=true
+[UnitreeH2] SetVelocity returned vendor code: -77
+[UnitreeH2] SetVelocity threw: fake SetVelocity post-delivery failure
+[UnitreeH2] StopMove returned vendor code: -88
+[UnitreeH2] StopMove threw: fake StopMove failure
+[UnitreeH2] Action stand_up returned vendor code: -66
+[UnitreeH2] Action stand_up threw: fake action failure
+[UnitreeH2] StopMove threw: fake StopMove failure
+[UnitreeH2] Velocity watchdog failed to send StopMove; retrying.
+[UnitreeH2] H2 locomotion service did not return FSM state; vendor code: -99
+[UnitreeH2] H2 FSM readiness check threw: fake GetFsmId failure
+[UnitreeH2] SDK initialization failed: fake ChannelFactory initialization failure
+[UnitreeH2] SDK initialization failed: fake LocoClient initialization failure
+[UnitreeH2] Initialized on DDS interface fake-h2-nic. allow_motion_commands=false, allow_state_changing_actions=false
+[UnitreeH2] GetFsmId returned vendor code: -55
+[UnitreeH2] GetFsmId threw: fake GetFsmId failure
+[UnitreeH2] GetFsmMode returned vendor code: -56
+[UnitreeH2] GetAvailableFsmIds threw: fake GetAvailableFsmIds failure
+[UnitreeH2] Invalid configuration.
+[UnitreeH2] Connected read-only check passed, FSM ID=601
+[UnitreeH2] Initialized on DDS interface fake-h2-nic. allow_motion_commands=false, allow_state_changing_actions=false
+[UnitreeH2] Best-effort shutdown StopMove threw: fake StopMove failure
+[UnitreeH2] Invalid configuration.
+[UnitreeH2] Invalid configuration.
+[UnitreeH2] Invalid configuration.
+[UnitreeH2] Motion-enabled initialization rejected FSM ID 1; required 601
+[UnitreeH2] Connected read-only check passed, FSM ID=601
+[UnitreeH2] Initialized on DDS interface fake-h2-nic. allow_motion_commands=true, allow_state_changing_actions=false
+[UnitreeH2] Per-command motion FSM gate rejected: vendor_code=0, fsm_id=1, required_fsm_id=601
+UNITREE_H2_DIRECT_API_CONTRACT_OK
+UNITREE_H2_LIVE_MOTION_PLAN_OK
+H2_PC2_BUNDLE_OFFLINE_CONTRACTS_OK
+
+===== GETTER-ONLY LOCO RPC =====
+[UnitreeH2] Connected read-only check passed, FSM ID=0
+[UnitreeH2] Initialized on DDS interface eth0. allow_motion_commands=false, allow_state_changing_actions=false
+H2_GETTER_AUDIT fsm_id=0 fsm_ret=0 fsm_mode=0 mode_ret=0 mode_value_observation_only=1 available_ret=0 available_count=264 [0:Invalid] [1:Passive] [2:Protection] [3:Sit] [4:FixStand] [5:HybridPassive] [502:HumanMimic] [503:HumanMimic2] [100:BeyondMimic] [601:HybridWalk] [701:WalkNew] [703:PhaseWalk] [100100:BeyondMimic_2025-12-09_21-19-45_BIANTUI_001_H2P_metadata] [100101:BeyondMimic_2025-12-09_21-19-55_360DANKOU_002_H2P_metadata] [100102:BeyondMimic_2025-12-09_21-20-05_LIANJI2_004_H2P_metadata] [100103:BeyondMimic_2025-12-09_21-20-15_MODITIYUEZHUANTI_001_H2P_metadata] [100110:BeyondMimic_2025-12-11_00-03-12_XUANZI360HENGTI_002_H2P_metadata] [100111:BeyondMimic_2025-12-11_00-45-02_LIANJI9_002_H2P_metadata] [100112:BeyondMimic_2025-12-11_01-12-32_TIYUE_001_H2P_metadata] [100113:BeyondMimic_2025-12-11_02-07-02_KUAISUPAO_002_H2P_metadata] [100120:BeyondMimic_policy_metadata.q1j8p1qc] [100121:BeyondMimic_policy_metadata.zt1yqp5x] [100122:BeyondMimic_policy_metadata.ynqwrkjh] [100123:BeyondMimic_policy_metadata.sv3i9miy] [100124:BeyondMimic_policy_metadata.85zetjlq] [100125:BeyondMimic_policy_metadata.9rkx6jg5] [100126:BeyondMimic_policy_metadata.mhkhbrxt] [100127:BeyondMimic_policy_metadata.3xogak7v] [100128:BeyondMimic_policy_metadata.vp2bwh36] [100129:BeyondMimic_policy_metadata.s6m39du2] [100130:BeyondMimic_policy_metadata.fe3yrkl7] [100131:BeyondMimic_2025-12-19_10-39-22_BY_360DANKOU_002_H2P_MASK_metadata] [100132:BeyondMimic_2025-12-18_15-52-30_SZ_YOUSHANCHUQUAN_011_H2P_MASK_metadata] [100133:BeyondMimic_2025-12-18_18-24-10_SZ_FEITI_002_H2P_MASK_metadata] [100134:BeyondMimic_2025-12-19_09-48-31_BY_KUAISUPAO_002_H2P_MASK_metadata] [100135:BeyondMimic_2025-12-17_22-28-05_BY_BIANTUI_001_H2P_MASK_metadata] [100136:BeyondMimic_2025-12-17_22-28-56_SZ_FEITI_001_H2P_MASK_metadata] [100137:BeyondMimic_2025-12-18_16-43-40_SZ_TIAOCHUAI2_001_H2P_MASK_metadata] [100138:BeyondMimic_2025-12-17_22-27-54_BY_LIANJI8_001_H2P_MASK_metadata] [100139:BeyondMimic_2025-12-18_16-06-55_TIYUE_002_H2P_metadata] [100140:BeyondMimic_2025-12-18_16-06-46_TIYUE_001_H2P_metadata] [100141:BeyondMimic_2025-12-17_22-28-26_BY_DONGZUO3_002_H2P_MASK_metadata] [100142:BeyondMimic_2025-12-18_16-27-00_SZ_ZUOSHANCHUQUAN_003_H2P_MASK_metadata] [100143:BeyondMimic_2025-12-18_16-42-20_SZ_TIAOCHUAI_001_H2P_MASK_metadata] [100144:BeyondMimic_2025-12-17_22-28-47_BY_KUAISUPAO_001_H2P_MASK_metadata] [100145:BeyondMimic_2025-12-18_16-48-10_SZ_RESHEN1_005_H2P_MASK_metadata] [100146:BeyondMimic_2025-12-18_17-06-59_SZ_RESHEN2_001_H2P_MASK_metadata] [100147:BeyondMimic_2025-12-17_22-28-37_BY_DONGZUO4_002_H2P_MASK_metadata] [100148:BeyondMimic_2025-12-17_22-28-17_BY_ZAZHOU_005_H2P_MASK_metadata] [100149:BeyondMimic_2025-12-19_08-42-40_SZ_YOUSHANCHUQUAN_004_H2P_MASK_metadata] [100150:BeyondMimic_2025-12-17_22-29-08_SZ_XIADUNZHOUJI_003_H2P_MASK_metadata] [100151:BeyondMimic_2025-12-18_17-27-29_BY_LIANJI9_003_H2P_MASK_metadata] [100152:BeyondMimic_2025-12-19_09-42-41_SZ_YOUSHANCHUQUAN_007_H2P_MASK_metadata] [100153:BeyondMimic_2025-12-19_22-49-53_BY_TIYUE_001_H2P_metadata] [100154:BeyondMimic_2025-12-19_22-50-03_BY_TIYUE_002_H2P_metadata] [100155:BeyondMimic_2025-12-19_22-50-16_BY_MODITIYUEZHUANTI_001_H2P_metadata] [100156:BeyondMimic_2025-12-19_22-50-26_BY_QISHEN1_002_H2P_metadata] [100157:BeyondMimic_2025-12-19_22-50-35_BY_QISHEN2_001_H2P_metadata] [100158:BeyondMimic_2025-12-19_22-50-39_SZ_XIJIZHIQUAN_001_H2P_metadata] [100159:BeyondMimic_2025-12-19_22-50-48_BY_XUANZI360HENGTI_001_H2P_metadata] [100160:BeyondMimic_2025-12-19_22-50-49_SZ_XIJIZHIQUAN_002_H2P_metadata] [100161:BeyondMimic_2025-12-19_22-50-59_SZ_XIQIANTI_001_H2P_metadata] [100162:BeyondMimic_2025-12-19_22-51-09_SZ_XIZHUANG_001_H2P_metadata] [100163:BeyondMimic_2025-12-19_23-27-19_TIYUE001_small_init_rand_metadata] [100164:BeyondMimic_2025-12-19_23-28-44_TIYUE001_mask_adp_init_rand_metadata] [100165:BeyondMimic_2025-12-20_12-53-10_SZ_YOUSAOTI_003_H2P_metadata] [100166:BeyondMimic_2025-12-20_12-58-19_SZ_YOUZHIQUAN_002_H2P_metadata] [100167:BeyondMimic_2025-12-20_13-01-20_SZ_YOUZHIQUAN_003_H2P_metadata] [100168:BeyondMimic_2025-12-20_13-14-50_SZ_ZHUNBEIDONGZUO_001_H2P_metadata] [100169:BeyondMimic_2025-12-20_17-31-48_BY_XUANZI360HENGTI_002_H2P_metadata] [100170:BeyondMimic_2025-12-20_17-34-20_BY_LIANJI8_001_H2P_metadata] [100171:BeyondMimic_2025-12-20_17-52-20_BY_BIANTUI_001_H2P_metadata] [100172:BeyondMimic_2025-12-20_18-02-50_BY_ZAZHOU_005_H2P_metadata] [100173:BeyondMimic_2025-12-20_19-31-10_BY_DONGZUO3_002_H2P_metadata] [100174:BeyondMimic_2025-12-20_19-58-20_BY_DONGZUO4_002_H2P_metadata] [100175:BeyondMimic_2025-12-21_02-49-20_SZ_ZHUNBEIDONGZUO_003_H2P_metadata] [100176:BeyondMimic_2025-12-21_03-11-50_SZ_ZHUTUIHENGTI_002_H2P_metadata] [100177:BeyondMimic_2025-12-21_03-13-00_SZ_ZHUTUIHENGTI_004_H2P_metadata] [100178:BeyondMimic_2025-12-21_03-36-10_SZ_ZUHEQUAN_001_H2P_metadata] [100179:BeyondMimic_2025-12-21_11-24-11_BY_KUAISUPAO_001_H2P_metadata] [100180:BeyondMimic_2025-12-21_11-33-32_BY_LIANJI9_003_H2P_metadata] [100181:BeyondMimic_2025-12-21_11-48-32_BY_KUAISUPAO_002_H2P_metadata] [100182:BeyondMimic_2025-12-21_11-49-12_BY_360DANKOU_002_H2P_metadata] [100183:BeyondMimic_2025-12-21_13-53-22_BY_DONGZUO1_005_H2P_metadata] [100184:BeyondMimic_2025-12-21_13-55-02_BY_DONGZUO1_006_H2P_metadata] [100185:BeyondMimic_2025-12-21_16-22-31_SZ_ZUHEQUAN_002_H2P_metadata] [100186:BeyondMimic_2025-12-21_17-46-41_SZ_XIADUNZHOUJI_001_H2P_metadata] [100187:BeyondMimic_2025-12-21_17-57-01_SZ_FEITI_001_H2P_metadata] [100188:BeyondMimic_2025-12-21_17-57-31_SZ_XIADUNZHOUJI_003_H2P_metadata] [100189:BeyondMimic_2025-12-22_05-44-33_BY_DONGZUO2_004_H2P_metadata] [100190:BeyondMimic_2025-12-22_06-24-13_BY_DONGZUO5_001_H2P_metadata] [100191:BeyondMimic_2025-12-22_06-50-22_SZ_YOUSHANCHUQUAN_011_H2P_metadata] [100192:BeyondMimic_2025-12-22_07-04-43_BY_LIANJI1_001_H2P_metadata] [100193:BeyondMimic_2025-12-22_07-12-00_BY_LIANJI2_002_H2P_metadata] [100194:BeyondMimic_2025-12-22_08-21-41_SZ_ZUOSHANCHUQUAN_003_H2P_metadata] [100195:BeyondMimic_2025-12-22_08-26-12_SZ_TIAOCHUAI_001_H2P_metadata] [100196:BeyondMimic_2025-12-22_08-30-40_BY_LIANJI2_004_H2P_metadata] [100197:BeyondMimic_2025-12-22_08-31-01_SZ_TIAOCHUAI2_001_H2P_metadata] [100198:BeyondMimic_2025-12-22_08-44-19_BY_LIANJI2_005_H2P_metadata] [100199:BeyondMimic_2025-12-22_21-12-03_SZ_RESHEN1_005_H2P_metadata] [100400:BeyondMimic_2025-12-24_20-27-13_GD_LIANJI2_002_H2P_metadata] [100401:BeyondMimic_2025-12-24_20-27-23_GD_LIANJI3_003_H2P_metadata] [100402:BeyondMimic_2025-12-25_21-49-53_GD_MODITIYUEZHUANTI_004_H2P_Delay_metadata] [100403:BeyondMimic_2025-12-25_21-50-03_YF_FEIXIANG_001_H2P_Delay_metadata] [100404:BeyondMimic_2025-12-26_04-33-19_GD_LIANJI1_003_H2P_act_rate_3e-3_metadata] [100405:BeyondMimic_2025-12-26_04-33-29_GD_MODITIYUEZHUANTI_004_H2P_act_rate_3e-3_metadata] [100406:BeyondMimic_2025-12-27_11-03-04_GD_LIANJI1_003_H2P_act_rate_1e-2_metadata] [100407:BeyondMimic_2025-12-27_11-03-15_GD_MODITIYUEZHUANTI_004_H2P_act_rate_1e-2_metadata] [100999:BeyondMimic_policy_metadata.1lmhhxeh] [100204:BeyondMimic_lianji6-003_metadata] [100205:BeyondMimic_lianji3-008_metadata] [100206:BeyondMimic_lianji2-006_metadata] [100207:BeyondMimic_lianji9-003_metadata] [100208:BeyondMimic_kuaisupao-001_metadata] [100209:BeyondMimic_lianji7-001_metadata] [100210:BeyondMimic_xuanzi360_metadata] [100211:BeyondMimic_qishen1_metadata] [100212:BeyondMimic_zhunbeidongzuo_metadata] [100213:BeyondMimic_cechuai_metadata] [100214:BeyondMimic_houchuai_metadata] [100301:BeyondMimic_2025-12-18_03-12-43_tiyue_metadata] [100302:BeyondMimic_2025-12-19_12-36-49_dongzuo2_004_metadata] [100303:BeyondMimic_2025-12-10_08-56-46_dongzuo1_005_metadata] [100304:BeyondMimic_2025-12-11_09-25-37_lianji4_007_matedata] [100305:BeyondMimic_2025-12-19_12-37-53_lianji5_004_metadata] [100306:BeyondMimic_2025-12-21_06-52-18_zhutuihengti_004_metadata] [100307:BeyondMimic_2025-12-22_08-15-03_lianji1_001_metadata] [100308:BeyondMimic_2025-12-23_03-46-30_360dankou_002_metadata] [503200:HumanMimic2_20251208_BY_360DANKOU_002_NB] [503201:HumanMimic2_20251208_BY_BIANTUI_001_CH] [503202:HumanMimic2_20251208_BY_DONGZUO1_005_YX] [503203:HumanMimic2_20251208_BY_DONGZUO1_006_YX] [503204:HumanMimic2_20251208_BY_DONGZUO2_004_YX] [503205:HumanMimic2_20251208_BY_DONGZUO3_002_YX] [503206:HumanMimic2_20251208_BY_DONGZUO4_002_YX] [503207:HumanMimic2_20251208_BY_DONGZUO5_001_YX] [503208:HumanMimic2_20251208_BY_KUAISUPAO_001_NB] [503209:HumanMimic2_20251208_BY_KUAISUPAO_002_NB] [503210:HumanMimic2_20251208_BY_LIANJI1_001_NB] [503211:HumanMimic2_20251208_BY_LIANJI2_002_NB] [503212:HumanMimic2_20251208_BY_LIANJI2_004_NB] [503213:HumanMimic2_20251208_BY_LIANJI2_005_NB] [503214:HumanMimic2_20251208_BY_LIANJI2_006_NB] [503215:HumanMimic2_20251208_BY_LIANJI3_008_CH] [503216:HumanMimic2_20251208_BY_LIANJI4_007_CH] [503217:HumanMimic2_20251208_BY_LIANJI5_004_NB] [503218:HumanMimic2_20251208_BY_LIANJI6_003_NB] [503219:HumanMimic2_20251208_BY_LIANJI7_001_NB] [503220:HumanMimic2_20251208_BY_LIANJI8_001_NB] [503221:HumanMimic2_20251208_BY_LIANJI9_002_NB] [503222:HumanMimic2_20251208_BY_LIANJI9_003_NB] [503223:HumanMimic2_20251208_BY_MODITIYUEZHUANTI_001_NB] [503224:HumanMimic2_20251208_BY_QISHEN1_002_NB] [503225:HumanMimic2_20251208_BY_QISHEN2_001_NB] [503226:HumanMimic2_20251208_BY_TIYUE_001_NB] [503227:HumanMimic2_20251208_BY_TIYUE_002_NB] [503228:HumanMimic2_20251208_BY_XUANZI360HENGTI_001_NB] [503229:HumanMimic2_20251208_BY_XUANZI360HENGTI_002_NB] [503230:HumanMimic2_20251208_BY_ZAZHOU_005_CH] [503231:HumanMimic2_20251208_SZ_BIANQUAN_005_CH] [503232:HumanMimic2_20251208_SZ_BIANQUAN_006_CH] [503233:HumanMimic2_20251208_SZ_CECHUAI_002_CH] [503234:HumanMimic2_20251208_SZ_DIMIANDINGXI_003_CH] [503235:HumanMimic2_20251208_SZ_FEITI_001_CH] [503236:HumanMimic2_20251208_SZ_FEITI_002_CH] [503237:HumanMimic2_20251208_SZ_HOUCHUAI_002_CH] [503238:HumanMimic2_20251208_SZ_LIANZHOU_002_CH] [503239:HumanMimic2_20251208_SZ_POFANGQUAN_002_CH] [503240:HumanMimic2_20251208_SZ_POFANGQUAN_003_CH] [503241:HumanMimic2_20251208_SZ_RESHEN1_005_CH] [503242:HumanMimic2_20251208_SZ_RESHEN2_001_CH] [503243:HumanMimic2_20251208_SZ_TIAOCHUAI_001_CH] [503244:HumanMimic2_20251208_SZ_TIAOCHUAI2_001_CH] [503245:HumanMimic2_20251208_SZ_TUIQUAN_001_CH] [503246:HumanMimic2_20251208_SZ_TUIQUAN_003_CH] [503247:HumanMimic2_20251208_SZ_XIADUNZHOUJI_001_CH] [503248:HumanMimic2_20251208_SZ_XIADUNZHOUJI_003_CH] [503249:HumanMimic2_20251208_SZ_XIJIZHIQUAN_001_CH] [503250:HumanMimic2_20251208_SZ_XIJIZHIQUAN_002_CH] [503251:HumanMimic2_20251208_SZ_XIQIANTI_001_CH] [503252:HumanMimic2_20251208_SZ_XIZHUANG_001_CH] [503253:HumanMimic2_20251208_SZ_YOUSAOTI_003_CH] [503254:HumanMimic2_20251208_SZ_YOUSHANCHUQUAN_004_CH] [503255:HumanMimic2_20251208_SZ_YOUSHANCHUQUAN_007_CH] [503256:HumanMimic2_20251208_SZ_YOUSHANCHUQUAN_011_Skeleton_001] [503257:HumanMimic2_20251208_SZ_YOUZHIQUAN_002_CH] [503258:HumanMimic2_20251208_SZ_YOUZHIQUAN_003_CH] [503259:HumanMimic2_20251208_SZ_ZHUTUIHENGTI_002_CH] [503260:HumanMimic2_20251208_SZ_ZHUTUIHENGTI_004_CH] [503261:HumanMimic2_20251208_SZ_ZUHEQUAN_001_CH] [503262:HumanMimic2_20251208_SZ_ZUHEQUAN_002_CH] [503263:HumanMimic2_20251208_SZ_ZUOSHANCHUQUAN_003_Skeleton_001] [503301:HumanMimic2_vq_GD_LIANJI1_003_AA_410f8976_H2_50hz] [503302:HumanMimic2_vq_GD_LIANJI2_002_AA_3c410c3b_H2_50hz] [503303:HumanMimic2_vq_GD_LIANJI3_003_AA_28ad2d98_H2_50hz] [503304:HumanMimic2_vq_GD_MODITIYUEZHUANTI_004_AA_dbe85a02_H2_50hz] [503305:HumanMimic2_vq_GD_ZHUNBEIDONGZUO_001_AA_ba39ca32_H2_50hz] [503306:HumanMimic2_vq_GD_ZHUNBEIDONGZUO2_006_AA_04455491_H2_50hz] [503307:HumanMimic2_vq_GD_ZOUCHUAI_007_BB_0054dea6_H2_50hz] [503308:HumanMimic2_vq_GD_ZOUCHUAI_010_BB_bbf74f0c_H2_50hz] [503309:HumanMimic2_vq_GD_ZOUCHUAI_011_BB_5c053e5a_H2_50hz] [503310:HumanMimic2_vq_YF_CHONGCIPAO_002_AA_01a9843b_H2_50hz] [503311:HumanMimic2_vq_YF_CHONGCIPAO_003_AA_91a35dde_H2_50hz] [503312:HumanMimic2_vq_YF_CHONGCIPAO_004_AA_b414e499_H2_50hz] [503313:HumanMimic2_vq_YF_FEIXIANG_001_AA_8bbc65c2_H2_50hz] [503314:HumanMimic2_vq_YF_JIANZILATI_002_AA_ea7af0c6_H2_50hz] [503315:HumanMimic2_vq_YF_SHIZIJIA_003_AA_56f937de_H2_50hz] [503316:HumanMimic2_vq_YF_TAIKONGMANBU_002_AA_401be72f_H2_50hz] [503317:HumanMimic2_vq_YF_ZHEFANPAO_001_AA_9990d80f_H2_50hz] [503318:HumanMimic2_vq_YF_ZHIZHUXIA_001_AA_668062fa_H2_50hz] [502231:HumanMimic_20251208_SZ_BIANQUAN_005_CH] [502232:HumanMimic_20251208_SZ_BIANQUAN_006_CH] [502233:HumanMimic_20251208_SZ_CECHUAI_002_CH] [502234:HumanMimic_20251208_SZ_DIMIANDINGXI_003_CH] [502235:HumanMimic_20251208_SZ_FEITI_001_CH] [502236:HumanMimic_20251208_SZ_FEITI_002_CH] [502237:HumanMimic_20251208_SZ_HOUCHUAI_002_CH] [502238:HumanMimic_20251208_SZ_LIANZHOU_002_CH] [502239:HumanMimic_20251208_SZ_POFANGQUAN_002_CH] [502240:HumanMimic_20251208_SZ_POFANGQUAN_003_CH] [502241:HumanMimic_20251208_SZ_RESHEN1_005_CH] [502242:HumanMimic_20251208_SZ_RESHEN2_001_CH] [502243:HumanMimic_20251208_SZ_TIAOCHUAI_001_CH] [502244:HumanMimic_20251208_SZ_TIAOCHUAI2_001_CH] [502245:HumanMimic_20251208_SZ_TUIQUAN_001_CH] [502246:HumanMimic_20251208_SZ_TUIQUAN_003_CH] [502247:HumanMimic_20251208_SZ_XIADUNZHOUJI_001_CH] [502248:HumanMimic_20251208_SZ_XIADUNZHOUJI_003_CH] [502249:HumanMimic_20251208_SZ_XIJIZHIQUAN_001_CH] [502250:HumanMimic_20251208_SZ_XIJIZHIQUAN_002_CH] [502251:HumanMimic_20251208_SZ_XIQIANTI_001_CH] [502252:HumanMimic_20251208_SZ_XIZHUANG_001_CH] [502253:HumanMimic_20251208_SZ_YOUSAOTI_003_CH] [502254:HumanMimic_20251208_SZ_YOUSHANCHUQUAN_004_CH] [502255:HumanMimic_20251208_SZ_YOUSHANCHUQUAN_007_CH] [502256:HumanMimic_20251208_SZ_YOUSHANCHUQUAN_011_Skeleton_001] [502257:HumanMimic_20251208_SZ_YOUZHIQUAN_002_CH] [502258:HumanMimic_20251208_SZ_YOUZHIQUAN_003_CH] [502259:HumanMimic_20251208_SZ_ZHUTUIHENGTI_002_CH] [502260:HumanMimic_20251208_SZ_ZHUTUIHENGTI_004_CH] [502261:HumanMimic_20251208_SZ_ZUHEQUAN_001_CH] [502262:HumanMimic_20251208_SZ_ZUHEQUAN_002_CH] [502263:HumanMimic_20251208_SZ_ZUOSHANCHUQUAN_003_Skeleton_001] [502306:HumanMimic_vq_GD_ZHUNBEIDONGZUO2_006_AA_04455491_H2_50hz] [502309:HumanMimic_vq_GD_ZOUCHUAI_011_BB_5c053e5a_H2_50hz] [502000:HumanMimic_vq_Take_007_skeleton_0_30hz_clip_115_150] [502001:HumanMimic_vq_Take_007_skeleton_0_30hz_clip_190_225] [502002:HumanMimic_vq_Take_007_skeleton_0_30hz_clip_230_270] [502003:HumanMimic_vq_Take_007_skeleton_0_30hz_clip_320_365] [502020:HumanMimic_vq_Take_018_skeleton_0_30hz_clip_145_240] [502021:HumanMimic_vq_Take_018_skeleton_0_30hz_clip_370_480] [502022:HumanMimic_vq_Take_018_skeleton_0_30hz_clip_485_590] [502023:HumanMimic_vq_Take_020_skeleton_0_30hz_clip_775_860] [502040:HumanMimic_vq_Take_026_skeleton_0_30hz_clip_427_540] [502041:HumanMimic_vq_Take_042_skeleton_0_30hz_clip_165_265] [502201:HumanMimic_vq_Take_061_front_get_down] [502060:HumanMimic_vq_Take_035_skeleton_0_30hz_clip_240_290] [502061:HumanMimic_vq_Take_051_skeleton_0_30hz_clip_385_420] [502062:HumanMimic_vq_Take_051_skeleton_0_30hz_clip_480_525] [502063:HumanMimic_vq_Take_051_skeleton_0_30hz_clip_440_475] [502064:HumanMimic_vq_Take_057_skeleton_0_30hz_clip_115_145] [502080:HumanMimic_vq_Take_094_skeleton_0_30hz_clip_140_293] [502081:HumanMimic_vq_Take_090_skeleton_0_30hz_clip_120_205] [502082:HumanMimic_vq_Take_093_skeleton_0_30hz_clip_105_190]
+H2_GETTER_ONLY_RPC_OK
+COMMAND_RC[getter_audit]=0
+H2_GATE_FAILED=CURRENT_FSM_IS_NOT_601_NO_AUTOMATIC_TRANSITION

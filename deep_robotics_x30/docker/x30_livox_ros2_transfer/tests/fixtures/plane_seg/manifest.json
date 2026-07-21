@@ -1,0 +1,57 @@
+{
+  "fixtures": [
+    {
+      "fixture_path": "mode3_flat_20260714_142726.plane_seg.json",
+      "fixture_sha256": "60e1a44e8380be57b9fd5296fc7e1ff409456babd76f1f2ac7db7d9345f125f0",
+      "fixture_size_bytes": 9741,
+      "frame_payload_sha256": [
+        "6c8552cc06260db6a5755354de38a404e6ca37212a9a4e6be341dc8bcfecf39e",
+        "727082b46b083802a27d3fcfc42a81f8b54f1970ca8d8e249573e25686c8d7ea",
+        "9e1a06cba44e844411969fe9028572680fa5420c206011fab8b0468927294563"
+      ],
+      "source_bag_path": "x30_stair_baselines/mode3_flat_20260714_142726.bag",
+      "source_bag_sha256": "9a10296098fefdd9a969ed56892896bb1df13a2e7175194053660da98e3c0484"
+    },
+    {
+      "fixture_path": "mode3_flat_repeat_20260714_150324.plane_seg.json",
+      "fixture_sha256": "04c70ba0d57339944a45bf7dfe3230c96401694536cb5617e755d6a131ac0bb5",
+      "fixture_size_bytes": 12454,
+      "frame_payload_sha256": [
+        "01cc53d038b440de30a69696d69fc0d44b4aca0ea460a28cd198a8bee98e8f41",
+        "cb05fee6f7d2a1c322a31effd54bef0ab8a0d6c0338d1c7d24583c74a0ec64e3",
+        "000dc50dbdccce17bacf8ba7502ab0d13b4c286a36f2f349f5e34b9d9c809bc9"
+      ],
+      "source_bag_path": "x30_stair_baselines/mode3_flat_repeat_20260714_150324.bag",
+      "source_bag_sha256": "dbe7838b2291fa4d4122a042588a5de3a34ae69f23578879e6934dce49ecf423"
+    },
+    {
+      "fixture_path": "mode3_measured_step_h022_d029_w035_20260714_160857.plane_seg.json",
+      "fixture_sha256": "661efb838962c56f86cb8827ad7da454a90c56b211a2192825f6e253586a5213",
+      "fixture_size_bytes": 15547,
+      "frame_payload_sha256": [
+        "4d7f20cb14794fee46b5cbd98fecc59044e37ad576eecb0d19076e3b0bbd5f7a",
+        "8d38817ee3e4a900c9147a964478cd74beae670d7c6ba8c7d87832b4a5158024",
+        "3d16c5b3be639691e7264630142cb969d5d75ddb3bead90fb3308f2682c1c418"
+      ],
+      "source_bag_path": "x30_stair_baselines/mode3_measured_step_h022_d029_w035_20260714_160857.bag",
+      "source_bag_sha256": "db43a9de2ad8c030c43256761c269f9bf7cce1798206a253229b55827102d4e6"
+    },
+    {
+      "fixture_path": "mode3_object_probe_20260714_153211.plane_seg.json",
+      "fixture_sha256": "c10f7bb61f82dfc947bfd2fe54261cbadaeb068df30ccbcf89739024c163c227",
+      "fixture_size_bytes": 14458,
+      "frame_payload_sha256": [
+        "acd3e8ab48463f1638f89e55d9e87e75e0b02927bc86c2286c87707faa86be2e",
+        "91ca8a35c4a863baa30e24c267897c5f68fe5256eb92dd568d6981f98f821303",
+        "aed3a2cafd2df0276480100311f89d1f2953087ece140baf5f27ceecd193b915"
+      ],
+      "source_bag_path": "x30_stair_baselines/mode3_object_probe_20260714_153211.bag",
+      "source_bag_sha256": "d6e240e3024b13184c05411f90c4eb2dd9727be1079d1ade67e0fe8490ed2391"
+    }
+  ],
+  "hashing": {
+    "algorithm": "sha256",
+    "fixture_file_bytes": "exact UTF-8 bytes including trailing newline"
+  },
+  "schema": "x30-plane-seg-regression-manifest/v1"
+}

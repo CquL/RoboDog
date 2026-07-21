@@ -1,0 +1,13 @@
+{
+    "official_owner":  "unitreerobotics",
+    "repository":  "unitree_sdk2",
+    "source_url":  "https://github.com/unitreerobotics/unitree_sdk2",
+    "archive_url":  "https://github.com/unitreerobotics/unitree_sdk2/archive/21d0a3b2c46ee48c8fdf2783becb6be3beb0a59b.zip",
+    "commit":  "21d0a3b2c46ee48c8fdf2783becb6be3beb0a59b",
+    "role":  "Required C++ SDK2 with H2 high-level and low-level examples",
+    "retrieved_at":  "2026-07-15T06:49:05.5041947Z",
+    "archive_file":  "unitree_sdk2-21d0a3b2c46ee48c8fdf2783becb6be3beb0a59b.zip",
+    "archive_bytes":  17294396,
+    "archive_sha256":  "1BF5DAC3A74C6CC6A02A7D2C91FECDAAFDA3E016E5BD16E4F96B3389893426CA",
+    "license_file":  "LICENSE"
+}

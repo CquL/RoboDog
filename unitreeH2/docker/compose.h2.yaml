@@ -1,0 +1,20 @@
+services:
+  h2-hal:
+    image: unitree_h2:amd64-offline
+    container_name: unitree-h2-hal
+    network_mode: host
+    ipc: host
+    init: true
+    privileged: false
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=256m
+    volumes:
+      - ../../robot_hardware/robot_hardware/config/unitree_h2.yaml:/etc/robodog/unitree_h2.yaml:ro
+    # HAL-only inspection shell. No sensor bridge, algorithm or H2 runtime is
+    # installed in the current image.
+    command: ["/bin/bash"]

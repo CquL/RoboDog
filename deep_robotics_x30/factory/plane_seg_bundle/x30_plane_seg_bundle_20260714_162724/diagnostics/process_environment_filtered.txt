@@ -1,0 +1,2 @@
+CMAKE_PREFIX_PATH=/home/ysc/jy_cog/vmap:/opt/ros/noetic
+LD_LIBRARY_PATH=/home/ysc/jy_cog/vmap/lib:/opt/ros/noetic/lib

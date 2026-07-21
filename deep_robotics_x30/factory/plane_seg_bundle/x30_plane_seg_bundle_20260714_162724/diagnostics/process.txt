@@ -1,0 +1,4 @@
+pid=3686
+executable=/opt/robot/share/vmap/lib/plane_seg_ros/plane_seg_ros
+cwd=/home/ysc/.ros
+cmdline=/home/ysc/jy_cog/vmap/lib/plane_seg_ros/plane_seg_ros __name:=plane_seg __log:=/home/ysc/.ros/log/0fd2a9f0-7f43-11f1-b913-4299e5bf26ff/plane_seg-6.log 

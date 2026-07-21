@@ -1,0 +1,14 @@
+capture_time=20260714_160857
+label=mode3_measured_step_h022_d029_w035
+duration_s=15
+host=ysc
+interface=eth1
+height_map_mode_state_before=3
+height_map_mode_state_after=3
+scene_description=single_measured_step
+scene_step_height_m=0.22
+scene_step_depth_m=0.29
+scene_step_width_m=0.35
+scene_robot_distance_m=1.00
+robot_motion_command_sent=false
+gridmap_data_sent_by_script=false

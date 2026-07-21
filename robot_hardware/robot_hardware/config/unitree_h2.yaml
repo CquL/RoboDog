@@ -1,0 +1,28 @@
+# Official product name: Unitree H2 EDU. "H20" is not an official model name.
+robot_model: "unitree_h2"
+
+# Replace with the dedicated wired NIC connected to the H2 robot network.
+network_interface_card_name: "eth0"
+dds_domain_id: 0
+sdk_timeout_s: 10.0
+
+# Stage-1 safety defaults: initialization/read-only checks and zero velocity only.
+allow_motion_commands: false
+allow_state_changing_actions: false
+verify_fsm_on_init: true
+
+# Conservative placeholders. Do not raise until the delivered H2 EDU manual,
+# firmware/SDK matrix, operating area and physical emergency stop are verified.
+max_vx: 0.20
+max_vy: 0.10
+max_omega: 0.30
+velocity_command_duration_s: 0.30
+
+velocity_watchdog_hz: 50
+velocity_command_timeout_ms: 250
+velocity_zero_hold_ms: 1000
+
+# Every non-zero velocity command re-reads GetFsmId and is rejected unless the
+# current high-level locomotion FSM is this value. Initial live testing uses the
+# official Start wrapper ID; never auto-transition to it from this adapter.
+required_motion_fsm_id: 601

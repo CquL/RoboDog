@@ -1,0 +1,84 @@
+$ timeout 10 rosnode info /plane_seg
+--------------------------------------------------------------------------------
+Node [/plane_seg]
+Publications: 
+ * /plane_seg/debug [sensor_msgs/PointCloud2]
+ * /plane_seg/hull_cloud [sensor_msgs/PointCloud2]
+ * /plane_seg/hull_marker_array [visualization_msgs/MarkerArray]
+ * /plane_seg/hull_markers [visualization_msgs/Marker]
+ * /plane_seg/look_pose [geometry_msgs/PoseStamped]
+ * /plane_seg/quadrangels [sensor_msgs/PointCloud2]
+ * /plane_seg/received_cloud [sensor_msgs/PointCloud2]
+ * /plane_seg/voxel_cloud [sensor_msgs/PointCloud2]
+ * /rosout [rosgraph_msgs/Log]
+ * /test_rqy [geometry_msgs/Point]
+
+Subscriptions: 
+ * /deeprobotics_local_height_map_mid360/height_map [grid_map_msgs/GridMap]
+ * /height_map_mode [std_msgs/Int32]
+ * /imu/data [sensor_msgs/Imu]
+ * /plane_seg/point_cloud_in [unknown type]
+ * /tf [tf2_msgs/TFMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Services: 
+ * /plane_seg/get_loggers
+ * /plane_seg/set_logger_level
+
+
+contacting node http://ysc:36137/ ...
+Pid: 3686
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (54577 - 127.0.0.1:55618) [25]
+    * transport: TCPROS
+ * topic: /plane_seg/quadrangels
+    * to: /gridmap_port
+    * direction: outbound (54577 - 127.0.0.1:55634) [12]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /robot_state_publisher (http://ysc:33577/)
+    * direction: inbound (56792 - ysc:34273) [18]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /deeprobotics_local_height_map_mid360 (http://ysc:35041/)
+    * direction: inbound (46452 - ysc:51003) [11]
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /base2livox (http://ysc:39895/)
+    * direction: inbound (44638 - ysc:42569) [26]
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /base2urdf (http://ysc:42611/)
+    * direction: inbound (42028 - ysc:44181) [27]
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /robot_state_publisher (http://ysc:33577/)
+    * direction: inbound (56794 - ysc:34273) [28]
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /base2livoxlidar (http://ysc:36199/)
+    * direction: inbound (57534 - ysc:43341) [29]
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /base2stellarBack (http://ysc:41953/)
+    * direction: inbound (48592 - ysc:47673) [30]
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /base2stellarFront (http://ysc:35171/)
+    * direction: inbound (42852 - ysc:46377) [31]
+    * transport: TCPROS
+ * topic: /height_map_mode
+    * to: /app_port (http://ysc:33199/)
+    * direction: inbound (58546 - ysc:46683) [32]
+    * transport: TCPROS
+ * topic: /deeprobotics_local_height_map_mid360/height_map
+    * to: /deeprobotics_local_height_map_mid360 (http://ysc:35041/)
+    * direction: inbound (46420 - ysc:51003) [33]
+    * transport: TCPROS
+ * topic: /imu/data
+    * to: /yesense_imu_node (http://ysc:43703/)
+    * direction: inbound (42850 - ysc:50139) [34]
+    * transport: TCPROS
+

@@ -1,0 +1,843 @@
+
+===== TIME AND HOST =====
+2026-07-16T11:28:48+08:00
+unitree-H2-pc2
+
+===== NETWORK DEVICE MAPPING =====
+
+--- eth0 ---
+/sys/devices/pci0000:00/0000:00:14.0/usb2/2-2/2-2:1.0
+driver: r8152
+version: v1.12.13
+firmware-version: rtl8153b-2 v2 04/27/23
+expansion-rom-version: 
+bus-info: usb-0000:00:14.0-2
+supports-statistics: yes
+supports-test: no
+supports-eeprom-access: no
+supports-register-dump: no
+supports-priv-flags: no
+DEVPATH=/devices/pci0000:00/0000:00:14.0/usb2/2-2/2-2:1.0/net/eth0
+INTERFACE=eth0
+IFINDEX=3
+SUBSYSTEM=net
+USEC_INITIALIZED=2449254
+ID_MM_CANDIDATE=1
+ID_NET_NAMING_SCHEME=v249
+ID_NET_NAME_PATH=enp0s20f0u2
+ID_VENDOR=Realtek
+ID_VENDOR_ENC=Realtek
+ID_VENDOR_ID=0bda
+ID_MODEL=USB_10_100_1000_LAN
+ID_MODEL_ENC=USB\x2010\x2f100\x2f1000\x20LAN
+ID_MODEL_ID=8153
+ID_REVISION=3100
+ID_SERIAL=Realtek_USB_10_100_1000_LAN_000000000000
+ID_SERIAL_SHORT=000000000000
+ID_TYPE=generic
+ID_BUS=usb
+ID_USB_INTERFACES=:ffff00:020600:0a0000:
+ID_USB_INTERFACE_NUM=00
+ID_USB_DRIVER=r8152
+ID_VENDOR_FROM_DATABASE=Realtek Semiconductor Corp.
+ID_MODEL_FROM_DATABASE=RTL8153 Gigabit Ethernet Adapter
+ID_PATH=pci-0000:00:14.0-usb-0:2:1.0
+ID_PATH_TAG=pci-0000_00_14_0-usb-0_2_1_0
+ID_NET_DRIVER=r8152
+ID_NET_LINK_FILE=/usr/lib/systemd/network/73-usb-net-by-mac.link
+ID_NET_NAME=eth0
+NM_UNMANAGED=0
+SYSTEMD_ALIAS=/sys/subsystem/net/devices/eth0
+TAGS=:systemd:
+CURRENT_TAGS=:systemd:
+3: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+    link/ether a2:75:b7:1e:ff:f9 brd ff:ff:ff:ff:ff:ff promiscuity 0 minmtu 68 maxmtu 9194 addrgenmode eui64 numtxqueues 1 numrxqueues 1 gso_max_size 16354 gso_max_segs 65535 parentbus usb parentdev 2-2:1.0 
+3: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether a2:75:b7:1e:ff:f9 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.123.162/24 brd 192.168.123.255 scope global noprefixroute eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a075:b7ff:fe1e:fff9/64 scope link 
+       valid_lft forever preferred_lft forever
+3:	eth0
+	link  01:00:5e:00:00:01
+	link  33:33:00:00:00:01
+	link  01:00:5e:00:00:fb
+	link  33:33:ff:1e:ff:f9
+	link  33:33:00:00:00:fb
+	link  01:00:5e:7f:00:01
+	inet  239.255.0.1 users 12
+	inet  224.0.0.251 users 3
+	inet  224.0.0.1
+	inet6 ff02::fb
+	inet6 ff02::1:ff1e:fff9
+	inet6 ff02::1
+	inet6 ff01::1
+
+--- eth1 ---
+/sys/devices/pci0000:00/0000:00:1f.6
+driver: e1000e
+version: 6.5.2-rt8
+firmware-version: 0.6-4
+expansion-rom-version: 
+bus-info: 0000:00:1f.6
+supports-statistics: yes
+supports-test: yes
+supports-eeprom-access: yes
+supports-register-dump: yes
+supports-priv-flags: yes
+DEVPATH=/devices/pci0000:00/0000:00:1f.6/net/eth1
+INTERFACE=eth1
+IFINDEX=2
+SUBSYSTEM=net
+USEC_INITIALIZED=1657612
+ID_MM_CANDIDATE=1
+ID_NET_NAMING_SCHEME=v249
+ID_NET_NAME_MAC=enx00e04ca249aa
+ID_OUI_FROM_DATABASE=REALTEK SEMICONDUCTOR CORP.
+ID_NET_NAME_ONBOARD=eno1
+ID_NET_LABEL_ONBOARD=Onboard - Ethernet
+ID_NET_NAME_PATH=enp0s31f6
+ID_BUS=pci
+ID_VENDOR_ID=0x8086
+ID_MODEL_ID=0x1a1f
+ID_PCI_CLASS_FROM_DATABASE=Network controller
+ID_PCI_SUBCLASS_FROM_DATABASE=Ethernet controller
+ID_VENDOR_FROM_DATABASE=Intel Corporation
+ID_MODEL_FROM_DATABASE=Ethernet Connection (16) I219-V
+ID_PATH=pci-0000:00:1f.6
+ID_PATH_TAG=pci-0000_00_1f_6
+ID_NET_DRIVER=e1000e
+ID_NET_LINK_FILE=/usr/lib/systemd/network/99-default.link
+ID_NET_NAME=eth1
+NM_UNMANAGED=0
+SYSTEMD_ALIAS=/sys/subsystem/net/devices/eth1
+TAGS=:systemd:
+CURRENT_TAGS=:systemd:
+2: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+    link/ether 00:e0:4c:a2:49:aa brd ff:ff:ff:ff:ff:ff promiscuity 0 minmtu 68 maxmtu 9000 addrgenmode eui64 numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 parentbus pci parentdev 0000:00:1f.6 
+    altname eno1
+    altname enp0s31f6
+2: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:e0:4c:a2:49:aa brd ff:ff:ff:ff:ff:ff
+    altname eno1
+    altname enp0s31f6
+    inet 192.168.124.162/24 brd 192.168.124.255 scope global noprefixroute eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::2e0:4cff:fea2:49aa/64 scope link 
+       valid_lft forever preferred_lft forever
+2:	eth1
+	link  01:00:5e:00:00:01
+	link  33:33:00:00:00:01
+	link  01:00:5e:00:00:fb
+	link  33:33:ff:a2:49:aa
+	link  33:33:00:00:00:fb
+	inet  224.0.0.251 users 3
+	inet  224.0.0.1
+	inet6 ff02::fb
+	inet6 ff02::1:ffa2:49aa
+	inet6 ff02::1
+	inet6 ff01::1
+
+===== CYCLONEDDS CONFIGURATION =====
+-rwxrwxrwx 1 unitree unitree 671 10月 28  2024 /home/unitree/slam_config/cyclone_go2_B2_ws/cyclonedds.xml
+bc977aacd0e44804cb8da24d24d6fe5ed654aad9ed7b15ed3ef36d32f27a1796  /home/unitree/slam_config/cyclone_go2_B2_ws/cyclonedds.xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<CycloneDDS xmlns="https://cdds.io/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
+    <Domain Id="any">
+        <General>
+            <Interfaces>
+                <NetworkInterface name="eth0" priority="default" multicast="default" />
+            </Interfaces>
+            <AllowMulticast>spdp</AllowMulticast>
+        </General>
+        <Internal>
+        	<!--MinimumSocketReceiveBufferSize>50MB</MinimumSocketReceiveBufferSize-->
+        </Internal>
+    </Domain>
+</CycloneDDS>
+
+===== RELEVANT PROCESS DDS ENVIRONMENT =====
+
+--- unitree_slam ---
+pid=1410 cmd=/home/unitree/graph_pid_ws/install/lib/QT_Server/unitree_slam --ros-args --params-file /home/unitree/graph_pid_ws/config_files/QT_Server_config/configs/params.yaml 
+AMENT_PREFIX_PATH=/home/unitree/graph_pid_ws/install:/home/unitree/slam_config/cyclone_go2_B2_ws/install/rmw_cyclonedds_cpp:/opt/ros/humble
+COLCON_PREFIX_PATH=/home/unitree/graph_pid_ws/install:/home/unitree/slam_config/cyclone_go2_B2_ws/install
+CYCLONEDDS_URI=/home/unitree/slam_config/cyclone_go2_B2_ws/cyclonedds.xml
+RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+ROS_DISTRO=humble
+ROS_LOCALHOST_ONLY=0
+ROS_PYTHON_VERSION=3
+ROS_VERSION=2
+
+--- dog_cmd ---
+pid=1478 cmd=/home/unitree/graph_pid_ws/install/lib/dog_control_cmd/dog_cmd eth0 --ros-args 
+AMENT_PREFIX_PATH=/home/unitree/graph_pid_ws/install:/home/unitree/slam_config/cyclone_go2_B2_ws/install/rmw_cyclonedds_cpp:/opt/ros/humble
+COLCON_PREFIX_PATH=/home/unitree/graph_pid_ws/install:/home/unitree/slam_config/cyclone_go2_B2_ws/install
+CYCLONEDDS_URI=/home/unitree/slam_config/cyclone_go2_B2_ws/cyclonedds.xml
+RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+ROS_DISTRO=humble
+ROS_LOCALHOST_ONLY=0
+ROS_PYTHON_VERSION=3
+ROS_VERSION=2
+
+--- sport_switch ---
+pid=1480 cmd=/home/unitree/graph_pid_ws/install/lib/dog_control/sport_switch --ros-args 
+AMENT_PREFIX_PATH=/home/unitree/graph_pid_ws/install:/home/unitree/slam_config/cyclone_go2_B2_ws/install/rmw_cyclonedds_cpp:/opt/ros/humble
+COLCON_PREFIX_PATH=/home/unitree/graph_pid_ws/install:/home/unitree/slam_config/cyclone_go2_B2_ws/install
+CYCLONEDDS_URI=/home/unitree/slam_config/cyclone_go2_B2_ws/cyclonedds.xml
+RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+ROS_DISTRO=humble
+ROS_LOCALHOST_ONLY=0
+ROS_PYTHON_VERSION=3
+ROS_VERSION=2
+
+--- bms_ctr ---
+pid=1482 cmd=/home/unitree/graph_pid_ws/install/lib/dog_control/bms_ctr --ros-args --params-file /tmp/launch_params_or408tde 
+AMENT_PREFIX_PATH=/home/unitree/graph_pid_ws/install:/home/unitree/slam_config/cyclone_go2_B2_ws/install/rmw_cyclonedds_cpp:/opt/ros/humble
+COLCON_PREFIX_PATH=/home/unitree/graph_pid_ws/install:/home/unitree/slam_config/cyclone_go2_B2_ws/install
+CYCLONEDDS_URI=/home/unitree/slam_config/cyclone_go2_B2_ws/cyclonedds.xml
+RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+ROS_DISTRO=humble
+ROS_LOCALHOST_ONLY=0
+ROS_PYTHON_VERSION=3
+ROS_VERSION=2
+
+===== UNITREE AND FAILED SERVICES =====
+● unitree_slam.service - unitree slam service
+     Loaded: loaded (/lib/systemd/system/unitree_slam.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2026-07-16 09:30:47 CST; 1h 58min ago
+   Main PID: 689 (0_QTServer.sh)
+      Tasks: 78 (limit: 37532)
+     Memory: 233.9M
+        CPU: 44min 56.742s
+     CGroup: /system.slice/unitree_slam.service
+             ├─ 689 /bin/bash /home/unitree/graph_pid_ws/src/QT_Server/0_QTServer.sh
+             ├─1381 /usr/bin/python3 /opt/ros/humble/bin/ros2 launch QT_Server start.launch.py
+             ├─1410 /home/unitree/graph_pid_ws/install/lib/QT_Server/unitree_slam --ros-args --params-file /home/unitree/graph_pid_ws/config_files/QT_Server_config/configs/params.yaml
+             ├─1412 /home/unitree/graph_pid_ws/install/lib/QT_Server/rs_lidar_cheak --ros-args --params-file /home/unitree/graph_pid_ws/config_files/QT_Server_config/configs/params.yaml
+             ├─1444 /bin/bash /home/unitree/graph_pid_ws/src/QT_Server/shell/rslidar32_lidar.sh Go2
+             ├─1446 /usr/bin/python3 /opt/ros/humble/bin/ros2 launch dog_control dogcontrol.launch.py
+             ├─1476 /home/unitree/graph_pid_ws/install/lib/dog_control/dog_control_pub --ros-args --params-file /tmp/launch_params_b2aneygd --params-file /tmp/launch_params_tbdn6ze1
+             ├─1478 /home/unitree/graph_pid_ws/install/lib/dog_control_cmd/dog_cmd eth0 --ros-args
+             ├─1480 /home/unitree/graph_pid_ws/install/lib/dog_control/sport_switch --ros-args
+             └─1482 /home/unitree/graph_pid_ws/install/lib/dog_control/bms_ctr --ros-args --params-file /tmp/launch_params_or408tde
+
+7月 16 09:31:33 unitree-H2-pc2 0_QTServer.sh[1381]: [rs_lidar_cheak-2] The service slam is not running.
+7月 16 09:31:34 unitree-H2-pc2 0_QTServer.sh[1381]: [rs_lidar_cheak-2] The service ctl is not running.
+7月 16 09:31:34 unitree-H2-pc2 0_QTServer.sh[1381]: [rs_lidar_cheak-2] main
+7月 16 09:31:34 unitree-H2-pc2 0_QTServer.sh[1381]: [rs_lidar_cheak-2] The service slam is not running.
+7月 16 09:31:35 unitree-H2-pc2 0_QTServer.sh[1381]: [rs_lidar_cheak-2] send request error. requestId:42087827414
+7月 16 09:31:35 unitree-H2-pc2 0_QTServer.sh[1381]: [rs_lidar_cheak-2] The service ctl is not running.
+7月 16 09:31:35 unitree-H2-pc2 0_QTServer.sh[1381]: [rs_lidar_cheak-2] main
+7月 16 09:31:35 unitree-H2-pc2 0_QTServer.sh[1381]: [rs_lidar_cheak-2] terminate called after throwing an instance of 'unitree::common::BadCastException'
+7月 16 09:31:35 unitree-H2-pc2 0_QTServer.sh[1381]: [rs_lidar_cheak-2]   what():  AnyCast error. target type is St3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7unitree6common3AnyESt4lessIS5_ESaISt4pairIKS5_S8_EEE, but source type is v
+7月 16 09:31:35 unitree-H2-pc2 0_QTServer.sh[1381]: [rs_lidar_cheak-2] /home/unitree/graph_pid_ws/src/QT_Server/shell/rslidar32_lidar.sh: line 37:  1447 Aborted                 (core dumped) ./h1_client
+
+× shoujuan_server.service - shoujuan service
+     Loaded: loaded (/etc/systemd/system/shoujuan_server.service; disabled; vendor preset: enabled)
+     Active: failed (Result: exit-code) since Thu 2026-07-16 09:33:29 CST; 1h 55min ago
+    Process: 3615 ExecStart=/bin/bash /unitree/module/shoujuan_service/auto_start/shoujuan_server.sh (code=exited, status=2)
+   Main PID: 3615 (code=exited, status=2)
+        CPU: 624ms
+
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 5.
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Start request repeated too quickly.
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: Failed to start shoujuan service.
+# /lib/systemd/system/unitree_slam.service
+[Unit]
+Description=unitree slam service
+After=network.target
+Requires=network.target
+[Service]
+Type=simple
+User=unitree
+Enviroment=RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+Enviroment=CYCLONEDDS_URI=/home/unitree/slam_config/cyclone_go2_B2_ws/cyclonedds.xml
+Enviroment=LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+Enviroment=LD_LIBRARY_PATH=/home/unitree/graph_pid_ws/install/tasknode/lib/tasknode:/home/unitree/graph_pid_ws/src/depends:$LD_LIBRARY_PATH
+Enviroment=LD_LIBRARY_PATH=/home/unitree/graph_pid_ws/install/lib/tasknode:/home/unitree/graph_pid_ws/src/depends:$LD_LIBRARY_PATH
+ExecStart=/home/unitree/graph_pid_ws/src/QT_Server/0_QTServer.sh
+PrivateTmp=true
+KillMode=control-group
+
+[Install]
+WantedBy=multi-user.target
+
+# /etc/systemd/system/shoujuan_server.service
+[Unit]
+Description=shoujuan service
+After=network.target
+
+[Service]
+Type=simple
+User=unitree
+
+ExecStart=/bin/bash /unitree/module/shoujuan_service/auto_start/shoujuan_server.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+7月 16 09:32:59 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:32:59 unitree-H2-pc2 systemd[1]: Failed to start shoujuan service.
+7月 16 09:33:00 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Start request repeated too quickly.
+7月 16 09:33:00 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:00 unitree-H2-pc2 systemd[1]: Failed to start shoujuan service.
+7月 16 09:33:05 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:06 unitree-H2-pc2 bash[3353]: # conda environments:
+7月 16 09:33:06 unitree-H2-pc2 bash[3353]: #
+7月 16 09:33:06 unitree-H2-pc2 bash[3353]: base                     /home/unitree/anaconda3
+7月 16 09:33:06 unitree-H2-pc2 bash[3353]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:06 unitree-H2-pc2 bash[3353]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:06 unitree-H2-pc2 bash[3344]: /unitree/module/shoujuan_service
+7月 16 09:33:06 unitree-H2-pc2 bash[3363]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:06 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:06 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:06 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 1.
+7月 16 09:33:06 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:06 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:06 unitree-H2-pc2 bash[3371]: # conda environments:
+7月 16 09:33:06 unitree-H2-pc2 bash[3371]: #
+7月 16 09:33:06 unitree-H2-pc2 bash[3371]: base                     /home/unitree/anaconda3
+7月 16 09:33:06 unitree-H2-pc2 bash[3371]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:06 unitree-H2-pc2 bash[3371]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:06 unitree-H2-pc2 bash[3366]: /unitree/module/shoujuan_service
+7月 16 09:33:06 unitree-H2-pc2 bash[3377]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:06 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:06 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:07 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 2.
+7月 16 09:33:07 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:07 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:07 unitree-H2-pc2 bash[3383]: # conda environments:
+7月 16 09:33:07 unitree-H2-pc2 bash[3383]: #
+7月 16 09:33:07 unitree-H2-pc2 bash[3383]: base                     /home/unitree/anaconda3
+7月 16 09:33:07 unitree-H2-pc2 bash[3383]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:07 unitree-H2-pc2 bash[3383]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:07 unitree-H2-pc2 bash[3378]: /unitree/module/shoujuan_service
+7月 16 09:33:07 unitree-H2-pc2 bash[3389]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:07 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:07 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:07 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 3.
+7月 16 09:33:07 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:07 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:08 unitree-H2-pc2 bash[3395]: # conda environments:
+7月 16 09:33:08 unitree-H2-pc2 bash[3395]: #
+7月 16 09:33:08 unitree-H2-pc2 bash[3395]: base                     /home/unitree/anaconda3
+7月 16 09:33:08 unitree-H2-pc2 bash[3395]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:08 unitree-H2-pc2 bash[3395]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:08 unitree-H2-pc2 bash[3390]: /unitree/module/shoujuan_service
+7月 16 09:33:08 unitree-H2-pc2 bash[3401]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:08 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:08 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:08 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 4.
+7月 16 09:33:08 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:08 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:09 unitree-H2-pc2 bash[3407]: # conda environments:
+7月 16 09:33:09 unitree-H2-pc2 bash[3407]: #
+7月 16 09:33:09 unitree-H2-pc2 bash[3407]: base                     /home/unitree/anaconda3
+7月 16 09:33:09 unitree-H2-pc2 bash[3407]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:09 unitree-H2-pc2 bash[3407]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:09 unitree-H2-pc2 bash[3402]: /unitree/module/shoujuan_service
+7月 16 09:33:09 unitree-H2-pc2 bash[3417]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:09 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:09 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:09 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 5.
+7月 16 09:33:09 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:09 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Start request repeated too quickly.
+7月 16 09:33:09 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:09 unitree-H2-pc2 systemd[1]: Failed to start shoujuan service.
+7月 16 09:33:10 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Start request repeated too quickly.
+7月 16 09:33:10 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:10 unitree-H2-pc2 systemd[1]: Failed to start shoujuan service.
+7月 16 09:33:15 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:16 unitree-H2-pc2 bash[3462]: # conda environments:
+7月 16 09:33:16 unitree-H2-pc2 bash[3462]: #
+7月 16 09:33:16 unitree-H2-pc2 bash[3462]: base                     /home/unitree/anaconda3
+7月 16 09:33:16 unitree-H2-pc2 bash[3462]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:16 unitree-H2-pc2 bash[3462]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:16 unitree-H2-pc2 bash[3453]: /unitree/module/shoujuan_service
+7月 16 09:33:16 unitree-H2-pc2 bash[3468]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:16 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:16 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:16 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 1.
+7月 16 09:33:16 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:16 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:17 unitree-H2-pc2 bash[3474]: # conda environments:
+7月 16 09:33:17 unitree-H2-pc2 bash[3474]: #
+7月 16 09:33:17 unitree-H2-pc2 bash[3474]: base                     /home/unitree/anaconda3
+7月 16 09:33:17 unitree-H2-pc2 bash[3474]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:17 unitree-H2-pc2 bash[3474]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:17 unitree-H2-pc2 bash[3469]: /unitree/module/shoujuan_service
+7月 16 09:33:17 unitree-H2-pc2 bash[3480]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:17 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:17 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:17 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 2.
+7月 16 09:33:17 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:17 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:17 unitree-H2-pc2 bash[3486]: # conda environments:
+7月 16 09:33:17 unitree-H2-pc2 bash[3486]: #
+7月 16 09:33:17 unitree-H2-pc2 bash[3486]: base                     /home/unitree/anaconda3
+7月 16 09:33:17 unitree-H2-pc2 bash[3486]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:17 unitree-H2-pc2 bash[3486]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:17 unitree-H2-pc2 bash[3481]: /unitree/module/shoujuan_service
+7月 16 09:33:17 unitree-H2-pc2 bash[3494]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:17 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:17 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:18 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 3.
+7月 16 09:33:18 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:18 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:18 unitree-H2-pc2 bash[3504]: # conda environments:
+7月 16 09:33:18 unitree-H2-pc2 bash[3504]: #
+7月 16 09:33:18 unitree-H2-pc2 bash[3504]: base                     /home/unitree/anaconda3
+7月 16 09:33:18 unitree-H2-pc2 bash[3504]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:18 unitree-H2-pc2 bash[3504]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:18 unitree-H2-pc2 bash[3495]: /unitree/module/shoujuan_service
+7月 16 09:33:18 unitree-H2-pc2 bash[3510]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:18 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:18 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:18 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 4.
+7月 16 09:33:18 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:18 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:19 unitree-H2-pc2 bash[3516]: # conda environments:
+7月 16 09:33:19 unitree-H2-pc2 bash[3516]: #
+7月 16 09:33:19 unitree-H2-pc2 bash[3516]: base                     /home/unitree/anaconda3
+7月 16 09:33:19 unitree-H2-pc2 bash[3516]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:19 unitree-H2-pc2 bash[3516]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:19 unitree-H2-pc2 bash[3511]: /unitree/module/shoujuan_service
+7月 16 09:33:19 unitree-H2-pc2 bash[3522]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:19 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:19 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:19 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 5.
+7月 16 09:33:19 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:19 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Start request repeated too quickly.
+7月 16 09:33:19 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:19 unitree-H2-pc2 systemd[1]: Failed to start shoujuan service.
+7月 16 09:33:20 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Start request repeated too quickly.
+7月 16 09:33:20 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:20 unitree-H2-pc2 systemd[1]: Failed to start shoujuan service.
+7月 16 09:33:26 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:26 unitree-H2-pc2 bash[3565]: # conda environments:
+7月 16 09:33:26 unitree-H2-pc2 bash[3565]: #
+7月 16 09:33:26 unitree-H2-pc2 bash[3565]: base                     /home/unitree/anaconda3
+7月 16 09:33:26 unitree-H2-pc2 bash[3565]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:26 unitree-H2-pc2 bash[3565]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:26 unitree-H2-pc2 bash[3556]: /unitree/module/shoujuan_service
+7月 16 09:33:26 unitree-H2-pc2 bash[3571]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:26 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:26 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:26 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 1.
+7月 16 09:33:26 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:26 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:27 unitree-H2-pc2 bash[3579]: # conda environments:
+7月 16 09:33:27 unitree-H2-pc2 bash[3579]: #
+7月 16 09:33:27 unitree-H2-pc2 bash[3579]: base                     /home/unitree/anaconda3
+7月 16 09:33:27 unitree-H2-pc2 bash[3579]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:27 unitree-H2-pc2 bash[3579]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:27 unitree-H2-pc2 bash[3574]: /unitree/module/shoujuan_service
+7月 16 09:33:27 unitree-H2-pc2 bash[3589]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:27 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:27 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:27 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 2.
+7月 16 09:33:27 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:27 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:28 unitree-H2-pc2 bash[3596]: # conda environments:
+7月 16 09:33:28 unitree-H2-pc2 bash[3596]: #
+7月 16 09:33:28 unitree-H2-pc2 bash[3596]: base                     /home/unitree/anaconda3
+7月 16 09:33:28 unitree-H2-pc2 bash[3596]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:28 unitree-H2-pc2 bash[3596]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:28 unitree-H2-pc2 bash[3590]: /unitree/module/shoujuan_service
+7月 16 09:33:28 unitree-H2-pc2 bash[3602]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:28 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:28 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:28 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 3.
+7月 16 09:33:28 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:28 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:28 unitree-H2-pc2 bash[3608]: # conda environments:
+7月 16 09:33:28 unitree-H2-pc2 bash[3608]: #
+7月 16 09:33:28 unitree-H2-pc2 bash[3608]: base                     /home/unitree/anaconda3
+7月 16 09:33:28 unitree-H2-pc2 bash[3608]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:28 unitree-H2-pc2 bash[3608]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:28 unitree-H2-pc2 bash[3603]: /unitree/module/shoujuan_service
+7月 16 09:33:28 unitree-H2-pc2 bash[3614]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:28 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:28 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 4.
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: Started shoujuan service.
+7月 16 09:33:29 unitree-H2-pc2 bash[3620]: # conda environments:
+7月 16 09:33:29 unitree-H2-pc2 bash[3620]: #
+7月 16 09:33:29 unitree-H2-pc2 bash[3620]: base                     /home/unitree/anaconda3
+7月 16 09:33:29 unitree-H2-pc2 bash[3620]: h1_arm                   /home/unitree/anaconda3/envs/h1_arm
+7月 16 09:33:29 unitree-H2-pc2 bash[3620]: unitree               *  /home/unitree/anaconda3/envs/unitree
+7月 16 09:33:29 unitree-H2-pc2 bash[3615]: /unitree/module/shoujuan_service
+7月 16 09:33:29 unitree-H2-pc2 bash[3626]: python: can't open file 'translate_test.py': [Errno 2] No such file or directory
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Scheduled restart job, restart counter is at 5.
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: Stopped shoujuan service.
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Start request repeated too quickly.
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: shoujuan_server.service: Failed with result 'exit-code'.
+7月 16 09:33:29 unitree-H2-pc2 systemd[1]: Failed to start shoujuan service.
+
+===== SDK2 CMAKE PACKAGES =====
+
+--- /opt/unitree_robotics/lib/cmake/unitree_sdk2 ---
+f /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Config.cmake -> 
+f /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake -> 
+f /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake -> 
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:5:# The created file sets PACKAGE_VERSION_EXACT if the current version string and
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:7:# PACKAGE_VERSION_COMPATIBLE if the current version is equal to the requested version.
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:9:# The variable CVF_VERSION must be set before calling configure_file().
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:12:if (PACKAGE_FIND_VERSION_RANGE)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:19:set(PACKAGE_VERSION "2.0.0")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:22:  set(CVF_VERSION_MAJOR "${CMAKE_MATCH_1}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:23:  set(CVF_VERSION_MINOR "${CMAKE_MATCH_2}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:24:  set(CVF_VERSION_PATCH "${CMAKE_MATCH_3}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:26:  if(NOT CVF_VERSION_MAJOR VERSION_EQUAL 0)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:27:    string(REGEX REPLACE "^0+" "" CVF_VERSION_MAJOR "${CVF_VERSION_MAJOR}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:29:  if(NOT CVF_VERSION_MINOR VERSION_EQUAL 0)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:30:    string(REGEX REPLACE "^0+" "" CVF_VERSION_MINOR "${CVF_VERSION_MINOR}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:32:  if(NOT CVF_VERSION_PATCH VERSION_EQUAL 0)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:33:    string(REGEX REPLACE "^0+" "" CVF_VERSION_PATCH "${CVF_VERSION_PATCH}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:36:  set(CVF_VERSION_NO_TWEAK "${CVF_VERSION_MAJOR}.${CVF_VERSION_MINOR}.${CVF_VERSION_PATCH}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:38:  set(CVF_VERSION_NO_TWEAK "2.0.0")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:41:if(PACKAGE_FIND_VERSION MATCHES "^([0-9]+)\\.([0-9]+)\\.([0-9]+)") # strip the tweak version
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:42:  set(REQUESTED_VERSION_MAJOR "${CMAKE_MATCH_1}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:43:  set(REQUESTED_VERSION_MINOR "${CMAKE_MATCH_2}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:44:  set(REQUESTED_VERSION_PATCH "${CMAKE_MATCH_3}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:46:  if(NOT REQUESTED_VERSION_MAJOR VERSION_EQUAL 0)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:47:    string(REGEX REPLACE "^0+" "" REQUESTED_VERSION_MAJOR "${REQUESTED_VERSION_MAJOR}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:49:  if(NOT REQUESTED_VERSION_MINOR VERSION_EQUAL 0)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:50:    string(REGEX REPLACE "^0+" "" REQUESTED_VERSION_MINOR "${REQUESTED_VERSION_MINOR}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:52:  if(NOT REQUESTED_VERSION_PATCH VERSION_EQUAL 0)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:53:    string(REGEX REPLACE "^0+" "" REQUESTED_VERSION_PATCH "${REQUESTED_VERSION_PATCH}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:56:  set(REQUESTED_VERSION_NO_TWEAK
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:57:      "${REQUESTED_VERSION_MAJOR}.${REQUESTED_VERSION_MINOR}.${REQUESTED_VERSION_PATCH}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:59:  set(REQUESTED_VERSION_NO_TWEAK "${PACKAGE_FIND_VERSION}")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:62:if(REQUESTED_VERSION_NO_TWEAK STREQUAL CVF_VERSION_NO_TWEAK)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:63:  set(PACKAGE_VERSION_COMPATIBLE TRUE)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:65:  set(PACKAGE_VERSION_COMPATIBLE FALSE)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:68:if(PACKAGE_FIND_VERSION STREQUAL PACKAGE_VERSION)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:69:  set(PACKAGE_VERSION_EXACT TRUE)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:86:  set(PACKAGE_VERSION "${PACKAGE_VERSION} (${installedBits}bit)")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:87:  set(PACKAGE_VERSION_UNSUITABLE TRUE)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Config.cmake:7:include("${CMAKE_CURRENT_LIST_DIR}/unitree_sdk2Targets.cmake")
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:1:if(CMAKE_VERSION VERSION_LESS 3.5.0)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:5:cmake_policy(VERSION 2.6)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:8:set(CMAKE_IMPORT_FILE_VERSION 1)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:14:foreach(_expectedTarget unitree_sdk2)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:27:  set(CMAKE_IMPORT_FILE_VERSION)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:63:# Create imported target unitree_sdk2
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:64:add_library(unitree_sdk2 STATIC IMPORTED GLOBAL)
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:65:set_target_properties(unitree_sdk2 PROPERTIES
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:66:    IMPORTED_LOCATION ${_IMPORT_PREFIX}/lib/libunitree_sdk2.a
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:95:set(CMAKE_IMPORT_FILE_VERSION)
+
+--- /usr/local/lib/cmake/unitree_sdk2 ---
+f /usr/local/lib/cmake/unitree_sdk2/unitree_sdk2Config.cmake -> 
+f /usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake -> 
+f /usr/local/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake -> 
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:5:# The created file sets PACKAGE_VERSION_EXACT if the current version string and
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:7:# PACKAGE_VERSION_COMPATIBLE if the current version is equal to the requested version.
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:9:# The variable CVF_VERSION must be set before calling configure_file().
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:12:if (PACKAGE_FIND_VERSION_RANGE)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:19:set(PACKAGE_VERSION "2.0.0")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:22:  set(CVF_VERSION_MAJOR "${CMAKE_MATCH_1}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:23:  set(CVF_VERSION_MINOR "${CMAKE_MATCH_2}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:24:  set(CVF_VERSION_PATCH "${CMAKE_MATCH_3}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:26:  if(NOT CVF_VERSION_MAJOR VERSION_EQUAL 0)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:27:    string(REGEX REPLACE "^0+" "" CVF_VERSION_MAJOR "${CVF_VERSION_MAJOR}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:29:  if(NOT CVF_VERSION_MINOR VERSION_EQUAL 0)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:30:    string(REGEX REPLACE "^0+" "" CVF_VERSION_MINOR "${CVF_VERSION_MINOR}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:32:  if(NOT CVF_VERSION_PATCH VERSION_EQUAL 0)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:33:    string(REGEX REPLACE "^0+" "" CVF_VERSION_PATCH "${CVF_VERSION_PATCH}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:36:  set(CVF_VERSION_NO_TWEAK "${CVF_VERSION_MAJOR}.${CVF_VERSION_MINOR}.${CVF_VERSION_PATCH}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:38:  set(CVF_VERSION_NO_TWEAK "2.0.0")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:41:if(PACKAGE_FIND_VERSION MATCHES "^([0-9]+)\\.([0-9]+)\\.([0-9]+)") # strip the tweak version
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:42:  set(REQUESTED_VERSION_MAJOR "${CMAKE_MATCH_1}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:43:  set(REQUESTED_VERSION_MINOR "${CMAKE_MATCH_2}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:44:  set(REQUESTED_VERSION_PATCH "${CMAKE_MATCH_3}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:46:  if(NOT REQUESTED_VERSION_MAJOR VERSION_EQUAL 0)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:47:    string(REGEX REPLACE "^0+" "" REQUESTED_VERSION_MAJOR "${REQUESTED_VERSION_MAJOR}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:49:  if(NOT REQUESTED_VERSION_MINOR VERSION_EQUAL 0)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:50:    string(REGEX REPLACE "^0+" "" REQUESTED_VERSION_MINOR "${REQUESTED_VERSION_MINOR}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:52:  if(NOT REQUESTED_VERSION_PATCH VERSION_EQUAL 0)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:53:    string(REGEX REPLACE "^0+" "" REQUESTED_VERSION_PATCH "${REQUESTED_VERSION_PATCH}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:56:  set(REQUESTED_VERSION_NO_TWEAK
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:57:      "${REQUESTED_VERSION_MAJOR}.${REQUESTED_VERSION_MINOR}.${REQUESTED_VERSION_PATCH}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:59:  set(REQUESTED_VERSION_NO_TWEAK "${PACKAGE_FIND_VERSION}")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:62:if(REQUESTED_VERSION_NO_TWEAK STREQUAL CVF_VERSION_NO_TWEAK)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:63:  set(PACKAGE_VERSION_COMPATIBLE TRUE)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:65:  set(PACKAGE_VERSION_COMPATIBLE FALSE)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:68:if(PACKAGE_FIND_VERSION STREQUAL PACKAGE_VERSION)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:69:  set(PACKAGE_VERSION_EXACT TRUE)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:86:  set(PACKAGE_VERSION "${PACKAGE_VERSION} (${installedBits}bit)")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake:87:  set(PACKAGE_VERSION_UNSUITABLE TRUE)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2Config.cmake:7:include("${CMAKE_CURRENT_LIST_DIR}/unitree_sdk2Targets.cmake")
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:1:if(CMAKE_VERSION VERSION_LESS 3.5.0)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:5:cmake_policy(VERSION 2.6)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:8:set(CMAKE_IMPORT_FILE_VERSION 1)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:14:foreach(_expectedTarget unitree_sdk2)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:27:  set(CMAKE_IMPORT_FILE_VERSION)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:63:# Create imported target unitree_sdk2
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:64:add_library(unitree_sdk2 STATIC IMPORTED GLOBAL)
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:65:set_target_properties(unitree_sdk2 PROPERTIES
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:66:    IMPORTED_LOCATION ${_IMPORT_PREFIX}/lib/libunitree_sdk2.a
+/usr/local/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake:95:set(CMAKE_IMPORT_FILE_VERSION)
+
+===== SDK2 INSTALLED FILES =====
+f /opt/unitree_robotics/include/ddsc/dds.h -> 
+f /opt/unitree_robotics/include/dds/config.h -> 
+f /opt/unitree_robotics/include/ddscxx/dds/dds.hpp -> 
+f /opt/unitree_robotics/include/ddscxx/dds/features.hpp -> 
+f /opt/unitree_robotics/include/ddscxx/dds/LICENSE -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_basic_types.h -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_data_allocator.h -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_internal_api.h -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_loan_api.h -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_opcodes.h -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_public_alloc.h -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_public_error.h -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_public_impl.h -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_public_listener.h -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_public_qosdefs.h -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_public_qos.h -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_public_status.h -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_rhc.h -> 
+f /opt/unitree_robotics/include/dds/ddsc/dds_statistics.h -> 
+f /opt/unitree_robotics/include/dds/dds.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_acknack.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_builtin_topic_if.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_cdrstream.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_cfgelems.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_cfgunits.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_config.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_config_impl.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_deadline.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_deliver_locally.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_domaingv.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_endpoint.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_entity.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_entity_index.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_entity_match.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_guid.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_handshake.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_iid.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_ipaddr.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_keyhash.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_lifespan.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_list_genptr.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_list_tmpl.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_locator.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_mcgroup.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_ownip.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_participant.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_plist_generic.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_plist.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_pmd.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_portmapping.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_proxy_endpoint.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_proxy_participant.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_raweth.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_rhc.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_security_exchange.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_security_msg.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_security_omg.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_security_util.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_serdata_default.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_serdata.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_serdata_plist.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_serdata_pserop.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_sertopic.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_sertype.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_shm_transport.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_ssl.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_statistics.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_tcp.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_threadmon.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_time.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_tkmap.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_topic.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_tran.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_typebuilder.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_typelib.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_typelookup.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_typewrap.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_udp.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_vendor.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_vnet.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_wraddrset.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_xqos.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_xt_impl.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_xt_typeinfo.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_xt_typeinfo.idl -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_xt_typelookup.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_xt_typelookup.idl -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_xt_typemap.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/ddsi_xt_typemap.idl -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_addrset.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_bitset.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_bswap.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_ddsi_discovery.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_debmon.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_feature_check.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_freelist.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_gc.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_hbcontrol.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_init.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_inverse_uint32_set.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_lat_estim.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_lease.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_log.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_misc.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_pcap.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_protocol.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_qosmatch.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_radmin.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_receive.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_rtps.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_sockwaitset.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_thread.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_transmit.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_unused.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_whc.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_xevent.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/q_xmsg.h -> 
+f /opt/unitree_robotics/include/dds/ddsi/sysdeps.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/align.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/arch.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/atomics.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/attributes.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/avl.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/bswap.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/cdtors.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/circlist.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/countargs.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/dynlib.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/endian.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/environ.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/expand_vars.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/fibheap.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/filesystem.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/heap.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/hopscotch.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/ifaddrs.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/io.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/iovec.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/log.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/md5.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/mh3.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/misc.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/netstat.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/process.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/random.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/retcode.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/rusage.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/sched.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/sockets.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/static_assert.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/string.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/strtod.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/strtol.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/sync.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/threads.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/time.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/types.h -> 
+f /opt/unitree_robotics/include/dds/ddsrt/xmlparser.h -> 
+f /opt/unitree_robotics/include/dds/export.h -> 
+f /opt/unitree_robotics/include/dds/features.h -> 
+f /opt/unitree_robotics/include/dds/version.h -> 
+f /opt/unitree_robotics/include/unitree/common/any.hpp -> 
+f /opt/unitree_robotics/include/unitree/common/assert.hpp -> 
+f /opt/unitree_robotics/include/unitree/common/block_queue.hpp -> 
+f /opt/unitree_robotics/include/unitree/common/decl.hpp -> 
+f /opt/unitree_robotics/include/unitree/common/error.hpp -> 
+f /opt/unitree_robotics/include/unitree/common/exception.hpp -> 
+f /opt/unitree_robotics/include/unitree/common/os.hpp -> 
+f /opt/unitree_robotics/include/unitree/common/string_tool.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Bool_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Edge_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Float32MultiArray_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Header_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Image_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Imu_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Int8_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/MapMetaData_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/MultiArrayDimension_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/MultiArrayLayout_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Node_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/OccupancyGrid_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Odometry_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/PcToImage_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Point32_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/PointCloud2_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/PointField_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Point_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/PointStamped_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Pose2D_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Pose_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/PoseStamped_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/PoseWithCovariance_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/PoseWithCovarianceStamped_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/QtCommand_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/QtEdge_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/QtNode_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Quaternion_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/QuaternionStamped_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/RequestHeader_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Request_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/RequestIdentity_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/RequestLease_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/RequestPolicy_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/RequestSlam_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/ResponseHeader_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Response_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/ResponseSlam_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/ResponseStatus_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Star_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/String_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Time_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/ToControl_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Twist_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/TwistStamped_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/TwistWithCovariance_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/TwistWithCovarianceStamped_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/UnitreeCommond_.hpp -> 
+f /opt/unitree_robotics/include/unitree/ros2_idl/Vector3_.hpp -> 
+f /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Config.cmake -> 
+f /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake -> 
+f /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake -> 
+f /opt/unitree_robotics/lib/libddsc.so -> 
+f /opt/unitree_robotics/lib/libddscxx.so -> 
+f /opt/unitree_robotics/lib/libunitree_ros2_idl_cpp.a -> 
+f /opt/unitree_robotics/lib/libunitree_sdk2.a -> 
+f /opt/unitree_robotics/lib/x86_64/libddsc.so -> 
+f /opt/unitree_robotics/lib/x86_64/libddscxx.so -> 
+l /opt/unitree_robotics/lib/libddsc.so.0 -> libddsc.so
+l /opt/unitree_robotics/lib/libddscxx.so.0 -> libddscxx.so
+l /opt/unitree_robotics/lib/x86_64/libddsc.so.0 -> libddsc.so
+l /opt/unitree_robotics/lib/x86_64/libddscxx.so.0 -> libddscxx.so
+
+===== SDK2 AND DDS LIBRARIES =====
+	libddscxx.so.0 (libc6,x86-64) => /unitree/opt/lib/libddscxx.so.0
+	libddsc.so.0 (libc6,x86-64) => /unitree/opt/lib/libddsc.so.0
+	libcycloneddsidlcxx.so.0 (libc6,x86-64) => /usr/local/lib/libcycloneddsidlcxx.so.0
+	libcycloneddsidl.so.0 (libc6,x86-64) => /usr/local/lib/libcycloneddsidl.so.0
+-rw-r--r-- 1 root root 7493272 10月 28  2024 /opt/unitree_robotics/lib/libddsc.so
+/opt/unitree_robotics/lib/libddsc.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=c177db9bdd3c37553863f3cff702bf3082710cb1, with debug_info, not stripped
+/opt/unitree_robotics/lib/libddsc.so
+lrwxrwxrwx 1 root root 10 10月 29  2024 /opt/unitree_robotics/lib/libddsc.so.0 -> libddsc.so
+/opt/unitree_robotics/lib/libddsc.so.0: symbolic link to libddsc.so
+/opt/unitree_robotics/lib/libddsc.so
+-rw-r--r-- 1 root root 3108976 10月 28  2024 /opt/unitree_robotics/lib/libddscxx.so
+/opt/unitree_robotics/lib/libddscxx.so: ELF 64-bit LSB shared object, x86-64, version 1 (GNU/Linux), dynamically linked, BuildID[sha1]=e6a2ab66e77dc927b9f094ff8e1b22344ff72abd, not stripped
+/opt/unitree_robotics/lib/libddscxx.so
+lrwxrwxrwx 1 root root 12 10月 29  2024 /opt/unitree_robotics/lib/libddscxx.so.0 -> libddscxx.so
+/opt/unitree_robotics/lib/libddscxx.so.0: symbolic link to libddscxx.so
+/opt/unitree_robotics/lib/libddscxx.so
+
+===== CONTAINER RUNTIME COMMANDS =====
+docker       podman       nerdctl      ctr          containerd   
+===== AUDIT COMPLETE =====
+READ_ONLY_PC2_DDS_SDK_AUDIT_OK

@@ -1,0 +1,1369 @@
+{
+  "candidates": {
+    "histogram": {
+      "10": 43,
+      "11": 21,
+      "12": 19,
+      "13": 4,
+      "14": 1,
+      "6": 1,
+      "7": 4,
+      "8": 25,
+      "9": 29
+    },
+    "max": 14,
+    "min": 6,
+    "total": 1450
+  },
+  "count_equal_factory": 10,
+  "degenerate_candidate_count": 1,
+  "degenerate_frames": [
+    {
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "count": 1,
+      "selected_index": 132,
+      "stamp_ns": 10428477123846
+    }
+  ],
+  "factory_groups": {
+    "max": 13,
+    "min": 3,
+    "total": 1042
+  },
+  "frame_count": 147,
+  "frames": [
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "ed9447c134d6c5dd64d1db5aec45f233b8d74e71abd23bbbce711597616abcf0",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4163,
+      "selected_index": 0,
+      "stamp_ns": 10415277051020
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "6744cbde8e25a87ea161d524feaa15586b4acb52936f3fdcdf48bceeeeadfe02",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4182,
+      "selected_index": 1,
+      "stamp_ns": 10415377014239
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "3c508f9c458cf5628c115de33f7bb04ac1a920ced5b9d94ea57ca9ef9b67eec6",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 4,
+      "retained": 4156,
+      "selected_index": 2,
+      "stamp_ns": 10415477413499
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "6a256b3eb067c925890c6fbdd80f321d223089e709b908b5e21c73fa12775c71",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 11,
+      "retained": 4159,
+      "selected_index": 3,
+      "stamp_ns": 10415576877967
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "2e4a6990e0998520fdfe125b0120a9171508dccefb5dec2fefc2f6d6bbf4ed45",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 4,
+      "retained": 4132,
+      "selected_index": 4,
+      "stamp_ns": 10415676882602
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "ffd1825a340fd02de2c056674b25e71319064e340c30910580df3feca5653232",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 4,
+      "retained": 4071,
+      "selected_index": 5,
+      "stamp_ns": 10415776968320
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "f8d2240ac1bda7537b467ef42524db334cd63452c40b93821841884904188d3a",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4174,
+      "selected_index": 6,
+      "stamp_ns": 10415877091080
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "8938f02bb912452c70b8cef7bee1378cb09590b50043f4fb048429fcd575024a",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4120,
+      "selected_index": 7,
+      "stamp_ns": 10415976939965
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "91af16fb59cc26a0d406f65ff8e3998c66ee908c3465eef7fdc4b24e30fd33a5",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4096,
+      "selected_index": 8,
+      "stamp_ns": 10416077289059
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "655be49e403426893f353d25f6853ad0015a8fc3cfe07fa77f21c640d12c984a",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4100,
+      "selected_index": 9,
+      "stamp_ns": 10416177099736
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "585b2078b7364f5df2e98cfa84c56a88bf32d6f55615e86e15111374f4591201",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4110,
+      "selected_index": 10,
+      "stamp_ns": 10416276967871
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "2c73bd0c9b2a8719611ae7692389b88d8245816c18472828ee50fcc5b0d83498",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4119,
+      "selected_index": 11,
+      "stamp_ns": 10416376901631
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "d9d38fca43088d40e71ea9f5913d084726aa2550ac28e223eca14d25ac70d07c",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4179,
+      "selected_index": 12,
+      "stamp_ns": 10416476969266
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "2350de67cd5acfd3be641e1e4a3782ae53074d35a01df24e3210fe04a9860e10",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4140,
+      "selected_index": 13,
+      "stamp_ns": 10416576960484
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "81519d8c461da35b790f55535c661ea16a6c298fe0043354a68394abb91bb3a7",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4163,
+      "selected_index": 14,
+      "stamp_ns": 10416677269619
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "c8bd2893d0a3ec422ec9e36b180242d2565b2cb31badad149641516c329e25c1",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4151,
+      "selected_index": 15,
+      "stamp_ns": 10416777031588
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "e47238bcf85b5fdde559d40a3df83a79f3226467c1b35f43b5502a042be69d0a",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 11,
+      "retained": 4115,
+      "selected_index": 16,
+      "stamp_ns": 10416877140639
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "eea8f8a8b3d0d3a3dc72dc527ed23605012fd1b78db24300961b196b8b96f8dd",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 11,
+      "retained": 4198,
+      "selected_index": 17,
+      "stamp_ns": 10416976937316
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "25f448060bee5db1b8714c37bec26a9508669047c4e5f7c095ad42453156dd69",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4115,
+      "selected_index": 18,
+      "stamp_ns": 10417077139701
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "6113c2d7e7a18b94f1b2ce0ae164e1d47139686a2cad96f1e7a8749818f06b53",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4163,
+      "selected_index": 19,
+      "stamp_ns": 10417176878628
+    },
+    {
+      "candidate_count": 14,
+      "canonical_line_sha256": "37031c276acc88931f078d180873f4894aceb1cead22755d64740de8fbf80155",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4074,
+      "selected_index": 20,
+      "stamp_ns": 10417276887346
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "7301698f3521f9e0a43989ae8bbdb800088a290fab2d97429cd7e34e72c591ef",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 4,
+      "retained": 4141,
+      "selected_index": 21,
+      "stamp_ns": 10417376884689
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "916165bc7355beedbb73a259a49aeb12584ddff3f1d5e8a4eafd7fb8a4048a76",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4097,
+      "selected_index": 22,
+      "stamp_ns": 10417476886700
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "5e107530f51b6d72cbca40221b0f0dc6875ae6237bc9821cb2174c96d4d25574",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4122,
+      "selected_index": 23,
+      "stamp_ns": 10417577098710
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "3716f66762a377c0365934d66868630fc6f8946496d907286dccfc00710ca13e",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 13,
+      "retained": 4157,
+      "selected_index": 24,
+      "stamp_ns": 10417677081178
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "6c4faec9a7ed0e395729fd153c6a40744e3bec7206018e4fd023a72a91855011",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4138,
+      "selected_index": 25,
+      "stamp_ns": 10417777013771
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "03a239a59c7e736d1e7b1b32354839929ca0822b0a5fd6049b25a7a57d93c7c9",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 10,
+      "retained": 4166,
+      "selected_index": 26,
+      "stamp_ns": 10417877326406
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "364148167c991e1145fcbe576eac0180131645a911301044281b3fe41759cb37",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4187,
+      "selected_index": 27,
+      "stamp_ns": 10417977150791
+    },
+    {
+      "candidate_count": 7,
+      "canonical_line_sha256": "257f4eb2d67d9c7fa409a52fe36ea155ca946d948fd211db7f8f4ed4602c122b",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4161,
+      "selected_index": 28,
+      "stamp_ns": 10418077118385
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "6daaad9404ab06fb577577df26e629bf9a99263d49952e70267ed76eeed6a944",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4198,
+      "selected_index": 29,
+      "stamp_ns": 10418177300645
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "0a3f94050d53788da928e955a80b4365df5f4163ed7b5973507db13443b1d293",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4165,
+      "selected_index": 30,
+      "stamp_ns": 10418276887613
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "37edd6576dbdff1e7406544bb334c89de4786d27155b72d65244ed67abf8537e",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4175,
+      "selected_index": 31,
+      "stamp_ns": 10418376921123
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "97d25a35a380c51bd0afa4d2310ce40a65b7020eabbb55c1323e21907751445d",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4172,
+      "selected_index": 32,
+      "stamp_ns": 10418477323592
+    },
+    {
+      "candidate_count": 7,
+      "canonical_line_sha256": "59d1140bad5fa85ec4b25d5ab5b5f8a1952fffa83d34ca1416ef83959a5d2e1c",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4138,
+      "selected_index": 33,
+      "stamp_ns": 10418577065435
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "02ba9e7ebbfcc06ab69c3b00ed686b6135232cb814f7334ad93198bfcfbe998b",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4139,
+      "selected_index": 34,
+      "stamp_ns": 10418676881945
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "741eefb23d83d6bc1d90cc841ed4930246ef7485e484ef4aff3195646ed4a09f",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 10,
+      "retained": 4142,
+      "selected_index": 35,
+      "stamp_ns": 10418777294330
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "daecfbd3a4e7f62fa9387739237d3bfd032170ea29d8fd40a6ee1cafc0b3f7cf",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4128,
+      "selected_index": 36,
+      "stamp_ns": 10418877110257
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "bb263d9da1efd551baf04a83dd50f817d4392aa3d815d7445b84ac0f193c33b2",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4067,
+      "selected_index": 37,
+      "stamp_ns": 10418977020684
+    },
+    {
+      "candidate_count": 13,
+      "canonical_line_sha256": "9788b55ea7074d8fe7e56a7e5daf9112d7e8dce90ed14931154a2856a15fc695",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 4,
+      "retained": 4170,
+      "selected_index": 38,
+      "stamp_ns": 10419076924402
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "e01ccd5e4e31bec05678df0992696ef970c087ddc0e5116c4f6dd8b6d50873fe",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4149,
+      "selected_index": 39,
+      "stamp_ns": 10419177137579
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "53e1904be04480232a6d5b1997fc92198bd4d569e822f7f58c2ce0edfbaddfc0",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 4,
+      "retained": 4158,
+      "selected_index": 40,
+      "stamp_ns": 10419277158547
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "90cfd909542d1e3247c16aaaad2e0aba37ba26241182e8e3e42a6fed67dd3658",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4176,
+      "selected_index": 41,
+      "stamp_ns": 10419376936849
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "3838e99bded7e0a9a499a9685ef3966c1e58ef8a46fe138e22c370d3f9d8a3c3",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4141,
+      "selected_index": 42,
+      "stamp_ns": 10419477166942
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "f3e523c20f831b88a1d6e8cd68da9c698760b75ac28d1aec0efa71cab25b1240",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4156,
+      "selected_index": 43,
+      "stamp_ns": 10419576923952
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "5e84941a85cdf480ea6e498dcbd143500784bb6bb4c4571f82412d5ad22d74da",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4153,
+      "selected_index": 44,
+      "stamp_ns": 10419676916921
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "f40af84f992e3da9a346548cc9a56046846f0c25315aaaa4598c69c9ffd8608c",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4180,
+      "selected_index": 45,
+      "stamp_ns": 10419777115806
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "19d5d062a1ac638ebbdc4579997332a395d4de59a63b10a9e1d0c4320dc90117",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4135,
+      "selected_index": 46,
+      "stamp_ns": 10419876876607
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "ba1ea0313d828ed1cc51d4f5057804a36b0791ef86fff021fc0228e578fc7e1f",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4189,
+      "selected_index": 47,
+      "stamp_ns": 10419977226867
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "a4b79888bac12741b77c27ac55fa43fb38b63b51808da93a09e50c3941bf0948",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4111,
+      "selected_index": 48,
+      "stamp_ns": 10420077079252
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "db23cf590c9440000206278258c7dc29428b1293adf023f3dd231fbdcd0e617c",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 4,
+      "retained": 4173,
+      "selected_index": 49,
+      "stamp_ns": 10420177335596
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "c64462a655449fe2176561fe8cc608f7af535febacf823273b113b02cd5b8d2b",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4082,
+      "selected_index": 50,
+      "stamp_ns": 10420276932773
+    },
+    {
+      "candidate_count": 6,
+      "canonical_line_sha256": "bb052f950f23502ff3ae37e5df8f4378a17020fc523802ccc1c4203f65b3f846",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4161,
+      "selected_index": 51,
+      "stamp_ns": 10420376954033
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "211922027d11dcfb194821d67513fcf893a63f8ff69430a7bdb953d1940b4d7d",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4121,
+      "selected_index": 52,
+      "stamp_ns": 10420477013501
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "4f276b1eb546c3167bec4f79175d866ce64a6157738d0209462fac1145144b20",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4136,
+      "selected_index": 53,
+      "stamp_ns": 10420577079969
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "1da57fe93392de699966d94823b3a78b5dc0fa3bf8ab10a8ee27f7734fbaa7c5",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4135,
+      "selected_index": 54,
+      "stamp_ns": 10420677039688
+    },
+    {
+      "candidate_count": 13,
+      "canonical_line_sha256": "a8123184653777ac88a0ac3f685d2149897e5db8f14d0dce0413e0fdae879dca",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4144,
+      "selected_index": 55,
+      "stamp_ns": 10420777027114
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "0ed74f4fdb8da8253c4bd5de93c696680e42da6944a770e1d2b36dfab32bfb96",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4180,
+      "selected_index": 56,
+      "stamp_ns": 10420877182250
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "21a779c1bf85ec4c8c476017cc68dfd86dce1bab753b4a3d0754e5768127ce6f",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4102,
+      "selected_index": 57,
+      "stamp_ns": 10420976950343
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "ba1ce19df96d255d0be6d0ced6f361b568ce8357a9ef98440c19eb5abd6e059e",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 4,
+      "retained": 4184,
+      "selected_index": 58,
+      "stamp_ns": 10421077341436
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "84da86ff8f42b85865f0f7bd858f1ce8631d9571606e5de8a4f6dde0fcd0009e",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 4,
+      "retained": 4098,
+      "selected_index": 59,
+      "stamp_ns": 10421176939196
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "c617913ec991aeee735cc8173582df53d2fa483eb804be0db7b65619254a6b02",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 4,
+      "retained": 4156,
+      "selected_index": 60,
+      "stamp_ns": 10421277065165
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "19cc42d10a4b87e2137b5491854ef9324675ebb948cf4175c448e317fad9027b",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4110,
+      "selected_index": 61,
+      "stamp_ns": 10421377025758
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "cf9852ff8308c4f603728a65b99c3f6168218630bcdb77cc0f9243b9ee8e72a2",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4159,
+      "selected_index": 62,
+      "stamp_ns": 10421477371060
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "0ba9b9a5cb9f24c7227725b71664a89b9268a079b5f0b842d333950d84c95d16",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4086,
+      "selected_index": 63,
+      "stamp_ns": 10421577055153
+    },
+    {
+      "candidate_count": 13,
+      "canonical_line_sha256": "bdf943b7bb85f680b908fd65c7061c835a7d8378cd780bd96a99ebe5893bf05c",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4168,
+      "selected_index": 64,
+      "stamp_ns": 10421677081955
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "67b3e8a64e5c5bd29a26324ba9ecb2b5cad67b46f738dd12a05b3bbabd244e3e",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4163,
+      "selected_index": 65,
+      "stamp_ns": 10421777206465
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "9b08e97c81c4d506ec1ea11c76cad229ad3df641c42f64356410ecdaef3d09c9",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 11,
+      "retained": 4185,
+      "selected_index": 66,
+      "stamp_ns": 10421877171142
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "2ee8a2b2c415f17f830f3e7f493a86e15e59d1cedd256d23b82a6aba8eeb84f1",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4127,
+      "selected_index": 67,
+      "stamp_ns": 10421977099943
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "4fe28f92c98a7e5c8576256f0adf639d84fcc40c915680a493853653c80130cc",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4160,
+      "selected_index": 68,
+      "stamp_ns": 10422076929287
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "1f585849c423090d7de653ee206d1037d00275db7515bdc20420935c9149265a",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4148,
+      "selected_index": 69,
+      "stamp_ns": 10422177105713
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "a6582cfc9e7d89e9a99c990287dd57b2f05c0cea14cb0e48dcd9897e110ee3c9",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4148,
+      "selected_index": 70,
+      "stamp_ns": 10422276882265
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "5f8006c6c53100d3d56f3b661630a397d40c48c5c68c6aeee673fc0a5de430a0",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4149,
+      "selected_index": 71,
+      "stamp_ns": 10422376908192
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "db6a195fff6be62913f536bd6be30eeeb10449f7792644b4b4eca4933c5c85c4",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4149,
+      "selected_index": 72,
+      "stamp_ns": 10422477269244
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "ffb3e77dc37d8dca10b06fe8a56a62bb5053d467af1e865716a95e689f4ffece",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4182,
+      "selected_index": 73,
+      "stamp_ns": 10422576891212
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "629ad9fa232f945f57cc03899220ed319db193b8f75d98ef97eb2f0326d1c043",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4125,
+      "selected_index": 74,
+      "stamp_ns": 10422677352305
+    },
+    {
+      "candidate_count": 7,
+      "canonical_line_sha256": "6d0a1701e5df4d1296170b80ab7b7765554ae4c87552f3a7a2f13853973a482a",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 12,
+      "retained": 4165,
+      "selected_index": 75,
+      "stamp_ns": 10422777105232
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "f3197b0b70fb594a47ac7e4bc179e2f45a5eb19a2c05b534e56a5a63c1d20d8e",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4106,
+      "selected_index": 76,
+      "stamp_ns": 10422876929617
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "712dd35a4bc32c96afae169ce1c5db9b2dc7db252218b2212e551e3a76c1b9f1",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4145,
+      "selected_index": 77,
+      "stamp_ns": 10422976948835
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "41250ffbc66ba75fe1c0ede0c9c9f4146b2f93f52c3979997cd717c0eaa6244e",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4114,
+      "selected_index": 78,
+      "stamp_ns": 10423077153554
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "a907146b5e556411c657b97548af960863b94a05d4849656a3b22b9f350cc326",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4180,
+      "selected_index": 79,
+      "stamp_ns": 10423176964814
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "69e1e914d2dbaf843d08b0f77b511ac51a99a8b449b293e4f82adf1f325ea71b",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4079,
+      "selected_index": 80,
+      "stamp_ns": 10423276881657
+    },
+    {
+      "candidate_count": 13,
+      "canonical_line_sha256": "5a082927070716c9de19001784293becc89899e88a9a9dd77380e3133c93aa97",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4157,
+      "selected_index": 81,
+      "stamp_ns": 10423377152584
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "1d930e572bfd5779efad20c8a839e0cb761340f3dfbc2ce942b8d2880d29ce83",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 13,
+      "retained": 4114,
+      "selected_index": 82,
+      "stamp_ns": 10423476950136
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "ee138ec8321fdfcb07707d11fef4676a40529a6e897b085aa7bffeedb96d2940",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 3,
+      "retained": 4135,
+      "selected_index": 83,
+      "stamp_ns": 10423577280854
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "57a52069bf73459fc63b03102d23a2f527e1f37ba8d3be33a80719f3e24417d9",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4118,
+      "selected_index": 84,
+      "stamp_ns": 10423676947739
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "405f852db1ce6d1a1f95001c9cfa847a7f4842266676803d5c2f0779f97fa136",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4149,
+      "selected_index": 85,
+      "stamp_ns": 10423776944499
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "bbe0b07b2a554d22eeeb06cbc3be30a070f69019bcda53aa74845d98093ed662",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4106,
+      "selected_index": 86,
+      "stamp_ns": 10423877241676
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "764e3713c1c3f220fc5a1dc07f6429fe918c0f09e64e1577d296e7687402e63f",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4146,
+      "selected_index": 87,
+      "stamp_ns": 10423976892811
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "4a5800988158975613ac4be9834b166d246c395bb978d90daebd02a154db2b8f",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4153,
+      "selected_index": 88,
+      "stamp_ns": 10424077031904
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "c96458f2ef2d6e7d1280f5827df9d6b556ec821bf54db084e06a704730a45354",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4143,
+      "selected_index": 89,
+      "stamp_ns": 10424176889539
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "76ee48a36ad386cf2302484ec39f41eee8ff6437e6a2e33683ce78e5561a096f",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4136,
+      "selected_index": 90,
+      "stamp_ns": 10424276903508
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "75ff4d0ff6afceef70add31af9456bba7ced0e4fa249b6a4b5762d0ffe28c115",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4111,
+      "selected_index": 91,
+      "stamp_ns": 10424377112309
+    },
+    {
+      "candidate_count": 7,
+      "canonical_line_sha256": "5c8a2f181810f46048419bbb78c34a3be742b2ba5397a61b3b7ef2bd172c6b32",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 4,
+      "retained": 4142,
+      "selected_index": 92,
+      "stamp_ns": 10424476913361
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "121cf36dc875216bf17cb9333b084a7b8cbc12ac7d23a1db19ff6bcc9f5572ad",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 11,
+      "retained": 4126,
+      "selected_index": 93,
+      "stamp_ns": 10424577076663
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "6ce0d6aed3b7e55d89e066dc5ca43e7c615e90e6f055bedae939468f48aba442",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4174,
+      "selected_index": 94,
+      "stamp_ns": 10424677019465
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "1fedb9fd701f0fecab2bf550abf9bb60be57736b0d7b5a68285cef2d3087feba",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4132,
+      "selected_index": 95,
+      "stamp_ns": 10424777272600
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "921f3159d4fcedc7d34ce1af594056023536253e39e879ff78257ed0819a227f",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4146,
+      "selected_index": 96,
+      "stamp_ns": 10424876929860
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "5fe0f46c75004252a4eedfa7d29a01c9441d6ce5956cfa5a6a50f68e2db1a40e",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4157,
+      "selected_index": 97,
+      "stamp_ns": 10424976924286
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "4b5cc2d65b1b4b949b49948a9ec4e3f81003fcc7c44ebeb4ca4d3178ab0b5a2e",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4151,
+      "selected_index": 98,
+      "stamp_ns": 10425077267255
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "071682d87fc4c2c675cdf1907f6d52a5ab53703e9973d6c2318a757e4ba559eb",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4170,
+      "selected_index": 99,
+      "stamp_ns": 10425177021932
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "bed247862595ee77f710b8cb02fcd5a5a1c9d41da6795a05dace34956088e74a",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4153,
+      "selected_index": 100,
+      "stamp_ns": 10425276939067
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "7424885957308c2d7f7aa2731cd01f3207516a4a5babac37e28c301d5e124682",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4148,
+      "selected_index": 101,
+      "stamp_ns": 10425376898493
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "fde4980b7a34369f9c07c672d3ea6064efcbc873eb5ac896fecbbe6c0f324ab3",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4161,
+      "selected_index": 102,
+      "stamp_ns": 10425477063837
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "c2e4276848135a58598a522b2cd2026f8ea529e180a95eb66fa81823f42c24cb",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4146,
+      "selected_index": 103,
+      "stamp_ns": 10425576963763
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "283e0384b3183627f7855d49cdbf7fc8cafe030644c36541dd7caca1d1ad64a8",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 11,
+      "retained": 4129,
+      "selected_index": 104,
+      "stamp_ns": 10425676912982
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "f0b084ca061126723215bb2a217d0ef875bf1c56c8d5f1ac4bde2f224396272b",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4142,
+      "selected_index": 105,
+      "stamp_ns": 10425777045075
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "608409d27befe97879c2e2d7f0fb195f9d59fdadf279dcad589580bd6fc13264",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4141,
+      "selected_index": 106,
+      "stamp_ns": 10425877030169
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "b512439973f9d97699f375118207adff48763e8d2bdded68689d302bd4d3a080",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4119,
+      "selected_index": 107,
+      "stamp_ns": 10425977002429
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "7a172a04907811a4baf9a16e527da664dd93a8eb667572992286ccbd87c30da0",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4174,
+      "selected_index": 108,
+      "stamp_ns": 10426077373689
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "e0809a83276c9312e3857da3bd2178fc06f7ede9a67de4286a9d0556693134a7",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 11,
+      "retained": 4122,
+      "selected_index": 109,
+      "stamp_ns": 10426177059824
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "9a074a6d66005157c216792116835f5a414d92f46393aed238f20557d4a2c746",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4157,
+      "selected_index": 110,
+      "stamp_ns": 10426276886542
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "abe3cff99a837e20a2abe1369e76aa2d7a782832be50f822cf62e686d5721fa3",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 11,
+      "retained": 4190,
+      "selected_index": 111,
+      "stamp_ns": 10426377111969
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "73b8e22bbb0cde839fa0523b206db965db5c969f95c7bb84d7de805f0767ca49",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4142,
+      "selected_index": 112,
+      "stamp_ns": 10426477030270
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "3ff46ec1264a71e3e1156890663eeb69c8adc4ac78b00d9b89d91ea331738061",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4153,
+      "selected_index": 113,
+      "stamp_ns": 10426576875072
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "7701db0aa9af485250086601a89227472475555850db87f143eb69d83d0cc023",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4175,
+      "selected_index": 114,
+      "stamp_ns": 10426677050041
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "ead501f5805ec06265b674ba22708366c5a5a7103225f8c344e117f79e1d5e6a",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4135,
+      "selected_index": 115,
+      "stamp_ns": 10426777031342
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "be38dfcde2e4bd5e6bfcc3dc529b90beb6e6a726ca67668d3b8dd0ed3fe8091b",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4181,
+      "selected_index": 116,
+      "stamp_ns": 10426876942644
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "606ca98943b4e24aa70f4640a153880e98d204292fcb184034bee9d97b9c701a",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 6,
+      "retained": 4113,
+      "selected_index": 117,
+      "stamp_ns": 10426977089904
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "7fca85230ae1766c84ce5e7a82a73b9cf2441b0efa64e3141671a3cbb4769de0",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4164,
+      "selected_index": 118,
+      "stamp_ns": 10427076876081
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "34f7cb4bdf6592e11a8a68e05b43f0d2de73583f5aedc7ce38e544c74c815a3e",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 10,
+      "retained": 4106,
+      "selected_index": 119,
+      "stamp_ns": 10427177206799
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "0c047484b33ba9217742fef56137d6c05805db7f844c0337100f18f3ec6545fe",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4123,
+      "selected_index": 120,
+      "stamp_ns": 10427276906351
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "c9655e0253cb3e332518bdd6be445a6b4b5ab5f74789bc70d824349e71b29c3a",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4136,
+      "selected_index": 121,
+      "stamp_ns": 10427376903111
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "31541938cc422401f3c25e8aa455d0782c7a985173c2a52b6ffebfa435a9b8e5",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4120,
+      "selected_index": 122,
+      "stamp_ns": 10427477276121
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "e415832245ce4e45257748d178b5cac5a9bc431973e81afd744d5254697ef73f",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 10,
+      "retained": 4158,
+      "selected_index": 123,
+      "stamp_ns": 10427576911214
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "79e84d8e2abf946f3b6860cb55f343d72e69de9df1b4d919c5c90b9b3c590ba5",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4126,
+      "selected_index": 124,
+      "stamp_ns": 10427676977974
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "0569366b0b8d74771c3931395162f4e7e9530615f4c5df1f3647e9fdea239211",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4127,
+      "selected_index": 125,
+      "stamp_ns": 10427777117068
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "ed891ce8ed78ba5ce12b6389860d4857868381342234c9161d61013dde72a930",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4151,
+      "selected_index": 126,
+      "stamp_ns": 10427877090203
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "2febd3ab0acdbfbb80a951ce871f25d2ef2a254344435ac1c3b44cd32f9dcdda",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4160,
+      "selected_index": 127,
+      "stamp_ns": 10427976911671
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "72af91a2fcc1a35a441711df7dd4d2cddcf4d3016ade6e9354697ef9859bd343",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4154,
+      "selected_index": 128,
+      "stamp_ns": 10428077009931
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "e221f09965aa279e8e77ca56fec9b1f4f4177145d12430adf4111cb97b4f478d",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4182,
+      "selected_index": 129,
+      "stamp_ns": 10428176937858
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "994aa2556a6908d4f9a6f261276d6c98592715ab041a2395044002425e316da6",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4118,
+      "selected_index": 130,
+      "stamp_ns": 10428276992951
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "804e036202401d3f805956615752a2eff9e82cc1880ce94619448e42cc6958ed",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4168,
+      "selected_index": 131,
+      "stamp_ns": 10428376915920
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "eea5c29b6ed5772b9c896341096e6da4844d8902d4d6c731b8adca85de058ba2",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4117,
+      "selected_index": 132,
+      "stamp_ns": 10428477123846
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "b5a4ef4dcef6b7cfd9437f15d2f43a56c971bccc9e865af8c277d9e091d41cb4",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4152,
+      "selected_index": 133,
+      "stamp_ns": 10428576991106
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "e1ab188e0afbd72df80b3de22c261ed672c5cb4a88961d8494888e03bb93c1d4",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4189,
+      "selected_index": 134,
+      "stamp_ns": 10428676939158
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "0c8dbe06cd36f94d1a9c179c3714c1e19aa0975e523748048b4a73bd2ccae8dd",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4148,
+      "selected_index": 135,
+      "stamp_ns": 10428776881377
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "fb09cb8bf9a25f269be48cd1a17d418deeda6118cb8e6d3befe64125f6fb6673",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4086,
+      "selected_index": 136,
+      "stamp_ns": 10428876955137
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "a6b840eba11d6268164ed0aff563fd67e0abd8c5191cc9228193524b4d1a6947",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 4,
+      "retained": 4156,
+      "selected_index": 137,
+      "stamp_ns": 10428976907563
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "8701c57bd4fdc51ac1bbda1aa63ee148b33905f63a87ecbd09b9540ff0d6182a",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4154,
+      "selected_index": 138,
+      "stamp_ns": 10429077433115
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "74fd11779b4c44df6a49cea6321d680988f3ab9866ee985d54799fbf853213fb",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4130,
+      "selected_index": 139,
+      "stamp_ns": 10429177104375
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "dabd75d31df8c3e2cc8901ac09c6f23bf23cffc3c53b0c7c2e689f2f119a4608",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4141,
+      "selected_index": 140,
+      "stamp_ns": 10429276962010
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "6532f6d2a9a451849e0197ebd18c9a46bcd47077cccd43ebc2163a961e06fbaa",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4152,
+      "selected_index": 141,
+      "stamp_ns": 10429376876812
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "5565538f488a89842ef9cb0abb0d6873f7f59bf388873eafdb7069754218a277",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4130,
+      "selected_index": 142,
+      "stamp_ns": 10429477021447
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "d5e74d06051b592751134889a8d780f7f041d7c79aa608dd7abd57da7b8df611",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4185,
+      "selected_index": 143,
+      "stamp_ns": 10429576988457
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "65e1912fac4f913f997b001b74c91f74192cecef14a9106d3a2ed069159b5fbe",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 5,
+      "retained": 4135,
+      "selected_index": 144,
+      "stamp_ns": 10429677086425
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "7dae2a60899cba8ed1ff7680bfba46f9628a5cc23ed708b62036d28961ad7aa7",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4162,
+      "selected_index": 145,
+      "stamp_ns": 10429776924227
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "e2a24b8051710214a877bcd19813b87788ca989a3da937aeeea8b31e9755acf4",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4186,
+      "selected_index": 146,
+      "stamp_ns": 10429877290820
+    }
+  ],
+  "input_jsonl_sha256": "28514be409f7ce4f79be3b348c4f022903830a0dba12bc685b67de46f751bf4e",
+  "retained": {
+    "max": 4198,
+    "min": 4067
+  },
+  "schema": "x30_plane_seg_replay_summary_v1",
+  "source_pack": {
+    "sha256": "2084b459c830abd9bb56e2f210e01a363c757f1e3bf8ce293b3a581b00e0fbe4",
+    "size_bytes": 11866592
+  }
+}

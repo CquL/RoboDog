@@ -1,0 +1,7 @@
+$ timeout 10 rosparam get /plane_seg
+correctMinSize: 4
+heightMapTopic: /deeprobotics_local_height_map_mid360/height_map
+ignoreHeight: -0.6
+isRavine: false
+sideDistanceThreshold: 0.22
+

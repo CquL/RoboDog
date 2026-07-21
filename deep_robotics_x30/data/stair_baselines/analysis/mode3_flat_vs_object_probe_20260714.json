@@ -1,0 +1,175 @@
+{
+  "inputs": {
+    "reference": "D:\\Desktop\\RoboDog\\x30_stair_baselines\\analysis\\mode3_flat_20260714_142726",
+    "candidate": "D:\\Desktop\\RoboDog\\x30_stair_baselines\\analysis\\mode3_object_probe_20260714_153211",
+    "expected_step_height_m": 0.15,
+    "height_tolerance_m": 0.03
+  },
+  "reference": {
+    "frames": 142,
+    "groups": 686,
+    "groups_per_frame": {
+      "minimum": 2.0,
+      "median": 5.0,
+      "mean": 4.830985915492958,
+      "maximum": 10.0
+    },
+    "horizontal_groups": 680,
+    "nonhorizontal_groups": 6,
+    "mean_z_m": {
+      "minimum": -0.8154423832893372,
+      "median": -0.5111101865768433,
+      "mean": -0.6012069553397488,
+      "maximum": -0.5033831596374512
+    },
+    "area_m2": {
+      "minimum": 0.008918549785097873,
+      "median": 0.46925485288230373,
+      "mean": 0.8703753019762194,
+      "maximum": 3.1959581264640278
+    },
+    "dominant_horizontal_z_bin_m": -0.5,
+    "top_horizontal_z_bins": [
+      {
+        "z_m": -0.5,
+        "groups": 342
+      },
+      {
+        "z_m": -0.76,
+        "groups": 79
+      },
+      {
+        "z_m": -0.78,
+        "groups": 41
+      },
+      {
+        "z_m": -0.68,
+        "groups": 40
+      },
+      {
+        "z_m": -0.66,
+        "groups": 31
+      },
+      {
+        "z_m": -0.64,
+        "groups": 24
+      },
+      {
+        "z_m": -0.6,
+        "groups": 22
+      },
+      {
+        "z_m": -0.7000000000000001,
+        "groups": 21
+      },
+      {
+        "z_m": -0.58,
+        "groups": 19
+      },
+      {
+        "z_m": -0.62,
+        "groups": 14
+      },
+      {
+        "z_m": -0.56,
+        "groups": 13
+      },
+      {
+        "z_m": -0.72,
+        "groups": 11
+      }
+    ]
+  },
+  "candidate": {
+    "frames": 141,
+    "groups": 821,
+    "groups_per_frame": {
+      "minimum": 3.0,
+      "median": 6.0,
+      "mean": 5.822695035460993,
+      "maximum": 13.0
+    },
+    "horizontal_groups": 807,
+    "nonhorizontal_groups": 14,
+    "mean_z_m": {
+      "minimum": -0.8230823576450348,
+      "median": -0.5845475196838379,
+      "mean": -0.600837462240247,
+      "maximum": -0.4433623254299164
+    },
+    "area_m2": {
+      "minimum": 0.0048429308955846295,
+      "median": 0.3136705365439809,
+      "mean": 0.6583689118528385,
+      "maximum": 3.623697270638729
+    },
+    "dominant_horizontal_z_bin_m": -0.5,
+    "top_horizontal_z_bins": [
+      {
+        "z_m": -0.5,
+        "groups": 318
+      },
+      {
+        "z_m": -0.58,
+        "groups": 93
+      },
+      {
+        "z_m": -0.62,
+        "groups": 87
+      },
+      {
+        "z_m": -0.64,
+        "groups": 72
+      },
+      {
+        "z_m": -0.78,
+        "groups": 62
+      },
+      {
+        "z_m": -0.76,
+        "groups": 44
+      },
+      {
+        "z_m": -0.66,
+        "groups": 30
+      },
+      {
+        "z_m": -0.68,
+        "groups": 20
+      },
+      {
+        "z_m": -0.72,
+        "groups": 19
+      },
+      {
+        "z_m": -0.56,
+        "groups": 17
+      },
+      {
+        "z_m": -0.7000000000000001,
+        "groups": 15
+      },
+      {
+        "z_m": -0.6,
+        "groups": 15
+      }
+    ]
+  },
+  "expected_elevated_surface": {
+    "reference_ground_z_m": -0.5,
+    "expected_center_z_m": -0.35,
+    "reference_groups_in_band": 0,
+    "candidate_groups_in_band": 0
+  },
+  "level_pair_check": {
+    "reference_frames_with_matching_pair": 115,
+    "reference_matching_pairs": 293,
+    "candidate_frames_with_matching_pair": 133,
+    "candidate_matching_pairs": 542
+  },
+  "comparison": {
+    "additional_groups": 135,
+    "distinct_expected_elevated_surface_detected": false,
+    "interpretation": "no distinct expected-height surface signature versus reference"
+  }
+}

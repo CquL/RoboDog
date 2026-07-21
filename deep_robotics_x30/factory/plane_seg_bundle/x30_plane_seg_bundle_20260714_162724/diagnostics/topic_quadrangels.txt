@@ -1,0 +1,10 @@
+$ timeout 10 rostopic info /plane_seg/quadrangels
+Type: sensor_msgs/PointCloud2
+
+Publishers: 
+ * /plane_seg (http://ysc:36137/)
+
+Subscribers: 
+ * /gridmap_port (http://ysc:36655/)
+
+

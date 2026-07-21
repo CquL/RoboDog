@@ -1,0 +1,10 @@
+$ timeout 10 rostopic info /deeprobotics_local_height_map_mid360/height_map
+Type: grid_map_msgs/GridMap
+
+Publishers: 
+ * /deeprobotics_local_height_map_mid360 (http://ysc:35041/)
+
+Subscribers: 
+ * /plane_seg (http://ysc:36137/)
+
+

@@ -1,0 +1,3 @@
+$ timeout 5 rostopic echo -n 1 /height_map_mode_state
+data: 3
+---

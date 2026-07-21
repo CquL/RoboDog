@@ -1,0 +1,935 @@
+
+udp_sender:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000006b2d0 <udp_sender::RobotSender::InitSubscribers()>:
+   6b2d0:	f3 0f 1e fa          	endbr64 
+   6b2d4:	55                   	push   rbp
+   6b2d5:	48 89 e5             	mov    rbp,rsp
+   6b2d8:	41 57                	push   r15
+   6b2da:	41 56                	push   r14
+   6b2dc:	41 55                	push   r13
+   6b2de:	41 54                	push   r12
+   6b2e0:	53                   	push   rbx
+   6b2e1:	48 81 ec 48 01 00 00 	sub    rsp,0x148
+   6b2e8:	48 89 bd 28 ff ff ff 	mov    QWORD PTR [rbp-0xd8],rdi
+   6b2ef:	64 48 8b 04 25 28 00 	mov    rax,QWORD PTR fs:0x28
+   6b2f6:	00 00 
+   6b2f8:	48 89 45 c8          	mov    QWORD PTR [rbp-0x38],rax
+   6b2fc:	31 c0                	xor    eax,eax
+   6b2fe:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6b305:	48 8d 98 d0 01 00 00 	lea    rbx,[rax+0x1d0]
+   6b30c:	48 c7 85 50 ff ff ff 	mov    QWORD PTR [rbp-0xb0],0x0
+   6b313:	00 00 00 00 
+   6b317:	48 c7 85 58 ff ff ff 	mov    QWORD PTR [rbp-0xa8],0x0
+   6b31e:	00 00 00 00 
+   6b322:	48 c7 85 60 ff ff ff 	mov    QWORD PTR [rbp-0xa0],0x0
+   6b329:	00 00 00 00 
+   6b32d:	48 c7 85 68 ff ff ff 	mov    QWORD PTR [rbp-0x98],0x0
+   6b334:	00 00 00 00 
+   6b338:	48 c7 85 70 ff ff ff 	mov    QWORD PTR [rbp-0x90],0x0
+   6b33f:	00 00 00 00 
+   6b343:	48 c7 85 78 ff ff ff 	mov    QWORD PTR [rbp-0x88],0x0
+   6b34a:	00 00 00 00 
+   6b34e:	48 c7 45 80 00 00 00 	mov    QWORD PTR [rbp-0x80],0x0
+   6b355:	00 
+   6b356:	48 c7 45 88 00 00 00 	mov    QWORD PTR [rbp-0x78],0x0
+   6b35d:	00 
+   6b35e:	48 c7 45 90 00 00 00 	mov    QWORD PTR [rbp-0x70],0x0
+   6b365:	00 
+   6b366:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b36d:	48 89 c7             	mov    rdi,rax
+   6b370:	e8 05 39 00 00       	call   6ec7a <ros::TransportHints::TransportHints()>
+   6b375:	4c 8d 25 c8 14 00 00 	lea    r12,[rip+0x14c8]        # 6c844 <udp_sender::RobotSender::NavVelocityCallback(boost::shared_ptr<geometry_msgs::Twist_<std::allocator<void> > const> const&)>
+   6b37c:	41 bd 00 00 00 00    	mov    r13d,0x0
+   6b382:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b389:	48 89 c7             	mov    rdi,rax
+   6b38c:	e8 0f ab ff ff       	call   65ea0 <std::allocator<char>::allocator()@plt>
+   6b391:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b398:	48 8d 4d a0          	lea    rcx,[rbp-0x60]
+   6b39c:	48 89 c2             	mov    rdx,rax
+   6b39f:	48 8d 35 fa 64 02 00 	lea    rsi,[rip+0x264fa]        # 918a0 <boost::unordered::detail::default_bucket_count+0x1a0>
+   6b3a6:	48 89 cf             	mov    rdi,rcx
+   6b3a9:	e8 f2 a9 ff ff       	call   65da0 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)@plt>
+   6b3ae:	48 8d bd 40 ff ff ff 	lea    rdi,[rbp-0xc0]
+   6b3b5:	48 8d 55 a0          	lea    rdx,[rbp-0x60]
+   6b3b9:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b3c0:	50                   	push   rax
+   6b3c1:	ff b5 28 ff ff ff    	push   QWORD PTR [rbp-0xd8]
+   6b3c7:	4d 89 e0             	mov    r8,r12
+   6b3ca:	4d 89 e9             	mov    r9,r13
+   6b3cd:	b9 0a 00 00 00       	mov    ecx,0xa
+   6b3d2:	48 89 de             	mov    rsi,rbx
+   6b3d5:	e8 ac 4e 00 00       	call   70286 <ros::Subscriber ros::NodeHandle::subscribe<geometry_msgs::Twist_<std::allocator<void> >, udp_sender::RobotSender>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, void (udp_sender::RobotSender::*)(boost::shared_ptr<geometry_msgs::Twist_<std::allocator<void> > const> const&), udp_sender::RobotSender*, ros::TransportHints const&)>
+   6b3da:	48 83 c4 10          	add    rsp,0x10
+   6b3de:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6b3e5:	48 8d 90 e0 00 00 00 	lea    rdx,[rax+0xe0]
+   6b3ec:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6b3f3:	48 89 c6             	mov    rsi,rax
+   6b3f6:	48 89 d7             	mov    rdi,rdx
+   6b3f9:	e8 e0 44 00 00       	call   6f8de <ros::Subscriber::operator=(ros::Subscriber const&)>
+   6b3fe:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6b405:	48 89 c7             	mov    rdi,rax
+   6b408:	e8 a3 a5 ff ff       	call   659b0 <ros::Subscriber::~Subscriber()@plt>
+   6b40d:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6b411:	48 89 c7             	mov    rdi,rax
+   6b414:	e8 e7 a3 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6b419:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b420:	48 89 c7             	mov    rdi,rax
+   6b423:	e8 98 ab ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6b428:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b42f:	48 89 c7             	mov    rdi,rax
+   6b432:	e8 73 38 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6b437:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6b43e:	48 8d 98 d0 01 00 00 	lea    rbx,[rax+0x1d0]
+   6b445:	48 c7 85 50 ff ff ff 	mov    QWORD PTR [rbp-0xb0],0x0
+   6b44c:	00 00 00 00 
+   6b450:	48 c7 85 58 ff ff ff 	mov    QWORD PTR [rbp-0xa8],0x0
+   6b457:	00 00 00 00 
+   6b45b:	48 c7 85 60 ff ff ff 	mov    QWORD PTR [rbp-0xa0],0x0
+   6b462:	00 00 00 00 
+   6b466:	48 c7 85 68 ff ff ff 	mov    QWORD PTR [rbp-0x98],0x0
+   6b46d:	00 00 00 00 
+   6b471:	48 c7 85 70 ff ff ff 	mov    QWORD PTR [rbp-0x90],0x0
+   6b478:	00 00 00 00 
+   6b47c:	48 c7 85 78 ff ff ff 	mov    QWORD PTR [rbp-0x88],0x0
+   6b483:	00 00 00 00 
+   6b487:	48 c7 45 80 00 00 00 	mov    QWORD PTR [rbp-0x80],0x0
+   6b48e:	00 
+   6b48f:	48 c7 45 88 00 00 00 	mov    QWORD PTR [rbp-0x78],0x0
+   6b496:	00 
+   6b497:	48 c7 45 90 00 00 00 	mov    QWORD PTR [rbp-0x70],0x0
+   6b49e:	00 
+   6b49f:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b4a6:	48 89 c7             	mov    rdi,rax
+   6b4a9:	e8 cc 37 00 00       	call   6ec7a <ros::TransportHints::TransportHints()>
+   6b4ae:	4c 8d 35 71 17 00 00 	lea    r14,[rip+0x1771]        # 6cc26 <udp_sender::RobotSender::ObstacleHeightCallback(boost::shared_ptr<std_msgs::Float64_<std::allocator<void> > const> const&)>
+   6b4b5:	41 bf 00 00 00 00    	mov    r15d,0x0
+   6b4bb:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b4c2:	48 89 c7             	mov    rdi,rax
+   6b4c5:	e8 d6 a9 ff ff       	call   65ea0 <std::allocator<char>::allocator()@plt>
+   6b4ca:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b4d1:	48 8d 4d a0          	lea    rcx,[rbp-0x60]
+   6b4d5:	48 89 c2             	mov    rdx,rax
+   6b4d8:	48 8d 35 ca 63 02 00 	lea    rsi,[rip+0x263ca]        # 918a9 <boost::unordered::detail::default_bucket_count+0x1a9>
+   6b4df:	48 89 cf             	mov    rdi,rcx
+   6b4e2:	e8 b9 a8 ff ff       	call   65da0 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)@plt>
+   6b4e7:	48 8d bd 40 ff ff ff 	lea    rdi,[rbp-0xc0]
+   6b4ee:	48 8d 55 a0          	lea    rdx,[rbp-0x60]
+   6b4f2:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b4f9:	50                   	push   rax
+   6b4fa:	ff b5 28 ff ff ff    	push   QWORD PTR [rbp-0xd8]
+   6b500:	4d 89 f0             	mov    r8,r14
+   6b503:	4d 89 f9             	mov    r9,r15
+   6b506:	b9 0a 00 00 00       	mov    ecx,0xa
+   6b50b:	48 89 de             	mov    rsi,rbx
+   6b50e:	e8 07 50 00 00       	call   7051a <ros::Subscriber ros::NodeHandle::subscribe<std_msgs::Float64_<std::allocator<void> >, udp_sender::RobotSender>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, void (udp_sender::RobotSender::*)(boost::shared_ptr<std_msgs::Float64_<std::allocator<void> > const> const&), udp_sender::RobotSender*, ros::TransportHints const&)>
+   6b513:	48 83 c4 10          	add    rsp,0x10
+   6b517:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6b51e:	48 8d 90 50 01 00 00 	lea    rdx,[rax+0x150]
+   6b525:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6b52c:	48 89 c6             	mov    rsi,rax
+   6b52f:	48 89 d7             	mov    rdi,rdx
+   6b532:	e8 a7 43 00 00       	call   6f8de <ros::Subscriber::operator=(ros::Subscriber const&)>
+   6b537:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6b53e:	48 89 c7             	mov    rdi,rax
+   6b541:	e8 6a a4 ff ff       	call   659b0 <ros::Subscriber::~Subscriber()@plt>
+   6b546:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6b54a:	48 89 c7             	mov    rdi,rax
+   6b54d:	e8 ae a2 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6b552:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b559:	48 89 c7             	mov    rdi,rax
+   6b55c:	e8 5f aa ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6b561:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b568:	48 89 c7             	mov    rdi,rax
+   6b56b:	e8 3a 37 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6b570:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6b577:	48 8d 98 d0 01 00 00 	lea    rbx,[rax+0x1d0]
+   6b57e:	48 c7 85 50 ff ff ff 	mov    QWORD PTR [rbp-0xb0],0x0
+   6b585:	00 00 00 00 
+   6b589:	48 c7 85 58 ff ff ff 	mov    QWORD PTR [rbp-0xa8],0x0
+   6b590:	00 00 00 00 
+   6b594:	48 c7 85 60 ff ff ff 	mov    QWORD PTR [rbp-0xa0],0x0
+   6b59b:	00 00 00 00 
+   6b59f:	48 c7 85 68 ff ff ff 	mov    QWORD PTR [rbp-0x98],0x0
+   6b5a6:	00 00 00 00 
+   6b5aa:	48 c7 85 70 ff ff ff 	mov    QWORD PTR [rbp-0x90],0x0
+   6b5b1:	00 00 00 00 
+   6b5b5:	48 c7 85 78 ff ff ff 	mov    QWORD PTR [rbp-0x88],0x0
+   6b5bc:	00 00 00 00 
+   6b5c0:	48 c7 45 80 00 00 00 	mov    QWORD PTR [rbp-0x80],0x0
+   6b5c7:	00 
+   6b5c8:	48 c7 45 88 00 00 00 	mov    QWORD PTR [rbp-0x78],0x0
+   6b5cf:	00 
+   6b5d0:	48 c7 45 90 00 00 00 	mov    QWORD PTR [rbp-0x70],0x0
+   6b5d7:	00 
+   6b5d8:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b5df:	48 89 c7             	mov    rdi,rax
+   6b5e2:	e8 93 36 00 00       	call   6ec7a <ros::TransportHints::TransportHints()>
+   6b5e7:	48 8d 05 78 11 00 00 	lea    rax,[rip+0x1178]        # 6c766 <udp_sender::RobotSender::SafeVelocityCallback(boost::shared_ptr<geometry_msgs::Twist_<std::allocator<void> > const> const&)>
+   6b5ee:	48 89 85 90 fe ff ff 	mov    QWORD PTR [rbp-0x170],rax
+   6b5f5:	48 c7 85 98 fe ff ff 	mov    QWORD PTR [rbp-0x168],0x0
+   6b5fc:	00 00 00 00 
+   6b600:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b607:	48 89 c7             	mov    rdi,rax
+   6b60a:	e8 91 a8 ff ff       	call   65ea0 <std::allocator<char>::allocator()@plt>
+   6b60f:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b616:	48 8d 4d a0          	lea    rcx,[rbp-0x60]
+   6b61a:	48 89 c2             	mov    rdx,rax
+   6b61d:	48 8d 35 96 62 02 00 	lea    rsi,[rip+0x26296]        # 918ba <boost::unordered::detail::default_bucket_count+0x1ba>
+   6b624:	48 89 cf             	mov    rdi,rcx
+   6b627:	e8 74 a7 ff ff       	call   65da0 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)@plt>
+   6b62c:	48 8d bd 40 ff ff ff 	lea    rdi,[rbp-0xc0]
+   6b633:	48 8d 55 a0          	lea    rdx,[rbp-0x60]
+   6b637:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b63e:	50                   	push   rax
+   6b63f:	ff b5 28 ff ff ff    	push   QWORD PTR [rbp-0xd8]
+   6b645:	4c 8b 85 90 fe ff ff 	mov    r8,QWORD PTR [rbp-0x170]
+   6b64c:	4c 8b 8d 98 fe ff ff 	mov    r9,QWORD PTR [rbp-0x168]
+   6b653:	b9 0a 00 00 00       	mov    ecx,0xa
+   6b658:	48 89 de             	mov    rsi,rbx
+   6b65b:	e8 26 4c 00 00       	call   70286 <ros::Subscriber ros::NodeHandle::subscribe<geometry_msgs::Twist_<std::allocator<void> >, udp_sender::RobotSender>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, void (udp_sender::RobotSender::*)(boost::shared_ptr<geometry_msgs::Twist_<std::allocator<void> > const> const&), udp_sender::RobotSender*, ros::TransportHints const&)>
+   6b660:	48 83 c4 10          	add    rsp,0x10
+   6b664:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6b66b:	48 8d 90 f0 00 00 00 	lea    rdx,[rax+0xf0]
+   6b672:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6b679:	48 89 c6             	mov    rsi,rax
+   6b67c:	48 89 d7             	mov    rdi,rdx
+   6b67f:	e8 5a 42 00 00       	call   6f8de <ros::Subscriber::operator=(ros::Subscriber const&)>
+   6b684:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6b68b:	48 89 c7             	mov    rdi,rax
+   6b68e:	e8 1d a3 ff ff       	call   659b0 <ros::Subscriber::~Subscriber()@plt>
+   6b693:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6b697:	48 89 c7             	mov    rdi,rax
+   6b69a:	e8 61 a1 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6b69f:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b6a6:	48 89 c7             	mov    rdi,rax
+   6b6a9:	e8 12 a9 ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6b6ae:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b6b5:	48 89 c7             	mov    rdi,rax
+   6b6b8:	e8 ed 35 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6b6bd:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6b6c4:	48 8d 98 d0 01 00 00 	lea    rbx,[rax+0x1d0]
+   6b6cb:	48 c7 85 50 ff ff ff 	mov    QWORD PTR [rbp-0xb0],0x0
+   6b6d2:	00 00 00 00 
+   6b6d6:	48 c7 85 58 ff ff ff 	mov    QWORD PTR [rbp-0xa8],0x0
+   6b6dd:	00 00 00 00 
+   6b6e1:	48 c7 85 60 ff ff ff 	mov    QWORD PTR [rbp-0xa0],0x0
+   6b6e8:	00 00 00 00 
+   6b6ec:	48 c7 85 68 ff ff ff 	mov    QWORD PTR [rbp-0x98],0x0
+   6b6f3:	00 00 00 00 
+   6b6f7:	48 c7 85 70 ff ff ff 	mov    QWORD PTR [rbp-0x90],0x0
+   6b6fe:	00 00 00 00 
+   6b702:	48 c7 85 78 ff ff ff 	mov    QWORD PTR [rbp-0x88],0x0
+   6b709:	00 00 00 00 
+   6b70d:	48 c7 45 80 00 00 00 	mov    QWORD PTR [rbp-0x80],0x0
+   6b714:	00 
+   6b715:	48 c7 45 88 00 00 00 	mov    QWORD PTR [rbp-0x78],0x0
+   6b71c:	00 
+   6b71d:	48 c7 45 90 00 00 00 	mov    QWORD PTR [rbp-0x70],0x0
+   6b724:	00 
+   6b725:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b72c:	48 89 c7             	mov    rdi,rax
+   6b72f:	e8 46 35 00 00       	call   6ec7a <ros::TransportHints::TransportHints()>
+   6b734:	48 8d 05 f3 11 00 00 	lea    rax,[rip+0x11f3]        # 6c92e <udp_sender::RobotSender::ApriltagPoseCallback(boost::shared_ptr<geometry_msgs::PoseStamped_<std::allocator<void> > const> const&)>
+   6b73b:	48 89 85 a0 fe ff ff 	mov    QWORD PTR [rbp-0x160],rax
+   6b742:	48 c7 85 a8 fe ff ff 	mov    QWORD PTR [rbp-0x158],0x0
+   6b749:	00 00 00 00 
+   6b74d:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b754:	48 89 c7             	mov    rdi,rax
+   6b757:	e8 44 a7 ff ff       	call   65ea0 <std::allocator<char>::allocator()@plt>
+   6b75c:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b763:	48 8d 4d a0          	lea    rcx,[rbp-0x60]
+   6b767:	48 89 c2             	mov    rdx,rax
+   6b76a:	48 8d 35 5c 61 02 00 	lea    rsi,[rip+0x2615c]        # 918cd <boost::unordered::detail::default_bucket_count+0x1cd>
+   6b771:	48 89 cf             	mov    rdi,rcx
+   6b774:	e8 27 a6 ff ff       	call   65da0 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)@plt>
+   6b779:	48 8d bd 40 ff ff ff 	lea    rdi,[rbp-0xc0]
+   6b780:	48 8d 55 a0          	lea    rdx,[rbp-0x60]
+   6b784:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b78b:	50                   	push   rax
+   6b78c:	ff b5 28 ff ff ff    	push   QWORD PTR [rbp-0xd8]
+   6b792:	4c 8b 85 a0 fe ff ff 	mov    r8,QWORD PTR [rbp-0x160]
+   6b799:	4c 8b 8d a8 fe ff ff 	mov    r9,QWORD PTR [rbp-0x158]
+   6b7a0:	b9 0a 00 00 00       	mov    ecx,0xa
+   6b7a5:	48 89 de             	mov    rsi,rbx
+   6b7a8:	e8 91 4f 00 00       	call   7073e <ros::Subscriber ros::NodeHandle::subscribe<geometry_msgs::PoseStamped_<std::allocator<void> >, udp_sender::RobotSender>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, void (udp_sender::RobotSender::*)(boost::shared_ptr<geometry_msgs::PoseStamped_<std::allocator<void> > const> const&), udp_sender::RobotSender*, ros::TransportHints const&)>
+   6b7ad:	48 83 c4 10          	add    rsp,0x10
+   6b7b1:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6b7b8:	48 8d 90 00 01 00 00 	lea    rdx,[rax+0x100]
+   6b7bf:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6b7c6:	48 89 c6             	mov    rsi,rax
+   6b7c9:	48 89 d7             	mov    rdi,rdx
+   6b7cc:	e8 0d 41 00 00       	call   6f8de <ros::Subscriber::operator=(ros::Subscriber const&)>
+   6b7d1:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6b7d8:	48 89 c7             	mov    rdi,rax
+   6b7db:	e8 d0 a1 ff ff       	call   659b0 <ros::Subscriber::~Subscriber()@plt>
+   6b7e0:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6b7e4:	48 89 c7             	mov    rdi,rax
+   6b7e7:	e8 14 a0 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6b7ec:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b7f3:	48 89 c7             	mov    rdi,rax
+   6b7f6:	e8 c5 a7 ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6b7fb:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b802:	48 89 c7             	mov    rdi,rax
+   6b805:	e8 a0 34 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6b80a:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6b811:	48 8d 98 d0 01 00 00 	lea    rbx,[rax+0x1d0]
+   6b818:	48 c7 85 50 ff ff ff 	mov    QWORD PTR [rbp-0xb0],0x0
+   6b81f:	00 00 00 00 
+   6b823:	48 c7 85 58 ff ff ff 	mov    QWORD PTR [rbp-0xa8],0x0
+   6b82a:	00 00 00 00 
+   6b82e:	48 c7 85 60 ff ff ff 	mov    QWORD PTR [rbp-0xa0],0x0
+   6b835:	00 00 00 00 
+   6b839:	48 c7 85 68 ff ff ff 	mov    QWORD PTR [rbp-0x98],0x0
+   6b840:	00 00 00 00 
+   6b844:	48 c7 85 70 ff ff ff 	mov    QWORD PTR [rbp-0x90],0x0
+   6b84b:	00 00 00 00 
+   6b84f:	48 c7 85 78 ff ff ff 	mov    QWORD PTR [rbp-0x88],0x0
+   6b856:	00 00 00 00 
+   6b85a:	48 c7 45 80 00 00 00 	mov    QWORD PTR [rbp-0x80],0x0
+   6b861:	00 
+   6b862:	48 c7 45 88 00 00 00 	mov    QWORD PTR [rbp-0x78],0x0
+   6b869:	00 
+   6b86a:	48 c7 45 90 00 00 00 	mov    QWORD PTR [rbp-0x70],0x0
+   6b871:	00 
+   6b872:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b879:	48 89 c7             	mov    rdi,rax
+   6b87c:	e8 f9 33 00 00       	call   6ec7a <ros::TransportHints::TransportHints()>
+   6b881:	48 8d 05 30 14 00 00 	lea    rax,[rip+0x1430]        # 6ccb8 <udp_sender::RobotSender::ApriltagPoseStatusCallback(boost::shared_ptr<std_msgs::Int32_<std::allocator<void> > const> const&)>
+   6b888:	48 89 85 b0 fe ff ff 	mov    QWORD PTR [rbp-0x150],rax
+   6b88f:	48 c7 85 b8 fe ff ff 	mov    QWORD PTR [rbp-0x148],0x0
+   6b896:	00 00 00 00 
+   6b89a:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b8a1:	48 89 c7             	mov    rdi,rax
+   6b8a4:	e8 f7 a5 ff ff       	call   65ea0 <std::allocator<char>::allocator()@plt>
+   6b8a9:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b8b0:	48 8d 4d a0          	lea    rcx,[rbp-0x60]
+   6b8b4:	48 89 c2             	mov    rdx,rax
+   6b8b7:	48 8d 35 21 60 02 00 	lea    rsi,[rip+0x26021]        # 918df <boost::unordered::detail::default_bucket_count+0x1df>
+   6b8be:	48 89 cf             	mov    rdi,rcx
+   6b8c1:	e8 da a4 ff ff       	call   65da0 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)@plt>
+   6b8c6:	48 8d bd 40 ff ff ff 	lea    rdi,[rbp-0xc0]
+   6b8cd:	48 8d 55 a0          	lea    rdx,[rbp-0x60]
+   6b8d1:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b8d8:	50                   	push   rax
+   6b8d9:	ff b5 28 ff ff ff    	push   QWORD PTR [rbp-0xd8]
+   6b8df:	4c 8b 85 b0 fe ff ff 	mov    r8,QWORD PTR [rbp-0x150]
+   6b8e6:	4c 8b 8d b8 fe ff ff 	mov    r9,QWORD PTR [rbp-0x148]
+   6b8ed:	b9 01 00 00 00       	mov    ecx,0x1
+   6b8f2:	48 89 de             	mov    rsi,rbx
+   6b8f5:	e8 68 50 00 00       	call   70962 <ros::Subscriber ros::NodeHandle::subscribe<std_msgs::Int32_<std::allocator<void> >, udp_sender::RobotSender>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, void (udp_sender::RobotSender::*)(boost::shared_ptr<std_msgs::Int32_<std::allocator<void> > const> const&), udp_sender::RobotSender*, ros::TransportHints const&)>
+   6b8fa:	48 83 c4 10          	add    rsp,0x10
+   6b8fe:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6b905:	48 8d 90 10 01 00 00 	lea    rdx,[rax+0x110]
+   6b90c:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6b913:	48 89 c6             	mov    rsi,rax
+   6b916:	48 89 d7             	mov    rdi,rdx
+   6b919:	e8 c0 3f 00 00       	call   6f8de <ros::Subscriber::operator=(ros::Subscriber const&)>
+   6b91e:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6b925:	48 89 c7             	mov    rdi,rax
+   6b928:	e8 83 a0 ff ff       	call   659b0 <ros::Subscriber::~Subscriber()@plt>
+   6b92d:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6b931:	48 89 c7             	mov    rdi,rax
+   6b934:	e8 c7 9e ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6b939:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b940:	48 89 c7             	mov    rdi,rax
+   6b943:	e8 78 a6 ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6b948:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b94f:	48 89 c7             	mov    rdi,rax
+   6b952:	e8 53 33 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6b957:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6b95e:	48 8d 98 d0 01 00 00 	lea    rbx,[rax+0x1d0]
+   6b965:	48 c7 85 50 ff ff ff 	mov    QWORD PTR [rbp-0xb0],0x0
+   6b96c:	00 00 00 00 
+   6b970:	48 c7 85 58 ff ff ff 	mov    QWORD PTR [rbp-0xa8],0x0
+   6b977:	00 00 00 00 
+   6b97b:	48 c7 85 60 ff ff ff 	mov    QWORD PTR [rbp-0xa0],0x0
+   6b982:	00 00 00 00 
+   6b986:	48 c7 85 68 ff ff ff 	mov    QWORD PTR [rbp-0x98],0x0
+   6b98d:	00 00 00 00 
+   6b991:	48 c7 85 70 ff ff ff 	mov    QWORD PTR [rbp-0x90],0x0
+   6b998:	00 00 00 00 
+   6b99c:	48 c7 85 78 ff ff ff 	mov    QWORD PTR [rbp-0x88],0x0
+   6b9a3:	00 00 00 00 
+   6b9a7:	48 c7 45 80 00 00 00 	mov    QWORD PTR [rbp-0x80],0x0
+   6b9ae:	00 
+   6b9af:	48 c7 45 88 00 00 00 	mov    QWORD PTR [rbp-0x78],0x0
+   6b9b6:	00 
+   6b9b7:	48 c7 45 90 00 00 00 	mov    QWORD PTR [rbp-0x70],0x0
+   6b9be:	00 
+   6b9bf:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6b9c6:	48 89 c7             	mov    rdi,rax
+   6b9c9:	e8 ac 32 00 00       	call   6ec7a <ros::TransportHints::TransportHints()>
+   6b9ce:	48 8d 05 2d 11 00 00 	lea    rax,[rip+0x112d]        # 6cb02 <udp_sender::RobotSender::ChargePoseCallback(boost::shared_ptr<geometry_msgs::PoseStamped_<std::allocator<void> > const> const&)>
+   6b9d5:	48 89 85 c0 fe ff ff 	mov    QWORD PTR [rbp-0x140],rax
+   6b9dc:	48 c7 85 c8 fe ff ff 	mov    QWORD PTR [rbp-0x138],0x0
+   6b9e3:	00 00 00 00 
+   6b9e7:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b9ee:	48 89 c7             	mov    rdi,rax
+   6b9f1:	e8 aa a4 ff ff       	call   65ea0 <std::allocator<char>::allocator()@plt>
+   6b9f6:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6b9fd:	48 8d 4d a0          	lea    rcx,[rbp-0x60]
+   6ba01:	48 89 c2             	mov    rdx,rax
+   6ba04:	48 8d 35 e0 5e 02 00 	lea    rsi,[rip+0x25ee0]        # 918eb <boost::unordered::detail::default_bucket_count+0x1eb>
+   6ba0b:	48 89 cf             	mov    rdi,rcx
+   6ba0e:	e8 8d a3 ff ff       	call   65da0 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)@plt>
+   6ba13:	48 8d bd 40 ff ff ff 	lea    rdi,[rbp-0xc0]
+   6ba1a:	48 8d 55 a0          	lea    rdx,[rbp-0x60]
+   6ba1e:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6ba25:	50                   	push   rax
+   6ba26:	ff b5 28 ff ff ff    	push   QWORD PTR [rbp-0xd8]
+   6ba2c:	4c 8b 85 c0 fe ff ff 	mov    r8,QWORD PTR [rbp-0x140]
+   6ba33:	4c 8b 8d c8 fe ff ff 	mov    r9,QWORD PTR [rbp-0x138]
+   6ba3a:	b9 0a 00 00 00       	mov    ecx,0xa
+   6ba3f:	48 89 de             	mov    rsi,rbx
+   6ba42:	e8 f7 4c 00 00       	call   7073e <ros::Subscriber ros::NodeHandle::subscribe<geometry_msgs::PoseStamped_<std::allocator<void> >, udp_sender::RobotSender>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, void (udp_sender::RobotSender::*)(boost::shared_ptr<geometry_msgs::PoseStamped_<std::allocator<void> > const> const&), udp_sender::RobotSender*, ros::TransportHints const&)>
+   6ba47:	48 83 c4 10          	add    rsp,0x10
+   6ba4b:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6ba52:	48 8d 90 70 01 00 00 	lea    rdx,[rax+0x170]
+   6ba59:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6ba60:	48 89 c6             	mov    rsi,rax
+   6ba63:	48 89 d7             	mov    rdi,rdx
+   6ba66:	e8 73 3e 00 00       	call   6f8de <ros::Subscriber::operator=(ros::Subscriber const&)>
+   6ba6b:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6ba72:	48 89 c7             	mov    rdi,rax
+   6ba75:	e8 36 9f ff ff       	call   659b0 <ros::Subscriber::~Subscriber()@plt>
+   6ba7a:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6ba7e:	48 89 c7             	mov    rdi,rax
+   6ba81:	e8 7a 9d ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6ba86:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6ba8d:	48 89 c7             	mov    rdi,rax
+   6ba90:	e8 2b a5 ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6ba95:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6ba9c:	48 89 c7             	mov    rdi,rax
+   6ba9f:	e8 06 32 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6baa4:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6baab:	48 8d 98 d0 01 00 00 	lea    rbx,[rax+0x1d0]
+   6bab2:	48 c7 85 50 ff ff ff 	mov    QWORD PTR [rbp-0xb0],0x0
+   6bab9:	00 00 00 00 
+   6babd:	48 c7 85 58 ff ff ff 	mov    QWORD PTR [rbp-0xa8],0x0
+   6bac4:	00 00 00 00 
+   6bac8:	48 c7 85 60 ff ff ff 	mov    QWORD PTR [rbp-0xa0],0x0
+   6bacf:	00 00 00 00 
+   6bad3:	48 c7 85 68 ff ff ff 	mov    QWORD PTR [rbp-0x98],0x0
+   6bada:	00 00 00 00 
+   6bade:	48 c7 85 70 ff ff ff 	mov    QWORD PTR [rbp-0x90],0x0
+   6bae5:	00 00 00 00 
+   6bae9:	48 c7 85 78 ff ff ff 	mov    QWORD PTR [rbp-0x88],0x0
+   6baf0:	00 00 00 00 
+   6baf4:	48 c7 45 80 00 00 00 	mov    QWORD PTR [rbp-0x80],0x0
+   6bafb:	00 
+   6bafc:	48 c7 45 88 00 00 00 	mov    QWORD PTR [rbp-0x78],0x0
+   6bb03:	00 
+   6bb04:	48 c7 45 90 00 00 00 	mov    QWORD PTR [rbp-0x70],0x0
+   6bb0b:	00 
+   6bb0c:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6bb13:	48 89 c7             	mov    rdi,rax
+   6bb16:	e8 5f 31 00 00       	call   6ec7a <ros::TransportHints::TransportHints()>
+   6bb1b:	48 8d 05 ee 11 00 00 	lea    rax,[rip+0x11ee]        # 6cd10 <udp_sender::RobotSender::VinsStateCallback(boost::shared_ptr<std_msgs::Int32_<std::allocator<void> > const> const&)>
+   6bb22:	48 89 85 d0 fe ff ff 	mov    QWORD PTR [rbp-0x130],rax
+   6bb29:	48 c7 85 d8 fe ff ff 	mov    QWORD PTR [rbp-0x128],0x0
+   6bb30:	00 00 00 00 
+   6bb34:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6bb3b:	48 89 c7             	mov    rdi,rax
+   6bb3e:	e8 5d a3 ff ff       	call   65ea0 <std::allocator<char>::allocator()@plt>
+   6bb43:	48 8d 95 3f ff ff ff 	lea    rdx,[rbp-0xc1]
+   6bb4a:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6bb4e:	48 8d 35 b2 5d 02 00 	lea    rsi,[rip+0x25db2]        # 91907 <boost::unordered::detail::default_bucket_count+0x207>
+   6bb55:	48 89 c7             	mov    rdi,rax
+   6bb58:	e8 43 a2 ff ff       	call   65da0 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)@plt>
+   6bb5d:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6bb64:	48 8d 55 a0          	lea    rdx,[rbp-0x60]
+   6bb68:	48 8d 8d 50 ff ff ff 	lea    rcx,[rbp-0xb0]
+   6bb6f:	51                   	push   rcx
+   6bb70:	ff b5 28 ff ff ff    	push   QWORD PTR [rbp-0xd8]
+   6bb76:	4c 8b 85 d0 fe ff ff 	mov    r8,QWORD PTR [rbp-0x130]
+   6bb7d:	4c 8b 8d d8 fe ff ff 	mov    r9,QWORD PTR [rbp-0x128]
+   6bb84:	b9 0a 00 00 00       	mov    ecx,0xa
+   6bb89:	48 89 de             	mov    rsi,rbx
+   6bb8c:	48 89 c7             	mov    rdi,rax
+   6bb8f:	e8 ce 4d 00 00       	call   70962 <ros::Subscriber ros::NodeHandle::subscribe<std_msgs::Int32_<std::allocator<void> >, udp_sender::RobotSender>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, void (udp_sender::RobotSender::*)(boost::shared_ptr<std_msgs::Int32_<std::allocator<void> > const> const&), udp_sender::RobotSender*, ros::TransportHints const&)>
+   6bb94:	48 83 c4 10          	add    rsp,0x10
+   6bb98:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6bb9f:	48 8d 90 20 01 00 00 	lea    rdx,[rax+0x120]
+   6bba6:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6bbad:	48 89 c6             	mov    rsi,rax
+   6bbb0:	48 89 d7             	mov    rdi,rdx
+   6bbb3:	e8 26 3d 00 00       	call   6f8de <ros::Subscriber::operator=(ros::Subscriber const&)>
+   6bbb8:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6bbbf:	48 89 c7             	mov    rdi,rax
+   6bbc2:	e8 e9 9d ff ff       	call   659b0 <ros::Subscriber::~Subscriber()@plt>
+   6bbc7:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6bbcb:	48 89 c7             	mov    rdi,rax
+   6bbce:	e8 2d 9c ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6bbd3:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6bbda:	48 89 c7             	mov    rdi,rax
+   6bbdd:	e8 de a3 ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6bbe2:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6bbe9:	48 89 c7             	mov    rdi,rax
+   6bbec:	e8 b9 30 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6bbf1:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6bbf8:	48 8d 98 d0 01 00 00 	lea    rbx,[rax+0x1d0]
+   6bbff:	48 c7 85 50 ff ff ff 	mov    QWORD PTR [rbp-0xb0],0x0
+   6bc06:	00 00 00 00 
+   6bc0a:	48 c7 85 58 ff ff ff 	mov    QWORD PTR [rbp-0xa8],0x0
+   6bc11:	00 00 00 00 
+   6bc15:	48 c7 85 60 ff ff ff 	mov    QWORD PTR [rbp-0xa0],0x0
+   6bc1c:	00 00 00 00 
+   6bc20:	48 c7 85 68 ff ff ff 	mov    QWORD PTR [rbp-0x98],0x0
+   6bc27:	00 00 00 00 
+   6bc2b:	48 c7 85 70 ff ff ff 	mov    QWORD PTR [rbp-0x90],0x0
+   6bc32:	00 00 00 00 
+   6bc36:	48 c7 85 78 ff ff ff 	mov    QWORD PTR [rbp-0x88],0x0
+   6bc3d:	00 00 00 00 
+   6bc41:	48 c7 45 80 00 00 00 	mov    QWORD PTR [rbp-0x80],0x0
+   6bc48:	00 
+   6bc49:	48 c7 45 88 00 00 00 	mov    QWORD PTR [rbp-0x78],0x0
+   6bc50:	00 
+   6bc51:	48 c7 45 90 00 00 00 	mov    QWORD PTR [rbp-0x70],0x0
+   6bc58:	00 
+   6bc59:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6bc60:	48 89 c7             	mov    rdi,rax
+   6bc63:	e8 12 30 00 00       	call   6ec7a <ros::TransportHints::TransportHints()>
+   6bc68:	48 8d 05 e3 10 00 00 	lea    rax,[rip+0x10e3]        # 6cd52 <udp_sender::RobotSender::HeightMapStateCallback(boost::shared_ptr<std_msgs::Int32_<std::allocator<void> > const> const&)>
+   6bc6f:	48 89 85 e0 fe ff ff 	mov    QWORD PTR [rbp-0x120],rax
+   6bc76:	48 c7 85 e8 fe ff ff 	mov    QWORD PTR [rbp-0x118],0x0
+   6bc7d:	00 00 00 00 
+   6bc81:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6bc88:	48 89 c7             	mov    rdi,rax
+   6bc8b:	e8 10 a2 ff ff       	call   65ea0 <std::allocator<char>::allocator()@plt>
+   6bc90:	48 8d 95 3f ff ff ff 	lea    rdx,[rbp-0xc1]
+   6bc97:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6bc9b:	48 8d 35 86 5c 02 00 	lea    rsi,[rip+0x25c86]        # 91928 <boost::unordered::detail::default_bucket_count+0x228>
+   6bca2:	48 89 c7             	mov    rdi,rax
+   6bca5:	e8 f6 a0 ff ff       	call   65da0 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)@plt>
+   6bcaa:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6bcb1:	48 8d 55 a0          	lea    rdx,[rbp-0x60]
+   6bcb5:	48 8d 8d 50 ff ff ff 	lea    rcx,[rbp-0xb0]
+   6bcbc:	51                   	push   rcx
+   6bcbd:	ff b5 28 ff ff ff    	push   QWORD PTR [rbp-0xd8]
+   6bcc3:	4c 8b 85 e0 fe ff ff 	mov    r8,QWORD PTR [rbp-0x120]
+   6bcca:	4c 8b 8d e8 fe ff ff 	mov    r9,QWORD PTR [rbp-0x118]
+   6bcd1:	b9 0a 00 00 00       	mov    ecx,0xa
+   6bcd6:	48 89 de             	mov    rsi,rbx
+   6bcd9:	48 89 c7             	mov    rdi,rax
+   6bcdc:	e8 81 4c 00 00       	call   70962 <ros::Subscriber ros::NodeHandle::subscribe<std_msgs::Int32_<std::allocator<void> >, udp_sender::RobotSender>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, void (udp_sender::RobotSender::*)(boost::shared_ptr<std_msgs::Int32_<std::allocator<void> > const> const&), udp_sender::RobotSender*, ros::TransportHints const&)>
+   6bce1:	48 83 c4 10          	add    rsp,0x10
+   6bce5:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6bcec:	48 8d 90 40 01 00 00 	lea    rdx,[rax+0x140]
+   6bcf3:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6bcfa:	48 89 c6             	mov    rsi,rax
+   6bcfd:	48 89 d7             	mov    rdi,rdx
+   6bd00:	e8 d9 3b 00 00       	call   6f8de <ros::Subscriber::operator=(ros::Subscriber const&)>
+   6bd05:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6bd0c:	48 89 c7             	mov    rdi,rax
+   6bd0f:	e8 9c 9c ff ff       	call   659b0 <ros::Subscriber::~Subscriber()@plt>
+   6bd14:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6bd18:	48 89 c7             	mov    rdi,rax
+   6bd1b:	e8 e0 9a ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6bd20:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6bd27:	48 89 c7             	mov    rdi,rax
+   6bd2a:	e8 91 a2 ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6bd2f:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6bd36:	48 89 c7             	mov    rdi,rax
+   6bd39:	e8 6c 2f 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6bd3e:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6bd45:	48 8d 98 d0 01 00 00 	lea    rbx,[rax+0x1d0]
+   6bd4c:	48 c7 85 50 ff ff ff 	mov    QWORD PTR [rbp-0xb0],0x0
+   6bd53:	00 00 00 00 
+   6bd57:	48 c7 85 58 ff ff ff 	mov    QWORD PTR [rbp-0xa8],0x0
+   6bd5e:	00 00 00 00 
+   6bd62:	48 c7 85 60 ff ff ff 	mov    QWORD PTR [rbp-0xa0],0x0
+   6bd69:	00 00 00 00 
+   6bd6d:	48 c7 85 68 ff ff ff 	mov    QWORD PTR [rbp-0x98],0x0
+   6bd74:	00 00 00 00 
+   6bd78:	48 c7 85 70 ff ff ff 	mov    QWORD PTR [rbp-0x90],0x0
+   6bd7f:	00 00 00 00 
+   6bd83:	48 c7 85 78 ff ff ff 	mov    QWORD PTR [rbp-0x88],0x0
+   6bd8a:	00 00 00 00 
+   6bd8e:	48 c7 45 80 00 00 00 	mov    QWORD PTR [rbp-0x80],0x0
+   6bd95:	00 
+   6bd96:	48 c7 45 88 00 00 00 	mov    QWORD PTR [rbp-0x78],0x0
+   6bd9d:	00 
+   6bd9e:	48 c7 45 90 00 00 00 	mov    QWORD PTR [rbp-0x70],0x0
+   6bda5:	00 
+   6bda6:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6bdad:	48 89 c7             	mov    rdi,rax
+   6bdb0:	e8 c5 2e 00 00       	call   6ec7a <ros::TransportHints::TransportHints()>
+   6bdb5:	48 8d 05 ba 12 00 00 	lea    rax,[rip+0x12ba]        # 6d076 <udp_sender::RobotSender::VinsPoseCallback(boost::shared_ptr<geometry_msgs::PoseWithCovarianceStamped_<std::allocator<void> > const> const&)>
+   6bdbc:	48 89 85 f0 fe ff ff 	mov    QWORD PTR [rbp-0x110],rax
+   6bdc3:	48 c7 85 f8 fe ff ff 	mov    QWORD PTR [rbp-0x108],0x0
+   6bdca:	00 00 00 00 
+   6bdce:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6bdd5:	48 89 c7             	mov    rdi,rax
+   6bdd8:	e8 c3 a0 ff ff       	call   65ea0 <std::allocator<char>::allocator()@plt>
+   6bddd:	48 8d 95 3f ff ff ff 	lea    rdx,[rbp-0xc1]
+   6bde4:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6bde8:	48 8d 35 69 5b 02 00 	lea    rsi,[rip+0x25b69]        # 91958 <boost::unordered::detail::default_bucket_count+0x258>
+   6bdef:	48 89 c7             	mov    rdi,rax
+   6bdf2:	e8 a9 9f ff ff       	call   65da0 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)@plt>
+   6bdf7:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6bdfe:	48 8d 55 a0          	lea    rdx,[rbp-0x60]
+   6be02:	48 8d 8d 50 ff ff ff 	lea    rcx,[rbp-0xb0]
+   6be09:	51                   	push   rcx
+   6be0a:	ff b5 28 ff ff ff    	push   QWORD PTR [rbp-0xd8]
+   6be10:	4c 8b 85 f0 fe ff ff 	mov    r8,QWORD PTR [rbp-0x110]
+   6be17:	4c 8b 8d f8 fe ff ff 	mov    r9,QWORD PTR [rbp-0x108]
+   6be1e:	b9 0a 00 00 00       	mov    ecx,0xa
+   6be23:	48 89 de             	mov    rsi,rbx
+   6be26:	48 89 c7             	mov    rdi,rax
+   6be29:	e8 58 4d 00 00       	call   70b86 <ros::Subscriber ros::NodeHandle::subscribe<geometry_msgs::PoseWithCovarianceStamped_<std::allocator<void> >, udp_sender::RobotSender>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, void (udp_sender::RobotSender::*)(boost::shared_ptr<geometry_msgs::PoseWithCovarianceStamped_<std::allocator<void> > const> const&), udp_sender::RobotSender*, ros::TransportHints const&)>
+   6be2e:	48 83 c4 10          	add    rsp,0x10
+   6be32:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6be39:	48 8d 90 30 01 00 00 	lea    rdx,[rax+0x130]
+   6be40:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6be47:	48 89 c6             	mov    rsi,rax
+   6be4a:	48 89 d7             	mov    rdi,rdx
+   6be4d:	e8 8c 3a 00 00       	call   6f8de <ros::Subscriber::operator=(ros::Subscriber const&)>
+   6be52:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6be59:	48 89 c7             	mov    rdi,rax
+   6be5c:	e8 4f 9b ff ff       	call   659b0 <ros::Subscriber::~Subscriber()@plt>
+   6be61:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6be65:	48 89 c7             	mov    rdi,rax
+   6be68:	e8 93 99 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6be6d:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6be74:	48 89 c7             	mov    rdi,rax
+   6be77:	e8 44 a1 ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6be7c:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6be83:	48 89 c7             	mov    rdi,rax
+   6be86:	e8 1f 2e 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6be8b:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6be92:	48 8d 98 d0 01 00 00 	lea    rbx,[rax+0x1d0]
+   6be99:	48 c7 85 50 ff ff ff 	mov    QWORD PTR [rbp-0xb0],0x0
+   6bea0:	00 00 00 00 
+   6bea4:	48 c7 85 58 ff ff ff 	mov    QWORD PTR [rbp-0xa8],0x0
+   6beab:	00 00 00 00 
+   6beaf:	48 c7 85 60 ff ff ff 	mov    QWORD PTR [rbp-0xa0],0x0
+   6beb6:	00 00 00 00 
+   6beba:	48 c7 85 68 ff ff ff 	mov    QWORD PTR [rbp-0x98],0x0
+   6bec1:	00 00 00 00 
+   6bec5:	48 c7 85 70 ff ff ff 	mov    QWORD PTR [rbp-0x90],0x0
+   6becc:	00 00 00 00 
+   6bed0:	48 c7 85 78 ff ff ff 	mov    QWORD PTR [rbp-0x88],0x0
+   6bed7:	00 00 00 00 
+   6bedb:	48 c7 45 80 00 00 00 	mov    QWORD PTR [rbp-0x80],0x0
+   6bee2:	00 
+   6bee3:	48 c7 45 88 00 00 00 	mov    QWORD PTR [rbp-0x78],0x0
+   6beea:	00 
+   6beeb:	48 c7 45 90 00 00 00 	mov    QWORD PTR [rbp-0x70],0x0
+   6bef2:	00 
+   6bef3:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6befa:	48 89 c7             	mov    rdi,rax
+   6befd:	e8 78 2d 00 00       	call   6ec7a <ros::TransportHints::TransportHints()>
+   6bf02:	48 8d 05 41 05 00 00 	lea    rax,[rip+0x541]        # 6c44a <udp_sender::RobotSender::SetGaitCallback(boost::shared_ptr<std_msgs::Int32_<std::allocator<void> > const> const&)>
+   6bf09:	48 89 85 00 ff ff ff 	mov    QWORD PTR [rbp-0x100],rax
+   6bf10:	48 c7 85 08 ff ff ff 	mov    QWORD PTR [rbp-0xf8],0x0
+   6bf17:	00 00 00 00 
+   6bf1b:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6bf22:	48 89 c7             	mov    rdi,rax
+   6bf25:	e8 76 9f ff ff       	call   65ea0 <std::allocator<char>::allocator()@plt>
+   6bf2a:	48 8d 95 3f ff ff ff 	lea    rdx,[rbp-0xc1]
+   6bf31:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6bf35:	48 8d 35 3e 5a 02 00 	lea    rsi,[rip+0x25a3e]        # 9197a <boost::unordered::detail::default_bucket_count+0x27a>
+   6bf3c:	48 89 c7             	mov    rdi,rax
+   6bf3f:	e8 5c 9e ff ff       	call   65da0 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)@plt>
+   6bf44:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6bf4b:	48 8d 55 a0          	lea    rdx,[rbp-0x60]
+   6bf4f:	48 8d 8d 50 ff ff ff 	lea    rcx,[rbp-0xb0]
+   6bf56:	51                   	push   rcx
+   6bf57:	ff b5 28 ff ff ff    	push   QWORD PTR [rbp-0xd8]
+   6bf5d:	4c 8b 85 00 ff ff ff 	mov    r8,QWORD PTR [rbp-0x100]
+   6bf64:	4c 8b 8d 08 ff ff ff 	mov    r9,QWORD PTR [rbp-0xf8]
+   6bf6b:	b9 0a 00 00 00       	mov    ecx,0xa
+   6bf70:	48 89 de             	mov    rsi,rbx
+   6bf73:	48 89 c7             	mov    rdi,rax
+   6bf76:	e8 e7 49 00 00       	call   70962 <ros::Subscriber ros::NodeHandle::subscribe<std_msgs::Int32_<std::allocator<void> >, udp_sender::RobotSender>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, void (udp_sender::RobotSender::*)(boost::shared_ptr<std_msgs::Int32_<std::allocator<void> > const> const&), udp_sender::RobotSender*, ros::TransportHints const&)>
+   6bf7b:	48 83 c4 10          	add    rsp,0x10
+   6bf7f:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6bf86:	48 8d 90 60 01 00 00 	lea    rdx,[rax+0x160]
+   6bf8d:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6bf94:	48 89 c6             	mov    rsi,rax
+   6bf97:	48 89 d7             	mov    rdi,rdx
+   6bf9a:	e8 3f 39 00 00       	call   6f8de <ros::Subscriber::operator=(ros::Subscriber const&)>
+   6bf9f:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6bfa6:	48 89 c7             	mov    rdi,rax
+   6bfa9:	e8 02 9a ff ff       	call   659b0 <ros::Subscriber::~Subscriber()@plt>
+   6bfae:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6bfb2:	48 89 c7             	mov    rdi,rax
+   6bfb5:	e8 46 98 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6bfba:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6bfc1:	48 89 c7             	mov    rdi,rax
+   6bfc4:	e8 f7 9f ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6bfc9:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6bfd0:	48 89 c7             	mov    rdi,rax
+   6bfd3:	e8 d2 2c 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6bfd8:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6bfdf:	48 8d 98 d0 01 00 00 	lea    rbx,[rax+0x1d0]
+   6bfe6:	48 c7 85 50 ff ff ff 	mov    QWORD PTR [rbp-0xb0],0x0
+   6bfed:	00 00 00 00 
+   6bff1:	48 c7 85 58 ff ff ff 	mov    QWORD PTR [rbp-0xa8],0x0
+   6bff8:	00 00 00 00 
+   6bffc:	48 c7 85 60 ff ff ff 	mov    QWORD PTR [rbp-0xa0],0x0
+   6c003:	00 00 00 00 
+   6c007:	48 c7 85 68 ff ff ff 	mov    QWORD PTR [rbp-0x98],0x0
+   6c00e:	00 00 00 00 
+   6c012:	48 c7 85 70 ff ff ff 	mov    QWORD PTR [rbp-0x90],0x0
+   6c019:	00 00 00 00 
+   6c01d:	48 c7 85 78 ff ff ff 	mov    QWORD PTR [rbp-0x88],0x0
+   6c024:	00 00 00 00 
+   6c028:	48 c7 45 80 00 00 00 	mov    QWORD PTR [rbp-0x80],0x0
+   6c02f:	00 
+   6c030:	48 c7 45 88 00 00 00 	mov    QWORD PTR [rbp-0x78],0x0
+   6c037:	00 
+   6c038:	48 c7 45 90 00 00 00 	mov    QWORD PTR [rbp-0x70],0x0
+   6c03f:	00 
+   6c040:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6c047:	48 89 c7             	mov    rdi,rax
+   6c04a:	e8 2b 2c 00 00       	call   6ec7a <ros::TransportHints::TransportHints()>
+   6c04f:	48 8d 05 3e 0d 00 00 	lea    rax,[rip+0xd3e]        # 6cd94 <udp_sender::RobotSender::ObstaclePointcloudCallback(boost::shared_ptr<sensor_msgs::PointCloud2_<std::allocator<void> > const> const&)>
+   6c056:	48 89 85 10 ff ff ff 	mov    QWORD PTR [rbp-0xf0],rax
+   6c05d:	48 c7 85 18 ff ff ff 	mov    QWORD PTR [rbp-0xe8],0x0
+   6c064:	00 00 00 00 
+   6c068:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6c06f:	48 89 c7             	mov    rdi,rax
+   6c072:	e8 29 9e ff ff       	call   65ea0 <std::allocator<char>::allocator()@plt>
+   6c077:	48 8d 95 3f ff ff ff 	lea    rdx,[rbp-0xc1]
+   6c07e:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6c082:	48 8d 35 ff 58 02 00 	lea    rsi,[rip+0x258ff]        # 91988 <boost::unordered::detail::default_bucket_count+0x288>
+   6c089:	48 89 c7             	mov    rdi,rax
+   6c08c:	e8 0f 9d ff ff       	call   65da0 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)@plt>
+   6c091:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6c098:	48 8d 55 a0          	lea    rdx,[rbp-0x60]
+   6c09c:	48 8d 8d 50 ff ff ff 	lea    rcx,[rbp-0xb0]
+   6c0a3:	51                   	push   rcx
+   6c0a4:	ff b5 28 ff ff ff    	push   QWORD PTR [rbp-0xd8]
+   6c0aa:	4c 8b 85 10 ff ff ff 	mov    r8,QWORD PTR [rbp-0xf0]
+   6c0b1:	4c 8b 8d 18 ff ff ff 	mov    r9,QWORD PTR [rbp-0xe8]
+   6c0b8:	b9 64 00 00 00       	mov    ecx,0x64
+   6c0bd:	48 89 de             	mov    rsi,rbx
+   6c0c0:	48 89 c7             	mov    rdi,rax
+   6c0c3:	e8 e2 4c 00 00       	call   70daa <ros::Subscriber ros::NodeHandle::subscribe<sensor_msgs::PointCloud2_<std::allocator<void> >, udp_sender::RobotSender>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, void (udp_sender::RobotSender::*)(boost::shared_ptr<sensor_msgs::PointCloud2_<std::allocator<void> > const> const&), udp_sender::RobotSender*, ros::TransportHints const&)>
+   6c0c8:	48 83 c4 10          	add    rsp,0x10
+   6c0cc:	48 8b 85 28 ff ff ff 	mov    rax,QWORD PTR [rbp-0xd8]
+   6c0d3:	48 8d 90 80 01 00 00 	lea    rdx,[rax+0x180]
+   6c0da:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6c0e1:	48 89 c6             	mov    rsi,rax
+   6c0e4:	48 89 d7             	mov    rdi,rdx
+   6c0e7:	e8 f2 37 00 00       	call   6f8de <ros::Subscriber::operator=(ros::Subscriber const&)>
+   6c0ec:	48 8d 85 40 ff ff ff 	lea    rax,[rbp-0xc0]
+   6c0f3:	48 89 c7             	mov    rdi,rax
+   6c0f6:	e8 b5 98 ff ff       	call   659b0 <ros::Subscriber::~Subscriber()@plt>
+   6c0fb:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6c0ff:	48 89 c7             	mov    rdi,rax
+   6c102:	e8 f9 96 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6c107:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6c10e:	48 89 c7             	mov    rdi,rax
+   6c111:	e8 aa 9e ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6c116:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6c11d:	48 89 c7             	mov    rdi,rax
+   6c120:	e8 85 2b 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6c125:	90                   	nop
+   6c126:	48 8b 45 c8          	mov    rax,QWORD PTR [rbp-0x38]
+   6c12a:	64 48 33 04 25 28 00 	xor    rax,QWORD PTR fs:0x28
+   6c131:	00 00 
+   6c133:	0f 84 01 03 00 00    	je     6c43a <udp_sender::RobotSender::InitSubscribers()+0x116a>
+   6c139:	e9 f7 02 00 00       	jmp    6c435 <udp_sender::RobotSender::InitSubscribers()+0x1165>
+   6c13e:	f3 0f 1e fa          	endbr64 
+   6c142:	48 89 c3             	mov    rbx,rax
+   6c145:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6c149:	48 89 c7             	mov    rdi,rax
+   6c14c:	e8 af 96 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6c151:	eb 07                	jmp    6c15a <udp_sender::RobotSender::InitSubscribers()+0xe8a>
+   6c153:	f3 0f 1e fa          	endbr64 
+   6c157:	48 89 c3             	mov    rbx,rax
+   6c15a:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6c161:	48 89 c7             	mov    rdi,rax
+   6c164:	e8 57 9e ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6c169:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6c170:	48 89 c7             	mov    rdi,rax
+   6c173:	e8 32 2b 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6c178:	48 89 d8             	mov    rax,rbx
+   6c17b:	48 89 c7             	mov    rdi,rax
+   6c17e:	e8 dd 9a ff ff       	call   65c60 <_Unwind_Resume@plt>
+   6c183:	f3 0f 1e fa          	endbr64 
+   6c187:	48 89 c3             	mov    rbx,rax
+   6c18a:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6c18e:	48 89 c7             	mov    rdi,rax
+   6c191:	e8 6a 96 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6c196:	eb 07                	jmp    6c19f <udp_sender::RobotSender::InitSubscribers()+0xecf>
+   6c198:	f3 0f 1e fa          	endbr64 
+   6c19c:	48 89 c3             	mov    rbx,rax
+   6c19f:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6c1a6:	48 89 c7             	mov    rdi,rax
+   6c1a9:	e8 12 9e ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6c1ae:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6c1b5:	48 89 c7             	mov    rdi,rax
+   6c1b8:	e8 ed 2a 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6c1bd:	48 89 d8             	mov    rax,rbx
+   6c1c0:	48 89 c7             	mov    rdi,rax
+   6c1c3:	e8 98 9a ff ff       	call   65c60 <_Unwind_Resume@plt>
+   6c1c8:	f3 0f 1e fa          	endbr64 
+   6c1cc:	48 89 c3             	mov    rbx,rax
+   6c1cf:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6c1d3:	48 89 c7             	mov    rdi,rax
+   6c1d6:	e8 25 96 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6c1db:	eb 07                	jmp    6c1e4 <udp_sender::RobotSender::InitSubscribers()+0xf14>
+   6c1dd:	f3 0f 1e fa          	endbr64 
+   6c1e1:	48 89 c3             	mov    rbx,rax
+   6c1e4:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6c1eb:	48 89 c7             	mov    rdi,rax
+   6c1ee:	e8 cd 9d ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6c1f3:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6c1fa:	48 89 c7             	mov    rdi,rax
+   6c1fd:	e8 a8 2a 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6c202:	48 89 d8             	mov    rax,rbx
+   6c205:	48 89 c7             	mov    rdi,rax
+   6c208:	e8 53 9a ff ff       	call   65c60 <_Unwind_Resume@plt>
+   6c20d:	f3 0f 1e fa          	endbr64 
+   6c211:	48 89 c3             	mov    rbx,rax
+   6c214:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6c218:	48 89 c7             	mov    rdi,rax
+   6c21b:	e8 e0 95 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6c220:	eb 07                	jmp    6c229 <udp_sender::RobotSender::InitSubscribers()+0xf59>
+   6c222:	f3 0f 1e fa          	endbr64 
+   6c226:	48 89 c3             	mov    rbx,rax
+   6c229:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6c230:	48 89 c7             	mov    rdi,rax
+   6c233:	e8 88 9d ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6c238:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6c23f:	48 89 c7             	mov    rdi,rax
+   6c242:	e8 63 2a 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6c247:	48 89 d8             	mov    rax,rbx
+   6c24a:	48 89 c7             	mov    rdi,rax
+   6c24d:	e8 0e 9a ff ff       	call   65c60 <_Unwind_Resume@plt>
+   6c252:	f3 0f 1e fa          	endbr64 
+   6c256:	48 89 c3             	mov    rbx,rax
+   6c259:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6c25d:	48 89 c7             	mov    rdi,rax
+   6c260:	e8 9b 95 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6c265:	eb 07                	jmp    6c26e <udp_sender::RobotSender::InitSubscribers()+0xf9e>
+   6c267:	f3 0f 1e fa          	endbr64 
+   6c26b:	48 89 c3             	mov    rbx,rax
+   6c26e:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6c275:	48 89 c7             	mov    rdi,rax
+   6c278:	e8 43 9d ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6c27d:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6c284:	48 89 c7             	mov    rdi,rax
+   6c287:	e8 1e 2a 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6c28c:	48 89 d8             	mov    rax,rbx
+   6c28f:	48 89 c7             	mov    rdi,rax
+   6c292:	e8 c9 99 ff ff       	call   65c60 <_Unwind_Resume@plt>
+   6c297:	f3 0f 1e fa          	endbr64 
+   6c29b:	48 89 c3             	mov    rbx,rax
+   6c29e:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6c2a2:	48 89 c7             	mov    rdi,rax
+   6c2a5:	e8 56 95 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6c2aa:	eb 07                	jmp    6c2b3 <udp_sender::RobotSender::InitSubscribers()+0xfe3>
+   6c2ac:	f3 0f 1e fa          	endbr64 
+   6c2b0:	48 89 c3             	mov    rbx,rax
+   6c2b3:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6c2ba:	48 89 c7             	mov    rdi,rax
+   6c2bd:	e8 fe 9c ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6c2c2:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6c2c9:	48 89 c7             	mov    rdi,rax
+   6c2cc:	e8 d9 29 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6c2d1:	48 89 d8             	mov    rax,rbx
+   6c2d4:	48 89 c7             	mov    rdi,rax
+   6c2d7:	e8 84 99 ff ff       	call   65c60 <_Unwind_Resume@plt>
+   6c2dc:	f3 0f 1e fa          	endbr64 
+   6c2e0:	48 89 c3             	mov    rbx,rax
+   6c2e3:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6c2e7:	48 89 c7             	mov    rdi,rax
+   6c2ea:	e8 11 95 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6c2ef:	eb 07                	jmp    6c2f8 <udp_sender::RobotSender::InitSubscribers()+0x1028>
+   6c2f1:	f3 0f 1e fa          	endbr64 
+   6c2f5:	48 89 c3             	mov    rbx,rax
+   6c2f8:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6c2ff:	48 89 c7             	mov    rdi,rax
+   6c302:	e8 b9 9c ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6c307:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6c30e:	48 89 c7             	mov    rdi,rax
+   6c311:	e8 94 29 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6c316:	48 89 d8             	mov    rax,rbx
+   6c319:	48 89 c7             	mov    rdi,rax
+   6c31c:	e8 3f 99 ff ff       	call   65c60 <_Unwind_Resume@plt>
+   6c321:	f3 0f 1e fa          	endbr64 
+   6c325:	48 89 c3             	mov    rbx,rax
+   6c328:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6c32c:	48 89 c7             	mov    rdi,rax
+   6c32f:	e8 cc 94 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6c334:	eb 07                	jmp    6c33d <udp_sender::RobotSender::InitSubscribers()+0x106d>
+   6c336:	f3 0f 1e fa          	endbr64 
+   6c33a:	48 89 c3             	mov    rbx,rax
+   6c33d:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6c344:	48 89 c7             	mov    rdi,rax
+   6c347:	e8 74 9c ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6c34c:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6c353:	48 89 c7             	mov    rdi,rax
+   6c356:	e8 4f 29 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6c35b:	48 89 d8             	mov    rax,rbx
+   6c35e:	48 89 c7             	mov    rdi,rax
+   6c361:	e8 fa 98 ff ff       	call   65c60 <_Unwind_Resume@plt>
+   6c366:	f3 0f 1e fa          	endbr64 
+   6c36a:	48 89 c3             	mov    rbx,rax
+   6c36d:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6c371:	48 89 c7             	mov    rdi,rax
+   6c374:	e8 87 94 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6c379:	eb 07                	jmp    6c382 <udp_sender::RobotSender::InitSubscribers()+0x10b2>
+   6c37b:	f3 0f 1e fa          	endbr64 
+   6c37f:	48 89 c3             	mov    rbx,rax
+   6c382:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6c389:	48 89 c7             	mov    rdi,rax
+   6c38c:	e8 2f 9c ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6c391:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6c398:	48 89 c7             	mov    rdi,rax
+   6c39b:	e8 0a 29 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6c3a0:	48 89 d8             	mov    rax,rbx
+   6c3a3:	48 89 c7             	mov    rdi,rax
+   6c3a6:	e8 b5 98 ff ff       	call   65c60 <_Unwind_Resume@plt>
+   6c3ab:	f3 0f 1e fa          	endbr64 
+   6c3af:	48 89 c3             	mov    rbx,rax
+   6c3b2:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6c3b6:	48 89 c7             	mov    rdi,rax
+   6c3b9:	e8 42 94 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6c3be:	eb 07                	jmp    6c3c7 <udp_sender::RobotSender::InitSubscribers()+0x10f7>
+   6c3c0:	f3 0f 1e fa          	endbr64 
+   6c3c4:	48 89 c3             	mov    rbx,rax
+   6c3c7:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6c3ce:	48 89 c7             	mov    rdi,rax
+   6c3d1:	e8 ea 9b ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6c3d6:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6c3dd:	48 89 c7             	mov    rdi,rax
+   6c3e0:	e8 c5 28 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6c3e5:	48 89 d8             	mov    rax,rbx
+   6c3e8:	48 89 c7             	mov    rdi,rax
+   6c3eb:	e8 70 98 ff ff       	call   65c60 <_Unwind_Resume@plt>
+   6c3f0:	f3 0f 1e fa          	endbr64 
+   6c3f4:	48 89 c3             	mov    rbx,rax
+   6c3f7:	48 8d 45 a0          	lea    rax,[rbp-0x60]
+   6c3fb:	48 89 c7             	mov    rdi,rax
+   6c3fe:	e8 fd 93 ff ff       	call   65800 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt>
+   6c403:	eb 07                	jmp    6c40c <udp_sender::RobotSender::InitSubscribers()+0x113c>
+   6c405:	f3 0f 1e fa          	endbr64 
+   6c409:	48 89 c3             	mov    rbx,rax
+   6c40c:	48 8d 85 3f ff ff ff 	lea    rax,[rbp-0xc1]
+   6c413:	48 89 c7             	mov    rdi,rax
+   6c416:	e8 a5 9b ff ff       	call   65fc0 <std::allocator<char>::~allocator()@plt>
+   6c41b:	48 8d 85 50 ff ff ff 	lea    rax,[rbp-0xb0]
+   6c422:	48 89 c7             	mov    rdi,rax
+   6c425:	e8 80 28 00 00       	call   6ecaa <ros::TransportHints::~TransportHints()>
+   6c42a:	48 89 d8             	mov    rax,rbx
+   6c42d:	48 89 c7             	mov    rdi,rax
+   6c430:	e8 2b 98 ff ff       	call   65c60 <_Unwind_Resume@plt>
+   6c435:	e8 b6 95 ff ff       	call   659f0 <__stack_chk_fail@plt>
+   6c43a:	48 8d 65 d8          	lea    rsp,[rbp-0x28]
+   6c43e:	5b                   	pop    rbx
+   6c43f:	41 5c                	pop    r12
+   6c441:	41 5d                	pop    r13
+   6c443:	41 5e                	pop    r14
+   6c445:	41 5f                	pop    r15
+   6c447:	5d                   	pop    rbp
+   6c448:	c3                   	ret    
+   6c449:	90                   	nop

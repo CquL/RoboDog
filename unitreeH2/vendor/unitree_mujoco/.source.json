@@ -1,0 +1,13 @@
+{
+    "official_owner":  "unitreerobotics",
+    "repository":  "unitree_mujoco",
+    "source_url":  "https://github.com/unitreerobotics/unitree_mujoco",
+    "archive_url":  "https://github.com/unitreerobotics/unitree_mujoco/archive/ae6a8403e272733e9996ef59990880330496177f.zip",
+    "commit":  "ae6a8403e272733e9996ef59990880330496177f",
+    "role":  "Optional H2 MuJoCo low-level simulation environment",
+    "retrieved_at":  "2026-07-15T07:12:00.5818407Z",
+    "archive_file":  "unitree_mujoco-ae6a8403e272733e9996ef59990880330496177f.zip",
+    "archive_bytes":  107693566,
+    "archive_sha256":  "A5B8625EB85E6A53E6F18F929E248204534A537662CDFF7B3099F89BE46036BC",
+    "license_file":  "LICENSE"
+}

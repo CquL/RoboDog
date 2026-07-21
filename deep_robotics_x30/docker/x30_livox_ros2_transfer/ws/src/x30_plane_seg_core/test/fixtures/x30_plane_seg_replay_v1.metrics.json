@@ -1,0 +1,144 @@
+{
+  "candidates": {
+    "histogram": {
+      "10": 1,
+      "11": 1,
+      "12": 1,
+      "7": 3,
+      "8": 4,
+      "9": 2
+    },
+    "max": 12,
+    "min": 7,
+    "total": 104
+  },
+  "count_equal_factory": 1,
+  "degenerate_candidate_count": 0,
+  "degenerate_frames": [],
+  "factory_groups": {
+    "max": 9,
+    "min": 3,
+    "total": 83
+  },
+  "frame_count": 12,
+  "frames": [
+    {
+      "candidate_count": 7,
+      "canonical_line_sha256": "c0d3684aa62a6df90fce944a79c5f413bfb966cfb4fb71e8be31bfa217d9bd10",
+      "case": "mode3_flat_20260714_142726",
+      "factory_group_count": 8,
+      "retained": 4093,
+      "selected_index": 0,
+      "stamp_ns": 4325477021803
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "0ab36ea4215f6d2527cf3b9c06ffe10accd87f59ddbedf5971373db87974631c",
+      "case": "mode3_flat_20260714_142726",
+      "factory_group_count": 9,
+      "retained": 4168,
+      "selected_index": 1,
+      "stamp_ns": 4332476989548
+    },
+    {
+      "candidate_count": 9,
+      "canonical_line_sha256": "dbd8eea7b6b122fb3e5e60d80bde499df67539be000c15efc847f57430de4b6e",
+      "case": "mode3_flat_20260714_142726",
+      "factory_group_count": 3,
+      "retained": 4158,
+      "selected_index": 2,
+      "stamp_ns": 4339476980626
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "26658d256f833f8a0d3255f9e950e8b132206f0740bb9418c076dfb5c25454af",
+      "case": "mode3_flat_repeat_20260714_150324",
+      "factory_group_count": 6,
+      "retained": 4161,
+      "selected_index": 0,
+      "stamp_ns": 6482676892427
+    },
+    {
+      "candidate_count": 7,
+      "canonical_line_sha256": "a78bfd4faae5b7ae56c9fe9117cfc0844ff2b9c68a9bb6ae1f94b80d3651e551",
+      "case": "mode3_flat_repeat_20260714_150324",
+      "factory_group_count": 6,
+      "retained": 4162,
+      "selected_index": 1,
+      "stamp_ns": 6489677050047
+    },
+    {
+      "candidate_count": 7,
+      "canonical_line_sha256": "f0a0b884d015489e5ac69d64ba1d1e230238f90a2743db58163bf011d0d397a4",
+      "case": "mode3_flat_repeat_20260714_150324",
+      "factory_group_count": 5,
+      "retained": 4176,
+      "selected_index": 2,
+      "stamp_ns": 6496776979843
+    },
+    {
+      "candidate_count": 12,
+      "canonical_line_sha256": "ed9447c134d6c5dd64d1db5aec45f233b8d74e71abd23bbbce711597616abcf0",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 8,
+      "retained": 4163,
+      "selected_index": 0,
+      "stamp_ns": 10415277051020
+    },
+    {
+      "candidate_count": 10,
+      "canonical_line_sha256": "d911bbf30495f528c14981a63e417680221da758f3218ab3ab89a699d15bc6a8",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 9,
+      "retained": 4182,
+      "selected_index": 1,
+      "stamp_ns": 10422576891212
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "c189551276d658252c2a981a6752c01bec3665bb9b4df63f4d943be0bb58c7fb",
+      "case": "mode3_measured_step_h022_d029_w035_20260714_160857",
+      "factory_group_count": 7,
+      "retained": 4186,
+      "selected_index": 2,
+      "stamp_ns": 10429877290820
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "a1eece75da73bbe8bf1e411b4668618c6dce94a465515e2ef24afc45e93160cd",
+      "case": "mode3_object_probe_20260714_153211",
+      "factory_group_count": 7,
+      "retained": 4109,
+      "selected_index": 0,
+      "stamp_ns": 8209876900470
+    },
+    {
+      "candidate_count": 11,
+      "canonical_line_sha256": "11f37565447acd8e1dd9ec8888c0d007edb85c585f8fbd04e64e51817b87eea8",
+      "case": "mode3_object_probe_20260714_153211",
+      "factory_group_count": 8,
+      "retained": 4110,
+      "selected_index": 1,
+      "stamp_ns": 8216877101549
+    },
+    {
+      "candidate_count": 8,
+      "canonical_line_sha256": "38d8ffed62d355611a4ea9a7d591cbdc39f04c1907fae07e00c74fbf076ada61",
+      "case": "mode3_object_probe_20260714_153211",
+      "factory_group_count": 7,
+      "retained": 4087,
+      "selected_index": 2,
+      "stamp_ns": 8223876931627
+    }
+  ],
+  "input_jsonl_sha256": "42318c156d930052fb213e69078c66399dd806d673ef01ce6c10302ddbab909e",
+  "retained": {
+    "max": 4186,
+    "min": 4087
+  },
+  "schema": "x30_plane_seg_replay_summary_v1",
+  "source_pack": {
+    "sha256": "e43835f8435b50c2088c1e5bbaef0668d4bcd1907834d87336f97ee8d2d3528d",
+    "size_bytes": 968720
+  }
+}

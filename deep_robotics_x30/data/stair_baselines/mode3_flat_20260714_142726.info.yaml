@@ -1,0 +1,58 @@
+path: /home/ysc/x30_stair_baselines/mode3_flat_20260714_142726.bag
+version: 2.0
+duration: 14.134653
+start: 4325.429934
+end: 4339.564586
+size: 267376372
+messages: 7299
+indexed: True
+compression: none
+types:
+    - type: grid_map_msgs/GridMap
+      md5: 95681e052b1f73bf87b7eb984382b401
+    - type: livox_ros_driver2/CustomMsg
+      md5: e4d6829bdfe657cb6c21a746c86b21a6
+    - type: nav_msgs/Odometry
+      md5: cd5e73d190d741a2f92e81eda573aca7
+    - type: sensor_msgs/Imu
+      md5: 6a62c6daae103f4ff57a132d6f95cec2
+    - type: sensor_msgs/PointCloud2
+      md5: 1158d486dd51d683ce2f1be655c3c181
+    - type: std_msgs/Int32
+      md5: da5909fbe378aeaf85e547e830cc1bb7
+    - type: tf2_msgs/TFMessage
+      md5: 94810edda583a504dfda3829e70d7eec
+topics:
+    - topic: /deeprobotics_local_height_map_mid360/height_map
+      type: grid_map_msgs/GridMap
+      messages: 141
+    - topic: /height_map_mode_state
+      type: std_msgs/Int32
+      messages: 142
+    - topic: /imu/data
+      type: sensor_msgs/Imu
+      messages: 2828
+    - topic: /leg_odom
+      type: nav_msgs/Odometry
+      messages: 2820
+    - topic: /livox/lidar
+      type: livox_ros_driver2/CustomMsg
+      messages: 141
+    - topic: /plane_seg/quadrangels
+      type: sensor_msgs/PointCloud2
+      messages: 142
+    - topic: /plane_seg/received_cloud
+      type: sensor_msgs/PointCloud2
+      messages: 142
+    - topic: /plane_seg/voxel_cloud
+      type: sensor_msgs/PointCloud2
+      messages: 142
+    - topic: /tf
+      type: tf2_msgs/TFMessage
+      messages: 795
+      connections: 2
+    - topic: /tf_static
+      type: tf2_msgs/TFMessage
+      messages: 6
+      connections: 6
+

@@ -1,0 +1,13 @@
+{
+    "official_owner":  "unitreerobotics",
+    "repository":  "unitree_model",
+    "source_url":  "https://github.com/unitreerobotics/unitree_model",
+    "archive_url":  "https://github.com/unitreerobotics/unitree_model/archive/b6a8942b0803b6c137e58cef12beb4b03e4a2fa7.zip",
+    "commit":  "b6a8942b0803b6c137e58cef12beb4b03e4a2fa7",
+    "role":  "Official H2/H2 Plus USD robot models",
+    "retrieved_at":  "2026-07-15T07:06:36.8459951Z",
+    "archive_file":  "unitree_model-b6a8942b0803b6c137e58cef12beb4b03e4a2fa7.zip",
+    "archive_bytes":  16305503,
+    "archive_sha256":  "1840B658D01694F56527651E903E06880FC0ECA05BFE7865A897E0085D2A3E5B",
+    "license_file":  "LICENSE"
+}

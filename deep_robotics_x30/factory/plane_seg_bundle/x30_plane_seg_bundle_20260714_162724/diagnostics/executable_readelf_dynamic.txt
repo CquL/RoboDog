@@ -1,0 +1,51 @@
+$ readelf -d /opt/robot/share/vmap/lib/plane_seg_ros/plane_seg_ros
+
+Dynamic section at offset 0xf3640 contains 47 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libeigen_conversions.so]
+ 0x0000000000000001 (NEEDED)             Shared library: [libpcl_filters.so.1.10]
+ 0x0000000000000001 (NEEDED)             Shared library: [libpcl_segmentation.so.1.10]
+ 0x0000000000000001 (NEEDED)             Shared library: [libpcl_common.so.1.10]
+ 0x0000000000000001 (NEEDED)             Shared library: [libpcl_io.so.1.10]
+ 0x0000000000000001 (NEEDED)             Shared library: [libgrid_map_ros.so]
+ 0x0000000000000001 (NEEDED)             Shared library: [libgrid_map_core.so]
+ 0x0000000000000001 (NEEDED)             Shared library: [libroslib.so]
+ 0x0000000000000001 (NEEDED)             Shared library: [libtf2_ros.so]
+ 0x0000000000000001 (NEEDED)             Shared library: [libroscpp.so]
+ 0x0000000000000001 (NEEDED)             Shared library: [libtf2.so]
+ 0x0000000000000001 (NEEDED)             Shared library: [librosconsole.so]
+ 0x0000000000000001 (NEEDED)             Shared library: [libroscpp_serialization.so]
+ 0x0000000000000001 (NEEDED)             Shared library: [librostime.so]
+ 0x0000000000000001 (NEEDED)             Shared library: [libplane_seg.so]
+ 0x0000000000000001 (NEEDED)             Shared library: [liblog4cplus.so.2]
+ 0x0000000000000001 (NEEDED)             Shared library: [libstdc++.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [libgcc_s.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [ld-linux-aarch64.so.1]
+ 0x000000000000000c (INIT)               0x4e840
+ 0x000000000000000d (FINI)               0xd04ac
+ 0x0000000000000019 (INIT_ARRAY)         0x100308
+ 0x000000000000001b (INIT_ARRAYSZ)       16 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x100318
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0x298
+ 0x0000000000000005 (STRTAB)             0x12540
+ 0x0000000000000006 (SYMTAB)             0x4bc0
+ 0x000000000000000a (STRSZ)              203244 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0x103980
+ 0x0000000000000002 (PLTRELSZ)           4200 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x4d7d8
+ 0x0000000000000007 (RELA)               0x45270
+ 0x0000000000000008 (RELASZ)             34152 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000000000001e (FLAGS)              BIND_NOW
+ 0x000000006ffffffb (FLAGS_1)            Flags: NOW PIE
+ 0x000000006ffffffe (VERNEED)            0x45150
+ 0x000000006fffffff (VERNEEDNUM)         5
+ 0x000000006ffffff0 (VERSYM)             0x43f2c
+ 0x000000006ffffff9 (RELACOUNT)          1126
+ 0x0000000000000000 (NULL)               0x0

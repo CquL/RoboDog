@@ -1,0 +1,119 @@
+{
+  "inputs": {
+    "bag": "D:\\Desktop\\RoboDog\\x30_stair_baselines\\mode3_object_probe_20260714_153211.bag",
+    "pcap": "D:\\Desktop\\RoboDog\\x30_gridmap_captures\\20260714_153211_mode3_object_probe.pcap"
+  },
+  "bag": {
+    "quadrangle_frames": 141,
+    "frame_ids": {
+      "world": 141
+    },
+    "point_count_distribution": {
+      "16": 5,
+      "20": 29,
+      "24": 36,
+      "28": 39,
+      "32": 9,
+      "36": 10,
+      "40": 6,
+      "44": 2,
+      "48": 2,
+      "52": 2,
+      "56": 1
+    },
+    "height_map_mode_state_distribution": {
+      "3": 141
+    },
+    "timestamps_unique": true,
+    "look_pose_frames": 141,
+    "look_pose_frame_ids": {
+      "world": 141
+    },
+    "look_pose_zero_stamp_frames": 141,
+    "look_pose_unique_positions": 1,
+    "look_pose_unique_orientations": 1,
+    "look_pose_exact_stamp_matches": 0
+  },
+  "tcp": {
+    "payload_segments": 364,
+    "reassembled_bytes": 67960,
+    "frames": 182,
+    "point_count_distribution": {
+      "16": 7,
+      "20": 32,
+      "24": 51,
+      "28": 46,
+      "32": 15,
+      "36": 14,
+      "40": 9,
+      "44": 3,
+      "48": 2,
+      "52": 2,
+      "56": 1
+    },
+    "head_ids": {
+      "12345": 182
+    },
+    "layer_sizes": {
+      "1": 182
+    },
+    "end_ids": {
+      "54321": 182
+    },
+    "timestamps_unique": true,
+    "source_interval_ms": {
+      "minimum": 99.025218,
+      "median": 100.007551,
+      "mean": 100.00025360220995,
+      "maximum": 100.905885
+    },
+    "pack_latency_ms": {
+      "minimum": 37.034289,
+      "median": 54.945103,
+      "mean": 53.09950509340659,
+      "maximum": 134.237174
+    },
+    "time_count_ms": {
+      "minimum": 22.0,
+      "median": 100.5,
+      "mean": 100.01098901098901,
+      "maximum": 169.5
+    },
+    "wire_format": {
+      "endianness": "little",
+      "stream_prefix": "uint32 total_pack",
+      "frame": "uint32 frame_len, uint32 head_id, uint32 layer_size, uint32 points_size, float32 xyz[], float32 time_count_ms, uint32 source_sec, uint32 source_nsec, uint32 pack_sec, uint32 pack_nsec, uint32 end_id"
+    }
+  },
+  "comparison": {
+    "matched_timestamps": 141,
+    "bag_frames_without_tcp_match": 0,
+    "tcp_frames_outside_bag_window": 41,
+    "frames_with_matching_points": 141,
+    "frames_with_mismatching_points": 0,
+    "maximum_coordinate_error": 0.0
+  },
+  "geometry": {
+    "groups_of_four": 962,
+    "degenerate_groups": 141,
+    "nondegenerate_groups": 821,
+    "frames_divisible_by_four": 141,
+    "frames_with_exactly_one_degenerate_group": 141,
+    "frames_with_degenerate_first_group": 141,
+    "frames_with_equal_p2_p3_in_first_group": 141,
+    "degenerate_groups_after_first_group": 0,
+    "first_group_p0_x_minus_0_001_candidates": {
+      "0": 13,
+      "1": 10,
+      "2": 25,
+      "3": 39,
+      "4": 32,
+      "5": 9,
+      "6": 5,
+      "7": 6,
+      "9": 1,
+      "10": 1
+    },
+    "first_group_semantics": "unknown; do not treat it as a support plane"
+  }
+}

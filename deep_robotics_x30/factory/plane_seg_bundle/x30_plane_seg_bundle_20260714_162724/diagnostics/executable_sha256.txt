@@ -1,0 +1,2 @@
+$ sha256sum /opt/robot/share/vmap/lib/plane_seg_ros/plane_seg_ros
+1665140e1989677acbea683673f32e0f4c5b7172a9180bc393d067aaad883b67  /opt/robot/share/vmap/lib/plane_seg_ros/plane_seg_ros

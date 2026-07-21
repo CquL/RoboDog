@@ -1,0 +1,128 @@
+
+===== PATH CONTRACT =====
+ROOT=/home/unitree/p2_unitreeH2
+SOURCE_DIR=/home/unitree/p2_unitreeH2/src/hg_state_probe
+BUILD_DIR=/home/unitree/p2_unitreeH2/build/hg_state_probe_stage05_20260716_144803_28101
+
+===== PRECONDITIONS =====
+/usr/bin/cmake
+/usr/bin/g++
+/usr/bin/make
+/usr/bin/file
+/usr/bin/sha256sum
+/usr/bin/ldd
+/usr/bin/timeout
+/usr/bin/nm
+/usr/bin/readelf
+/usr/bin/strings
+/usr/bin/grep
+/usr/bin/sort
+/usr/sbin/ip
+/usr/bin/pgrep
+cmake version 3.22.1
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+
+===== SOURCE SAFETY AUDIT =====
+SOURCE_SAFETY_AUDIT_OK
+
+===== PINNED SOURCE SDK AND NETWORK HASHES =====
+/home/unitree/p2_unitreeH2/src/hg_state_probe/CMakeLists.txt: OK
+/home/unitree/p2_unitreeH2/src/hg_state_probe/h2_hg_state_read_only_probe.cpp: OK
+/opt/unitree_robotics/include/unitree/idl/hg/LowState_.hpp: OK
+/opt/unitree_robotics/include/unitree/idl/hg/IMUState_.hpp: OK
+/opt/unitree_robotics/include/unitree/idl/hg/BmsState_.hpp: OK
+/opt/unitree_robotics/include/unitree/idl/hg/MainBoardState_.hpp: OK
+/opt/unitree_robotics/include/unitree/robot/channel/channel_factory.hpp: OK
+/opt/unitree_robotics/include/unitree/robot/channel/channel_subscriber.hpp: OK
+/opt/unitree_robotics/lib/libunitree_sdk2.a: OK
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Config.cmake: OK
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake: OK
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake: OK
+/opt/unitree_robotics/lib/libddsc.so: OK
+/opt/unitree_robotics/lib/libddscxx.so: OK
+/opt/unitree_robotics/lib/x86_64/libddsc.so: OK
+/opt/unitree_robotics/lib/x86_64/libddscxx.so: OK
+/home/unitree/slam_config/cyclone_go2_B2_ws/cyclonedds.xml: OK
+PINNED_HASH_CONTRACT_OK
+FRESH_BUILD_DIRECTORY=/home/unitree/p2_unitreeH2/build/hg_state_probe_stage05_20260716_144803_28101
+
+===== CONFIGURE AND BUILD =====
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for C++ include pthread.h
+-- Looking for C++ include pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/unitree/p2_unitreeH2/build/hg_state_probe_stage05_20260716_144803_28101
+COMMAND_RC[cmake_configure]=0
+[ 50%] Building CXX object CMakeFiles/h2_hg_state_read_only_probe.dir/h2_hg_state_read_only_probe.cpp.o
+[100%] Linking CXX executable h2_hg_state_read_only_probe
+[100%] Built target h2_hg_state_read_only_probe
+COMMAND_RC[cmake_build]=0
+
+===== BINARY DEPENDENCY AND SEND-PATH AUDIT =====
+/home/unitree/p2_unitreeH2/build/hg_state_probe_stage05_20260716_144803_28101/h2_hg_state_read_only_probe: ELF 64-bit LSB pie executable, x86-64, version 1 (GNU/Linux), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=5ae3dd8a40ad288c5f4bd7db47dd0fa358e66d01, for GNU/Linux 3.2.0, not stripped
+70196b74baea1188177e7f8fd24d4a5ae46665254257fa2f9ffe98e91c0715f7  /home/unitree/p2_unitreeH2/build/hg_state_probe_stage05_20260716_144803_28101/h2_hg_state_read_only_probe
+  Class:                             ELF64
+  Machine:                           Advanced Micro Devices X86-64
+ 0x000000000000001d (RUNPATH)            Library runpath: [/opt/unitree_robotics/lib]
+	linux-vdso.so.1 (0x00007ffc7c5e2000)
+	libddsc.so.0 => /opt/unitree_robotics/lib/x86_64/libddsc.so.0 (0x00007f8e8a0ff000)
+	libddscxx.so.0 => /opt/unitree_robotics/lib/x86_64/libddscxx.so.0 (0x00007f8e89ef5000)
+	libstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f8e89ca3000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f8e89c83000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f8e89a5a000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f8e8a3df000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f8e89a53000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f8e89a4e000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f8e89967000)
+BINARY_RT_TOPICS_BEGIN
+rt/lf/bmsstate
+rt/lf/lowstate
+rt/lf/mainboardstate
+rt/lf/secondary_imu
+rt/lowstate
+rt/lowstate_raw
+rt/secondary_imu
+BINARY_RT_TOPICS_END
+BINARY_RECEIVE_ONLY_AUDIT_OK
+
+===== BOUNDED SUBSCRIPTION RUN =====
+PROBE_MODE=SUBSCRIBE_ONLY
+DOMAIN_ID=0
+INTERFACE=eth0
+DURATION_SECONDS=15
+SPORTMODE_STATE=OMITTED_PC2_HG_HEADER_MISSING
+TOPIC channel=rt/lowstate_raw samples=0 rate_hz=0.000 crc_ok=0 crc_fail=0
+TOPIC channel=rt/lowstate samples=15718 rate_hz=1048.231 crc_ok=15718 crc_fail=0
+FIRST channel=rt/lowstate tick=2583589 mode_pr=0 mode_machine=1 crc=0xf33ce33b crc_valid=1 motor0_q=-0.0525069 motor0_dq=-0.00151774 motor0_tau_est=-0.419766 motor0_state=0 pelvis_q=[0.997117,0.023420,-0.067895,-0.024488] gyro=[0.003196,-0.001065,0.002131] acc=[1.270423,0.650924,9.702802] rpy=[0.050508,-0.134658,-0.052514] temperature_raw=79
+LAST channel=rt/lowstate tick=2598565 mode_pr=0 mode_machine=1 crc=0x6d36ddd9 crc_valid=1 motor0_q=-0.0525069 motor0_dq=0.00135283 motor0_tau_est=0.559265 motor0_state=0 pelvis_q=[0.997119,0.023232,-0.067881,-0.024627] gyro=[0.002131,0.002131,-0.000000] acc=[1.287482,0.606032,9.701006] rpy=[0.050148,-0.134633,-0.052769] temperature_raw=79
+TOPIC channel=rt/lf/lowstate samples=302 rate_hz=20.158 crc_ok=302 crc_fail=0
+FIRST channel=rt/lf/lowstate tick=2583625 mode_pr=0 mode_machine=1 crc=0x175881d3 crc_valid=1 motor0_q=-0.0525229 motor0_dq=-0.00271909 motor0_tau_est=-0.263775 motor0_state=0 pelvis_q=[0.997117,0.023401,-0.067895,-0.024487] gyro=[-0.003196,0.004261,-0.000000] acc=[1.206678,0.539593,9.687539] rpy=[0.050469,-0.134659,-0.052509] temperature_raw=79
+LAST channel=rt/lf/lowstate tick=2598459 mode_pr=0 mode_machine=1 crc=0x7d9e6fc1 crc_valid=1 motor0_q=-0.0525229 motor0_dq=-0.00237482 motor0_tau_est=-0.0644641 motor0_state=0 pelvis_q=[0.997122,0.023267,-0.067829,-0.024615] gyro=[-0.000000,-0.005326,0.002131] acc=[1.231817,0.569221,9.714474] rpy=[0.050214,-0.134527,-0.052746] temperature_raw=79
+TOPIC channel=rt/secondary_imu samples=15720 rate_hz=1048.254 crc_ok=0 crc_fail=0
+FIRST channel=rt/secondary_imu q=[0.998913,-0.011163,-0.045206,0.002357] gyro=[0.007457,0.003196,-0.001065] acc=[0.777517,-0.296282,9.814132] rpy=[-0.022609,-0.090384,0.005742] temperature_raw=79
+LAST channel=rt/secondary_imu q=[0.998926,-0.011170,-0.044912,0.002325] gyro=[0.004261,-0.001065,0.000000] acc=[0.746093,-0.313341,9.852738] rpy=[-0.022619,-0.089797,0.005672] temperature_raw=79
+TOPIC channel=rt/lf/secondary_imu samples=302 rate_hz=20.158 crc_ok=0 crc_fail=0
+FIRST channel=rt/lf/secondary_imu q=[0.998913,-0.011159,-0.045206,0.002354] gyro=[0.003196,0.009587,-0.001065] acc=[0.838569,-0.285509,9.754875] rpy=[-0.022600,-0.090385,0.005734] temperature_raw=79
+LAST channel=rt/lf/secondary_imu q=[0.998926,-0.011114,-0.044922,0.002326] gyro=[0.004261,0.006392,-0.004261] acc=[0.785597,-0.241515,9.830293] rpy=[-0.022505,-0.089817,0.005668] temperature_raw=79
+TOPIC channel=rt/lf/bmsstate samples=302 rate_hz=20.158 crc_ok=0 crc_fail=0
+FIRST channel=rt/lf/bmsstate soc_raw=91 soh_raw=100 current_raw=-2823 voltage_raw=[73030,72980,0] temperature0_raw=39 cycle=3
+LAST channel=rt/lf/bmsstate soc_raw=91 soh_raw=100 current_raw=-2636 voltage_raw=[73030,72980,0] temperature0_raw=39 cycle=3
+TOPIC channel=rt/lf/mainboardstate samples=302 rate_hz=20.158 crc_ok=0 crc_fail=0
+FIRST channel=rt/lf/mainboardstate fan0_raw=0 temperature0_raw=57 value0_raw=0 state0_raw=32
+LAST channel=rt/lf/mainboardstate fan0_raw=0 temperature0_raw=58 value0_raw=0 state0_raw=32
+H2_HG_SUBSCRIBE_ONLY_PROBE_OK
+COMMAND_RC[h2_hg_state_read_only_probe]=0
+
+===== PROCESS CLEANUP CHECK =====
+H2_HG_PROBE_NOT_RUNNING
+READ_ONLY_PC2_HG_STATE_PROBE_OK
+STAGE05_RUN_RC=0

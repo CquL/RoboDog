@@ -1,0 +1,79 @@
+path: /home/ysc/x30_stair_baselines/mode3_known_step_20260714_150324.bag
+version: 2.0
+duration: 14.240705
+start: 6482.658393
+end: 6496.899098
+size: 271401171
+messages: 13317
+indexed: True
+compression: none
+types:
+    - type: geometry_msgs/PoseStamped
+      md5: d3812c3cbc69362b77dc0b19b345f8f5
+    - type: grid_map_msgs/GridMap
+      md5: 95681e052b1f73bf87b7eb984382b401
+    - type: livox_ros_driver2/CustomMsg
+      md5: e4d6829bdfe657cb6c21a746c86b21a6
+    - type: nav_msgs/Odometry
+      md5: cd5e73d190d741a2f92e81eda573aca7
+    - type: sensor_msgs/Imu
+      md5: 6a62c6daae103f4ff57a132d6f95cec2
+    - type: sensor_msgs/PointCloud2
+      md5: 1158d486dd51d683ce2f1be655c3c181
+    - type: std_msgs/Int32
+      md5: da5909fbe378aeaf85e547e830cc1bb7
+    - type: std_msgs/UInt8
+      md5: 7c8164229e7d2c17eb95e9231617fdee
+    - type: tf2_msgs/TFMessage
+      md5: 94810edda583a504dfda3829e70d7eec
+    - type: visualization_msgs/MarkerArray
+      md5: d155b9ce5188fbaf89745847fd5882d7
+topics:
+    - topic: /control_mode
+      type: std_msgs/UInt8
+      messages: 10
+    - topic: /deeprobotics_local_height_map_mid360/height_map
+      type: grid_map_msgs/GridMap
+      messages: 142
+    - topic: /height_map_mode_state
+      type: std_msgs/Int32
+      messages: 142
+    - topic: /imu/data
+      type: sensor_msgs/Imu
+      messages: 2848
+    - topic: /leg_odom
+      type: nav_msgs/Odometry
+      messages: 2833
+    - topic: /livox/lidar
+      type: livox_ros_driver2/CustomMsg
+      messages: 143
+    - topic: /plane_seg/hull_marker_array
+      type: visualization_msgs/MarkerArray
+      messages: 142
+    - topic: /plane_seg/look_pose
+      type: geometry_msgs/PoseStamped
+      messages: 142
+    - topic: /plane_seg/quadrangels
+      type: sensor_msgs/PointCloud2
+      messages: 142
+    - topic: /plane_seg/received_cloud
+      type: sensor_msgs/PointCloud2
+      messages: 142
+    - topic: /plane_seg/voxel_cloud
+      type: sensor_msgs/PointCloud2
+      messages: 142
+    - topic: /robot_basic_state
+      type: std_msgs/Int32
+      messages: 2843
+    - topic: /robot_gait_state
+      type: std_msgs/Int32
+      messages: 2841
+    - topic: /tf
+      type: tf2_msgs/TFMessage
+      messages: 799
+      connections: 2
+    - topic: /tf_static
+      type: tf2_msgs/TFMessage
+      messages: 6
+      connections: 6
+

@@ -1,436 +1,151 @@
-# robot_hardware 代码架构说明
+# robot_hardware 当前架构说明
 
-本文档用于说明 `robot_hardware` 包的整体代码架构：上层控制代码、硬件抽象接口、机器人适配类之间如何协作，以及后续如何接入新的机器人型号。
+更新时间：2026-07-15
 
-## 1. 这个包的定位
+## 1. 定位
 
-`robot_hardware` 不是完整的导航算法库，也不是感知算法库。它的定位是：
-
-```text
-机器人硬件抽象层 Hardware Abstraction Layer, HAL
-```
-
-它的目标是把不同机器人的底层 SDK、ROS 话题、UDP 协议等差异封装起来，对上层算法暴露一套统一接口。
-
-也就是说，上层算法只关心：
+`robot_hardware` 是多机器人硬件抽象层（HAL）。上层算法只依赖
+`RobotHardwareInterface`，各厂商适配器负责把统一命令转换为原厂 SDK、ROS 或 UDP
+协议。
 
 ```text
-初始化机器人
-发送速度命令
-发送动作命令
+上层导航/规划/控制算法
+  -> RobotHardwareInterface
+  -> RobotFactory（按 robot_model 选择适配器）
+  -> UnitreeH2 / UnitreeDog / DeepRoboticsX30 / ZsibotZslOne
+  -> 原厂 SDK2 / UDP / 厂商库
 ```
 
-而不用直接关心底层到底是宇树 SDK、智身 SDK，还是云深处 X30 的 ROS/UDP 控制接口。
-
-## 2. 总体分层
-
-当前代码可以分成四层：
-
-```text
-上层控制层
-  robot_test.cpp
-  未来我们的导航、规划、协同控制算法
-
-配置与工厂层
-  config.yaml
-  robot_factory.h
-
-抽象接口层
-  robot_hardware_interface.h
-  robot_hardware_constant.h
-  robot_hardware_error_code.h
-
-具体机器人适配层
-  unitree/unitree_dog.h + unitree_dog.cpp
-  zsibot/zsibot_zsl_one.h + zsibot_zsl_one.cpp
-  deep_robotics/deep_robotics_x30.h + deep_robotics_x30.cpp
-```
-
-调用关系如下：
-
-```text
-config.yaml
-  ↓
-上层程序读取配置
-  ↓
-RobotFactory::RobotAllocate(config)
-  ↓
-创建 UnitreeDog / ZsibotZslOne / DeepRoboticsX30
-  ↓
-返回 RobotHardwareInterface 指针
-  ↓
-上层调用统一接口
-  ↓
-具体机器人适配类调用各自底层 SDK / ROS / UDP
-  ↓
-真实机器人执行
-```
-
-## 3. 核心抽象接口
-
-核心文件：
-
-```text
-include/robot_hardware_interface.h
-```
-
-里面定义了统一速度命令：
+核心接口保持不变：
 
 ```cpp
-struct RobotVelocityCommand {
-    double vx, vy, omega;
-};
+virtual int32_t initRobotHardware() = 0;
+virtual int32_t writeRobotVelocityCommand(RobotVelocityCommand &cmd) = 0;
+virtual int32_t writeActionCommand(std::string action) = 0;
 ```
 
-含义：
+统一速度语义：`vx` 前后线速度、`vy` 左右线速度、`omega` yaw 角速度。
+
+## 2. 工厂与构建方式
+
+工厂的完整分配逻辑直接保留在 `include/robot_factory.h`，打开头文件即可看到
+`unitree_dog`、`unitree_h2`、`zsibot_zsl_one` 和 `deep_robotics_x30` 四个连续的
+`if / else if` 分支。它保持项目原来的写法：没有厂商适配器 CMake 开关，也没有
+`ROBOT_HARDWARE_HAS_*` 条件宏。普通构建会编译全部现有适配器；H2 与其他机器人在类和
+控制实现上彼此独立，但共享同一个工厂和 `robot_hardware` 动态库。
+
+`BUILD_X30_ONLY` 及其他 `BUILD_X30_*` 选项是 H2 接入前已有的 X30 离线构建/测试能力，
+不是厂商工厂分配开关。`BUILD_X30_ONLY=ON` 仅供不具备 Unitree/Zsibot SDK 的 X30
+测试环境使用，不改变普通完整构建的 Factory 写法。
+
+## 3. 当前适配器
+
+### Unitree H2 EDU
 
 ```text
-vx      机器人前后方向速度
-vy      机器人左右方向速度
-omega   机器人 yaw 角速度
+include/unitree/unitree_h2.h
+src/unitree/unitree_h2.cpp
+config/unitree_h2.yaml
+robot_test_unitree_h2.cpp
 ```
 
-同时定义了所有机器人都必须实现的抽象接口：
+实现使用官方 SDK2 的 `unitree::robot::h2::LocoClient`：
 
-```cpp
-class RobotHardwareInterface
-{
-public:
-    RobotHardwareInterface() {}
-    RobotHardwareInterface(YAML::Node config) : config_(config) {}
-    virtual ~RobotHardwareInterface() = default;
-
-    virtual int32_t initRobotHardware() = 0;
-    virtual int32_t writeRobotVelocityCommand(RobotVelocityCommand &cmd) = 0;
-    virtual int32_t writeActionCommand(std::string action) = 0;
-
-protected:
-    YAML::Node config_;
-};
-```
-
-三个接口的职责：
-
-| 接口 | 作用 |
+| HAL 操作 | H2 高层 API |
 |---|---|
-| `initRobotHardware()` | 初始化机器人硬件连接，例如 SDK、网络、串口、ROS 节点等 |
-| `writeRobotVelocityCommand(cmd)` | 发送统一速度命令，底层适配类负责转换成对应机器人可执行的命令 |
-| `writeActionCommand(action)` | 发送动作命令，例如站立、趴下、停止移动 |
+| 速度 `vx/vy/omega` | `SetVelocity(...)` |
+| `stop_move` | `StopMove()` |
+| `stand_up` | `StandUp()` |
+| `prepare_motion` | `Start()` |
+| `damp` | `Damp()` |
+| 旧 `lie_down` | 明确返回“不支持”；H2 `Damp()` 不等于趴卧动作 |
+| `squat` | `Squat()` |
+| `sit` | `Sit()` |
 
-这里的 `= 0` 表示纯虚函数。也就是说，`RobotHardwareInterface` 只是规定接口形式，不能直接实例化。每个具体机器人都必须继承它，并实现这些函数。
-
-## 4. 配置与工厂
-
-配置文件：
-
-```text
-config.yaml
-```
-
-示例：
+默认配置是安全锁定状态：
 
 ```yaml
-robot_model: "unitree_dog"
-network_interface_card_name: "eth0"
-timeout: 25.0
+allow_motion_commands: false
+allow_state_changing_actions: false
 ```
 
-`robot_model` 决定创建哪一种机器人适配对象。
+非零速度会被拒绝；状态切换会被拒绝；速度经过有限值检查、限幅和超时看门狗。只有
+本对象实际发过控制命令后，析构时才执行尽力而为的 `StopMove()`；纯只读初始化不会
+写控制。探针默认或显式 `--read-only` 只读取 FSM，只有人员显式指定 `--zero-stop`
+才发送零速度和停止合同；两者都不能代替物理急停。
 
-工厂文件：
-
-```text
-include/robot_factory.h
-```
-
-核心逻辑：
-
-```cpp
-if(robot_type == "unitree_dog"){
-    return std::make_shared<UnitreeDog>(node);
-}else if(robot_type == "zsibot_zsl_one"){
-    return std::make_shared<ZsibotZslOne>(node);
-}else if(robot_type == "deep_robotics_x30"){
-    return std::make_shared<DeepRoboticsX30>(node);
-}
-```
-
-这就是工厂模式。上层程序不直接 `new UnitreeDog` 或 `new DeepRoboticsX30`，而是把配置交给 `RobotFactory`，由工厂根据配置创建具体对象。
-
-## 5. 上层如何调用
-
-测试程序：
-
-```text
-robot_test.cpp
-```
-
-核心流程：
-
-```cpp
-YAML::Node config = YAML::LoadFile("../config.yaml");
-std::shared_ptr<RobotHardwareInterface> robot =
-    RobotFactory::RobotAllocate(config);
-
-int init_ret = robot->initRobotHardware();
-
-RobotVelocityCommand cmd;
-cmd.vx = 0.3;
-cmd.vy = 0.0;
-cmd.omega = 0.0;
-
-robot->writeRobotVelocityCommand(cmd);
-```
-
-这里的关键点是：
-
-```cpp
-std::shared_ptr<RobotHardwareInterface> robot
-```
-
-上层拿到的是抽象接口指针，不是某个具体机器人类型。因此，上层算法不需要知道底层到底是哪一款机器人。
-
-只要底层适配类实现正确，上层始终可以统一调用：
-
-```text
-robot->initRobotHardware()
-robot->writeRobotVelocityCommand(cmd)
-robot->writeActionCommand(action)
-```
-
-## 6. 当前已有机器人适配
-
-### 6.1 UnitreeDog
-
-文件：
-
-```text
-include/unitree/unitree_dog.h
-src/unitree/unitree_dog.cpp
-```
-
-当前实现方式：
-
-```text
-RobotHardwareInterface
-  ↓
-UnitreeDog
-  ↓
-unitree::robot::b2::SportClient
-  ↓
-SportClient::Move(vx, vy, omega)
-```
-
-速度控制最终调用：
-
-```cpp
-sport_client_->Move(cmd.vx, cmd.vy, cmd.omega);
-```
-
-动作控制包括：
-
-```text
-stand_up   -> BalanceStand()
-lie_down   -> Damp()
-stop_move  -> StopMove()
-```
-
-### 6.2 ZsibotZslOne
-
-文件：
-
-```text
-include/zsibot/zsibot_zsl_one.h
-src/zsibot/zsibot_zsl_one.cpp
-include/zsibot/highlevel.h
-lib/zsibot/
-```
-
-当前实现方式：
-
-```text
-RobotHardwareInterface
-  ↓
-ZsibotZslOne
-  ↓
-mc_sdk::zsl_1::HighLevel
-  ↓
-highlevel_.move(vx, vy, omega)
-```
-
-速度控制最终调用：
-
-```cpp
-highlevel_.move(cmd.vx, cmd.vy, cmd.omega);
-```
-
-动作控制包括：
-
-```text
-stand_up -> highlevel_.standUp()
-lie_down -> highlevel_.passive()
-```
-
-这个适配类依赖 `lib/zsibot` 下面的二进制 SDK 库。
-
-### 6.3 DeepRoboticsX30
-
-文件：
+### DeepRobotics X30
 
 ```text
 include/deep_robotics/deep_robotics_x30.h
+include/deep_robotics/x30_udp_protocol.h
 src/deep_robotics/deep_robotics_x30.cpp
 ```
 
-当前状态：
+当前已有真实 UDP `0x150` 编码、速度限幅、CRC、序列号、远端校验、零速度看门狗和
+状态验证测试，不再是空壳。X30 感知/地形链仍有独立安全边界：离线
+`x30_plane_seg_core` 验证不等于已经接通在线 GridMap、TCP 地形发送或机器人运动。
 
-```text
-已有类定义
-已有接口函数
-但具体实现还是空壳
-```
+### 其他现有适配器
 
-当前代码：
+- `UnitreeDog`：当前代码实质绑定 B2 `SportClient`，不能作为 H2 适配器复用。
+- `ZsibotZslOne`：调用随仓库保存的厂商二进制库。
 
-```cpp
-int32_t DeepRoboticsX30::initRobotHardware()
-{
-    return CMD_SUCCESS;
-}
+## 4. H2 配置与对象创建
 
-int32_t DeepRoboticsX30::writeRobotVelocityCommand(RobotVelocityCommand &cmd)
-{
-    return CMD_SUCCESS;
-}
-
-int32_t DeepRoboticsX30::writeActionCommand(std::string action)
-{
-    return CMD_SUCCESS;
-}
-```
-
-这说明 X30 适配类目前还不能真正控制机器狗。后续需要在这里补充 X30 的真实控制逻辑。
-
-## 7. 新增机器人时需要做什么
-
-新增一个机器人型号时，推荐步骤：
-
-```text
-1. 在 include/ 下新建机器人头文件
-2. 在 src/ 下新建机器人实现文件
-3. 新类继承 RobotHardwareInterface
-4. 实现 initRobotHardware()
-5. 实现 writeRobotVelocityCommand()
-6. 实现 writeActionCommand()
-7. 在 robot_factory.h 中注册 robot_model
-8. 在 CMakeLists.txt 中加入必要依赖和库
-9. 在 config.yaml 中配置 robot_model 和底层连接参数
-```
-
-示例结构：
-
-```text
-include/new_robot/new_robot.h
-src/new_robot/new_robot.cpp
-```
-
-示例类：
-
-```cpp
-class NewRobot : public RobotHardwareInterface
-{
-public:
-    NewRobot(YAML::Node config);
-
-    int32_t initRobotHardware() override;
-    int32_t writeRobotVelocityCommand(RobotVelocityCommand &cmd) override;
-    int32_t writeActionCommand(std::string action) override;
-};
-```
-
-然后在 `robot_factory.h` 里加入：
-
-```cpp
-else if(robot_type == "new_robot"){
-    return std::make_shared<NewRobot>(node);
-}
-```
-
-这样上层算法不需要重写，只需要在配置文件里切换：
+配置：
 
 ```yaml
-robot_model: "new_robot"
+robot_model: unitree_h2
+network_interface_card_name: eth0
 ```
 
-## 8. X30 后续适配建议
+工厂调用：
 
-对于云深处 X30 Pro，不建议直接绕过原厂底层控制。推荐路线是：
+```cpp
+YAML::Node config = YAML::LoadFile("config/unitree_h2.yaml");
+auto robot = RobotFactory::RobotAllocate(config);
+```
+
+普通完整构建中，`robot_model=unitree_h2` 会直接创建 `UnitreeH2`；未知型号明确报错，
+不会悄悄落到其他机器人实现。
+
+## 5. 新机器人接入清单
+
+1. 在 `include/<vendor>/` 和 `src/<vendor>/` 各建声明与实现文件。
+2. 继承 `RobotHardwareInterface` 并实现三个纯虚函数。
+3. 明确坐标轴、单位、动作语义和不支持能力；不能只做字符串同名映射。
+4. 在 `include/robot_factory.h` 直接注册唯一 `robot_model` 分配分支。
+5. 确认 CMake 的源文件收集会包含新增实现，并补齐新增厂商 SDK 的 include/link 条件；
+   不为每个机器人额外创建工厂宏或适配器开关。
+6. 增加单独配置，危险能力默认关闭。
+7. 增加离线合同测试和“只读状态 + 零速度”探针。
+8. 最后才进入有保护支架、硬件急停和现场监护的实机分阶段验证。
+
+## 6. 当前接口的边界
+
+三个函数足以完成最小运动命令抽象，但还不能完整表达安全状态与能力差异。后续建议用
+向后兼容方式增加：
+
+- `readRobotState()`：FSM、关节、IMU、电池、故障、通信新鲜度；
+- `getCapabilities()`：支持的动作、速度范围、传感器与控制级别；
+- `stop()/shutdown()`：显式、幂等的停止和资源释放；
+- 枚举/结构化动作替代自由字符串；
+- 命令时间戳、序列号和上层心跳合同。
+
+这些增强不改变当前三接口调用方，但能防止上层把不同机器人的同名动作误认为完全等价。
+
+## 7. 安全验证顺序
 
 ```text
-上层算法
-  ↓
-RobotHardwareInterface
-  ↓
-DeepRoboticsX30
-  ↓
-发布 ROS2 /cmd_vel 或桥接到原厂 ROS1 /cmd_vel
-  ↓
-原厂地形图、安全层、速度修正
-  ↓
-运动主机执行
+源码与接口静态测试
+  -> Docker --network none 构建/链接合同
+  -> 实机只读状态发现
+  -> 零速度 + StopMove
+  -> 小速度、短时、架空/防跌倒测试
+  -> 感知和算法闭环
 ```
 
-也就是说，X30 的 `writeRobotVelocityCommand()` 后续可以实现为：
-
-```text
-接收 RobotVelocityCommand
-转换为 geometry_msgs/Twist
-发布到 /cmd_vel 或指定控制话题
-```
-
-X30 的 `writeActionCommand()` 后续可以实现为：
-
-```text
-stand_up   -> 调用原厂站立接口或 UDP 手柄动作
-lie_down   -> 调用原厂趴下接口或 UDP 手柄动作
-stop_move  -> 发布零速度或调用停止接口
-```
-
-需要注意：
-
-```text
-1. 当前 DeepRoboticsX30 还没有真实控制逻辑。
-2. 不要直接关闭原厂地形图安全层。
-3. 优先通过原厂已经封装好的 ROS/导航/速度接口接入。
-4. 上层算法只依赖 RobotHardwareInterface，不直接写死 X30 细节。
-```
-
-## 9. 文件作用速查
-
-| 文件 | 作用 |
-|---|---|
-| `config.yaml` | 配置当前使用哪一种机器人，以及连接参数 |
-| `robot_test.cpp` | 示例上层程序，演示如何通过统一接口控制机器人 |
-| `include/robot_hardware_interface.h` | 统一硬件抽象接口 |
-| `include/robot_factory.h` | 根据配置创建具体机器人对象 |
-| `include/robot_hardware_constant.h` | 动作命令字符串常量 |
-| `include/robot_hardware_error_code.h` | 返回码和错误码 |
-| `src/robot_hardware_constant.cpp` | 动作命令常量定义 |
-| `include/unitree/unitree_dog.h` | 宇树机器人适配类声明 |
-| `src/unitree/unitree_dog.cpp` | 宇树机器人适配实现 |
-| `include/zsibot/zsibot_zsl_one.h` | Zsibot 机器人适配类声明 |
-| `src/zsibot/zsibot_zsl_one.cpp` | Zsibot 机器人适配实现 |
-| `include/deep_robotics/deep_robotics_x30.h` | X30 适配类声明 |
-| `src/deep_robotics/deep_robotics_x30.cpp` | X30 适配实现，目前为空壳 |
-| `CMakeLists.txt` | 构建动态库、测试程序、链接 SDK 依赖 |
-
-## 10. 一句话总结
-
-`robot_hardware` 的核心思想是：
-
-```text
-上层算法面向 RobotHardwareInterface 编程；
-每个机器人在底层实现自己的适配类；
-新增机器人时主要新增适配类和配置，不重写上层控制算法。
-```
-
+当前 H2 已完成源码/接口与 Docker 断网合同，也通过 PC2 宿主原生的七 channel 只读状态
+发现；该只读探针不是最终 Docker 状态源。尚未执行 H2 `LocoClient` 实机 RPC、零速度、
+StopMove、动作或非零运动验证。

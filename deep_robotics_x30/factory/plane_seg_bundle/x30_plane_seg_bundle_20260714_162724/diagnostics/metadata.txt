@@ -1,0 +1,7 @@
+capture_time=20260714_162724
+host=ysc
+bundle_dir=/home/ysc/x30_plane_seg_bundle_20260714_162724
+ros_master_uri=http://localhost:11311
+ros_ip=
+ros_hostname=
+read_only=true

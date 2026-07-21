@@ -1,0 +1,8 @@
+prefix=/home/ysc/jy_cog/vmap
+
+Name: plane_seg_ros
+Description: Description of plane_seg_ros
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: eigen_conversions pcl_conversions tf_conversions pcl_ros

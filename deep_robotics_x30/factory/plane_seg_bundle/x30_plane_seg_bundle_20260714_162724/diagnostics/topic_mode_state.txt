@@ -1,0 +1,10 @@
+$ timeout 10 rostopic info /height_map_mode_state
+Type: std_msgs/Int32
+
+Publishers: 
+ * /deeprobotics_local_height_map_mid360 (http://ysc:35041/)
+
+Subscribers: 
+ * /app_port (http://ysc:33199/)
+
+

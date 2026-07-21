@@ -1,0 +1,326 @@
+{
+  "inputs": {
+    "reference_bag": "D:\\Desktop\\RoboDog\\x30_stair_baselines\\mode3_flat_20260714_142726.bag",
+    "candidate_bag": "D:\\Desktop\\RoboDog\\x30_stair_baselines\\mode3_flat_repeat_20260714_150324.bag",
+    "elevation_threshold_m": 0.08,
+    "minimum_observation_ratio": 0.5,
+    "minimum_component_cells": 20
+  },
+  "comparison": {
+    "comparable_cells": 4171,
+    "absolute_changed_cells": 10,
+    "positive_changed_cells": 6,
+    "connected_components": 2,
+    "largest_component_cells": 4,
+    "distinct_elevated_surface_detected": false,
+    "interpretation": "no persistent elevated surface above the configured threshold"
+  },
+  "largest_component": {
+    "component_id": 1,
+    "cells": 4,
+    "area_m2": 0.0036,
+    "centroid_m": [
+      0.855,
+      0.72
+    ],
+    "bounds_m": {
+      "x": [
+        0.84,
+        0.87
+      ],
+      "y": [
+        0.66,
+        0.78
+      ]
+    },
+    "elevation_delta_m": {
+      "minimum": 0.12017640471458435,
+      "median": 0.12017640471458435,
+      "mean": 0.12615926563739777,
+      "maximum": 0.144107848405838
+    },
+    "layer_comparison": {
+      "elevation": {
+        "reference": {
+          "minimum": -0.6609205603599548,
+          "median": -0.6355497241020203,
+          "mean": -0.6418924331665039,
+          "maximum": -0.6355497241020203
+        },
+        "candidate": {
+          "minimum": -0.5168127119541168,
+          "median": -0.5153733193874359,
+          "mean": -0.5157331675291061,
+          "maximum": -0.5153733193874359
+        },
+        "candidate_minus_reference": {
+          "minimum": 0.12017640471458435,
+          "median": 0.12017640471458435,
+          "mean": 0.12615926563739777,
+          "maximum": 0.144107848405838
+        }
+      },
+      "slope": {
+        "reference": {
+          "minimum": 0.038179755210876465,
+          "median": 0.04868060350418091,
+          "mean": 0.10692551732063293,
+          "maximum": 0.29216110706329346
+        },
+        "candidate": {
+          "minimum": 0.025293728336691856,
+          "median": 0.09546701889485121,
+          "mean": 0.13733419310301542,
+          "maximum": 0.3331090062856674
+        },
+        "candidate_minus_reference": {
+          "minimum": -0.012886026874184608,
+          "median": 0.014030936174094677,
+          "mean": 0.030408675782382488,
+          "maximum": 0.10645885765552521
+        }
+      },
+      "accessibility": {
+        "reference": {
+          "minimum": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "maximum": 0.0
+        },
+        "candidate": {
+          "minimum": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "maximum": 0.0
+        },
+        "candidate_minus_reference": {
+          "minimum": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "maximum": 0.0
+        }
+      }
+    },
+    "temporal_detection": {
+      "minimum_changed_cells_per_frame": 1,
+      "frames_detected": 86,
+      "frames_total": 142,
+      "detection_ratio": 0.6056338028169014,
+      "changed_cells_per_frame": {
+        "minimum": 0.0,
+        "median": 4.0,
+        "mean": 2.3450704225352115,
+        "maximum": 4.0
+      }
+    }
+  },
+  "components": [
+    {
+      "component_id": 1,
+      "cells": 4,
+      "area_m2": 0.0036,
+      "centroid_m": [
+        0.855,
+        0.72
+      ],
+      "bounds_m": {
+        "x": [
+          0.84,
+          0.87
+        ],
+        "y": [
+          0.66,
+          0.78
+        ]
+      },
+      "elevation_delta_m": {
+        "minimum": 0.12017640471458435,
+        "median": 0.12017640471458435,
+        "mean": 0.12615926563739777,
+        "maximum": 0.144107848405838
+      },
+      "layer_comparison": {
+        "elevation": {
+          "reference": {
+            "minimum": -0.6609205603599548,
+            "median": -0.6355497241020203,
+            "mean": -0.6418924331665039,
+            "maximum": -0.6355497241020203
+          },
+          "candidate": {
+            "minimum": -0.5168127119541168,
+            "median": -0.5153733193874359,
+            "mean": -0.5157331675291061,
+            "maximum": -0.5153733193874359
+          },
+          "candidate_minus_reference": {
+            "minimum": 0.12017640471458435,
+            "median": 0.12017640471458435,
+            "mean": 0.12615926563739777,
+            "maximum": 0.144107848405838
+          }
+        },
+        "slope": {
+          "reference": {
+            "minimum": 0.038179755210876465,
+            "median": 0.04868060350418091,
+            "mean": 0.10692551732063293,
+            "maximum": 0.29216110706329346
+          },
+          "candidate": {
+            "minimum": 0.025293728336691856,
+            "median": 0.09546701889485121,
+            "mean": 0.13733419310301542,
+            "maximum": 0.3331090062856674
+          },
+          "candidate_minus_reference": {
+            "minimum": -0.012886026874184608,
+            "median": 0.014030936174094677,
+            "mean": 0.030408675782382488,
+            "maximum": 0.10645885765552521
+          }
+        },
+        "accessibility": {
+          "reference": {
+            "minimum": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "maximum": 0.0
+          },
+          "candidate": {
+            "minimum": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "maximum": 0.0
+          },
+          "candidate_minus_reference": {
+            "minimum": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "maximum": 0.0
+          }
+        }
+      },
+      "temporal_detection": {
+        "minimum_changed_cells_per_frame": 1,
+        "frames_detected": 86,
+        "frames_total": 142,
+        "detection_ratio": 0.6056338028169014,
+        "changed_cells_per_frame": {
+          "minimum": 0.0,
+          "median": 4.0,
+          "mean": 2.3450704225352115,
+          "maximum": 4.0
+        }
+      }
+    },
+    {
+      "component_id": 2,
+      "cells": 2,
+      "area_m2": 0.0018,
+      "centroid_m": [
+        0.8250000000000001,
+        0.63
+      ],
+      "bounds_m": {
+        "x": [
+          0.81,
+          0.8400000000000001
+        ],
+        "y": [
+          0.6,
+          0.66
+        ]
+      },
+      "elevation_delta_m": {
+        "minimum": 0.13002964854240417,
+        "median": 0.1327504962682724,
+        "mean": 0.1327504962682724,
+        "maximum": 0.13547134399414062
+      },
+      "layer_comparison": {
+        "elevation": {
+          "reference": {
+            "minimum": -0.651734471321106,
+            "median": -0.648463636636734,
+            "mean": -0.648463636636734,
+            "maximum": -0.6451928019523621
+          },
+          "candidate": {
+            "minimum": -0.5162631273269653,
+            "median": -0.5157131403684616,
+            "mean": -0.5157131403684616,
+            "maximum": -0.5151631534099579
+          },
+          "candidate_minus_reference": {
+            "minimum": 0.13002964854240417,
+            "median": 0.1327504962682724,
+            "mean": 0.1327504962682724,
+            "maximum": 0.13547134399414062
+          }
+        },
+        "slope": {
+          "reference": {
+            "minimum": 0.19319355487823486,
+            "median": 0.21428217738866806,
+            "mean": 0.21428217738866806,
+            "maximum": 0.23537079989910126
+          },
+          "candidate": {
+            "minimum": 0.07955135777592659,
+            "median": 0.08440838195383549,
+            "mean": 0.08440838195383549,
+            "maximum": 0.08926540613174438
+          },
+          "candidate_minus_reference": {
+            "minimum": -0.14610539376735687,
+            "median": -0.12987379543483257,
+            "mean": -0.12987379543483257,
+            "maximum": -0.11364219710230827
+          }
+        },
+        "accessibility": {
+          "reference": {
+            "minimum": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "maximum": 0.0
+          },
+          "candidate": {
+            "minimum": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "maximum": 0.0
+          },
+          "candidate_minus_reference": {
+            "minimum": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "maximum": 0.0
+          }
+        }
+      },
+      "temporal_detection": {
+        "minimum_changed_cells_per_frame": 1,
+        "frames_detected": 77,
+        "frames_total": 142,
+        "detection_ratio": 0.5422535211267606,
+        "changed_cells_per_frame": {
+          "minimum": 0.0,
+          "median": 2.0,
+          "mean": 1.0633802816901408,
+          "maximum": 2.0
+        }
+      }
+    }
+  ],
+  "cross_check": {
+    "expected_object_region_from_quadrangles_m": {
+      "center": [
+        1.0725,
+        -0.0527
+      ],
+      "note": "derived independently from /plane_seg/quadrangels"
+    }
+  }
+}

@@ -1,6 +1,11 @@
-# Large binary / data files excluded
-jezetek_navigation_amd64.tar
+# Large binary / data files
 *.db3
+*.bag
+*.tar
+*.tar.gz
+*.zip
+*.usdz
+*.usd
 
 # Build artifacts
 build/
@@ -10,3 +15,9 @@ __pycache__/
 *.pyc
 .DS_Store
 Thumbs.db
+
+# Test artifacts
+.playwright-cli/
+
+# Stray files
+=

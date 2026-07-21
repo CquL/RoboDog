@@ -1,0 +1,614 @@
+
+===== TIME AND ROS ENVIRONMENT =====
+2026-07-16T11:39:52+08:00
+AMENT_PREFIX_PATH=/home/unitree/graph_pid_ws/install:/home/unitree/slam_config/cyclone_go2_B2_ws/install/rmw_cyclonedds_cpp:/opt/ros/humble
+COLCON_PREFIX_PATH=/home/unitree/graph_pid_ws/install:/home/unitree/slam_config/cyclone_go2_B2_ws/install
+CYCLONEDDS_URI=/home/unitree/slam_config/cyclone_go2_B2_ws/cyclonedds.xml
+RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+ROS2CLI_DISABLE_DAEMON=1
+ROS_DISTRO=humble
+ROS_DOMAIN_ID=0
+ROS_LOCALHOST_ONLY=0
+ROS_PYTHON_VERSION=3
+ROS_VERSION=2
+
+===== ROS2 CLI DAEMON BEFORE =====
+
+===== UNITREE ROS2 PACKAGES AND INTERFACES =====
+hesai_lidar
+lio_sam_ros2
+livox_ros_driver2
+rslidar_msg
+rslidar_sdk
+unitree_api
+unitree_go
+unitree_interfaces
+unitree_kalman
+    graph_msg/msg/UnitreeCommond
+    graph_msg/msg/UnitreeError
+    hesai_lidar/msg/PandarPacket
+    hesai_lidar/msg/PandarScan
+    livox_ros_driver2/msg/CustomMsg
+    livox_ros_driver2/msg/CustomPoint
+    rslidar_msg/msg/RslidarPacket
+    unitree_api/msg/Request
+    unitree_api/msg/RequestHeader
+    unitree_api/msg/RequestIdentity
+    unitree_api/msg/RequestLease
+    unitree_api/msg/RequestPolicy
+    unitree_api/msg/RequestSlam
+    unitree_api/msg/Response
+    unitree_api/msg/ResponseHeader
+    unitree_api/msg/ResponseSlam
+    unitree_api/msg/ResponseStatus
+    unitree_api/srv/WebCommand
+    unitree_go/msg/AudioData
+    unitree_go/msg/BmsCmd
+    unitree_go/msg/BmsState
+    unitree_go/msg/Error
+    unitree_go/msg/EstimatorData
+    unitree_go/msg/Go2FrontVideoData
+    unitree_go/msg/HeightMap
+    unitree_go/msg/IMUState
+    unitree_go/msg/InterfaceConfig
+    unitree_go/msg/LidarState
+    unitree_go/msg/LowCmd
+    unitree_go/msg/LowState
+    unitree_go/msg/MotorCmd
+    unitree_go/msg/MotorState
+    unitree_go/msg/PathPoint
+    unitree_go/msg/Req
+    unitree_go/msg/Res
+    unitree_go/msg/SportModeCmd
+    unitree_go/msg/SportModeState
+    unitree_go/msg/SymState
+    unitree_go/msg/TimeSpec
+    unitree_go/msg/UwbState
+    unitree_go/msg/UwbSwitch
+    unitree_go/msg/WirelessController
+    unitree_interfaces/msg/BmsCmd
+    unitree_interfaces/msg/BmsState
+    unitree_interfaces/msg/Cartisian
+    unitree_interfaces/msg/FootForce
+    unitree_interfaces/msg/GaitCmd
+    unitree_interfaces/msg/GaitState
+    unitree_interfaces/msg/IMU
+    unitree_interfaces/msg/MotorCmd
+    unitree_interfaces/msg/MotorCmds
+    unitree_interfaces/msg/MotorState
+    unitree_interfaces/msg/MotorStates
+    unitree_interfaces/msg/Obstacles
+    unitree_interfaces/msg/PcToImage
+    unitree_interfaces/msg/QtCommand
+    unitree_interfaces/msg/QtEdge
+    unitree_interfaces/msg/QtNode
+    unitree_interfaces/msg/Remote
+    unitree_interfaces/msg/Rgb
+    unitree_interfaces/msg/RosgaitState
+    unitree_interfaces/msg/Star
+
+===== NODES =====
+/QtServer
+/_ros2cli_69915
+/bms_ctr_node
+/dog_control_pub
+/rsLidarCheak
+/switch_node
+
+===== TOPICS WITH TYPES =====
+/SymState [unitree_go/msg/SymState]
+/SymState_back [unitree_go/msg/SymState]
+/all_edge [unitree_interfaces/msg/QtEdge]
+/all_node [unitree_interfaces/msg/QtNode]
+/api/arm/request [unitree_api/msg/Request]
+/api/arm/response [unitree_api/msg/Response]
+/api/audiohub/request [unitree_api/msg/Request]
+/api/audiohub/response [unitree_api/msg/Response]
+/api/bashrunner/request [unitree_api/msg/Request]
+/api/bashrunner/response [unitree_api/msg/Response]
+/api/basic_demarcate/request [unitree_api/msg/Request]
+/api/basic_demarcate/response [unitree_api/msg/Response]
+/api/basic_demarcate_lease/request [unitree_api/msg/Request]
+/api/basic_demarcate_lease/response [unitree_api/msg/Response]
+/api/config/request [unitree_api/msg/Request]
+/api/config/response [unitree_api/msg/Response]
+/api/dex3_msg_controller/request [unitree_api/msg/Request]
+/api/dex3_msg_controller/response [unitree_api/msg/Response]
+/api/gesture/request [unitree_api/msg/Request]
+/api/gpt/request [unitree_api/msg/Request]
+/api/gpt/response [unitree_api/msg/Response]
+/api/loco/request [unitree_api/msg/Request]
+/api/loco/response [unitree_api/msg/Response]
+/api/motion_switcher/request [unitree_api/msg/Request]
+/api/motion_switcher/response [unitree_api/msg/Response]
+/api/rm_con/request [unitree_api/msg/Request]
+/api/robot_state/request [unitree_api/msg/Request]
+/api/robot_state/response [unitree_api/msg/Response]
+/api/robot_type_service/request [unitree_api/msg/Request]
+/api/robot_type_service/response [unitree_api/msg/Response]
+/api/slam_operate/request [unitree_api/msg/Request]
+/api/slam_operate/response [unitree_api/msg/Response]
+/api/sport/request [unitree_api/msg/Request]
+/api/sport/response [unitree_api/msg/Response]
+/api/videohub/request [unitree_api/msg/Request]
+/api/videohub/response [unitree_api/msg/Response]
+/api/voice/request [unitree_api/msg/Request]
+/api/voice/response [unitree_api/msg/Response]
+/api/vui/request [unitree_api/msg/Request]
+/api/vui/response [unitree_api/msg/Response]
+/arm/action/state [std_msgs/msg/String]
+/arm_sdk [unitree_hg/msg/LowCmd]
+/audio_msg [std_msgs/msg/String]
+/audio_msg/filter [std_msgs/msg/String]
+/audiosender [unitree_go/msg/AudioData]
+/bmsstate [unitree_interfaces/msg/BmsState]
+/config_change_status [unitree_go/msg/ConfigChangeStatus]
+/control_feedback [graph_msg/msg/ToControl]
+/dog_imu_raw [sensor_msgs/msg/Imu]
+/dog_movement [std_msgs/msg/String]
+/dog_odom [nav_msgs/msg/Odometry]
+/frontvideostream [unitree_go/msg/Go2FrontVideoData]
+/gaitcmd [unitree_interfaces/msg/GaitCmd]
+/gesture/result [std_msgs/msg/String]
+/goal [graph_msg/msg/Node]
+/goal_single [graph_msg/msg/Node]
+/gpt_cmd [std_msgs/msg/String]
+/gpt_state [std_msgs/msg/String]
+/gptflowfeedback [std_msgs/msg/String]
+/initialpose [geometry_msgs/msg/PoseWithCovarianceStamped]
+/lf/battery_alarm [std_msgs/msg/String]
+/lf/bmsstate [unitree_hg/msg/BmsState]
+/lf/dex3/left/state [unitree_hg/msg/HandState]
+/lf/dex3/right/state [unitree_hg/msg/HandState]
+/lf/emergency_stop [unitree_go/msg/Error]
+/lf/lowstate [unitree_go/msg/LowState, unitree_hg/msg/LowState]
+/lf/mainboardstate [unitree_hg/msg/MainBoardState]
+/lf/secondary_bmsstate [unitree_hg/msg/BmsState]
+/lf/secondary_imu [unitree_hg/msg/IMUState]
+/lf/sportmodestate [unitree_go/msg/SportModeState, unitree_hg/msg/SportModeState]
+/lio_sam_ros2/deskew/cloud_deskewed [sensor_msgs/msg/PointCloud2]
+/lio_sam_ros2/mapping/InitialFlag [std_msgs/msg/Bool]
+/lio_sam_ros2/mapping/cloud_registered_z_limit [sensor_msgs/msg/PointCloud2]
+/lio_sam_ros2/mapping/map_local [sensor_msgs/msg/PointCloud2]
+/lio_sam_ros2/mapping/odometry [nav_msgs/msg/Odometry]
+/lio_sam_ros2/mapping/re_location_laser_to_map [nav_msgs/msg/Odometry]
+/lio_sam_ros2/mapping/re_location_odometry [nav_msgs/msg/Odometry]
+/lio_sam_ros2/savepcd/savepcd_flag [std_msgs/msg/Bool]
+/local_costmap/costmap [nav_msgs/msg/OccupancyGrid]
+/loco_sdk [unitree_hg/msg/LowState]
+/log_system_inbound [std_msgs/msg/String]
+/log_system_outbound [std_msgs/msg/String]
+/lowcmd [unitree_hg/msg/LowCmd]
+/lowstate [unitree_go/msg/LowState, unitree_hg/msg/LowState]
+/lowstate_raw [unitree_hg/msg/LowState]
+/mapping/grid_map [nav_msgs/msg/OccupancyGrid]
+/mission_points_command [graph_msg/msg/Node]
+/mission_points_command_after [graph_msg/msg/Node]
+/multiplestate [std_msgs/msg/String]
+/node_control [std_msgs/msg/String]
+/odommodestate [unitree_go/msg/SportModeState]
+/original_graph [graph_msg/msg/Graph]
+/parameter_events [rcl_interfaces/msg/ParameterEvent]
+/path_success [std_msgs/msg/String]
+/pcd_id_set [std_msgs/msg/String]
+/pcdload_state [std_msgs/msg/String]
+/pcdsave_state [std_msgs/msg/String]
+/pctoimage_local [unitree_interfaces/msg/PcToImage]
+/point_in_map [sensor_msgs/msg/PointCloud2]
+/public_network_status [std_msgs/msg/String]
+/qt_add_edge [unitree_interfaces/msg/QtEdge]
+/qt_add_node [unitree_interfaces/msg/QtNode]
+/qt_command [unitree_interfaces/msg/QtCommand]
+/qt_modify_edge [unitree_interfaces/msg/QtEdge]
+/qt_modify_node [unitree_interfaces/msg/QtNode]
+/qt_notice [std_msgs/msg/String]
+/query_result_edge [unitree_interfaces/msg/QtEdge]
+/query_result_floor [unitree_interfaces/msg/QtCommand]
+/query_result_node [unitree_interfaces/msg/QtNode]
+/query_result_pcd [unitree_interfaces/msg/QtCommand]
+/query_result_topo [unitree_interfaces/msg/QtCommand]
+/ros_sport_mode_cmd [unitree_go/msg/SportModeCmd]
+/rosgaitcmd [unitree_interfaces/msg/GaitCmd]
+/rosout [rcl_interfaces/msg/Log]
+/rtc/state [std_msgs/msg/String]
+/rtc_status [std_msgs/msg/String]
+/secondary_imu [unitree_hg/msg/IMUState]
+/selftest [std_msgs/msg/String]
+/servicestate [std_msgs/msg/String]
+/servicestateactivate [std_msgs/msg/String]
+/slam_info [std_msgs/msg/String]
+/slam_key_info [std_msgs/msg/String]
+/sportmodestate [unitree_go/msg/SportModeState, unitree_hg/msg/SportModeState]
+/tf [tf2_msgs/msg/TFMessage]
+/to_control [graph_msg/msg/ToControl]
+/unitree/slam_mapping/odom [nav_msgs/msg/Odometry]
+/unitree/slam_mapping/points [sensor_msgs/msg/PointCloud2]
+/unitree/slam_relocation/odom [nav_msgs/msg/Odometry]
+/unitree/slam_relocation/points [sensor_msgs/msg/PointCloud2]
+/unitree_command [graph_msg/msg/UnitreeCommond]
+/unitree_slam/high_rate_odometry [nav_msgs/msg/Odometry]
+/up_state_feedback [std_msgs/msg/String]
+/utlidar/range_info [geometry_msgs/msg/PointStamped]
+/videohub/inner [std_msgs/msg/String]
+/webrtcreq [std_msgs/msg/String]
+/webrtcres [std_msgs/msg/String]
+/wirelesscontroller [unitree_go/msg/WirelessController]
+/xfk_webrtcreq [std_msgs/msg/String]
+/xfk_webrtcres [std_msgs/msg/String]
+
+===== TOPICS INCLUDING HIDDEN =====
+/SymState [unitree_go/msg/SymState]
+/SymState_back [unitree_go/msg/SymState]
+/all_edge [unitree_interfaces/msg/QtEdge]
+/all_node [unitree_interfaces/msg/QtNode]
+/api/arm/request [unitree_api/msg/Request]
+/api/arm/response [unitree_api/msg/Response]
+/api/audiohub/request [unitree_api/msg/Request]
+/api/audiohub/response [unitree_api/msg/Response]
+/api/bashrunner/request [unitree_api/msg/Request]
+/api/bashrunner/response [unitree_api/msg/Response]
+/api/basic_demarcate/request [unitree_api/msg/Request]
+/api/basic_demarcate/response [unitree_api/msg/Response]
+/api/basic_demarcate_lease/request [unitree_api/msg/Request]
+/api/basic_demarcate_lease/response [unitree_api/msg/Response]
+/api/config/request [unitree_api/msg/Request]
+/api/config/response [unitree_api/msg/Response]
+/api/dex3_msg_controller/request [unitree_api/msg/Request]
+/api/dex3_msg_controller/response [unitree_api/msg/Response]
+/api/gesture/request [unitree_api/msg/Request]
+/api/gpt/request [unitree_api/msg/Request]
+/api/gpt/response [unitree_api/msg/Response]
+/api/loco/request [unitree_api/msg/Request]
+/api/loco/response [unitree_api/msg/Response]
+/api/motion_switcher/request [unitree_api/msg/Request]
+/api/motion_switcher/response [unitree_api/msg/Response]
+/api/rm_con/request [unitree_api/msg/Request]
+/api/robot_state/request [unitree_api/msg/Request]
+/api/robot_state/response [unitree_api/msg/Response]
+/api/robot_type_service/request [unitree_api/msg/Request]
+/api/robot_type_service/response [unitree_api/msg/Response]
+/api/slam_operate/request [unitree_api/msg/Request]
+/api/slam_operate/response [unitree_api/msg/Response]
+/api/sport/request [unitree_api/msg/Request]
+/api/sport/response [unitree_api/msg/Response]
+/api/videohub/request [unitree_api/msg/Request]
+/api/videohub/response [unitree_api/msg/Response]
+/api/voice/request [unitree_api/msg/Request]
+/api/voice/response [unitree_api/msg/Response]
+/api/vui/request [unitree_api/msg/Request]
+/api/vui/response [unitree_api/msg/Response]
+/arm/action/state [std_msgs/msg/String]
+/arm_sdk [unitree_hg/msg/LowCmd]
+/audio_msg [std_msgs/msg/String]
+/audio_msg/filter [std_msgs/msg/String]
+/audiosender [unitree_go/msg/AudioData]
+/bmsstate [unitree_interfaces/msg/BmsState]
+/config_change_status [unitree_go/msg/ConfigChangeStatus]
+/control_feedback [graph_msg/msg/ToControl]
+/dog_imu_raw [sensor_msgs/msg/Imu]
+/dog_movement [std_msgs/msg/String]
+/dog_odom [nav_msgs/msg/Odometry]
+/frontvideostream [unitree_go/msg/Go2FrontVideoData]
+/gaitcmd [unitree_interfaces/msg/GaitCmd]
+/gesture/result [std_msgs/msg/String]
+/goal [graph_msg/msg/Node]
+/goal_single [graph_msg/msg/Node]
+/gpt_cmd [std_msgs/msg/String]
+/gpt_state [std_msgs/msg/String]
+/gptflowfeedback [std_msgs/msg/String]
+/initialpose [geometry_msgs/msg/PoseWithCovarianceStamped]
+/lf/battery_alarm [std_msgs/msg/String]
+/lf/bmsstate [unitree_hg/msg/BmsState]
+/lf/dex3/left/state [unitree_hg/msg/HandState]
+/lf/dex3/right/state [unitree_hg/msg/HandState]
+/lf/emergency_stop [unitree_go/msg/Error]
+/lf/lowstate [unitree_go/msg/LowState, unitree_hg/msg/LowState]
+/lf/mainboardstate [unitree_hg/msg/MainBoardState]
+/lf/secondary_bmsstate [unitree_hg/msg/BmsState]
+/lf/secondary_imu [unitree_hg/msg/IMUState]
+/lf/sportmodestate [unitree_go/msg/SportModeState, unitree_hg/msg/SportModeState]
+/lio_sam_ros2/deskew/cloud_deskewed [sensor_msgs/msg/PointCloud2]
+/lio_sam_ros2/mapping/InitialFlag [std_msgs/msg/Bool]
+/lio_sam_ros2/mapping/cloud_registered_z_limit [sensor_msgs/msg/PointCloud2]
+/lio_sam_ros2/mapping/map_local [sensor_msgs/msg/PointCloud2]
+/lio_sam_ros2/mapping/odometry [nav_msgs/msg/Odometry]
+/lio_sam_ros2/mapping/re_location_laser_to_map [nav_msgs/msg/Odometry]
+/lio_sam_ros2/mapping/re_location_odometry [nav_msgs/msg/Odometry]
+/lio_sam_ros2/savepcd/savepcd_flag [std_msgs/msg/Bool]
+/local_costmap/costmap [nav_msgs/msg/OccupancyGrid]
+/loco_sdk [unitree_hg/msg/LowState]
+/log_system_inbound [std_msgs/msg/String]
+/log_system_outbound [std_msgs/msg/String]
+/lowcmd [unitree_hg/msg/LowCmd]
+/lowstate [unitree_go/msg/LowState, unitree_hg/msg/LowState]
+/lowstate_raw [unitree_hg/msg/LowState]
+/mapping/grid_map [nav_msgs/msg/OccupancyGrid]
+/mission_points_command [graph_msg/msg/Node]
+/mission_points_command_after [graph_msg/msg/Node]
+/multiplestate [std_msgs/msg/String]
+/node_control [std_msgs/msg/String]
+/odommodestate [unitree_go/msg/SportModeState]
+/original_graph [graph_msg/msg/Graph]
+/parameter_events [rcl_interfaces/msg/ParameterEvent]
+/path_success [std_msgs/msg/String]
+/pcd_id_set [std_msgs/msg/String]
+/pcdload_state [std_msgs/msg/String]
+/pcdsave_state [std_msgs/msg/String]
+/pctoimage_local [unitree_interfaces/msg/PcToImage]
+/point_in_map [sensor_msgs/msg/PointCloud2]
+/public_network_status [std_msgs/msg/String]
+/qt_add_edge [unitree_interfaces/msg/QtEdge]
+/qt_add_node [unitree_interfaces/msg/QtNode]
+/qt_command [unitree_interfaces/msg/QtCommand]
+/qt_modify_edge [unitree_interfaces/msg/QtEdge]
+/qt_modify_node [unitree_interfaces/msg/QtNode]
+/qt_notice [std_msgs/msg/String]
+/query_result_edge [unitree_interfaces/msg/QtEdge]
+/query_result_floor [unitree_interfaces/msg/QtCommand]
+/query_result_node [unitree_interfaces/msg/QtNode]
+/query_result_pcd [unitree_interfaces/msg/QtCommand]
+/query_result_topo [unitree_interfaces/msg/QtCommand]
+/ros_sport_mode_cmd [unitree_go/msg/SportModeCmd]
+/rosgaitcmd [unitree_interfaces/msg/GaitCmd]
+/rosout [rcl_interfaces/msg/Log]
+/rtc/state [std_msgs/msg/String]
+/rtc_status [std_msgs/msg/String]
+/secondary_imu [unitree_hg/msg/IMUState]
+/selftest [std_msgs/msg/String]
+/servicestate [std_msgs/msg/String]
+/servicestateactivate [std_msgs/msg/String]
+/slam_info [std_msgs/msg/String]
+/slam_key_info [std_msgs/msg/String]
+/sportmodestate [unitree_go/msg/SportModeState, unitree_hg/msg/SportModeState]
+/tf [tf2_msgs/msg/TFMessage]
+/to_control [graph_msg/msg/ToControl]
+/unitree/slam_mapping/odom [nav_msgs/msg/Odometry]
+/unitree/slam_mapping/points [sensor_msgs/msg/PointCloud2]
+/unitree/slam_relocation/odom [nav_msgs/msg/Odometry]
+/unitree/slam_relocation/points [sensor_msgs/msg/PointCloud2]
+/unitree_command [graph_msg/msg/UnitreeCommond]
+/unitree_slam/high_rate_odometry [nav_msgs/msg/Odometry]
+/up_state_feedback [std_msgs/msg/String]
+/utlidar/range_info [geometry_msgs/msg/PointStamped]
+/videohub/inner [std_msgs/msg/String]
+/webrtcreq [std_msgs/msg/String]
+/webrtcres [std_msgs/msg/String]
+/wirelesscontroller [unitree_go/msg/WirelessController]
+/xfk_webrtcreq [std_msgs/msg/String]
+/xfk_webrtcres [std_msgs/msg/String]
+
+===== TOPIC GRAPH VERBOSE =====
+Published topics:
+ * /SymState [unitree_go/msg/SymState] 1 publisher
+ * /all_edge [unitree_interfaces/msg/QtEdge] 1 publisher
+ * /all_node [unitree_interfaces/msg/QtNode] 1 publisher
+ * /api/arm/request [unitree_api/msg/Request] 3 publishers
+ * /api/arm/response [unitree_api/msg/Response] 1 publisher
+ * /api/audiohub/request [unitree_api/msg/Request] 1 publisher
+ * /api/bashrunner/request [unitree_api/msg/Request] 1 publisher
+ * /api/bashrunner/response [unitree_api/msg/Response] 1 publisher
+ * /api/basic_demarcate/request [unitree_api/msg/Request] 1 publisher
+ * /api/basic_demarcate/response [unitree_api/msg/Response] 1 publisher
+ * /api/basic_demarcate_lease/response [unitree_api/msg/Response] 1 publisher
+ * /api/config/request [unitree_api/msg/Request] 6 publishers
+ * /api/config/response [unitree_api/msg/Response] 1 publisher
+ * /api/dex3_msg_controller/request [unitree_api/msg/Request] 1 publisher
+ * /api/gesture/request [unitree_api/msg/Request] 1 publisher
+ * /api/gpt/request [unitree_api/msg/Request] 2 publishers
+ * /api/gpt/response [unitree_api/msg/Response] 1 publisher
+ * /api/loco/request [unitree_api/msg/Request] 1 publisher
+ * /api/motion_switcher/request [unitree_api/msg/Request] 1 publisher
+ * /api/motion_switcher/response [unitree_api/msg/Response] 1 publisher
+ * /api/rm_con/request [unitree_api/msg/Request] 1 publisher
+ * /api/robot_state/request [unitree_api/msg/Request] 2 publishers
+ * /api/robot_state/response [unitree_api/msg/Response] 1 publisher
+ * /api/robot_type_service/request [unitree_api/msg/Request] 1 publisher
+ * /api/robot_type_service/response [unitree_api/msg/Response] 1 publisher
+ * /api/slam_operate/request [unitree_api/msg/Request] 2 publishers
+ * /api/sport/request [unitree_api/msg/Request] 4 publishers
+ * /api/sport/response [unitree_api/msg/Response] 1 publisher
+ * /api/videohub/request [unitree_api/msg/Request] 2 publishers
+ * /api/voice/request [unitree_api/msg/Request] 2 publishers
+ * /api/voice/response [unitree_api/msg/Response] 1 publisher
+ * /api/vui/response [unitree_api/msg/Response] 1 publisher
+ * /arm/action/state [std_msgs/msg/String] 1 publisher
+ * /arm_sdk [unitree_hg/msg/LowCmd] 1 publisher
+ * /audio_msg [std_msgs/msg/String] 1 publisher
+ * /bmsstate [unitree_interfaces/msg/BmsState] 1 publisher
+ * /config_change_status [unitree_go/msg/ConfigChangeStatus] 1 publisher
+ * /dog_imu_raw [sensor_msgs/msg/Imu] 1 publisher
+ * /dog_odom [nav_msgs/msg/Odometry] 1 publisher
+ * /goal [graph_msg/msg/Node] 1 publisher
+ * /goal_single [graph_msg/msg/Node] 1 publisher
+ * /gpt_cmd [std_msgs/msg/String] 1 publisher
+ * /gpt_state [std_msgs/msg/String] 1 publisher
+ * /gptflowfeedback [std_msgs/msg/String] 1 publisher
+ * /initialpose [geometry_msgs/msg/PoseWithCovarianceStamped] 1 publisher
+ * /lf/bmsstate [unitree_hg/msg/BmsState] 1 publisher
+ * /lf/lowstate [unitree_go/msg/LowState, unitree_hg/msg/LowState] 1 publisher
+ * /lf/mainboardstate [unitree_hg/msg/MainBoardState] 1 publisher
+ * /lf/secondary_bmsstate [unitree_hg/msg/BmsState] 1 publisher
+ * /lf/secondary_imu [unitree_hg/msg/IMUState] 1 publisher
+ * /lf/sportmodestate [unitree_go/msg/SportModeState, unitree_hg/msg/SportModeState] 1 publisher
+ * /lio_sam_ros2/savepcd/savepcd_flag [std_msgs/msg/Bool] 1 publisher
+ * /log_system_inbound [std_msgs/msg/String] 1 publisher
+ * /log_system_outbound [std_msgs/msg/String] 1 publisher
+ * /lowcmd [unitree_hg/msg/LowCmd] 1 publisher
+ * /lowstate [unitree_go/msg/LowState, unitree_hg/msg/LowState] 1 publisher
+ * /lowstate_raw [unitree_hg/msg/LowState] 1 publisher
+ * /mission_points_command [graph_msg/msg/Node] 1 publisher
+ * /multiplestate [std_msgs/msg/String] 1 publisher
+ * /node_control [std_msgs/msg/String] 2 publishers
+ * /odommodestate [unitree_go/msg/SportModeState] 1 publisher
+ * /original_graph [graph_msg/msg/Graph] 1 publisher
+ * /parameter_events [rcl_interfaces/msg/ParameterEvent] 6 publishers
+ * /pcd_id_set [std_msgs/msg/String] 1 publisher
+ * /pctoimage_local [unitree_interfaces/msg/PcToImage] 2 publishers
+ * /point_in_map [sensor_msgs/msg/PointCloud2] 1 publisher
+ * /public_network_status [std_msgs/msg/String] 1 publisher
+ * /qt_notice [std_msgs/msg/String] 2 publishers
+ * /query_result_edge [unitree_interfaces/msg/QtEdge] 1 publisher
+ * /query_result_floor [unitree_interfaces/msg/QtCommand] 1 publisher
+ * /query_result_node [unitree_interfaces/msg/QtNode] 1 publisher
+ * /query_result_pcd [unitree_interfaces/msg/QtCommand] 1 publisher
+ * /query_result_topo [unitree_interfaces/msg/QtCommand] 1 publisher
+ * /ros_sport_mode_cmd [unitree_go/msg/SportModeCmd] 1 publisher
+ * /rosgaitcmd [unitree_interfaces/msg/GaitCmd] 1 publisher
+ * /rosout [rcl_interfaces/msg/Log] 6 publishers
+ * /rtc/state [std_msgs/msg/String] 1 publisher
+ * /rtc_status [std_msgs/msg/String] 1 publisher
+ * /secondary_imu [unitree_hg/msg/IMUState] 1 publisher
+ * /selftest [std_msgs/msg/String] 1 publisher
+ * /servicestate [std_msgs/msg/String] 1 publisher
+ * /servicestateactivate [std_msgs/msg/String] 1 publisher
+ * /sportmodestate [unitree_go/msg/SportModeState, unitree_hg/msg/SportModeState] 1 publisher
+ * /tf [tf2_msgs/msg/TFMessage] 1 publisher
+ * /unitree_command [graph_msg/msg/UnitreeCommond] 1 publisher
+ * /videohub/inner [std_msgs/msg/String] 1 publisher
+ * /webrtcreq [std_msgs/msg/String] 1 publisher
+ * /webrtcres [std_msgs/msg/String] 1 publisher
+ * /wirelesscontroller [unitree_go/msg/WirelessController] 2 publishers
+ * /xfk_webrtcreq [std_msgs/msg/String] 1 publisher
+ * /xfk_webrtcres [std_msgs/msg/String] 1 publisher
+
+Subscribed topics:
+ * /SymState_back [unitree_go/msg/SymState] 1 subscriber
+ * /api/arm/request [unitree_api/msg/Request] 1 subscriber
+ * /api/arm/response [unitree_api/msg/Response] 2 subscribers
+ * /api/audiohub/response [unitree_api/msg/Response] 1 subscriber
+ * /api/bashrunner/request [unitree_api/msg/Request] 1 subscriber
+ * /api/bashrunner/response [unitree_api/msg/Response] 1 subscriber
+ * /api/basic_demarcate/request [unitree_api/msg/Request] 1 subscriber
+ * /api/basic_demarcate/response [unitree_api/msg/Response] 1 subscriber
+ * /api/basic_demarcate_lease/request [unitree_api/msg/Request] 1 subscriber
+ * /api/config/request [unitree_api/msg/Request] 1 subscriber
+ * /api/config/response [unitree_api/msg/Response] 6 subscribers
+ * /api/dex3_msg_controller/response [unitree_api/msg/Response] 1 subscriber
+ * /api/gpt/request [unitree_api/msg/Request] 1 subscriber
+ * /api/gpt/response [unitree_api/msg/Response] 2 subscribers
+ * /api/loco/response [unitree_api/msg/Response] 1 subscriber
+ * /api/motion_switcher/request [unitree_api/msg/Request] 1 subscriber
+ * /api/motion_switcher/response [unitree_api/msg/Response] 1 subscriber
+ * /api/robot_state/request [unitree_api/msg/Request] 1 subscriber
+ * /api/robot_state/response [unitree_api/msg/Response] 2 subscribers
+ * /api/robot_type_service/request [unitree_api/msg/Request] 1 subscriber
+ * /api/robot_type_service/response [unitree_api/msg/Response] 1 subscriber
+ * /api/slam_operate/response [unitree_api/msg/Response] 2 subscribers
+ * /api/sport/request [unitree_api/msg/Request] 1 subscriber
+ * /api/sport/response [unitree_api/msg/Response] 4 subscribers
+ * /api/videohub/response [unitree_api/msg/Response] 2 subscribers
+ * /api/voice/request [unitree_api/msg/Request] 1 subscriber
+ * /api/voice/response [unitree_api/msg/Response] 2 subscribers
+ * /api/vui/request [unitree_api/msg/Request] 1 subscriber
+ * /arm/action/state [std_msgs/msg/String] 2 subscribers
+ * /arm_sdk [unitree_hg/msg/LowCmd] 2 subscribers
+ * /audio_msg [std_msgs/msg/String] 1 subscriber
+ * /audio_msg/filter [std_msgs/msg/String] 1 subscriber
+ * /audiosender [unitree_go/msg/AudioData] 1 subscriber
+ * /config_change_status [unitree_go/msg/ConfigChangeStatus] 4 subscribers
+ * /control_feedback [graph_msg/msg/ToControl] 1 subscriber
+ * /dog_movement [std_msgs/msg/String] 1 subscriber
+ * /frontvideostream [unitree_go/msg/Go2FrontVideoData] 1 subscriber
+ * /gaitcmd [unitree_interfaces/msg/GaitCmd] 1 subscriber
+ * /gesture/result [std_msgs/msg/String] 1 subscriber
+ * /gpt_state [std_msgs/msg/String] 1 subscriber
+ * /gptflowfeedback [std_msgs/msg/String] 1 subscriber
+ * /lf/battery_alarm [std_msgs/msg/String] 2 subscribers
+ * /lf/bmsstate [unitree_hg/msg/BmsState] 4 subscribers
+ * /lf/dex3/left/state [unitree_hg/msg/HandState] 1 subscriber
+ * /lf/dex3/right/state [unitree_hg/msg/HandState] 1 subscriber
+ * /lf/emergency_stop [unitree_go/msg/Error] 1 subscriber
+ * /lf/lowstate [unitree_go/msg/LowState, unitree_hg/msg/LowState] 3 subscribers
+ * /lf/mainboardstate [unitree_hg/msg/MainBoardState] 2 subscribers
+ * /lf/secondary_imu [unitree_hg/msg/IMUState] 1 subscriber
+ * /lf/sportmodestate [unitree_go/msg/SportModeState, unitree_hg/msg/SportModeState] 2 subscribers
+ * /lio_sam_ros2/deskew/cloud_deskewed [sensor_msgs/msg/PointCloud2] 1 subscriber
+ * /lio_sam_ros2/mapping/InitialFlag [std_msgs/msg/Bool] 1 subscriber
+ * /lio_sam_ros2/mapping/cloud_registered_z_limit [sensor_msgs/msg/PointCloud2] 1 subscriber
+ * /lio_sam_ros2/mapping/map_local [sensor_msgs/msg/PointCloud2] 1 subscriber
+ * /lio_sam_ros2/mapping/odometry [nav_msgs/msg/Odometry] 2 subscribers
+ * /lio_sam_ros2/mapping/re_location_laser_to_map [nav_msgs/msg/Odometry] 1 subscriber
+ * /lio_sam_ros2/mapping/re_location_odometry [nav_msgs/msg/Odometry] 1 subscriber
+ * /local_costmap/costmap [nav_msgs/msg/OccupancyGrid] 1 subscriber
+ * /loco_sdk [unitree_hg/msg/LowState] 1 subscriber
+ * /log_system_inbound [std_msgs/msg/String] 1 subscriber
+ * /log_system_outbound [std_msgs/msg/String] 1 subscriber
+ * /lowcmd [unitree_hg/msg/LowCmd] 1 subscriber
+ * /lowstate [unitree_go/msg/LowState, unitree_hg/msg/LowState] 4 subscribers
+ * /mapping/grid_map [nav_msgs/msg/OccupancyGrid] 1 subscriber
+ * /mission_points_command_after [graph_msg/msg/Node] 1 subscriber
+ * /node_control [std_msgs/msg/String] 4 subscribers
+ * /odommodestate [unitree_go/msg/SportModeState] 1 subscriber
+ * /parameter_events [rcl_interfaces/msg/ParameterEvent] 5 subscribers
+ * /path_success [std_msgs/msg/String] 1 subscriber
+ * /pcdload_state [std_msgs/msg/String] 1 subscriber
+ * /pcdsave_state [std_msgs/msg/String] 1 subscriber
+ * /public_network_status [std_msgs/msg/String] 2 subscribers
+ * /qt_add_edge [unitree_interfaces/msg/QtEdge] 1 subscriber
+ * /qt_add_node [unitree_interfaces/msg/QtNode] 1 subscriber
+ * /qt_command [unitree_interfaces/msg/QtCommand] 2 subscribers
+ * /qt_modify_edge [unitree_interfaces/msg/QtEdge] 1 subscriber
+ * /qt_modify_node [unitree_interfaces/msg/QtNode] 1 subscriber
+ * /qt_notice [std_msgs/msg/String] 1 subscriber
+ * /ros_sport_mode_cmd [unitree_go/msg/SportModeCmd] 1 subscriber
+ * /rosgaitcmd [unitree_interfaces/msg/GaitCmd] 1 subscriber
+ * /secondary_imu [unitree_hg/msg/IMUState] 1 subscriber
+ * /selftest [std_msgs/msg/String] 1 subscriber
+ * /servicestate [std_msgs/msg/String] 1 subscriber
+ * /slam_info [std_msgs/msg/String] 2 subscribers
+ * /slam_key_info [std_msgs/msg/String] 2 subscribers
+ * /sportmodestate [unitree_go/msg/SportModeState, unitree_hg/msg/SportModeState] 2 subscribers
+ * /to_control [graph_msg/msg/ToControl] 1 subscriber
+ * /unitree/slam_mapping/odom [nav_msgs/msg/Odometry] 1 subscriber
+ * /unitree/slam_mapping/points [sensor_msgs/msg/PointCloud2] 1 subscriber
+ * /unitree/slam_relocation/odom [nav_msgs/msg/Odometry] 1 subscriber
+ * /unitree/slam_relocation/points [sensor_msgs/msg/PointCloud2] 1 subscriber
+ * /unitree_slam/high_rate_odometry [nav_msgs/msg/Odometry] 1 subscriber
+ * /up_state_feedback [std_msgs/msg/String] 1 subscriber
+ * /utlidar/range_info [geometry_msgs/msg/PointStamped] 1 subscriber
+ * /webrtcreq [std_msgs/msg/String] 1 subscriber
+ * /webrtcres [std_msgs/msg/String] 1 subscriber
+ * /wirelesscontroller [unitree_go/msg/WirelessController] 2 subscribers
+ * /xfk_webrtcreq [std_msgs/msg/String] 1 subscriber
+ * /xfk_webrtcres [std_msgs/msg/String] 1 subscriber
+
+
+===== SERVICES WITH TYPES =====
+/QtServer/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/QtServer/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/QtServer/get_parameters [rcl_interfaces/srv/GetParameters]
+/QtServer/list_parameters [rcl_interfaces/srv/ListParameters]
+/QtServer/set_parameters [rcl_interfaces/srv/SetParameters]
+/QtServer/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/bms_ctr_node/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/bms_ctr_node/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/bms_ctr_node/get_parameters [rcl_interfaces/srv/GetParameters]
+/bms_ctr_node/list_parameters [rcl_interfaces/srv/ListParameters]
+/bms_ctr_node/set_parameters [rcl_interfaces/srv/SetParameters]
+/bms_ctr_node/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/dog_control_pub/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/dog_control_pub/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/dog_control_pub/get_parameters [rcl_interfaces/srv/GetParameters]
+/dog_control_pub/list_parameters [rcl_interfaces/srv/ListParameters]
+/dog_control_pub/set_parameters [rcl_interfaces/srv/SetParameters]
+/dog_control_pub/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/rsLidarCheak/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/rsLidarCheak/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/rsLidarCheak/get_parameters [rcl_interfaces/srv/GetParameters]
+/rsLidarCheak/list_parameters [rcl_interfaces/srv/ListParameters]
+/rsLidarCheak/set_parameters [rcl_interfaces/srv/SetParameters]
+/rsLidarCheak/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+/switch_node/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/switch_node/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/switch_node/get_parameters [rcl_interfaces/srv/GetParameters]
+/switch_node/list_parameters [rcl_interfaces/srv/ListParameters]
+/switch_node/set_parameters [rcl_interfaces/srv/SetParameters]
+/switch_node/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+
+===== ACTIONS WITH TYPES =====
+
+===== ROS2 CLI DAEMON AFTER =====
+70289 /usr/bin/python3 -c from ros2cli.daemon.daemonize import main; main() --name ros2-daemon --ros-domain-id 0 --rmw-implementation rmw_cyclonedds_cpp
+
+===== AUDIT COMPLETE =====
+READ_ONLY_PC2_ROS2_GRAPH_AUDIT_OK

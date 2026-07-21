@@ -1,0 +1,61 @@
+﻿===== 20260710_181934_factory_idle.pcap =====
+UDP packets: 24
+Capture span: 6.903212 s
+Flows:
+  192.168.1.106:43229 -> 192.168.1.103:43893: 24
+UDP payload lengths: {12: 24}
+Little-endian command codes:
+  0x31040001 (navigation_heartbeat): 24
+Unique UDP payloads: 1
+  count=24 length=12 hex=010004310000000000000000 words=(822345729, 0, 0) word1_as_int32=0 word1_as_float=0
+Code timing:
+  source_port=43229 code=0x31040001 (navigation_heartbeat) count=24 first=0.000000s last=6.903212s average_hz=3.332
+
+===== 20260710_182321_factory_cmd_vel_zero.pcap =====
+UDP packets: 38
+Capture span: 11.103587 s
+Flows:
+  192.168.1.106:43229 -> 192.168.1.103:43893: 38
+UDP payload lengths: {12: 38}
+Little-endian command codes:
+  0x31040001 (navigation_heartbeat): 38
+Unique UDP payloads: 1
+  count=38 length=12 hex=010004310000000000000000 words=(822345729, 0, 0) word1_as_int32=0 word1_as_float=0
+Code timing:
+  source_port=43229 code=0x31040001 (navigation_heartbeat) count=38 first=0.000000s last=11.103587s average_hz=3.332
+
+===== 20260710_182440_factory_cmd_vel_zero_repeat.pcap =====
+UDP packets: 37
+Capture span: 10.803399 s
+Flows:
+  192.168.1.106:43229 -> 192.168.1.103:43893: 37
+UDP payload lengths: {12: 37}
+Little-endian command codes:
+  0x31040001 (navigation_heartbeat): 37
+Unique UDP payloads: 1
+  count=37 length=12 hex=010004310000000000000000 words=(822345729, 0, 0) word1_as_int32=0 word1_as_float=0
+Code timing:
+  source_port=43229 code=0x31040001 (navigation_heartbeat) count=37 first=0.000000s last=10.803399s average_hz=3.332
+
+===== 20260710_182623_factory_cmd_vel_corrected_zero.pcap =====
+UDP packets: 1094
+Capture span: 11.103226 s
+Flows:
+  192.168.1.106:50515 -> 192.168.1.103:43893: 1056
+  192.168.1.106:43229 -> 192.168.1.103:43893: 38
+UDP payload lengths: {12: 1094}
+Little-endian command codes:
+  0x00000123 (physical_vx_x1000): 352
+  0x00000124 (physical_vy_x1000): 352
+  0x00000122 (physical_omega_x1000): 352
+  0x31040001 (navigation_heartbeat): 38
+Unique UDP payloads: 4
+  count=352 length=12 hex=230100000000000000000000 words=(291, 0, 0) word1_as_int32=0 word1_as_float=0 physical_value=0
+  count=352 length=12 hex=240100000000000000000000 words=(292, 0, 0) word1_as_int32=0 word1_as_float=0 physical_value=0
+  count=352 length=12 hex=220100000000000000000000 words=(290, 0, 0) word1_as_int32=0 word1_as_float=0 physical_value=0
+  count=38 length=12 hex=010004310000000000000000 words=(822345729, 0, 0) word1_as_int32=0 word1_as_float=0
+Code timing:
+  source_port=43229 code=0x31040001 (navigation_heartbeat) count=38 first=0.000000s last=11.103226s average_hz=3.332
+  source_port=50515 code=0x00000122 (physical_omega_x1000) count=352 first=2.614054s last=9.873975s average_hz=48.348
+  source_port=50515 code=0x00000123 (physical_vx_x1000) count=352 first=2.614043s last=9.873965s average_hz=48.348
+  source_port=50515 code=0x00000124 (physical_vy_x1000) count=352 first=2.614050s last=9.873971s average_hz=48.348

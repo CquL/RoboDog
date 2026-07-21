@@ -1,0 +1,85 @@
+
+===== PATH CONTRACT =====
+ROOT=/home/unitree/p2_unitreeH2
+SOURCE_DIR=/home/unitree/p2_unitreeH2/src/hg_state_probe
+BUILD_DIR=/home/unitree/p2_unitreeH2/build/hg_state_probe_stage05_20260716_143640_21190
+
+===== PRECONDITIONS =====
+/usr/bin/cmake
+/usr/bin/g++
+/usr/bin/make
+/usr/bin/file
+/usr/bin/sha256sum
+/usr/bin/ldd
+/usr/bin/timeout
+/usr/bin/nm
+/usr/bin/readelf
+/usr/bin/strings
+/usr/bin/grep
+/usr/bin/sort
+/usr/sbin/ip
+/usr/bin/pgrep
+cmake version 3.22.1
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+
+===== SOURCE SAFETY AUDIT =====
+SOURCE_SAFETY_AUDIT_OK
+
+===== PINNED SOURCE SDK AND NETWORK HASHES =====
+/home/unitree/p2_unitreeH2/src/hg_state_probe/CMakeLists.txt: OK
+/home/unitree/p2_unitreeH2/src/hg_state_probe/h2_hg_state_read_only_probe.cpp: OK
+/opt/unitree_robotics/include/unitree/idl/hg/LowState_.hpp: OK
+/opt/unitree_robotics/include/unitree/idl/hg/IMUState_.hpp: OK
+/opt/unitree_robotics/include/unitree/idl/hg/BmsState_.hpp: OK
+/opt/unitree_robotics/include/unitree/idl/hg/MainBoardState_.hpp: OK
+/opt/unitree_robotics/include/unitree/robot/channel/channel_factory.hpp: OK
+/opt/unitree_robotics/include/unitree/robot/channel/channel_subscriber.hpp: OK
+/opt/unitree_robotics/lib/libunitree_sdk2.a: OK
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Config.cmake: OK
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake: OK
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake: OK
+/opt/unitree_robotics/lib/libddsc.so: OK
+/opt/unitree_robotics/lib/libddscxx.so: OK
+/home/unitree/slam_config/cyclone_go2_B2_ws/cyclonedds.xml: OK
+PINNED_HASH_CONTRACT_OK
+FRESH_BUILD_DIRECTORY=/home/unitree/p2_unitreeH2/build/hg_state_probe_stage05_20260716_143640_21190
+
+===== CONFIGURE AND BUILD =====
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for C++ include pthread.h
+-- Looking for C++ include pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/unitree/p2_unitreeH2/build/hg_state_probe_stage05_20260716_143640_21190
+COMMAND_RC[cmake_configure]=0
+[ 50%] Building CXX object CMakeFiles/h2_hg_state_read_only_probe.dir/h2_hg_state_read_only_probe.cpp.o
+[100%] Linking CXX executable h2_hg_state_read_only_probe
+[100%] Built target h2_hg_state_read_only_probe
+COMMAND_RC[cmake_build]=0
+
+===== BINARY DEPENDENCY AND SEND-PATH AUDIT =====
+/home/unitree/p2_unitreeH2/build/hg_state_probe_stage05_20260716_143640_21190/h2_hg_state_read_only_probe: ELF 64-bit LSB pie executable, x86-64, version 1 (GNU/Linux), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=5ae3dd8a40ad288c5f4bd7db47dd0fa358e66d01, for GNU/Linux 3.2.0, not stripped
+70196b74baea1188177e7f8fd24d4a5ae46665254257fa2f9ffe98e91c0715f7  /home/unitree/p2_unitreeH2/build/hg_state_probe_stage05_20260716_143640_21190/h2_hg_state_read_only_probe
+  Class:                             ELF64
+  Machine:                           Advanced Micro Devices X86-64
+ 0x000000000000001d (RUNPATH)            Library runpath: [/opt/unitree_robotics/lib]
+	linux-vdso.so.1 (0x00007ffd25bce000)
+	libddsc.so.0 => /opt/unitree_robotics/lib/x86_64/libddsc.so.0 (0x00007fe021787000)
+	libddscxx.so.0 => /opt/unitree_robotics/lib/x86_64/libddscxx.so.0 (0x00007fe02157d000)
+	libstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007fe02132b000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fe02130b000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fe0210e0000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007fe021a67000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007fe0210db000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007fe0210d6000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fe020fef000)
+BINARY_DDS_LIBRARY_PATH_MISMATCH
+STAGE05_RUN_RC=14

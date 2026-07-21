@@ -1,0 +1,227 @@
+{
+  "inputs": {
+    "reference_bag": "D:\\Desktop\\RoboDog\\x30_stair_baselines\\mode3_flat_repeat_20260714_150324.bag",
+    "candidate_bag": "D:\\Desktop\\RoboDog\\x30_stair_baselines\\mode3_measured_step_h022_d029_w035_20260714_160857.bag",
+    "elevation_threshold_m": 0.08,
+    "minimum_observation_ratio": 0.5,
+    "minimum_component_cells": 20
+  },
+  "comparison": {
+    "comparable_cells": 4161,
+    "absolute_changed_cells": 82,
+    "positive_changed_cells": 74,
+    "connected_components": 1,
+    "largest_component_cells": 74,
+    "distinct_elevated_surface_detected": true,
+    "interpretation": "candidate contains a persistent elevated surface"
+  },
+  "largest_component": {
+    "component_id": 1,
+    "cells": 74,
+    "area_m2": 0.06659999999999999,
+    "centroid_m": [
+      1.1087837837837837,
+      -0.05999999999999994
+    ],
+    "bounds_m": {
+      "x": [
+        1.0200000000000002,
+        1.2
+      ],
+      "y": [
+        -0.2699999999999999,
+        0.15000000000000002
+      ]
+    },
+    "elevation_delta_m": {
+      "minimum": 0.09425497055053711,
+      "median": 0.20387406647205353,
+      "mean": 0.19612337326681292,
+      "maximum": 0.20650523900985718
+    },
+    "layer_comparison": {
+      "elevation": {
+        "reference": {
+          "minimum": -0.7949045896530151,
+          "median": -0.7932642698287964,
+          "mean": -0.7885570832200952,
+          "maximum": -0.7738381624221802
+        },
+        "candidate": {
+          "minimum": -0.6906487941741943,
+          "median": -0.5894829332828522,
+          "mean": -0.5924337099532824,
+          "maximum": -0.5873345136642456
+        },
+        "candidate_minus_reference": {
+          "minimum": 0.09425497055053711,
+          "median": 0.20387406647205353,
+          "mean": 0.19612337326681292,
+          "maximum": 0.20650523900985718
+        }
+      },
+      "slope": {
+        "reference": {
+          "minimum": 0.0,
+          "median": 0.12975310534238815,
+          "mean": 0.12235079464074727,
+          "maximum": 0.31419968605041504
+        },
+        "candidate": {
+          "minimum": 0.0,
+          "median": 0.0,
+          "mean": 0.32324601010721477,
+          "maximum": 2.4778947830200195
+        },
+        "candidate_minus_reference": {
+          "minimum": -0.2920606881380081,
+          "median": 0.0,
+          "mean": 0.20089521546646752,
+          "maximum": 2.1980044096708298
+        }
+      },
+      "accessibility": {
+        "reference": {
+          "minimum": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "maximum": 0.0
+        },
+        "candidate": {
+          "minimum": 0.0,
+          "median": 0.0,
+          "mean": 0.017864865125031083,
+          "maximum": 0.10000000149011612
+        },
+        "candidate_minus_reference": {
+          "minimum": 0.0,
+          "median": 0.0,
+          "mean": 0.017864865125031083,
+          "maximum": 0.10000000149011612
+        }
+      }
+    },
+    "temporal_detection": {
+      "minimum_changed_cells_per_frame": 15,
+      "frames_detected": 123,
+      "frames_total": 147,
+      "detection_ratio": 0.8367346938775511,
+      "changed_cells_per_frame": {
+        "minimum": 0.0,
+        "median": 71.0,
+        "mean": 57.59863945578231,
+        "maximum": 74.0
+      }
+    }
+  },
+  "components": [
+    {
+      "component_id": 1,
+      "cells": 74,
+      "area_m2": 0.06659999999999999,
+      "centroid_m": [
+        1.1087837837837837,
+        -0.05999999999999994
+      ],
+      "bounds_m": {
+        "x": [
+          1.0200000000000002,
+          1.2
+        ],
+        "y": [
+          -0.2699999999999999,
+          0.15000000000000002
+        ]
+      },
+      "elevation_delta_m": {
+        "minimum": 0.09425497055053711,
+        "median": 0.20387406647205353,
+        "mean": 0.19612337326681292,
+        "maximum": 0.20650523900985718
+      },
+      "layer_comparison": {
+        "elevation": {
+          "reference": {
+            "minimum": -0.7949045896530151,
+            "median": -0.7932642698287964,
+            "mean": -0.7885570832200952,
+            "maximum": -0.7738381624221802
+          },
+          "candidate": {
+            "minimum": -0.6906487941741943,
+            "median": -0.5894829332828522,
+            "mean": -0.5924337099532824,
+            "maximum": -0.5873345136642456
+          },
+          "candidate_minus_reference": {
+            "minimum": 0.09425497055053711,
+            "median": 0.20387406647205353,
+            "mean": 0.19612337326681292,
+            "maximum": 0.20650523900985718
+          }
+        },
+        "slope": {
+          "reference": {
+            "minimum": 0.0,
+            "median": 0.12975310534238815,
+            "mean": 0.12235079464074727,
+            "maximum": 0.31419968605041504
+          },
+          "candidate": {
+            "minimum": 0.0,
+            "median": 0.0,
+            "mean": 0.32324601010721477,
+            "maximum": 2.4778947830200195
+          },
+          "candidate_minus_reference": {
+            "minimum": -0.2920606881380081,
+            "median": 0.0,
+            "mean": 0.20089521546646752,
+            "maximum": 2.1980044096708298
+          }
+        },
+        "accessibility": {
+          "reference": {
+            "minimum": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "maximum": 0.0
+          },
+          "candidate": {
+            "minimum": 0.0,
+            "median": 0.0,
+            "mean": 0.017864865125031083,
+            "maximum": 0.10000000149011612
+          },
+          "candidate_minus_reference": {
+            "minimum": 0.0,
+            "median": 0.0,
+            "mean": 0.017864865125031083,
+            "maximum": 0.10000000149011612
+          }
+        }
+      },
+      "temporal_detection": {
+        "minimum_changed_cells_per_frame": 15,
+        "frames_detected": 123,
+        "frames_total": 147,
+        "detection_ratio": 0.8367346938775511,
+        "changed_cells_per_frame": {
+          "minimum": 0.0,
+          "median": 71.0,
+          "mean": 57.59863945578231,
+          "maximum": 74.0
+        }
+      }
+    }
+  ],
+  "cross_check": {
+    "expected_object_region_from_quadrangles_m": {
+      "center": [
+        1.0725,
+        -0.0527
+      ],
+      "note": "derived independently from /plane_seg/quadrangels"
+    }
+  }
+}

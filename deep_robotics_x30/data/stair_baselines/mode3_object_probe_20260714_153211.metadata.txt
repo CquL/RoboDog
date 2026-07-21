@@ -1,0 +1,14 @@
+capture_time=20260714_153211
+label=mode3_object_probe
+duration_s=15
+host=ysc
+interface=eth1
+height_map_mode_state_before=3
+height_map_mode_state_after=3
+scene_description=box_object_probe
+scene_step_height_m=unknown
+scene_step_depth_m=unknown
+scene_step_width_m=unknown
+scene_robot_distance_m=approximately_1.0
+robot_motion_command_sent=false
+gridmap_data_sent_by_script=false

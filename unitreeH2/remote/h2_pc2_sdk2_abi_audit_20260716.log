@@ -1,0 +1,960 @@
+
+===== TIME HOST AND SAFETY SCOPE =====
+2026-07-16T14:09:20+08:00
+unitree-H2-pc2
+Linux unitree-H2-pc2 6.5.2-rt8 #1 SMP PREEMPT_RT Thu Sep  5 16:48:39 CST 2024 x86_64 x86_64 x86_64 GNU/Linux
+uid=1000(unitree) gid=1000(unitree) groups=1000(unitree),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),122(lpadmin),135(lxd),136(sambashare)
+SCRIPT=/home/unitree/p2_unitreeH2/scripts/04_pc2_sdk2_abi_read_only_audit.sh
+SDK_ROOT=/opt/unitree_robotics
+READ_ONLY_ABI_AUDIT_NO_DDS_INIT_NO_BUILD_NO_RPC
+
+===== TOOLCHAIN AVAILABILITY =====
+
+--- cmake ---
+/usr/bin/cmake
+
+--- g++ ---
+/usr/bin/g++
+
+--- gcc ---
+/usr/bin/gcc
+
+--- ld ---
+/usr/bin/ld
+
+--- ar ---
+/usr/bin/ar
+
+--- nm ---
+/usr/bin/nm
+
+--- readelf ---
+/usr/bin/readelf
+
+--- objdump ---
+/usr/bin/objdump
+
+--- strings ---
+/usr/bin/strings
+
+--- sha256sum ---
+/usr/bin/sha256sum
+
+--- file ---
+/usr/bin/file
+cmake version 3.22.1
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+COMMAND_RC[cmake_version]=0
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+COMMAND_RC[gxx_version]=0
+gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+COMMAND_RC[gcc_version]=0
+GNU ld (GNU Binutils for Ubuntu) 2.38
+Copyright (C) 2022 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+COMMAND_RC[ld_version]=0
+ldd (Ubuntu GLIBC 2.35-0ubuntu3.8) 2.35
+Copyright (C) 2022 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Written by Roland McGrath and Ulrich Drepper.
+COMMAND_RC[libc_version]=0
+binutils	2.38-4ubuntu2.6	amd64
+cmake	3.22.1-1ubuntu1.22.04.2	amd64
+g++	4:11.2.0-1ubuntu1	amd64
+gcc	4:11.2.0-1ubuntu1	amd64
+libc6:amd64	2.35-0ubuntu3.8	amd64
+libc6:i386	2.35-0ubuntu3.8	i386
+libstdc++6:amd64	12.3.0-1ubuntu1~22.04	amd64
+libstdc++6:i386	12.3.0-1ubuntu1~22.04	i386
+COMMAND_RC[package_versions]=0
+
+===== SDK2 INSTALLATION FILES =====
+
+--- /opt/unitree_robotics/lib/libunitree_sdk2.a ---
+-rw-r--r-- 1 root root 27362488 11月 27  2024 /opt/unitree_robotics/lib/libunitree_sdk2.a
+/opt/unitree_robotics/lib/libunitree_sdk2.a: current ar archive
+e436eedf0d81e9efa10b039f8151743f46547535a99790ed19ddacc105098cd4  /opt/unitree_robotics/lib/libunitree_sdk2.a
+
+--- /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Config.cmake ---
+-rw-r--r-- 1 root root 186 10月 30  2024 /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Config.cmake
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Config.cmake: ASCII text
+39f73d1cb56f9d1fd383e1b2c47d30a2bd730e83cc2a49a401c8de5e81b54709  /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Config.cmake
+
+--- /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake ---
+-rw-r--r-- 1 root root 3365 10月 30  2024 /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake: ASCII text
+7fa49a7a57dff5f7f89355693ca51982fab0009a983b568860f823b0d44bfc45  /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake
+
+--- /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake ---
+-rw-r--r-- 1 root root 3533 10月 28  2024 /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake
+/opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake: ASCII text
+7c74357c2f47be5d37fbca8bc476e5062503dfd6c4f63274ce43f362e26e2234  /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake
+
+--- /opt/unitree_robotics/include/unitree/robot/channel/channel_factory.hpp ---
+-rw-r--r-- 1 root root 1510 10月 28  2024 /opt/unitree_robotics/include/unitree/robot/channel/channel_factory.hpp
+/opt/unitree_robotics/include/unitree/robot/channel/channel_factory.hpp: C++ source, ASCII text
+e0568b06205599de89543c8c11459660ecf9dc6203bf43a778b25afaf5a2d529  /opt/unitree_robotics/include/unitree/robot/channel/channel_factory.hpp
+
+--- /opt/unitree_robotics/include/unitree/robot/channel/channel_subscriber.hpp ---
+-rw-r--r-- 1 root root 1705 10月 28  2024 /opt/unitree_robotics/include/unitree/robot/channel/channel_subscriber.hpp
+/opt/unitree_robotics/include/unitree/robot/channel/channel_subscriber.hpp: C++ source, ASCII text
+8fbd4fa5f4f9f6ffd7c34f2500f9daa8304ec7ae5c15f21e2e6ff67a9cbb6ee0  /opt/unitree_robotics/include/unitree/robot/channel/channel_subscriber.hpp
+
+--- /opt/unitree_robotics/include/unitree/robot/client/client.hpp ---
+-rw-r--r-- 1 root root 1448 10月 28  2024 /opt/unitree_robotics/include/unitree/robot/client/client.hpp
+/opt/unitree_robotics/include/unitree/robot/client/client.hpp: C++ source, ASCII text
+2cf60a38e38ee938be59dd96cd8abdde5f8945a69d6eb5f27d4467230550d170  /opt/unitree_robotics/include/unitree/robot/client/client.hpp
+
+--- /opt/unitree_robotics/include/unitree/robot/client/client_base.hpp ---
+-rw-r--r-- 1 root root 1263 10月 28  2024 /opt/unitree_robotics/include/unitree/robot/client/client_base.hpp
+/opt/unitree_robotics/include/unitree/robot/client/client_base.hpp: C++ source, ASCII text
+937be0de756b8affe9729219c09f62d8b9020da0425dc9f584a626bc1b878c30  /opt/unitree_robotics/include/unitree/robot/client/client_base.hpp
+
+--- /opt/unitree_robotics/include/unitree/robot/client/client_stub.hpp ---
+-rw-r--r-- 1 root root 777 10月 28  2024 /opt/unitree_robotics/include/unitree/robot/client/client_stub.hpp
+/opt/unitree_robotics/include/unitree/robot/client/client_stub.hpp: C++ source, ASCII text
+a8c05406fcb0165f419b7f449bb8f0990eb9fd670ac7eb8be0c12db61e3b8a96  /opt/unitree_robotics/include/unitree/robot/client/client_stub.hpp
+
+--- /opt/unitree_robotics/include/unitree/idl/hg/LowState_.hpp ---
+-rw-r--r-- 1 root root 34906 10月 28  2024 /opt/unitree_robotics/include/unitree/idl/hg/LowState_.hpp
+/opt/unitree_robotics/include/unitree/idl/hg/LowState_.hpp: C++ source, ASCII text
+e01be29667100a6f2cd829b3ea8a90f846271b20a0cde96331ceecfb4d46e042  /opt/unitree_robotics/include/unitree/idl/hg/LowState_.hpp
+
+--- /opt/unitree_robotics/include/unitree/idl/hg/IMUState_.hpp ---
+-rw-r--r-- 1 root root 19212 10月 28  2024 /opt/unitree_robotics/include/unitree/idl/hg/IMUState_.hpp
+/opt/unitree_robotics/include/unitree/idl/hg/IMUState_.hpp: C++ source, ASCII text
+0b078db5401a35c2421190adb98c0a7e94472ee798b20aa4d1a345513dc88b1b  /opt/unitree_robotics/include/unitree/idl/hg/IMUState_.hpp
+
+--- /opt/unitree_robotics/include/unitree/idl/hg/BmsState_.hpp ---
+-rw-r--r-- 1 root root 32098 10月 28  2024 /opt/unitree_robotics/include/unitree/idl/hg/BmsState_.hpp
+/opt/unitree_robotics/include/unitree/idl/hg/BmsState_.hpp: C++ source, ASCII text
+1d1a83921b7db50a26523574093e127df54c9bedf6ee782474f734d6a86f23ba  /opt/unitree_robotics/include/unitree/idl/hg/BmsState_.hpp
+
+--- /opt/unitree_robotics/include/unitree/idl/hg/MainBoardState_.hpp ---
+-rw-r--r-- 1 root root 17761 10月 28  2024 /opt/unitree_robotics/include/unitree/idl/hg/MainBoardState_.hpp
+/opt/unitree_robotics/include/unitree/idl/hg/MainBoardState_.hpp: C++ source, ASCII text
+5ec95395a96da501d627aeca6db9d695cf0e50c6da6de670ff5371c4d2dbc9df  /opt/unitree_robotics/include/unitree/idl/hg/MainBoardState_.hpp
+
+--- /opt/unitree_robotics/include/unitree/idl/hg/SportModeState_.hpp ---
+MISSING
+
+===== H2 LOCO HEADER PRESENCE =====
+COMMAND_RC[h2_loco_header_search:/opt/unitree_robotics]=0
+COMMAND_RC[h2_loco_header_search:/usr/local]=0
+COMMAND_RC[h2_loco_header_search:/unitree/opt]=0
+COMMAND_RC[h2_loco_header_search:/home/unitree]=0
+H2_LOCO_HEADER_SEARCH_COMPLETE
+
+===== CMAKE IMPORT CONTRACT =====
+
+--- /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake ---
+5:# The created file sets PACKAGE_VERSION_EXACT if the current version string and
+7:# PACKAGE_VERSION_COMPATIBLE if the current version is equal to the requested version.
+19:set(PACKAGE_VERSION "2.0.0")
+63:  set(PACKAGE_VERSION_COMPATIBLE TRUE)
+65:  set(PACKAGE_VERSION_COMPATIBLE FALSE)
+68:if(PACKAGE_FIND_VERSION STREQUAL PACKAGE_VERSION)
+69:  set(PACKAGE_VERSION_EXACT TRUE)
+86:  set(PACKAGE_VERSION "${PACKAGE_VERSION} (${installedBits}bit)")
+87:  set(PACKAGE_VERSION_UNSUITABLE TRUE)
+
+--- /opt/unitree_robotics/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake ---
+49:add_library(ddsc SHARED IMPORTED GLOBAL)
+51:    IMPORTED_LOCATION ${_IMPORT_PREFIX}/lib/libddsc.so
+52:    INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;${_IMPORT_PREFIX}/include"
+53:    INTERFACE_LINK_LIBRARIES "Threads::Threads"
+56:add_library(ddscxx SHARED IMPORTED GLOBAL)
+58:    IMPORTED_LOCATION ${_IMPORT_PREFIX}/lib/libddscxx.so
+59:    INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;${_IMPORT_PREFIX}/include/ddscxx"
+60:    INTERFACE_LINK_LIBRARIES "Threads::Threads"
+64:add_library(unitree_sdk2 STATIC IMPORTED GLOBAL)
+66:    IMPORTED_LOCATION ${_IMPORT_PREFIX}/lib/libunitree_sdk2.a
+67:    INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;${_IMPORT_PREFIX}/include"
+68:    INTERFACE_LINK_LIBRARIES "ddsc;ddscxx;Threads::Threads"
+69:    LINKER_LANGUAGE CXX
+
+===== SDK2 ARCHIVE STRUCTURE =====
+128
+COMMAND_RC[archive_member_count]=0
+--- selected archive members ---
+dds_callback.cpp.o
+dds_easy_model.cpp.o
+dds_entity.cpp.o
+dds_factory_model.cpp.o
+dds_parameter.cpp.o
+dds_qos.cpp.o
+dds_qos_parameter.cpp.o
+dds_qos_policy.cpp.o
+dds_qos_policy_parameter.cpp.o
+dds_qos_realize.cpp.o
+channel_factory.cpp.o
+channel_namer.cpp.o
+client.cpp.o
+client_base.cpp.o
+client_stub.cpp.o
+lease_client.cpp.o
+sport_client.cpp.o
+vui_client.cpp.o
+video_client.cpp.o
+robot_state_client.cpp.o
+obstacles_avoid_client.cpp.o
+utrack_client.cpp.o
+config_client.cpp.o
+sport_client.cpp.o
+front_video_client.cpp.o
+back_video_client.cpp.o
+config_client.cpp.o
+robot_state_client.cpp.o
+motion_switcher_client.cpp.o
+--- unique object formats ---
+architecture: i386:x86-64, flags 0x00000011:
+AudioData_.cpp.o:     file format elf64-x86-64
+back_video_client.cpp.o:     file format elf64-x86-64
+BmsCmd_.cpp.o:     file format elf64-x86-64
+BmsState_.cpp.o:     file format elf64-x86-64
+channel_factory.cpp.o:     file format elf64-x86-64
+channel_namer.cpp.o:     file format elf64-x86-64
+client_base.cpp.o:     file format elf64-x86-64
+client.cpp.o:     file format elf64-x86-64
+client_stub.cpp.o:     file format elf64-x86-64
+ConfigChangeStatus_.cpp.o:     file format elf64-x86-64
+config_client.cpp.o:     file format elf64-x86-64
+dds_callback.cpp.o:     file format elf64-x86-64
+dds_easy_model.cpp.o:     file format elf64-x86-64
+dds_entity.cpp.o:     file format elf64-x86-64
+dds_factory_model.cpp.o:     file format elf64-x86-64
+dds_parameter.cpp.o:     file format elf64-x86-64
+dds_qos.cpp.o:     file format elf64-x86-64
+dds_qos_parameter.cpp.o:     file format elf64-x86-64
+dds_qos_policy.cpp.o:     file format elf64-x86-64
+dds_qos_policy_parameter.cpp.o:     file format elf64-x86-64
+dds_qos_realize.cpp.o:     file format elf64-x86-64
+directory.cpp.o:     file format elf64-x86-64
+Error_.cpp.o:     file format elf64-x86-64
+file.cpp.o:     file format elf64-x86-64
+filesystem.cpp.o:     file format elf64-x86-64
+front_video_client.cpp.o:     file format elf64-x86-64
+future.cpp.o:     file format elf64-x86-64
+Go2FrontVideoData_.cpp.o:     file format elf64-x86-64
+HandCmd_.cpp.o:     file format elf64-x86-64
+HandState_.cpp.o:     file format elf64-x86-64
+Header_.cpp.o:     file format elf64-x86-64
+HeightMap_.cpp.o:     file format elf64-x86-64
+Imu_.cpp.o:     file format elf64-x86-64
+IMUState_.cpp.o:     file format elf64-x86-64
+InterfaceConfig_.cpp.o:     file format elf64-x86-64
+json_config.cpp.o:     file format elf64-x86-64
+json.cpp.o:     file format elf64-x86-64
+jsonize.cpp.o:     file format elf64-x86-64
+lease_client.cpp.o:     file format elf64-x86-64
+lease_server.cpp.o:     file format elf64-x86-64
+LidarState_.cpp.o:     file format elf64-x86-64
+lock.cpp.o:     file format elf64-x86-64
+log_buffer.cpp.o:     file format elf64-x86-64
+log_initor.cpp.o:     file format elf64-x86-64
+log_keeper.cpp.o:     file format elf64-x86-64
+log_policy.cpp.o:     file format elf64-x86-64
+log_store.cpp.o:     file format elf64-x86-64
+log_writer.cpp.o:     file format elf64-x86-64
+LowCmd_.cpp.o:     file format elf64-x86-64
+LowState_.cpp.o:     file format elf64-x86-64
+MainBoardState_.cpp.o:     file format elf64-x86-64
+MapMetaData_.cpp.o:     file format elf64-x86-64
+motion_switcher_client.cpp.o:     file format elf64-x86-64
+MotorCmd_.cpp.o:     file format elf64-x86-64
+MotorCmds_.cpp.o:     file format elf64-x86-64
+MotorState_.cpp.o:     file format elf64-x86-64
+MotorStates_.cpp.o:     file format elf64-x86-64
+obstacles_avoid_client.cpp.o:     file format elf64-x86-64
+OccupancyGrid_.cpp.o:     file format elf64-x86-64
+Odometry_.cpp.o:     file format elf64-x86-64
+os.cpp.o:     file format elf64-x86-64
+PathPoint_.cpp.o:     file format elf64-x86-64
+Point32_.cpp.o:     file format elf64-x86-64
+PointCloud2_.cpp.o:     file format elf64-x86-64
+Point_.cpp.o:     file format elf64-x86-64
+PointField_.cpp.o:     file format elf64-x86-64
+PointStamped_.cpp.o:     file format elf64-x86-64
+Pose2D_.cpp.o:     file format elf64-x86-64
+Pose_.cpp.o:     file format elf64-x86-64
+PoseStamped_.cpp.o:     file format elf64-x86-64
+PoseWithCovariance_.cpp.o:     file format elf64-x86-64
+PoseWithCovarianceStamped_.cpp.o:     file format elf64-x86-64
+PressSensorState_.cpp.o:     file format elf64-x86-64
+Quaternion_.cpp.o:     file format elf64-x86-64
+QuaternionStamped_.cpp.o:     file format elf64-x86-64
+recurrent_thread.cpp.o:     file format elf64-x86-64
+Req_.cpp.o:     file format elf64-x86-64
+Request_.cpp.o:     file format elf64-x86-64
+request_future.cpp.o:     file format elf64-x86-64
+RequestHeader_.cpp.o:     file format elf64-x86-64
+RequestIdentity_.cpp.o:     file format elf64-x86-64
+RequestLease_.cpp.o:     file format elf64-x86-64
+RequestPolicy_.cpp.o:     file format elf64-x86-64
+Res_.cpp.o:     file format elf64-x86-64
+Response_.cpp.o:     file format elf64-x86-64
+ResponseHeader_.cpp.o:     file format elf64-x86-64
+ResponseStatus_.cpp.o:     file format elf64-x86-64
+robot_state_client.cpp.o:     file format elf64-x86-64
+server_base.cpp.o:     file format elf64-x86-64
+server.cpp.o:     file format elf64-x86-64
+server_stub.cpp.o:     file format elf64-x86-64
+service_application.cpp.o:     file format elf64-x86-64
+service_base.cpp.o:     file format elf64-x86-64
+service_config.cpp.o:     file format elf64-x86-64
+service_main.cpp.o:     file format elf64-x86-64
+sleep.cpp.o:     file format elf64-x86-64
+sport_client.cpp.o:     file format elf64-x86-64
+SportModeCmd_.cpp.o:     file format elf64-x86-64
+SportModeState_.cpp.o:     file format elf64-x86-64
+String_.cpp.o:     file format elf64-x86-64
+string_tool.cpp.o:     file format elf64-x86-64
+thread.cpp.o:     file format elf64-x86-64
+thread_pool.cpp.o:     file format elf64-x86-64
+thread_task.cpp.o:     file format elf64-x86-64
+Time_.cpp.o:     file format elf64-x86-64
+TimeSpec_.cpp.o:     file format elf64-x86-64
+time_tool.cpp.o:     file format elf64-x86-64
+Twist_.cpp.o:     file format elf64-x86-64
+TwistStamped_.cpp.o:     file format elf64-x86-64
+TwistWithCovariance_.cpp.o:     file format elf64-x86-64
+TwistWithCovarianceStamped_.cpp.o:     file format elf64-x86-64
+utrack_client.cpp.o:     file format elf64-x86-64
+UwbState_.cpp.o:     file format elf64-x86-64
+UwbSwitch_.cpp.o:     file format elf64-x86-64
+Vector3_.cpp.o:     file format elf64-x86-64
+video_client.cpp.o:     file format elf64-x86-64
+vui_client.cpp.o:     file format elf64-x86-64
+WirelessController_.cpp.o:     file format elf64-x86-64
+--- selected exported symbols ---
+00000000000002d6 T unitree::common::DdsFactoryModel::Init(unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+00000000000004b4 T unitree::common::DdsFactoryModel::Init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000800 T unitree::common::DdsFactoryModel::Init(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unitree::common::Any, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unitree::common::Any> > > const&)
+0000000000000000 T unitree::common::DdsFactoryModel::DdsFactoryModel()
+0000000000000000 T unitree::common::DdsFactoryModel::DdsFactoryModel()
+000000000000022c T unitree::common::DdsFactoryModel::~DdsFactoryModel()
+000000000000022c T unitree::common::DdsFactoryModel::~DdsFactoryModel()
+0000000000000000 T unitree::robot::ChannelFactory::Init(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000286 T unitree::robot::ChannelFactory::Init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+000000000000034c T unitree::robot::ChannelFactory::Init(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unitree::common::Any, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unitree::common::Any> > > const&)
+0000000000000412 T unitree::robot::ChannelFactory::Release()
+000000000000048e T unitree::robot::ChannelFactory::ChannelFactory()
+000000000000048e T unitree::robot::ChannelFactory::ChannelFactory()
+000000000000058c T unitree::robot::ChannelFactory::~ChannelFactory()
+000000000000058c T unitree::robot::ChannelFactory::~ChannelFactory()
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::get() const
+0000000000000000 W std::__shared_ptr_access<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get() const
+0000000000000000 W std::__shared_ptr_access<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2, false, false>::operator->() const
+0000000000000000 W std::shared_ptr<unitree::common::DdsFactoryModel>::operator=(std::shared_ptr<unitree::common::DdsFactoryModel>&&)
+0000000000000000 W std::shared_ptr<unitree::common::DdsFactoryModel>::shared_ptr()
+0000000000000000 W std::shared_ptr<unitree::common::DdsFactoryModel>::shared_ptr<unitree::common::DdsFactoryModel, void>(unitree::common::DdsFactoryModel*)
+0000000000000000 W std::shared_ptr<unitree::common::DdsFactoryModel>::shared_ptr()
+0000000000000000 W std::shared_ptr<unitree::common::DdsFactoryModel>::shared_ptr<unitree::common::DdsFactoryModel, void>(unitree::common::DdsFactoryModel*)
+0000000000000000 W std::shared_ptr<unitree::common::DdsFactoryModel>::~shared_ptr()
+0000000000000000 W std::shared_ptr<unitree::common::DdsFactoryModel>::~shared_ptr()
+0000000000000000 W std::enable_if<!std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::__has_esft_base<unitree::common::DdsFactoryModel, void>::value, void>::type std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::_M_enable_shared_from_this_with<unitree::common::DdsFactoryModel, unitree::common::DdsFactoryModel>(unitree::common::DdsFactoryModel*)
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::swap(std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>&)
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::reset()
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::operator=(std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>&&)
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::__shared_ptr(std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>&&)
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::__shared_ptr()
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<unitree::common::DdsFactoryModel, void>(unitree::common::DdsFactoryModel*)
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::__shared_ptr(std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>&&)
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::__shared_ptr()
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<unitree::common::DdsFactoryModel, void>(unitree::common::DdsFactoryModel*)
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::~__shared_ptr()
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::~__shared_ptr()
+0000000000000000 W std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<unitree::common::DdsFactoryModel*>(unitree::common::DdsFactoryModel*)
+0000000000000000 W std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<unitree::common::DdsFactoryModel*>(unitree::common::DdsFactoryModel*, std::integral_constant<bool, false>)
+0000000000000000 W std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<unitree::common::DdsFactoryModel*>(unitree::common::DdsFactoryModel*)
+0000000000000000 W std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<unitree::common::DdsFactoryModel*>(unitree::common::DdsFactoryModel*, std::integral_constant<bool, false>)
+0000000000000000 W std::_Sp_counted_ptr<unitree::common::DdsFactoryModel*, (__gnu_cxx::_Lock_policy)2>::_M_destroy()
+0000000000000000 W std::_Sp_counted_ptr<unitree::common::DdsFactoryModel*, (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+0000000000000000 W std::_Sp_counted_ptr<unitree::common::DdsFactoryModel*, (__gnu_cxx::_Lock_policy)2>::_M_get_deleter(std::type_info const&)
+0000000000000000 W std::_Sp_counted_ptr<unitree::common::DdsFactoryModel*, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr(unitree::common::DdsFactoryModel*)
+0000000000000000 W std::_Sp_counted_ptr<unitree::common::DdsFactoryModel*, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr(unitree::common::DdsFactoryModel*)
+0000000000000000 W std::_Sp_counted_ptr<unitree::common::DdsFactoryModel*, (__gnu_cxx::_Lock_policy)2>::~_Sp_counted_ptr()
+0000000000000000 W std::_Sp_counted_ptr<unitree::common::DdsFactoryModel*, (__gnu_cxx::_Lock_policy)2>::~_Sp_counted_ptr()
+0000000000000000 W std::_Sp_counted_ptr<unitree::common::DdsFactoryModel*, (__gnu_cxx::_Lock_policy)2>::~_Sp_counted_ptr()
+0000000000000000 W std::remove_reference<unitree::common::DdsFactoryModel*&>::type&& std::move<unitree::common::DdsFactoryModel*&>(unitree::common::DdsFactoryModel*&)
+0000000000000000 W std::remove_reference<std::shared_ptr<unitree::common::DdsFactoryModel>&>::type&& std::move<std::shared_ptr<unitree::common::DdsFactoryModel>&>(std::shared_ptr<unitree::common::DdsFactoryModel>&)
+0000000000000000 W std::remove_reference<std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>&>::type&& std::move<std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>&>(std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>&)
+0000000000000000 W std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<unitree::common::DdsFactoryModel*> >, std::is_move_constructible<unitree::common::DdsFactoryModel*>, std::is_move_assignable<unitree::common::DdsFactoryModel*> >::value, void>::type std::swap<unitree::common::DdsFactoryModel*>(unitree::common::DdsFactoryModel*&, unitree::common::DdsFactoryModel*&)
+0000000000000000 V typeinfo for std::_Sp_counted_ptr<unitree::common::DdsFactoryModel*, (__gnu_cxx::_Lock_policy)2>
+0000000000000000 V typeinfo name for std::_Sp_counted_ptr<unitree::common::DdsFactoryModel*, (__gnu_cxx::_Lock_policy)2>
+0000000000000000 V vtable for std::_Sp_counted_ptr<unitree::common::DdsFactoryModel*, (__gnu_cxx::_Lock_policy)2>
+0000000000000390 T unitree::robot::Client::SetApiVersion(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000250 T unitree::robot::Client::WaitLeaseApplied()
+000000000000029e T unitree::robot::Client::GetServerApiVersion[abi:cxx11]()
+0000000000000458 T unitree::robot::Client::Call(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+00000000000003be T unitree::robot::Client::Call(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+0000000000000580 T unitree::robot::Client::Call(int, std::vector<unsigned char, std::allocator<unsigned char> > const&)
+00000000000004e6 T unitree::robot::Client::Call(int, std::vector<unsigned char, std::allocator<unsigned char> > const&, std::vector<unsigned char, std::allocator<unsigned char> >&)
+0000000000000642 T unitree::robot::Client::CheckApi(int, int&, long&)
+000000000000060e T unitree::robot::Client::RegistApi(int, int)
+0000000000000000 T unitree::robot::Client::Client(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool)
+0000000000000000 T unitree::robot::Client::Client(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool)
+0000000000000226 T unitree::robot::Client::~Client()
+00000000000001c4 T unitree::robot::Client::~Client()
+00000000000001c4 T unitree::robot::Client::~Client()
+0000000000000288 T unitree::robot::Client::GetApiVersion[abi:cxx11]() const
+0000000000000000 W std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>::get() const
+0000000000000000 W std::__shared_ptr_access<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get() const
+0000000000000000 W std::__shared_ptr_access<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2, false, false>::operator->() const
+0000000000000000 W std::shared_ptr<unitree::robot::ClientStub>::operator=(std::shared_ptr<unitree::robot::ClientStub>&&)
+0000000000000000 W std::shared_ptr<unitree::robot::ClientStub>::shared_ptr()
+0000000000000000 W std::shared_ptr<unitree::robot::ClientStub>::shared_ptr<unitree::robot::ClientStub, void>(unitree::robot::ClientStub*)
+0000000000000000 W std::shared_ptr<unitree::robot::ClientStub>::shared_ptr()
+0000000000000000 W std::shared_ptr<unitree::robot::ClientStub>::shared_ptr<unitree::robot::ClientStub, void>(unitree::robot::ClientStub*)
+0000000000000000 W std::shared_ptr<unitree::robot::ClientStub>::~shared_ptr()
+0000000000000000 W std::shared_ptr<unitree::robot::ClientStub>::~shared_ptr()
+0000000000000000 W std::enable_if<!std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>::__has_esft_base<unitree::robot::ClientStub, void>::value, void>::type std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>::_M_enable_shared_from_this_with<unitree::robot::ClientStub, unitree::robot::ClientStub>(unitree::robot::ClientStub*)
+0000000000000000 W std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>::swap(std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>&)
+0000000000000000 W std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>::operator=(std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>&&)
+0000000000000000 W std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>::__shared_ptr(std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>&&)
+0000000000000000 W std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>::__shared_ptr()
+0000000000000000 W std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<unitree::robot::ClientStub, void>(unitree::robot::ClientStub*)
+0000000000000000 W std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>::__shared_ptr(std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>&&)
+0000000000000000 W std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>::__shared_ptr()
+0000000000000000 W std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<unitree::robot::ClientStub, void>(unitree::robot::ClientStub*)
+0000000000000000 W std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>::~__shared_ptr()
+0000000000000000 W std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>::~__shared_ptr()
+0000000000000000 W std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<unitree::robot::ClientStub*>(unitree::robot::ClientStub*)
+0000000000000000 W std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<unitree::robot::ClientStub*>(unitree::robot::ClientStub*, std::integral_constant<bool, false>)
+0000000000000000 W std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<unitree::robot::ClientStub*>(unitree::robot::ClientStub*)
+0000000000000000 W std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<unitree::robot::ClientStub*>(unitree::robot::ClientStub*, std::integral_constant<bool, false>)
+0000000000000000 W std::_Sp_counted_ptr<unitree::robot::ClientStub*, (__gnu_cxx::_Lock_policy)2>::_M_destroy()
+0000000000000000 W std::_Sp_counted_ptr<unitree::robot::ClientStub*, (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+0000000000000000 W std::_Sp_counted_ptr<unitree::robot::ClientStub*, (__gnu_cxx::_Lock_policy)2>::_M_get_deleter(std::type_info const&)
+0000000000000000 W std::_Sp_counted_ptr<unitree::robot::ClientStub*, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr(unitree::robot::ClientStub*)
+0000000000000000 W std::_Sp_counted_ptr<unitree::robot::ClientStub*, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr(unitree::robot::ClientStub*)
+0000000000000000 W std::_Sp_counted_ptr<unitree::robot::ClientStub*, (__gnu_cxx::_Lock_policy)2>::~_Sp_counted_ptr()
+0000000000000000 W std::_Sp_counted_ptr<unitree::robot::ClientStub*, (__gnu_cxx::_Lock_policy)2>::~_Sp_counted_ptr()
+0000000000000000 W std::_Sp_counted_ptr<unitree::robot::ClientStub*, (__gnu_cxx::_Lock_policy)2>::~_Sp_counted_ptr()
+0000000000000000 W std::remove_reference<unitree::robot::ClientStub*&>::type&& std::move<unitree::robot::ClientStub*&>(unitree::robot::ClientStub*&)
+0000000000000000 W std::remove_reference<std::shared_ptr<unitree::robot::ClientStub>&>::type&& std::move<std::shared_ptr<unitree::robot::ClientStub>&>(std::shared_ptr<unitree::robot::ClientStub>&)
+0000000000000000 W std::remove_reference<std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>&>::type&& std::move<std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>&>(std::__shared_ptr<unitree::robot::ClientStub, (__gnu_cxx::_Lock_policy)2>&)
+0000000000000000 W std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<unitree::robot::ClientStub*> >, std::is_move_constructible<unitree::robot::ClientStub*>, std::is_move_assignable<unitree::robot::ClientStub*> >::value, void>::type std::swap<unitree::robot::ClientStub*>(unitree::robot::ClientStub*&, unitree::robot::ClientStub*&)
+0000000000000000 V typeinfo for std::_Sp_counted_ptr<unitree::robot::ClientStub*, (__gnu_cxx::_Lock_policy)2>
+0000000000000000 V typeinfo name for std::_Sp_counted_ptr<unitree::robot::ClientStub*, (__gnu_cxx::_Lock_policy)2>
+0000000000000000 V vtable for std::_Sp_counted_ptr<unitree::robot::ClientStub*, (__gnu_cxx::_Lock_policy)2>
+0000000000000000 u guard variable for unitree::robot::ChannelFactory::Instance()::inst
+00000000000003dc T unitree::robot::ClientStub::SendRequest(unitree_api::msg::dds_::Request_ const&, long)
+00000000000005b4 T unitree::robot::ClientStub::ResponseFunc(void const*)
+00000000000001b4 T unitree::robot::ClientStub::Init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+00000000000003a0 T unitree::robot::ClientStub::Send(unitree_api::msg::dds_::Request_ const&, long)
+0000000000000154 T unitree::robot::ClientStub::ClientStub()
+0000000000000154 T unitree::robot::ClientStub::ClientStub()
+0000000000000184 T unitree::robot::ClientStub::~ClientStub()
+0000000000000184 T unitree::robot::ClientStub::~ClientStub()
+0000000000000000 W std::shared_ptr<unitree::common::DdsTopicChannel<unitree_api::msg::dds_::Response_> > unitree::robot::ChannelFactory::CreateRecvChannel<unitree_api::msg::dds_::Response_>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::function<void (void const*)>, int)
+0000000000000000 W std::shared_ptr<unitree::common::DdsTopicChannel<unitree_api::msg::dds_::Request_> > unitree::robot::ChannelFactory::CreateSendChannel<unitree_api::msg::dds_::Request_>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000000 W unitree::robot::ChannelFactory::Instance()
+0000000000000000 W std::shared_ptr<unitree::common::DdsTopicChannel<unitree_api::msg::dds_::Request_> > unitree::common::DdsFactoryModel::CreateTopicChannel<unitree_api::msg::dds_::Request_>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000000 W std::shared_ptr<unitree::common::DdsTopicChannel<unitree_api::msg::dds_::Response_> > unitree::common::DdsFactoryModel::CreateTopicChannel<unitree_api::msg::dds_::Response_>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000000 W void unitree::common::DdsFactoryModel::SetReader<unitree_api::msg::dds_::Response_>(std::shared_ptr<unitree::common::DdsTopicChannel<unitree_api::msg::dds_::Response_> >&, std::function<void (void const*)> const&, int)
+0000000000000000 W void unitree::common::DdsFactoryModel::SetWriter<unitree_api::msg::dds_::Request_>(std::shared_ptr<unitree::common::DdsTopicChannel<unitree_api::msg::dds_::Request_> >&)
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::get() const
+0000000000000000 W std::__shared_ptr_access<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get() const
+0000000000000000 W std::__shared_ptr_access<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2, false, false>::operator->() const
+0000000000000000 W std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)> const* const& std::_Any_data::_M_access<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)> const*>() const
+0000000000000000 W std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>* const& std::_Any_data::_M_access<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>*>() const
+0000000000000000 W std::_Head_base<0ul, unitree::robot::ClientStub*, false>::_M_head(std::_Head_base<0ul, unitree::robot::ClientStub*, false>&)
+0000000000000000 W std::_Head_base<0ul, unitree::robot::ClientStub*, false>::_Head_base<unitree::robot::ClientStub*>(unitree::robot::ClientStub*&&)
+0000000000000000 W std::_Head_base<0ul, unitree::robot::ClientStub*, false>::_Head_base<unitree::robot::ClientStub*>(unitree::robot::ClientStub*&&)
+0000000000000000 W std::_Tuple_impl<0ul, unitree::robot::ClientStub*, std::_Placeholder<1> >::_M_head(std::_Tuple_impl<0ul, unitree::robot::ClientStub*, std::_Placeholder<1> >&)
+0000000000000000 W std::_Tuple_impl<0ul, unitree::robot::ClientStub*, std::_Placeholder<1> >::_M_tail(std::_Tuple_impl<0ul, unitree::robot::ClientStub*, std::_Placeholder<1> >&)
+0000000000000000 W std::_Tuple_impl<0ul, unitree::robot::ClientStub*, std::_Placeholder<1> >::_Tuple_impl(std::_Tuple_impl<0ul, unitree::robot::ClientStub*, std::_Placeholder<1> >&&)
+0000000000000000 W std::_Tuple_impl<0ul, unitree::robot::ClientStub*, std::_Placeholder<1> >::_Tuple_impl<unitree::robot::ClientStub*, std::_Placeholder<1> const&, void>(unitree::robot::ClientStub*&&, std::_Placeholder<1> const&)
+0000000000000000 W std::_Tuple_impl<0ul, unitree::robot::ClientStub*, std::_Placeholder<1> >::_Tuple_impl(std::_Tuple_impl<0ul, unitree::robot::ClientStub*, std::_Placeholder<1> >&&)
+0000000000000000 W std::_Tuple_impl<0ul, unitree::robot::ClientStub*, std::_Placeholder<1> >::_Tuple_impl<unitree::robot::ClientStub*, std::_Placeholder<1> const&, void>(unitree::robot::ClientStub*&&, std::_Placeholder<1> const&)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)> >::_M_destroy(std::_Any_data&, std::integral_constant<bool, false>)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)> >::_M_manager(std::_Any_data&, std::_Any_data const&, std::_Manager_operation)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)> >::_M_get_pointer(std::_Any_data const&)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)> >::_M_init_functor(std::_Any_data&, std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>&&)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)> >::_M_init_functor(std::_Any_data&, std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>&&, std::integral_constant<bool, false>)
+0000000000000000 W bool std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)> >::_M_not_empty_function<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)> >(std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)> const&)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)> >::_M_clone(std::_Any_data&, std::_Any_data const&, std::integral_constant<bool, false>)
+0000000000000000 W std::_Function_handler<void (void const*), std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)> >::_M_invoke(std::_Any_data const&, void const*&&)
+0000000000000000 W void std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>::__call<void, void const*&&, 0ul, 1ul>(std::tuple<void const*&&>&&, std::_Index_tuple<0ul, 1ul>)
+0000000000000000 W std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>::_Bind(std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>&&)
+0000000000000000 W std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>::_Bind<unitree::robot::ClientStub*, std::_Placeholder<1> const&>(void (unitree::robot::ClientStub::*&&)(void const*), unitree::robot::ClientStub*&&, std::_Placeholder<1> const&)
+0000000000000000 W std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>::_Bind(std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>&&)
+0000000000000000 W std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>::_Bind<unitree::robot::ClientStub*, std::_Placeholder<1> const&>(void (unitree::robot::ClientStub::*&&)(void const*), unitree::robot::ClientStub*&&, std::_Placeholder<1> const&)
+0000000000000000 W void std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>::operator()<void const*, void>(void const*&&)
+0000000000000000 W std::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> >::tuple(std::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> >&&)
+0000000000000000 W std::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> >::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> const&, true>(unitree::robot::ClientStub*&&, std::_Placeholder<1> const&)
+0000000000000000 W std::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> >::tuple(std::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> >&&)
+0000000000000000 W std::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> >::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> const&, true>(unitree::robot::ClientStub*&&, std::_Placeholder<1> const&)
+0000000000000000 W std::function<void (void const*)>::function<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>, void, void>(std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>)
+0000000000000000 W std::function<void (void const*)>::function<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>, void, void>(std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>)
+0000000000000000 W std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>*& std::_Any_data::_M_access<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>*>()
+0000000000000000 W unitree::robot::ClientStub*& std::_Mu<unitree::robot::ClientStub*, false, false>::operator()<unitree::robot::ClientStub*&, std::tuple<void const*&&> >(unitree::robot::ClientStub*&, std::tuple<void const*&&>&) const volatile
+0000000000000000 W unitree::robot::ClientStub*& std::__get_helper<0ul, unitree::robot::ClientStub*, std::_Placeholder<1> >(std::_Tuple_impl<0ul, unitree::robot::ClientStub*, std::_Placeholder<1> >&)
+0000000000000000 W void std::__invoke_impl<void, void (unitree::robot::ClientStub::*&)(void const*), unitree::robot::ClientStub*&, void const*>(std::__invoke_memfun_deref, void (unitree::robot::ClientStub::*&)(void const*), unitree::robot::ClientStub*&, void const*&&)
+0000000000000000 W std::tuple_element<0ul, std::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> > >::type& std::get<0ul, unitree::robot::ClientStub*, std::_Placeholder<1> >(std::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> >&)
+0000000000000000 W std::tuple_element<1ul, std::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> > >::type& std::get<1ul, unitree::robot::ClientStub*, std::_Placeholder<1> >(std::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> >&)
+0000000000000000 W std::_Bind_helper<std::__or_<std::is_integral<std::decay<void (unitree::robot::ClientStub::*)(void const*)>::type>, std::is_enum<std::decay<void (unitree::robot::ClientStub::*)(void const*)>::type> >::value, void (unitree::robot::ClientStub::*)(void const*), unitree::robot::ClientStub*, std::_Placeholder<1> const&>::type std::bind<void (unitree::robot::ClientStub::*)(void const*), unitree::robot::ClientStub*, std::_Placeholder<1> const&>(void (unitree::robot::ClientStub::*&&)(void const*), unitree::robot::ClientStub*&&, std::_Placeholder<1> const&)
+0000000000000000 W std::remove_reference<void (unitree::robot::ClientStub::*&)(void const*)>::type&& std::move<void (unitree::robot::ClientStub::*&)(void const*)>(void (unitree::robot::ClientStub::*&)(void const*))
+0000000000000000 W std::remove_reference<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>&>::type&& std::move<std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>&>(std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>&)
+0000000000000000 W std::remove_reference<std::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> >&>::type&& std::move<std::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> >&>(std::tuple<unitree::robot::ClientStub*, std::_Placeholder<1> >&)
+0000000000000000 W void (unitree::robot::ClientStub::*&&std::forward<void (unitree::robot::ClientStub::*)(void const*)>(std::remove_reference<void (unitree::robot::ClientStub::*)(void const*)>::type&))(void const*)
+0000000000000000 W unitree::robot::ClientStub*&& std::forward<unitree::robot::ClientStub*>(std::remove_reference<unitree::robot::ClientStub*>::type&)
+0000000000000000 W void (unitree::robot::ClientStub::*&std::forward<void (unitree::robot::ClientStub::*&)(void const*)>(std::remove_reference<void (unitree::robot::ClientStub::*&)(void const*)>::type&))(void const*)
+0000000000000000 W unitree::robot::ClientStub*& std::forward<unitree::robot::ClientStub*&>(std::remove_reference<unitree::robot::ClientStub*&>::type&)
+0000000000000000 W std::__invoke_result<void (unitree::robot::ClientStub::*&)(void const*), unitree::robot::ClientStub*&, void const*>::type std::__invoke<void (unitree::robot::ClientStub::*&)(void const*), unitree::robot::ClientStub*&, void const*>(void (unitree::robot::ClientStub::*&)(void const*), unitree::robot::ClientStub*&, void const*&&)
+0000000000000000 V typeinfo for std::_Weak_result_type<void (unitree::robot::ClientStub::*)(void const*)>
+0000000000000000 V typeinfo for std::_Weak_result_type_memfun<void (unitree::robot::ClientStub::*)(void const*), true>
+0000000000000000 V typeinfo for std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>
+0000000000000000 V typeinfo name for std::_Weak_result_type<void (unitree::robot::ClientStub::*)(void const*)>
+0000000000000000 V typeinfo name for std::_Weak_result_type_memfun<void (unitree::robot::ClientStub::*)(void const*), true>
+0000000000000000 V typeinfo name for std::_Bind<void (unitree::robot::ClientStub::*(unitree::robot::ClientStub*, std::_Placeholder<1>))(void const*)>
+0000000000000000 u unitree::robot::ChannelFactory::Instance()::inst
+00000000000006c2 T unitree::robot::LeaseClient::WaitApplied()
+0000000000000dba T unitree::robot::LeaseClient::ThreadFunction()
+0000000000000d52 T unitree::robot::LeaseClient::GetWaitMicrosec()
+000000000000054c T unitree::robot::LeaseClient::Init()
+00000000000008a2 T unitree::robot::LeaseClient::Apply()
+0000000000000774 T unitree::robot::LeaseClient::GetId()
+000000000000080c T unitree::robot::LeaseClient::Applied()
+0000000000000be6 T unitree::robot::LeaseClient::Renewal()
+00000000000000d2 T unitree::robot::LeaseClient::LeaseClient(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+00000000000000d2 T unitree::robot::LeaseClient::LeaseClient(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000522 T unitree::robot::LeaseClient::~LeaseClient()
+00000000000004a0 T unitree::robot::LeaseClient::~LeaseClient()
+00000000000004a0 T unitree::robot::LeaseClient::~LeaseClient()
+0000000000000000 W unitree::common::RecurrentThread::RecurrentThread<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, unsigned long, std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&&)
+0000000000000000 W unitree::common::RecurrentThread::RecurrentThread<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, unsigned long, std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&&)
+0000000000000000 W std::shared_ptr<unitree::common::Thread> unitree::common::CreateRecurrentThreadEx<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, unsigned long, std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&&)
+0000000000000000 W std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> const* const& std::_Any_data::_M_access<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> const*>() const
+0000000000000000 W std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>* const& std::_Any_data::_M_access<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>*>() const
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >::_M_destroy(std::_Any_data&, std::integral_constant<bool, false>)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >::_M_manager(std::_Any_data&, std::_Any_data const&, std::_Manager_operation)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >::_M_get_pointer(std::_Any_data const&)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >::_M_init_functor(std::_Any_data&, std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>&&)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >::_M_init_functor(std::_Any_data&, std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>&&, std::integral_constant<bool, false>)
+0000000000000000 W bool std::_Function_base::_Base_manager<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >::_M_not_empty_function<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >(std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> const&)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >::_M_clone(std::_Any_data&, std::_Any_data const&, std::integral_constant<bool, false>)
+0000000000000000 W std::_Function_handler<void (), std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >::_M_invoke(std::_Any_data const&)
+0000000000000000 W void std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>::__call<void, , 0ul>(std::tuple<>&&, std::_Index_tuple<0ul>)
+0000000000000000 W std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>::_Bind(std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&&)
+0000000000000000 W std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>::_Bind<unitree::robot::LeaseClient*>(void (unitree::robot::LeaseClient::*&&)(), unitree::robot::LeaseClient*&&)
+0000000000000000 W std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>::_Bind(std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&&)
+0000000000000000 W std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>::_Bind<unitree::robot::LeaseClient*>(void (unitree::robot::LeaseClient::*&&)(), unitree::robot::LeaseClient*&&)
+0000000000000000 W void std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>::operator()<, void>()
+0000000000000000 W void std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>::__call<void>(std::tuple<>&&, std::_Index_tuple<>)
+0000000000000000 W std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>::_Bind(std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>&&)
+0000000000000000 W std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>::_Bind<>(std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&&)
+0000000000000000 W std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>::_Bind(std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>&&)
+0000000000000000 W std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>::_Bind<>(std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&&)
+0000000000000000 W void std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>::operator()<, void>()
+0000000000000000 W std::enable_if<std::function<void ()>::_Callable<std::decay<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >::type, std::__invoke_result<std::decay<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >::type&> >::value, std::function<void ()>&>::type std::function<void ()>::operator=<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >(std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>&&)
+0000000000000000 W std::function<void ()>::function<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>, void, void>(std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>)
+0000000000000000 W std::function<void ()>::function<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>, void, void>(std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>)
+0000000000000000 W std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>*& std::_Any_data::_M_access<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>*>()
+0000000000000000 W void std::__invoke_impl<void, void (unitree::robot::LeaseClient::*&)(), unitree::robot::LeaseClient*&>(std::__invoke_memfun_deref, void (unitree::robot::LeaseClient::*&)(), unitree::robot::LeaseClient*&)
+0000000000000000 W void std::__invoke_impl<void, std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&>(std::__invoke_other, std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&)
+0000000000000000 W std::_Bind_helper<std::__or_<std::is_integral<std::decay<void (unitree::robot::LeaseClient::*)()>::type>, std::is_enum<std::decay<void (unitree::robot::LeaseClient::*)()>::type> >::value, void (unitree::robot::LeaseClient::*)(), unitree::robot::LeaseClient*>::type std::bind<void (unitree::robot::LeaseClient::*)(), unitree::robot::LeaseClient*>(void (unitree::robot::LeaseClient::*&&)(), unitree::robot::LeaseClient*&&)
+0000000000000000 W std::_Bind_helper<std::__or_<std::is_integral<std::decay<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> >::type>, std::is_enum<std::decay<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> >::type> >::value, std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>>::type std::bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>>(std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&&)
+0000000000000000 W std::remove_reference<void (unitree::robot::LeaseClient::*&)()>::type&& std::move<void (unitree::robot::LeaseClient::*&)()>(void (unitree::robot::LeaseClient::*&)())
+0000000000000000 W std::remove_reference<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&>::type&& std::move<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&>(std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&)
+0000000000000000 W std::remove_reference<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>&>::type&& std::move<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>&>(std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>&)
+0000000000000000 W void (unitree::robot::LeaseClient::*&&std::forward<void (unitree::robot::LeaseClient::*)()>(std::remove_reference<void (unitree::robot::LeaseClient::*)()>::type&))()
+0000000000000000 W void (unitree::robot::LeaseClient::*&std::forward<void (unitree::robot::LeaseClient::*&)()>(std::remove_reference<void (unitree::robot::LeaseClient::*&)()>::type&))()
+0000000000000000 W std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>& std::forward<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&>(std::remove_reference<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&>::type&)
+0000000000000000 W std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&& std::forward<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> >(std::remove_reference<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> >::type&)
+0000000000000000 W std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>&& std::forward<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >(std::remove_reference<std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()> >::type&)
+0000000000000000 W std::__invoke_result<void (unitree::robot::LeaseClient::*&)(), unitree::robot::LeaseClient*&>::type std::__invoke<void (unitree::robot::LeaseClient::*&)(), unitree::robot::LeaseClient*&>(void (unitree::robot::LeaseClient::*&)(), unitree::robot::LeaseClient*&)
+0000000000000000 W std::__invoke_result<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&>::type std::__invoke<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&>(std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>&)
+0000000000000000 V typeinfo for std::_Weak_result_type<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> >
+0000000000000000 V typeinfo for std::_Maybe_get_result_type<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>, void>
+0000000000000000 V typeinfo for std::_Weak_result_type_impl<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> >
+0000000000000000 V typeinfo for std::_Weak_result_type_memfun<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>, false>
+0000000000000000 V typeinfo for std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>
+0000000000000000 V typeinfo name for std::_Weak_result_type<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> >
+0000000000000000 V typeinfo name for std::_Maybe_get_result_type<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>, void>
+0000000000000000 V typeinfo name for std::_Weak_result_type_impl<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> >
+0000000000000000 V typeinfo name for std::_Weak_result_type_memfun<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()>, false>
+0000000000000000 V typeinfo name for std::_Bind<std::_Bind<void (unitree::robot::LeaseClient::*(unitree::robot::LeaseClient*))()> ()>
+0000000000000000 u guard variable for unitree::robot::ChannelFactory::Instance()::inst
+0000000000000000 W std::shared_ptr<unitree::common::DdsTopicChannel<unitree_api::msg::dds_::Request_> > unitree::robot::ChannelFactory::CreateRecvChannel<unitree_api::msg::dds_::Request_>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::function<void (void const*)>, int)
+0000000000000000 W std::shared_ptr<unitree::common::DdsTopicChannel<unitree_api::msg::dds_::Response_> > unitree::robot::ChannelFactory::CreateSendChannel<unitree_api::msg::dds_::Response_>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000000 W unitree::robot::ChannelFactory::Instance()
+0000000000000000 W std::shared_ptr<unitree::common::DdsTopicChannel<unitree_api::msg::dds_::Request_> > unitree::common::DdsFactoryModel::CreateTopicChannel<unitree_api::msg::dds_::Request_>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000000 W std::shared_ptr<unitree::common::DdsTopicChannel<unitree_api::msg::dds_::Response_> > unitree::common::DdsFactoryModel::CreateTopicChannel<unitree_api::msg::dds_::Response_>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000000 W void unitree::common::DdsFactoryModel::SetReader<unitree_api::msg::dds_::Request_>(std::shared_ptr<unitree::common::DdsTopicChannel<unitree_api::msg::dds_::Request_> >&, std::function<void (void const*)> const&, int)
+0000000000000000 W void unitree::common::DdsFactoryModel::SetWriter<unitree_api::msg::dds_::Response_>(std::shared_ptr<unitree::common::DdsTopicChannel<unitree_api::msg::dds_::Response_> >&)
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::get() const
+0000000000000000 W std::__shared_ptr_access<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get() const
+0000000000000000 W std::__shared_ptr_access<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2, false, false>::operator->() const
+0000000000000000 u unitree::robot::ChannelFactory::Instance()::inst
+0000000000000d68 T unitree::robot::go2::SportClient::BodyHeight(float)
+0000000000000f64 T unitree::robot::go2::SportClient::SpeedLevel(int)
+0000000000000bba T unitree::robot::go2::SportClient::SwitchGait(int)
+0000000000001f88 T unitree::robot::go2::SportClient::WiggleHips()
+0000000000001a8e T unitree::robot::go2::SportClient::FrontPounce()
+0000000000001e1c T unitree::robot::go2::SportClient::HopSpinLeft()
+0000000000000492 T unitree::robot::go2::SportClient::BalanceStand()
+0000000000002166 T unitree::robot::go2::SportClient::EconomicGait(bool)
+0000000000001ed2 T unitree::robot::go2::SportClient::HopSpinRight()
+000000000000076a T unitree::robot::go2::SportClient::RecoveryStand()
+000000000000150c T unitree::robot::go2::SportClient::ContinuousGait(bool)
+0000000000001412 T unitree::robot::go2::SportClient::SwitchJoystick(bool)
+0000000000000e66 T unitree::robot::go2::SportClient::FootRaiseHeight(float)
+00000000000011c8 T unitree::robot::go2::SportClient::TrajectoryFollow(std::vector<unitree::robot::go2::stPathPoint, std::allocator<unitree::robot::go2::stPathPoint> >&)
+0000000000000a4e T unitree::robot::go2::SportClient::Sit()
+00000000000003dc T unitree::robot::go2::SportClient::Damp()
+000000000000009e T unitree::robot::go2::SportClient::Init()
+000000000000095a T unitree::robot::go2::SportClient::Move(float, float, float)
+0000000000001772 T unitree::robot::go2::SportClient::Pose(bool)
+0000000000000820 T unitree::robot::go2::SportClient::Euler(float, float, float)
+00000000000016bc T unitree::robot::go2::SportClient::Heart()
+000000000000105c T unitree::robot::go2::SportClient::Hello()
+0000000000001b44 T unitree::robot::go2::SportClient::Dance1()
+0000000000001bfa T unitree::robot::go2::SportClient::Dance2()
+0000000000001cb0 T unitree::robot::go2::SportClient::Dance3()
+0000000000001d66 T unitree::robot::go2::SportClient::Dance4()
+000000000000186c T unitree::robot::go2::SportClient::Scrape()
+0000000000001606 T unitree::robot::go2::SportClient::Wallow()
+0000000000000b04 T unitree::robot::go2::SportClient::RiseSit()
+00000000000005fe T unitree::robot::go2::SportClient::StandUp()
+0000000000001112 T unitree::robot::go2::SportClient::Stretch()
+0000000000000cb2 T unitree::robot::go2::SportClient::Trigger()
+000000000000203e T unitree::robot::go2::SportClient::GetState(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >&)
+0000000000000548 T unitree::robot::go2::SportClient::StopMove()
+0000000000001922 T unitree::robot::go2::SportClient::FrontFlip()
+00000000000019d8 T unitree::robot::go2::SportClient::FrontJump()
+00000000000006b4 T unitree::robot::go2::SportClient::StandDown()
+0000000000000000 T unitree::robot::go2::SportClient::SportClient(bool)
+0000000000000000 T unitree::robot::go2::SportClient::SportClient(bool)
+0000000000000074 T unitree::robot::go2::SportClient::~SportClient()
+0000000000000042 T unitree::robot::go2::SportClient::~SportClient()
+0000000000000042 T unitree::robot::go2::SportClient::~SportClient()
+000000000000075c T unitree::robot::go2::VuiClient::GetBrightness(int&)
+0000000000000630 T unitree::robot::go2::VuiClient::SetBrightness(int)
+000000000000009a T unitree::robot::go2::VuiClient::Init()
+0000000000000270 T unitree::robot::go2::VuiClient::GetSwitch(int&)
+00000000000004e6 T unitree::robot::go2::VuiClient::GetVolume(int&)
+0000000000000144 T unitree::robot::go2::VuiClient::SetSwitch(int)
+00000000000003ba T unitree::robot::go2::VuiClient::SetVolume(int)
+0000000000000000 T unitree::robot::go2::VuiClient::VuiClient()
+0000000000000000 T unitree::robot::go2::VuiClient::VuiClient()
+0000000000000070 T unitree::robot::go2::VuiClient::~VuiClient()
+000000000000003e T unitree::robot::go2::VuiClient::~VuiClient()
+000000000000003e T unitree::robot::go2::VuiClient::~VuiClient()
+00000000000000d6 T unitree::robot::go2::VideoClient::GetImageSample(std::vector<unsigned char, std::allocator<unsigned char> >&)
+000000000000009a T unitree::robot::go2::VideoClient::Init()
+0000000000000000 T unitree::robot::go2::VideoClient::VideoClient()
+0000000000000000 T unitree::robot::go2::VideoClient::VideoClient()
+0000000000000070 T unitree::robot::go2::VideoClient::~VideoClient()
+000000000000003e T unitree::robot::go2::VideoClient::~VideoClient()
+000000000000003e T unitree::robot::go2::VideoClient::~VideoClient()
+0000000000000102 T unitree::robot::go2::RobotStateClient::ServiceList(std::vector<unitree::robot::go2::ServiceState, std::allocator<unitree::robot::go2::ServiceState> >&)
+000000000000031e T unitree::robot::go2::RobotStateClient::ServiceSwitch(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int&)
+000000000000050a T unitree::robot::go2::RobotStateClient::SetReportFreq(int, int)
+000000000000009a T unitree::robot::go2::RobotStateClient::Init()
+0000000000000000 T unitree::robot::go2::RobotStateClient::RobotStateClient()
+0000000000000000 T unitree::robot::go2::RobotStateClient::RobotStateClient()
+0000000000000070 T unitree::robot::go2::RobotStateClient::~RobotStateClient()
+000000000000003e T unitree::robot::go2::RobotStateClient::~RobotStateClient()
+000000000000003e T unitree::robot::go2::RobotStateClient::~RobotStateClient()
+000000000000054c T unitree::robot::go2::ObstaclesAvoidClient::UseRemoteCommandFromApi(bool)
+000000000000009a T unitree::robot::go2::ObstaclesAvoidClient::Init()
+000000000000033e T unitree::robot::go2::ObstaclesAvoidClient::Move(float, float, float)
+00000000000001f8 T unitree::robot::go2::ObstaclesAvoidClient::SwitchGet(bool&)
+0000000000000118 T unitree::robot::go2::ObstaclesAvoidClient::SwitchSet(bool)
+0000000000000000 T unitree::robot::go2::ObstaclesAvoidClient::ObstaclesAvoidClient()
+0000000000000000 T unitree::robot::go2::ObstaclesAvoidClient::ObstaclesAvoidClient()
+0000000000000070 T unitree::robot::go2::ObstaclesAvoidClient::~ObstaclesAvoidClient()
+000000000000003e T unitree::robot::go2::ObstaclesAvoidClient::~ObstaclesAvoidClient()
+000000000000003e T unitree::robot::go2::ObstaclesAvoidClient::~ObstaclesAvoidClient()
+0000000000000334 T unitree::robot::go2::UtrackClient::IsTracking(bool&)
+000000000000009a T unitree::robot::go2::UtrackClient::Init()
+00000000000001e6 T unitree::robot::go2::UtrackClient::SwitchGet(bool&)
+0000000000000102 T unitree::robot::go2::UtrackClient::SwitchSet(bool)
+0000000000000000 T unitree::robot::go2::UtrackClient::UtrackClient()
+0000000000000000 T unitree::robot::go2::UtrackClient::UtrackClient()
+0000000000000070 T unitree::robot::go2::UtrackClient::~UtrackClient()
+000000000000003e T unitree::robot::go2::UtrackClient::~UtrackClient()
+000000000000003e T unitree::robot::go2::UtrackClient::~UtrackClient()
+0000000000000000 u guard variable for unitree::robot::ChannelFactory::Instance()::inst
+0000000000000000 W std::shared_ptr<unitree::common::DdsTopicChannel<unitree_go::msg::dds_::ConfigChangeStatus_> > unitree::robot::ChannelFactory::CreateRecvChannel<unitree_go::msg::dds_::ConfigChangeStatus_>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::function<void (void const*)>, int)
+0000000000000000 W unitree::robot::ChannelFactory::Instance()
+0000000000000acc T unitree::robot::go2::ConfigClient::SubscribeChangeStatus(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::function<void (std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)> const&)
+0000000000000d56 T unitree::robot::go2::ConfigClient::ChangeStatusMessageHandler(void const*)
+00000000000005d6 T unitree::robot::go2::ConfigClient::Del(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+000000000000042c T unitree::robot::go2::ConfigClient::Get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+00000000000002e4 T unitree::robot::go2::ConfigClient::Set(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000266 T unitree::robot::go2::ConfigClient::Init()
+00000000000006f2 T unitree::robot::go2::ConfigClient::Meta(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unitree::robot::go2::ConfigMeta&)
+00000000000008e6 T unitree::robot::go2::ConfigClient::Meta(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+000000000000013c T unitree::robot::go2::ConfigClient::ConfigClient()
+000000000000013c T unitree::robot::go2::ConfigClient::ConfigClient()
+000000000000023c T unitree::robot::go2::ConfigClient::~ConfigClient()
+00000000000001d4 T unitree::robot::go2::ConfigClient::~ConfigClient()
+00000000000001d4 T unitree::robot::go2::ConfigClient::~ConfigClient()
+0000000000000000 W std::shared_ptr<unitree::common::DdsTopicChannel<unitree_go::msg::dds_::ConfigChangeStatus_> > unitree::common::DdsFactoryModel::CreateTopicChannel<unitree_go::msg::dds_::ConfigChangeStatus_>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000000 W void unitree::common::DdsFactoryModel::SetReader<unitree_go::msg::dds_::ConfigChangeStatus_>(std::shared_ptr<unitree::common::DdsTopicChannel<unitree_go::msg::dds_::ConfigChangeStatus_> >&, std::function<void (void const*)> const&, int)
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::get() const
+0000000000000000 W std::__shared_ptr_access<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get() const
+0000000000000000 W std::__shared_ptr_access<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2, false, false>::operator->() const
+0000000000000000 W std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)> const* const& std::_Any_data::_M_access<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)> const*>() const
+0000000000000000 W std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>* const& std::_Any_data::_M_access<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>*>() const
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_destroy(std::_Any_data&, std::integral_constant<bool, false>)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_manager(std::_Any_data&, std::_Any_data const&, std::_Manager_operation)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_get_pointer(std::_Any_data const&)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_init_functor(std::_Any_data&, std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>&&)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_init_functor(std::_Any_data&, std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>&&, std::integral_constant<bool, false>)
+0000000000000000 W bool std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_not_empty_function<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)> >(std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)> const&)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_clone(std::_Any_data&, std::_Any_data const&, std::integral_constant<bool, false>)
+0000000000000000 W std::_Function_handler<void (void const*), std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_invoke(std::_Any_data const&, void const*&&)
+0000000000000000 W void std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>::__call<void, void const*&&, 0ul, 1ul>(std::tuple<void const*&&>&&, std::_Index_tuple<0ul, 1ul>)
+0000000000000000 W std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>::_Bind(std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>&&)
+0000000000000000 W std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>::_Bind<unitree::robot::go2::ConfigClient*, std::_Placeholder<1> const&>(void (unitree::robot::go2::ConfigClient::*&&)(void const*), unitree::robot::go2::ConfigClient*&&, std::_Placeholder<1> const&)
+0000000000000000 W std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>::_Bind(std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>&&)
+0000000000000000 W std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>::_Bind<unitree::robot::go2::ConfigClient*, std::_Placeholder<1> const&>(void (unitree::robot::go2::ConfigClient::*&&)(void const*), unitree::robot::go2::ConfigClient*&&, std::_Placeholder<1> const&)
+0000000000000000 W void std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>::operator()<void const*, void>(void const*&&)
+0000000000000000 W std::function<void (void const*)>::function<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>, void, void>(std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>)
+0000000000000000 W std::function<void (void const*)>::function<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>, void, void>(std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>)
+0000000000000000 W std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>*& std::_Any_data::_M_access<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>*>()
+0000000000000000 W void std::__invoke_impl<void, void (unitree::robot::go2::ConfigClient::*&)(void const*), unitree::robot::go2::ConfigClient*&, void const*>(std::__invoke_memfun_deref, void (unitree::robot::go2::ConfigClient::*&)(void const*), unitree::robot::go2::ConfigClient*&, void const*&&)
+0000000000000000 W std::_Bind_helper<std::__or_<std::is_integral<std::decay<void (unitree::robot::go2::ConfigClient::*)(void const*)>::type>, std::is_enum<std::decay<void (unitree::robot::go2::ConfigClient::*)(void const*)>::type> >::value, void (unitree::robot::go2::ConfigClient::*)(void const*), unitree::robot::go2::ConfigClient*, std::_Placeholder<1> const&>::type std::bind<void (unitree::robot::go2::ConfigClient::*)(void const*), unitree::robot::go2::ConfigClient*, std::_Placeholder<1> const&>(void (unitree::robot::go2::ConfigClient::*&&)(void const*), unitree::robot::go2::ConfigClient*&&, std::_Placeholder<1> const&)
+0000000000000000 W std::remove_reference<void (unitree::robot::go2::ConfigClient::*&)(void const*)>::type&& std::move<void (unitree::robot::go2::ConfigClient::*&)(void const*)>(void (unitree::robot::go2::ConfigClient::*&)(void const*))
+0000000000000000 W std::remove_reference<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>&>::type&& std::move<std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>&>(std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>&)
+0000000000000000 W void (unitree::robot::go2::ConfigClient::*&&std::forward<void (unitree::robot::go2::ConfigClient::*)(void const*)>(std::remove_reference<void (unitree::robot::go2::ConfigClient::*)(void const*)>::type&))(void const*)
+0000000000000000 W void (unitree::robot::go2::ConfigClient::*&std::forward<void (unitree::robot::go2::ConfigClient::*&)(void const*)>(std::remove_reference<void (unitree::robot::go2::ConfigClient::*&)(void const*)>::type&))(void const*)
+0000000000000000 W std::__invoke_result<void (unitree::robot::go2::ConfigClient::*&)(void const*), unitree::robot::go2::ConfigClient*&, void const*>::type std::__invoke<void (unitree::robot::go2::ConfigClient::*&)(void const*), unitree::robot::go2::ConfigClient*&, void const*>(void (unitree::robot::go2::ConfigClient::*&)(void const*), unitree::robot::go2::ConfigClient*&, void const*&&)
+0000000000000000 V typeinfo for std::_Weak_result_type<void (unitree::robot::go2::ConfigClient::*)(void const*)>
+0000000000000000 V typeinfo for std::_Weak_result_type_memfun<void (unitree::robot::go2::ConfigClient::*)(void const*), true>
+0000000000000000 V typeinfo for std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>
+0000000000000000 V typeinfo name for std::_Weak_result_type<void (unitree::robot::go2::ConfigClient::*)(void const*)>
+0000000000000000 V typeinfo name for std::_Weak_result_type_memfun<void (unitree::robot::go2::ConfigClient::*)(void const*), true>
+0000000000000000 V typeinfo name for std::_Bind<void (unitree::robot::go2::ConfigClient::*(unitree::robot::go2::ConfigClient*, std::_Placeholder<1>))(void const*)>
+0000000000000000 u unitree::robot::ChannelFactory::Instance()::inst
+00000000000003fe T unitree::robot::b2::SportClient::BodyHeight(float)
+0000000000001722 T unitree::robot::b2::SportClient::PreciseYaw(float, float)
+00000000000005fa T unitree::robot::b2::SportClient::SpeedLevel(int)
+0000000000001288 T unitree::robot::b2::SportClient::SwitchGait(int)
+0000000000001628 T unitree::robot::b2::SportClient::VisionWalk(bool)
+000000000000085e T unitree::robot::b2::SportClient::BalanceStand()
+0000000000000b36 T unitree::robot::b2::SportClient::RecoveryStand()
+0000000000000f9a T unitree::robot::b2::SportClient::SwitchJoystick(bool)
+000000000000118e T unitree::robot::b2::SportClient::SwitchMoveMode(bool)
+00000000000004fc T unitree::robot::b2::SportClient::FootRaiseHeight(float)
+0000000000001094 T unitree::robot::b2::SportClient::SwitchEulerMode(bool)
+0000000000001380 T unitree::robot::b2::SportClient::TrajectoryFollow(std::vector<unitree::robot::b2::stPathPoint, std::allocator<unitree::robot::b2::stPathPoint> >&)
+0000000000000348 T unitree::robot::b2::SportClient::Damp()
+000000000000009e T unitree::robot::b2::SportClient::Init()
+0000000000000d26 T unitree::robot::b2::SportClient::Move(float, float, float)
+0000000000000bec T unitree::robot::b2::SportClient::Euler(float, float, float)
+00000000000006f2 T unitree::robot::b2::SportClient::Hello()
+00000000000009ca T unitree::robot::b2::SportClient::StandUp()
+00000000000007a8 T unitree::robot::b2::SportClient::Stretch()
+0000000000000292 T unitree::robot::b2::SportClient::Trigger()
+0000000000000914 T unitree::robot::b2::SportClient::StopMove()
+0000000000000e60 T unitree::robot::b2::SportClient::MoveToPos(float, float, float)
+0000000000000a80 T unitree::robot::b2::SportClient::StandDown()
+0000000000000000 T unitree::robot::b2::SportClient::SportClient(bool)
+0000000000000000 T unitree::robot::b2::SportClient::SportClient(bool)
+0000000000000074 T unitree::robot::b2::SportClient::~SportClient()
+0000000000000042 T unitree::robot::b2::SportClient::~SportClient()
+0000000000000042 T unitree::robot::b2::SportClient::~SportClient()
+00000000000000d6 T unitree::robot::b2::FrontVideoClient::GetImageSample(std::vector<unsigned char, std::allocator<unsigned char> >&)
+000000000000009a T unitree::robot::b2::FrontVideoClient::Init()
+0000000000000000 T unitree::robot::b2::FrontVideoClient::FrontVideoClient()
+0000000000000000 T unitree::robot::b2::FrontVideoClient::FrontVideoClient()
+0000000000000070 T unitree::robot::b2::FrontVideoClient::~FrontVideoClient()
+000000000000003e T unitree::robot::b2::FrontVideoClient::~FrontVideoClient()
+000000000000003e T unitree::robot::b2::FrontVideoClient::~FrontVideoClient()
+00000000000000d6 T unitree::robot::b2::BackVideoClient::GetImageSample(std::vector<unsigned char, std::allocator<unsigned char> >&)
+000000000000009a T unitree::robot::b2::BackVideoClient::Init()
+0000000000000000 T unitree::robot::b2::BackVideoClient::BackVideoClient()
+0000000000000000 T unitree::robot::b2::BackVideoClient::BackVideoClient()
+0000000000000070 T unitree::robot::b2::BackVideoClient::~BackVideoClient()
+000000000000003e T unitree::robot::b2::BackVideoClient::~BackVideoClient()
+000000000000003e T unitree::robot::b2::BackVideoClient::~BackVideoClient()
+0000000000000000 u guard variable for unitree::robot::ChannelFactory::Instance()::inst
+0000000000000000 W std::shared_ptr<unitree::common::DdsTopicChannel<unitree_go::msg::dds_::ConfigChangeStatus_> > unitree::robot::ChannelFactory::CreateRecvChannel<unitree_go::msg::dds_::ConfigChangeStatus_>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::function<void (void const*)>, int)
+0000000000000000 W unitree::robot::ChannelFactory::Instance()
+0000000000000acc T unitree::robot::b2::ConfigClient::SubscribeChangeStatus(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::function<void (std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)> const&)
+0000000000000d56 T unitree::robot::b2::ConfigClient::ChangeStatusMessageHandler(void const*)
+00000000000005d6 T unitree::robot::b2::ConfigClient::Del(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+000000000000042c T unitree::robot::b2::ConfigClient::Get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+00000000000002e4 T unitree::robot::b2::ConfigClient::Set(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000266 T unitree::robot::b2::ConfigClient::Init()
+00000000000006f2 T unitree::robot::b2::ConfigClient::Meta(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unitree::robot::b2::ConfigMeta&)
+00000000000008e6 T unitree::robot::b2::ConfigClient::Meta(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+000000000000013c T unitree::robot::b2::ConfigClient::ConfigClient()
+000000000000013c T unitree::robot::b2::ConfigClient::ConfigClient()
+000000000000023c T unitree::robot::b2::ConfigClient::~ConfigClient()
+00000000000001d4 T unitree::robot::b2::ConfigClient::~ConfigClient()
+00000000000001d4 T unitree::robot::b2::ConfigClient::~ConfigClient()
+0000000000000000 W std::shared_ptr<unitree::common::DdsTopicChannel<unitree_go::msg::dds_::ConfigChangeStatus_> > unitree::common::DdsFactoryModel::CreateTopicChannel<unitree_go::msg::dds_::ConfigChangeStatus_>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000000000 W void unitree::common::DdsFactoryModel::SetReader<unitree_go::msg::dds_::ConfigChangeStatus_>(std::shared_ptr<unitree::common::DdsTopicChannel<unitree_go::msg::dds_::ConfigChangeStatus_> >&, std::function<void (void const*)> const&, int)
+0000000000000000 W std::__shared_ptr<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2>::get() const
+0000000000000000 W std::__shared_ptr_access<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get() const
+0000000000000000 W std::__shared_ptr_access<unitree::common::DdsFactoryModel, (__gnu_cxx::_Lock_policy)2, false, false>::operator->() const
+0000000000000000 W std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)> const* const& std::_Any_data::_M_access<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)> const*>() const
+0000000000000000 W std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>* const& std::_Any_data::_M_access<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>*>() const
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_destroy(std::_Any_data&, std::integral_constant<bool, false>)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_manager(std::_Any_data&, std::_Any_data const&, std::_Manager_operation)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_get_pointer(std::_Any_data const&)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_init_functor(std::_Any_data&, std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>&&)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_init_functor(std::_Any_data&, std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>&&, std::integral_constant<bool, false>)
+0000000000000000 W bool std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_not_empty_function<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)> >(std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)> const&)
+0000000000000000 W std::_Function_base::_Base_manager<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_clone(std::_Any_data&, std::_Any_data const&, std::integral_constant<bool, false>)
+0000000000000000 W std::_Function_handler<void (void const*), std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)> >::_M_invoke(std::_Any_data const&, void const*&&)
+0000000000000000 W void std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>::__call<void, void const*&&, 0ul, 1ul>(std::tuple<void const*&&>&&, std::_Index_tuple<0ul, 1ul>)
+0000000000000000 W std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>::_Bind(std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>&&)
+0000000000000000 W std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>::_Bind<unitree::robot::b2::ConfigClient*, std::_Placeholder<1> const&>(void (unitree::robot::b2::ConfigClient::*&&)(void const*), unitree::robot::b2::ConfigClient*&&, std::_Placeholder<1> const&)
+0000000000000000 W std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>::_Bind(std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>&&)
+0000000000000000 W std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>::_Bind<unitree::robot::b2::ConfigClient*, std::_Placeholder<1> const&>(void (unitree::robot::b2::ConfigClient::*&&)(void const*), unitree::robot::b2::ConfigClient*&&, std::_Placeholder<1> const&)
+0000000000000000 W void std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>::operator()<void const*, void>(void const*&&)
+0000000000000000 W std::function<void (void const*)>::function<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>, void, void>(std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>)
+0000000000000000 W std::function<void (void const*)>::function<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>, void, void>(std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>)
+0000000000000000 W std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>*& std::_Any_data::_M_access<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>*>()
+0000000000000000 W void std::__invoke_impl<void, void (unitree::robot::b2::ConfigClient::*&)(void const*), unitree::robot::b2::ConfigClient*&, void const*>(std::__invoke_memfun_deref, void (unitree::robot::b2::ConfigClient::*&)(void const*), unitree::robot::b2::ConfigClient*&, void const*&&)
+0000000000000000 W std::_Bind_helper<std::__or_<std::is_integral<std::decay<void (unitree::robot::b2::ConfigClient::*)(void const*)>::type>, std::is_enum<std::decay<void (unitree::robot::b2::ConfigClient::*)(void const*)>::type> >::value, void (unitree::robot::b2::ConfigClient::*)(void const*), unitree::robot::b2::ConfigClient*, std::_Placeholder<1> const&>::type std::bind<void (unitree::robot::b2::ConfigClient::*)(void const*), unitree::robot::b2::ConfigClient*, std::_Placeholder<1> const&>(void (unitree::robot::b2::ConfigClient::*&&)(void const*), unitree::robot::b2::ConfigClient*&&, std::_Placeholder<1> const&)
+0000000000000000 W std::remove_reference<void (unitree::robot::b2::ConfigClient::*&)(void const*)>::type&& std::move<void (unitree::robot::b2::ConfigClient::*&)(void const*)>(void (unitree::robot::b2::ConfigClient::*&)(void const*))
+0000000000000000 W std::remove_reference<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>&>::type&& std::move<std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>&>(std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>&)
+0000000000000000 W void (unitree::robot::b2::ConfigClient::*&&std::forward<void (unitree::robot::b2::ConfigClient::*)(void const*)>(std::remove_reference<void (unitree::robot::b2::ConfigClient::*)(void const*)>::type&))(void const*)
+0000000000000000 W void (unitree::robot::b2::ConfigClient::*&std::forward<void (unitree::robot::b2::ConfigClient::*&)(void const*)>(std::remove_reference<void (unitree::robot::b2::ConfigClient::*&)(void const*)>::type&))(void const*)
+0000000000000000 W std::__invoke_result<void (unitree::robot::b2::ConfigClient::*&)(void const*), unitree::robot::b2::ConfigClient*&, void const*>::type std::__invoke<void (unitree::robot::b2::ConfigClient::*&)(void const*), unitree::robot::b2::ConfigClient*&, void const*>(void (unitree::robot::b2::ConfigClient::*&)(void const*), unitree::robot::b2::ConfigClient*&, void const*&&)
+0000000000000000 V typeinfo for std::_Weak_result_type<void (unitree::robot::b2::ConfigClient::*)(void const*)>
+0000000000000000 V typeinfo for std::_Weak_result_type_memfun<void (unitree::robot::b2::ConfigClient::*)(void const*), true>
+0000000000000000 V typeinfo for std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>
+0000000000000000 V typeinfo name for std::_Weak_result_type<void (unitree::robot::b2::ConfigClient::*)(void const*)>
+0000000000000000 V typeinfo name for std::_Weak_result_type_memfun<void (unitree::robot::b2::ConfigClient::*)(void const*), true>
+0000000000000000 V typeinfo name for std::_Bind<void (unitree::robot::b2::ConfigClient::*(unitree::robot::b2::ConfigClient*, std::_Placeholder<1>))(void const*)>
+0000000000000000 u unitree::robot::ChannelFactory::Instance()::inst
+--- highest referenced runtime symbol versions ---
+
+===== DDS LIBRARY RESOLUTION AND ABI =====
+
+--- /unitree/opt/lib/libddsc.so.0 ---
+lrwxrwxrwx 1 root root 10 11月 27  2024 /unitree/opt/lib/libddsc.so.0 -> libddsc.so
+resolved=/unitree/opt/lib/libddsc.so
+4038630c231412f7b34a2ea60df192bbdebd0a57f22ac7f35c1b6d28323e695c  /unitree/opt/lib/libddsc.so
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  OS/ABI:                            UNIX - System V
+  Machine:                           Advanced Micro Devices X86-64
+ 0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]
+ 0x0000000000000001 (NEEDED)             Shared library: [libdl.so.2]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [ld-linux-x86-64.so.2]
+ 0x000000000000000e (SONAME)             Library soname: [libddsc.so.0]
+GLIBC_2.2.5
+GLIBC_2.3
+GLIBC_2.3.2
+GLIBC_2.3.4
+GLIBC_2.4
+GLIBC_2.7
+GLIBC_2.12
+GLIBC_2.14
+GLIBC_2.15
+GLIBC_2.17
+
+--- /unitree/opt/lib/libddscxx.so.0 ---
+lrwxrwxrwx 1 root root 12 11月 27  2024 /unitree/opt/lib/libddscxx.so.0 -> libddscxx.so
+resolved=/unitree/opt/lib/libddscxx.so
+d3e7c1b03123c2745839f2465041777ded090ad66d62f1372949209254f7ebe5  /unitree/opt/lib/libddscxx.so
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  OS/ABI:                            UNIX - GNU
+  Machine:                           Advanced Micro Devices X86-64
+ 0x0000000000000001 (NEEDED)             Shared library: [libddsc.so.0]
+ 0x0000000000000001 (NEEDED)             Shared library: [libstdc++.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [libgcc_s.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000e (SONAME)             Library soname: [libddscxx.so.0]
+GLIBCXX_3.4
+GLIBCXX_3.4.14
+GLIBCXX_3.4.15
+GLIBCXX_3.4.18
+GLIBCXX_3.4.20
+GLIBCXX_3.4.21
+GLIBCXX_3.4.26
+CXXABI_1.3
+CXXABI_1.3.8
+CXXABI_1.3.9
+GLIBC_2.2.5
+GLIBC_2.4
+GLIBC_2.14
+
+--- /opt/unitree_robotics/lib/libddsc.so.0 ---
+lrwxrwxrwx 1 root root 10 10月 29  2024 /opt/unitree_robotics/lib/libddsc.so.0 -> libddsc.so
+resolved=/opt/unitree_robotics/lib/libddsc.so
+4038630c231412f7b34a2ea60df192bbdebd0a57f22ac7f35c1b6d28323e695c  /opt/unitree_robotics/lib/libddsc.so
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  OS/ABI:                            UNIX - System V
+  Machine:                           Advanced Micro Devices X86-64
+ 0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]
+ 0x0000000000000001 (NEEDED)             Shared library: [libdl.so.2]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [ld-linux-x86-64.so.2]
+ 0x000000000000000e (SONAME)             Library soname: [libddsc.so.0]
+GLIBC_2.2.5
+GLIBC_2.3
+GLIBC_2.3.2
+GLIBC_2.3.4
+GLIBC_2.4
+GLIBC_2.7
+GLIBC_2.12
+GLIBC_2.14
+GLIBC_2.15
+GLIBC_2.17
+
+--- /opt/unitree_robotics/lib/libddscxx.so.0 ---
+lrwxrwxrwx 1 root root 12 10月 29  2024 /opt/unitree_robotics/lib/libddscxx.so.0 -> libddscxx.so
+resolved=/opt/unitree_robotics/lib/libddscxx.so
+d3e7c1b03123c2745839f2465041777ded090ad66d62f1372949209254f7ebe5  /opt/unitree_robotics/lib/libddscxx.so
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  OS/ABI:                            UNIX - GNU
+  Machine:                           Advanced Micro Devices X86-64
+ 0x0000000000000001 (NEEDED)             Shared library: [libddsc.so.0]
+ 0x0000000000000001 (NEEDED)             Shared library: [libstdc++.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [libgcc_s.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000e (SONAME)             Library soname: [libddscxx.so.0]
+GLIBCXX_3.4
+GLIBCXX_3.4.14
+GLIBCXX_3.4.15
+GLIBCXX_3.4.18
+GLIBCXX_3.4.20
+GLIBCXX_3.4.21
+GLIBCXX_3.4.26
+CXXABI_1.3
+CXXABI_1.3.8
+CXXABI_1.3.9
+GLIBC_2.2.5
+GLIBC_2.4
+GLIBC_2.14
+COMMAND_RC[compare_ddsc_trees]=0
+COMMAND_RC[compare_ddscxx_trees]=0
+
+===== LOADER VIEW =====
+	libddscxx.so.0 (libc6,x86-64) => /unitree/opt/lib/libddscxx.so.0
+	libddsc.so.0 (libc6,x86-64) => /unitree/opt/lib/libddsc.so.0
+LD_LIBRARY_PATH=/home/unitree/slam_config/cyclone_go2_B2_ws/install/rmw_cyclonedds_cpp/lib:/home/unitree/slam_config/cyclone_go2_B2_ws/install/cyclonedds/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib
+
+===== PROCESS AND DDS NON-INTERACTION CHECK =====
+No ChannelFactory::Init, DDS participant, subscriber, publisher or RPC was created.
+5045 bash /home/unitree/p2_unitreeH2/scripts/04_pc2_sdk2_abi_read_only_audit.sh
+
+===== AUDIT COMPLETE =====
+READ_ONLY_PC2_SDK2_ABI_AUDIT_OK

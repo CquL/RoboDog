@@ -1,0 +1,245 @@
+{
+  "input": {
+    "bag": "D:\\Desktop\\RoboDog\\x30_stair_baselines\\mode3_flat_20260714_142726.bag",
+    "sha256": "9a10296098fefdd9a969ed56892896bb1df13a2e7175194053660da98e3c0484",
+    "topic": "/deeprobotics_local_height_map_mid360/height_map"
+  },
+  "frames": 141,
+  "sequence": {
+    "first": 42749,
+    "last": 42889,
+    "unique": 141
+  },
+  "source_interval_ms": {
+    "minimum": 99.566551,
+    "median": 100.0033225,
+    "mean": 99.99970587857143,
+    "maximum": 100.36076
+  },
+  "geometry": {
+    "frame_ids": {
+      "world": 141
+    },
+    "resolution_m": 0.03,
+    "size": [
+      100,
+      100
+    ],
+    "length_m": [
+      3.0,
+      3.0
+    ],
+    "center_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "yaw_rad": 0.0,
+    "outer_inner_start_indices": {
+      "(0, 0)": 141
+    }
+  },
+  "layers": [
+    "elevation",
+    "color",
+    "slope",
+    "accessibility"
+  ],
+  "basic_layers": [
+    "elevation"
+  ],
+  "layer_summaries": {
+    "elevation": {
+      "finite_values": 587254,
+      "finite_fraction": 0.4164921985815603,
+      "finite_cells_per_frame": {
+        "minimum": 4053.0,
+        "median": 4166.0,
+        "mean": 4164.921985815603,
+        "maximum": 4206.0
+      },
+      "minimum": -0.8315277695655823,
+      "mean": -0.5560963938016734,
+      "maximum": -0.4361872673034668,
+      "top_rounded_values": [
+        {
+          "value": -0.506154,
+          "count": 345
+        },
+        {
+          "value": -0.504989,
+          "count": 284
+        },
+        {
+          "value": -0.503677,
+          "count": 278
+        },
+        {
+          "value": -0.512157,
+          "count": 276
+        },
+        {
+          "value": -0.503133,
+          "count": 275
+        },
+        {
+          "value": -0.507548,
+          "count": 275
+        },
+        {
+          "value": -0.506418,
+          "count": 267
+        },
+        {
+          "value": -0.505272,
+          "count": 262
+        },
+        {
+          "value": -0.508284,
+          "count": 262
+        },
+        {
+          "value": -0.508399,
+          "count": 261
+        },
+        {
+          "value": -0.503022,
+          "count": 254
+        },
+        {
+          "value": -0.506346,
+          "count": 252
+        }
+      ]
+    },
+    "slope": {
+      "finite_values": 1410000,
+      "finite_fraction": 1.0,
+      "finite_cells_per_frame": {
+        "minimum": 10000.0,
+        "median": 10000.0,
+        "mean": 10000.0,
+        "maximum": 10000.0
+      },
+      "minimum": 0.0,
+      "mean": 0.07362472233291571,
+      "maximum": 5.302034854888916,
+      "top_rounded_values": [
+        {
+          "value": 0.0,
+          "count": 998633
+        },
+        {
+          "value": 0.000612,
+          "count": 54
+        },
+        {
+          "value": 0.00339,
+          "count": 49
+        },
+        {
+          "value": 0.036275,
+          "count": 49
+        },
+        {
+          "value": 0.017084,
+          "count": 47
+        },
+        {
+          "value": 0.016974,
+          "count": 45
+        },
+        {
+          "value": 0.001454,
+          "count": 45
+        },
+        {
+          "value": 0.018527,
+          "count": 42
+        },
+        {
+          "value": 0.002363,
+          "count": 41
+        },
+        {
+          "value": 0.012141,
+          "count": 41
+        },
+        {
+          "value": 0.036259,
+          "count": 40
+        },
+        {
+          "value": 0.030594,
+          "count": 40
+        }
+      ]
+    },
+    "accessibility": {
+      "finite_values": 1410000,
+      "finite_fraction": 1.0,
+      "finite_cells_per_frame": {
+        "minimum": 10000.0,
+        "median": 10000.0,
+        "mean": 10000.0,
+        "maximum": 10000.0
+      },
+      "minimum": 0.0,
+      "mean": 0.01212232904909773,
+      "maximum": 1.0,
+      "top_rounded_values": [
+        {
+          "value": 0.0,
+          "count": 725980
+        },
+        {
+          "value": 0.022,
+          "count": 658622
+        },
+        {
+          "value": 0.1,
+          "count": 25328
+        },
+        {
+          "value": 1.0,
+          "count": 70
+        }
+      ]
+    },
+    "color": {
+      "encoding": "packed uint32 color bits stored in float32",
+      "values": 1410000,
+      "unique_bit_patterns": 4,
+      "top_bit_patterns": [
+        {
+          "uint32": 16777215,
+          "hex": "0x00ffffff",
+          "count": 725980
+        },
+        {
+          "uint32": 3289650,
+          "hex": "0x00323232",
+          "count": 658622
+        },
+        {
+          "uint32": 3289800,
+          "hex": "0x003232c8",
+          "count": 25328
+        },
+        {
+          "uint32": 13120050,
+          "hex": "0x00c83232",
+          "count": 70
+        }
+      ]
+    }
+  },
+  "storage_mapping": {
+    "logical_linear_index": "x_index + y_index * size_x",
+    "buffer_x": "(x_index + outer_start_index) % size_x",
+    "buffer_y": "(y_index + inner_start_index) % size_y",
+    "raw_linear_index": "data_offset + buffer_x + buffer_y * size_x",
+    "position_x": "center_x + length_x/2 - (x_index+0.5)*resolution",
+    "position_y": "center_y + length_y/2 - (y_index+0.5)*resolution"
+  }
+}

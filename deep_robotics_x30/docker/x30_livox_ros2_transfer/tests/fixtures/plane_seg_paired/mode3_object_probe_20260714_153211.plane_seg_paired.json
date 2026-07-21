@@ -1,0 +1,1443 @@
+{
+  "frames": [
+    {
+      "expected_quadrangles": {
+        "header": {
+          "frame_id": "world",
+          "stamp_ns": 8209876900470,
+          "stamp_nsec": 876900470,
+          "stamp_sec": 8209
+        },
+        "points_xyz": [
+          [
+            3.000999927520752,
+            0.0,
+            0.0
+          ],
+          [
+            -0.9999945759773254,
+            0.003288072533905506,
+            0.0
+          ],
+          [
+            -0.9999945759773254,
+            0.003288072533905506,
+            -0.6810660362243652
+          ],
+          [
+            -0.9999945759773254,
+            0.003288072533905506,
+            -0.6810660362243652
+          ],
+          [
+            0.8688497543334961,
+            0.17518460750579834,
+            -0.7510660290718079
+          ],
+          [
+            0.8708416819572449,
+            0.7809836268424988,
+            -0.7510660290718079
+          ],
+          [
+            1.1708383560180664,
+            0.7799972295761108,
+            -0.7510660290718079
+          ],
+          [
+            1.1688464879989624,
+            0.1741981953382492,
+            -0.7510660290718079
+          ],
+          [
+            0.974261462688446,
+            -0.25460296869277954,
+            -0.5763840079307556
+          ],
+          [
+            0.9754771590232849,
+            0.11512994766235352,
+            -0.5763840079307556
+          ],
+          [
+            1.1707710027694702,
+            0.11448780447244644,
+            -0.5763840079307556
+          ],
+          [
+            1.1695553064346313,
+            -0.2552451193332672,
+            -0.5763840079307556
+          ],
+          [
+            0.8279579281806946,
+            0.41959571838378906,
+            -0.643939733505249
+          ],
+          [
+            0.8249996304512024,
+            -0.4800986349582672,
+            -0.643939733505249
+          ],
+          [
+            0.5675364136695862,
+            -0.47925207018852234,
+            -0.643939733505249
+          ],
+          [
+            0.5704947113990784,
+            0.42044228315353394,
+            -0.643939733505249
+          ],
+          [
+            0.8544853925704956,
+            0.4284912645816803,
+            -0.5046951174736023
+          ],
+          [
+            -1.1261342763900757,
+            0.43500372767448425,
+            -0.5046951174736023
+          ],
+          [
+            -1.1249785423278809,
+            0.7865103483200073,
+            -0.5046951174736023
+          ],
+          [
+            0.8556411862373352,
+            0.7799978852272034,
+            -0.5046951174736023
+          ],
+          [
+            0.5713316202163696,
+            0.7799955010414124,
+            -0.5046951174736023
+          ],
+          [
+            0.5661839246749878,
+            -0.7855607271194458,
+            -0.5046951174736023
+          ],
+          [
+            -1.1301292181015015,
+            -0.7799830436706543,
+            -0.5046951174736023
+          ],
+          [
+            -1.1249815225601196,
+            0.7855731844902039,
+            -0.5046951174736023
+          ],
+          [
+            -1.1249804496765137,
+            -0.47408148646354675,
+            -0.5046951174736023
+          ],
+          [
+            0.8259848356246948,
+            -0.48049646615982056,
+            -0.5046951174736023
+          ],
+          [
+            0.8249789476394653,
+            -0.7864116430282593,
+            -0.5046951174736023
+          ],
+          [
+            -1.1259863376617432,
+            -0.7799966931343079,
+            -0.5046951174736023
+          ]
+        ],
+        "record_time_ns": 8209924395968,
+        "shape": {
+          "height": 1,
+          "point_count": 28,
+          "width": 28
+        }
+      },
+      "expected_quadrangles_sha256": "fe5eba4675324f830797f85075a47965adaa078d80deaca405e90324c572083f",
+      "grid_map": {
+        "basic_layers": [
+          "elevation"
+        ],
+        "geometry": {
+          "length_x": 3.0,
+          "length_y": 3.0,
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "position_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "resolution": 0.03
+        },
+        "header": {
+          "frame_id": "world",
+          "sequence": 81593,
+          "stamp_ns": 8209876900470,
+          "stamp_nsec": 876900470,
+          "stamp_sec": 8209
+        },
+        "inner_start_index": 0,
+        "layers": [
+          {
+            "blob_path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000000_8209876900470/layer_00_elevation.f32le",
+            "blob_sha256": "b4854db55cb1911df38a46c097de35d071c837b7883d07bdeab95137b8da636e",
+            "blob_size_bytes": 40000,
+            "data_offset": 0,
+            "dimensions": [
+              {
+                "label": "column_index",
+                "size": 100,
+                "stride": 10000
+              },
+              {
+                "label": "row_index",
+                "size": 100,
+                "stride": 100
+              }
+            ],
+            "encoding": "IEEE-754 float32, little-endian, exact ROS serialized data bytes",
+            "name": "elevation",
+            "value_count": 10000
+          },
+          {
+            "blob_path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000000_8209876900470/layer_01_color.f32le",
+            "blob_sha256": "63911f7efa076d98ef4db69b780e124a6d00afc3578dc82330750e3dc5c6525c",
+            "blob_size_bytes": 40000,
+            "data_offset": 0,
+            "dimensions": [
+              {
+                "label": "column_index",
+                "size": 100,
+                "stride": 10000
+              },
+              {
+                "label": "row_index",
+                "size": 100,
+                "stride": 100
+              }
+            ],
+            "encoding": "IEEE-754 float32, little-endian, exact ROS serialized data bytes",
+            "name": "color",
+            "value_count": 10000
+          },
+          {
+            "blob_path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000000_8209876900470/layer_02_slope.f32le",
+            "blob_sha256": "d4dd706b503cbb61860a297dac70d5501264f17fbea857375cca6b094b99ccea",
+            "blob_size_bytes": 40000,
+            "data_offset": 0,
+            "dimensions": [
+              {
+                "label": "column_index",
+                "size": 100,
+                "stride": 10000
+              },
+              {
+                "label": "row_index",
+                "size": 100,
+                "stride": 100
+              }
+            ],
+            "encoding": "IEEE-754 float32, little-endian, exact ROS serialized data bytes",
+            "name": "slope",
+            "value_count": 10000
+          },
+          {
+            "blob_path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000000_8209876900470/layer_03_accessibility.f32le",
+            "blob_sha256": "a12d8a07235d48d7c6bad8a0115010584c1620357c805ce9d38a27b68012afb9",
+            "blob_size_bytes": 40000,
+            "data_offset": 0,
+            "dimensions": [
+              {
+                "label": "column_index",
+                "size": 100,
+                "stride": 10000
+              },
+              {
+                "label": "row_index",
+                "size": 100,
+                "stride": 100
+              }
+            ],
+            "encoding": "IEEE-754 float32, little-endian, exact ROS serialized data bytes",
+            "name": "accessibility",
+            "value_count": 10000
+          }
+        ],
+        "outer_start_index": 0,
+        "record_time_ns": 8209902324383
+      },
+      "pair_index": 0,
+      "selected_frame_index": 0,
+      "source_frame_indices": {
+        "grid_map": 0,
+        "quadrangles": 0
+      },
+      "tf": {
+        "exact_dynamic_transforms": [
+          {
+            "child_frame_id": "base_link",
+            "header": {
+              "frame_id": "world",
+              "sequence": 0,
+              "stamp_ns": 8209876900470,
+              "stamp_nsec": 876900470,
+              "stamp_sec": 8209
+            },
+            "normalized_child_frame_id": "base_link",
+            "normalized_frame_id": "world",
+            "record_time_ns": 8209885828881,
+            "rotation_xyzw": [
+              0.00226772335376532,
+              0.0008675928592333511,
+              -1.9674663878449915e-06,
+              0.9999970523504309
+            ],
+            "source_message_index": 2,
+            "source_transform_index": 0,
+            "topic": "/tf",
+            "translation_xyz": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "required_transform_match_count": 1,
+        "status": "exact_required_dynamic_tf",
+        "world_to_base_link": {
+          "child_frame_id": "base_link",
+          "header": {
+            "frame_id": "world",
+            "sequence": 0,
+            "stamp_ns": 8209876900470,
+            "stamp_nsec": 876900470,
+            "stamp_sec": 8209
+          },
+          "normalized_child_frame_id": "base_link",
+          "normalized_frame_id": "world",
+          "record_time_ns": 8209885828881,
+          "rotation_xyzw": [
+            0.00226772335376532,
+            0.0008675928592333511,
+            -1.9674663878449915e-06,
+            0.9999970523504309
+          ],
+          "source_message_index": 2,
+          "source_transform_index": 0,
+          "topic": "/tf",
+          "translation_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "expected_quadrangles": {
+        "header": {
+          "frame_id": "world",
+          "stamp_ns": 8216877101549,
+          "stamp_nsec": 877101549,
+          "stamp_sec": 8216
+        },
+        "points_xyz": [
+          [
+            5.000999927520752,
+            0.0,
+            0.0
+          ],
+          [
+            -0.8758691549301147,
+            -0.48254862427711487,
+            0.0
+          ],
+          [
+            -0.8758691549301147,
+            -0.48254862427711487,
+            -0.675521969795227
+          ],
+          [
+            -0.8758691549301147,
+            -0.48254862427711487,
+            -0.675521969795227
+          ],
+          [
+            0.4534156322479248,
+            -0.7783277034759521,
+            -0.539687991142273
+          ],
+          [
+            0.5016933083534241,
+            0.38145560026168823,
+            -0.5711235404014587
+          ],
+          [
+            0.6835891008377075,
+            0.3725833296775818,
+            -0.6191077828407288
+          ],
+          [
+            0.6353114247322083,
+            -0.7871999144554138,
+            -0.587672233581543
+          ],
+          [
+            0.9314588308334351,
+            0.7128932476043701,
+            -0.7455219626426697
+          ],
+          [
+            1.1818394660949707,
+            0.705068826675415,
+            -0.8119538426399231
+          ],
+          [
+            1.165531039237976,
+            0.17259949445724487,
+            -0.8107054233551025
+          ],
+          [
+            0.9151504039764404,
+            0.18042391538619995,
+            -0.7442736029624939
+          ],
+          [
+            0.6440157890319824,
+            -0.6243394613265991,
+            -0.6813502311706543
+          ],
+          [
+            0.6859337091445923,
+            0.3826620280742645,
+            -0.6813502311706543
+          ],
+          [
+            0.9140525460243225,
+            0.3731662333011627,
+            -0.6813502311706543
+          ],
+          [
+            0.8721346259117126,
+            -0.6338352560997009,
+            -0.6813502311706543
+          ],
+          [
+            0.8757426142692566,
+            0.3652084469795227,
+            -0.6813502311706543
+          ],
+          [
+            0.6750000715255737,
+            0.375,
+            -0.6813502311706543
+          ],
+          [
+            0.684257447719574,
+            0.5647915601730347,
+            -0.6813502311706543
+          ],
+          [
+            0.8849999904632568,
+            0.5550000071525574,
+            -0.6813502311706543
+          ],
+          [
+            0.9092804789543152,
+            0.5542563199996948,
+            -0.6813502311706543
+          ],
+          [
+            0.8729220032691956,
+            -0.6328459978103638,
+            -0.6813502311706543
+          ],
+          [
+            0.6535259485244751,
+            -0.6261263489723206,
+            -0.6813502311706543
+          ],
+          [
+            0.6898844242095947,
+            0.5609759092330933,
+            -0.6813502311706543
+          ],
+          [
+            0.677078127861023,
+            0.18649758398532867,
+            -0.6813502311706543
+          ],
+          [
+            1.105097770690918,
+            0.17312192916870117,
+            -0.6813502311706543
+          ],
+          [
+            1.079707384109497,
+            -0.6393659114837646,
+            -0.6813502311706543
+          ],
+          [
+            0.6516878008842468,
+            -0.6259902715682983,
+            -0.6813502311706543
+          ],
+          [
+            0.5049182176589966,
+            0.7789627313613892,
+            -0.5035465359687805
+          ],
+          [
+            0.4372391700744629,
+            -0.8469036221504211,
+            -0.5035465359687805
+          ],
+          [
+            -1.2348248958587646,
+            -0.7773014903068542,
+            -0.5035465359687805
+          ],
+          [
+            -1.167145848274231,
+            0.8485648036003113,
+            -0.5035465359687805
+          ]
+        ],
+        "record_time_ns": 8216919171755,
+        "shape": {
+          "height": 1,
+          "point_count": 32,
+          "width": 32
+        }
+      },
+      "expected_quadrangles_sha256": "50d6c0233b5112a1e684882d907356fe9c2b9b20610856db9b90e800fb2a69b0",
+      "grid_map": {
+        "basic_layers": [
+          "elevation"
+        ],
+        "geometry": {
+          "length_x": 3.0,
+          "length_y": 3.0,
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "position_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "resolution": 0.03
+        },
+        "header": {
+          "frame_id": "world",
+          "sequence": 81663,
+          "stamp_ns": 8216877101549,
+          "stamp_nsec": 877101549,
+          "stamp_sec": 8216
+        },
+        "inner_start_index": 0,
+        "layers": [
+          {
+            "blob_path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000001_8216877101549/layer_00_elevation.f32le",
+            "blob_sha256": "b6859054b35b10874d8d5fab92ede497e522e8c73963529b5bcadb4f7938c6ca",
+            "blob_size_bytes": 40000,
+            "data_offset": 0,
+            "dimensions": [
+              {
+                "label": "column_index",
+                "size": 100,
+                "stride": 10000
+              },
+              {
+                "label": "row_index",
+                "size": 100,
+                "stride": 100
+              }
+            ],
+            "encoding": "IEEE-754 float32, little-endian, exact ROS serialized data bytes",
+            "name": "elevation",
+            "value_count": 10000
+          },
+          {
+            "blob_path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000001_8216877101549/layer_01_color.f32le",
+            "blob_sha256": "912c49d86c49a7c2e9c330da47ec07b13e2089569fd8ccd61496f0d7f84f4eac",
+            "blob_size_bytes": 40000,
+            "data_offset": 0,
+            "dimensions": [
+              {
+                "label": "column_index",
+                "size": 100,
+                "stride": 10000
+              },
+              {
+                "label": "row_index",
+                "size": 100,
+                "stride": 100
+              }
+            ],
+            "encoding": "IEEE-754 float32, little-endian, exact ROS serialized data bytes",
+            "name": "color",
+            "value_count": 10000
+          },
+          {
+            "blob_path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000001_8216877101549/layer_02_slope.f32le",
+            "blob_sha256": "2c0519d2fde47f744575bd53ef481b82b9eb374846120e57d656854ed11e89eb",
+            "blob_size_bytes": 40000,
+            "data_offset": 0,
+            "dimensions": [
+              {
+                "label": "column_index",
+                "size": 100,
+                "stride": 10000
+              },
+              {
+                "label": "row_index",
+                "size": 100,
+                "stride": 100
+              }
+            ],
+            "encoding": "IEEE-754 float32, little-endian, exact ROS serialized data bytes",
+            "name": "slope",
+            "value_count": 10000
+          },
+          {
+            "blob_path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000001_8216877101549/layer_03_accessibility.f32le",
+            "blob_sha256": "dfe90b335fd11e1139f9b2d16c9c177d80d89c05e440580ea3a3000b9b12bb97",
+            "blob_size_bytes": 40000,
+            "data_offset": 0,
+            "dimensions": [
+              {
+                "label": "column_index",
+                "size": 100,
+                "stride": 10000
+              },
+              {
+                "label": "row_index",
+                "size": 100,
+                "stride": 100
+              }
+            ],
+            "encoding": "IEEE-754 float32, little-endian, exact ROS serialized data bytes",
+            "name": "accessibility",
+            "value_count": 10000
+          }
+        ],
+        "outer_start_index": 0,
+        "record_time_ns": 8216896764169
+      },
+      "pair_index": 70,
+      "selected_frame_index": 1,
+      "source_frame_indices": {
+        "grid_map": 70,
+        "quadrangles": 70
+      },
+      "tf": {
+        "exact_dynamic_transforms": [
+          {
+            "child_frame_id": "base_link",
+            "header": {
+              "frame_id": "world",
+              "sequence": 0,
+              "stamp_ns": 8216877101549,
+              "stamp_nsec": 877101549,
+              "stamp_sec": 8216
+            },
+            "normalized_child_frame_id": "base_link",
+            "normalized_frame_id": "world",
+            "record_time_ns": 8216884370376,
+            "rotation_xyzw": [
+              0.002442409812015052,
+              0.0009613897544849713,
+              -2.3481158583764356e-06,
+              0.9999965551733349
+            ],
+            "source_message_index": 396,
+            "source_transform_index": 0,
+            "topic": "/tf",
+            "translation_xyz": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "required_transform_match_count": 1,
+        "status": "exact_required_dynamic_tf",
+        "world_to_base_link": {
+          "child_frame_id": "base_link",
+          "header": {
+            "frame_id": "world",
+            "sequence": 0,
+            "stamp_ns": 8216877101549,
+            "stamp_nsec": 877101549,
+            "stamp_sec": 8216
+          },
+          "normalized_child_frame_id": "base_link",
+          "normalized_frame_id": "world",
+          "record_time_ns": 8216884370376,
+          "rotation_xyzw": [
+            0.002442409812015052,
+            0.0009613897544849713,
+            -2.3481158583764356e-06,
+            0.9999965551733349
+          ],
+          "source_message_index": 396,
+          "source_transform_index": 0,
+          "topic": "/tf",
+          "translation_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "expected_quadrangles": {
+        "header": {
+          "frame_id": "world",
+          "stamp_ns": 8223876931627,
+          "stamp_nsec": 876931627,
+          "stamp_sec": 8223
+        },
+        "points_xyz": [
+          [
+            3.000999927520752,
+            0.0,
+            0.0
+          ],
+          [
+            -0.9998064041137695,
+            0.019677337259054184,
+            0.0
+          ],
+          [
+            -0.9998064041137695,
+            0.019677337259054184,
+            -0.6549787521362305
+          ],
+          [
+            -0.9998064041137695,
+            0.019677337259054184,
+            -0.6549787521362305
+          ],
+          [
+            0.6164426803588867,
+            -0.41884756088256836,
+            -0.6289239525794983
+          ],
+          [
+            0.6329684257507324,
+            0.4208272695541382,
+            -0.6289239525794983
+          ],
+          [
+            0.7206288576126099,
+            0.4191020131111145,
+            -0.6289239525794983
+          ],
+          [
+            0.7041030526161194,
+            -0.42057281732559204,
+            -0.6289239525794983
+          ],
+          [
+            1.1129451990127563,
+            0.7802372574806213,
+            -0.7249787449836731
+          ],
+          [
+            1.082161545753479,
+            -0.7838804721832275,
+            -0.7249787449836731
+          ],
+          [
+            0.7032430768013,
+            -0.776422917842865,
+            -0.7249787449836731
+          ],
+          [
+            0.7340267896652222,
+            0.7876948118209839,
+            -0.7249787449836731
+          ],
+          [
+            1.0850193500518799,
+            -0.22303228080272675,
+            -0.5830733776092529
+          ],
+          [
+            1.091505765914917,
+            0.1065448746085167,
+            -0.5830733776092529
+          ],
+          [
+            1.1914863586425781,
+            0.10457713901996613,
+            -0.5830733776092529
+          ],
+          [
+            1.184999942779541,
+            -0.2250000238418579,
+            -0.5830733776092529
+          ],
+          [
+            0.6370824575424194,
+            0.7798606157302856,
+            -0.5057044625282288
+          ],
+          [
+            0.6056948304176331,
+            -0.8149477243423462,
+            -0.5057044625282288
+          ],
+          [
+            -1.1995102167129517,
+            -0.7794193029403687,
+            -0.5057044625282288
+          ],
+          [
+            -1.16812264919281,
+            0.815389096736908,
+            -0.5057044625282288
+          ],
+          [
+            -1.1634010076522827,
+            -0.3847038447856903,
+            -0.5057044625282288
+          ],
+          [
+            0.6820650696754456,
+            -0.42102473974227905,
+            -0.5057044625282288
+          ],
+          [
+            0.6742856502532959,
+            -0.816297709941864,
+            -0.5057044625282288
+          ],
+          [
+            -1.1711803674697876,
+            -0.7799768447875977,
+            -0.5057044625282288
+          ],
+          [
+            0.6742914319038391,
+            0.44399750232696533,
+            -0.5057044625282288
+          ],
+          [
+            -1.1747158765792847,
+            0.4803880453109741,
+            -0.5057044625282288
+          ],
+          [
+            -1.1681052446365356,
+            0.8162744045257568,
+            -0.5057044625282288
+          ],
+          [
+            0.6809020638465881,
+            0.7798838019371033,
+            -0.5057044625282288
+          ]
+        ],
+        "record_time_ns": 8223917819124,
+        "shape": {
+          "height": 1,
+          "point_count": 28,
+          "width": 28
+        }
+      },
+      "expected_quadrangles_sha256": "b119f01e7d4e11962a42ee066f508f87ea2054dd7e3381f3772d4d204384b0c0",
+      "grid_map": {
+        "basic_layers": [
+          "elevation"
+        ],
+        "geometry": {
+          "length_x": 3.0,
+          "length_y": 3.0,
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "position_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "resolution": 0.03
+        },
+        "header": {
+          "frame_id": "world",
+          "sequence": 81733,
+          "stamp_ns": 8223876931627,
+          "stamp_nsec": 876931627,
+          "stamp_sec": 8223
+        },
+        "inner_start_index": 0,
+        "layers": [
+          {
+            "blob_path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000002_8223876931627/layer_00_elevation.f32le",
+            "blob_sha256": "dcf37983b5af20ecfa9cd2634f7ae7fe28bd794a5fb34d0f82f4953b21d4b0e5",
+            "blob_size_bytes": 40000,
+            "data_offset": 0,
+            "dimensions": [
+              {
+                "label": "column_index",
+                "size": 100,
+                "stride": 10000
+              },
+              {
+                "label": "row_index",
+                "size": 100,
+                "stride": 100
+              }
+            ],
+            "encoding": "IEEE-754 float32, little-endian, exact ROS serialized data bytes",
+            "name": "elevation",
+            "value_count": 10000
+          },
+          {
+            "blob_path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000002_8223876931627/layer_01_color.f32le",
+            "blob_sha256": "b5d3ff487338d44fa536c460598e98333ce61a3a9b58f30a1f3e6eca99d4773f",
+            "blob_size_bytes": 40000,
+            "data_offset": 0,
+            "dimensions": [
+              {
+                "label": "column_index",
+                "size": 100,
+                "stride": 10000
+              },
+              {
+                "label": "row_index",
+                "size": 100,
+                "stride": 100
+              }
+            ],
+            "encoding": "IEEE-754 float32, little-endian, exact ROS serialized data bytes",
+            "name": "color",
+            "value_count": 10000
+          },
+          {
+            "blob_path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000002_8223876931627/layer_02_slope.f32le",
+            "blob_sha256": "f9ad7b7ee592510a7cf1695f51153f48018fc1218cf9b07c6ef22224f1e76776",
+            "blob_size_bytes": 40000,
+            "data_offset": 0,
+            "dimensions": [
+              {
+                "label": "column_index",
+                "size": 100,
+                "stride": 10000
+              },
+              {
+                "label": "row_index",
+                "size": 100,
+                "stride": 100
+              }
+            ],
+            "encoding": "IEEE-754 float32, little-endian, exact ROS serialized data bytes",
+            "name": "slope",
+            "value_count": 10000
+          },
+          {
+            "blob_path": "mode3_object_probe_20260714_153211.plane_seg_paired/frames/000002_8223876931627/layer_03_accessibility.f32le",
+            "blob_sha256": "ed985e1263ef7317cd496ddc1c7e95107660be98a9b253fc0a5d5abfc698a057",
+            "blob_size_bytes": 40000,
+            "data_offset": 0,
+            "dimensions": [
+              {
+                "label": "column_index",
+                "size": 100,
+                "stride": 10000
+              },
+              {
+                "label": "row_index",
+                "size": 100,
+                "stride": 100
+              }
+            ],
+            "encoding": "IEEE-754 float32, little-endian, exact ROS serialized data bytes",
+            "name": "accessibility",
+            "value_count": 10000
+          }
+        ],
+        "outer_start_index": 0,
+        "record_time_ns": 8223896128747
+      },
+      "pair_index": 140,
+      "selected_frame_index": 2,
+      "source_frame_indices": {
+        "grid_map": 140,
+        "quadrangles": 140
+      },
+      "tf": {
+        "exact_dynamic_transforms": [
+          {
+            "child_frame_id": "base_link",
+            "header": {
+              "frame_id": "world",
+              "sequence": 0,
+              "stamp_ns": 8223876931627,
+              "stamp_nsec": 876931627,
+              "stamp_sec": 8223
+            },
+            "normalized_child_frame_id": "base_link",
+            "normalized_frame_id": "world",
+            "record_time_ns": 8223884744704,
+            "rotation_xyzw": [
+              0.0025088636037880188,
+              0.0009606632248943402,
+              -2.4101816979248154e-06,
+              0.9999963913553773
+            ],
+            "source_message_index": 790,
+            "source_transform_index": 0,
+            "topic": "/tf",
+            "translation_xyz": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "required_transform_match_count": 1,
+        "status": "exact_required_dynamic_tf",
+        "world_to_base_link": {
+          "child_frame_id": "base_link",
+          "header": {
+            "frame_id": "world",
+            "sequence": 0,
+            "stamp_ns": 8223876931627,
+            "stamp_nsec": 876931627,
+            "stamp_sec": 8223
+          },
+          "normalized_child_frame_id": "base_link",
+          "normalized_frame_id": "world",
+          "record_time_ns": 8223884744704,
+          "rotation_xyzw": [
+            0.0025088636037880188,
+            0.0009606632248943402,
+            -2.4101816979248154e-06,
+            0.9999963913553773
+          ],
+          "source_message_index": 790,
+          "source_transform_index": 0,
+          "topic": "/tf",
+          "translation_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  ],
+  "hashing": {
+    "algorithm": "sha256",
+    "binary_layer_hashes": "stored in layer metadata and manifest.json",
+    "expected_quadrangles_canonicalization": "UTF-8 JSON with sorted keys and separators ',' and ':', without NaN",
+    "fixture_file_hash_location": "manifest.json"
+  },
+  "pairing": {
+    "counts": {
+      "complete_pairs": 141,
+      "dynamic_tf_messages": 798,
+      "exact_grid_map_quadrangles_pairs": 141,
+      "grid_maps": 141,
+      "look_poses": 141,
+      "missing_required_tf": 0,
+      "orphan_grid_maps": 0,
+      "orphan_quadrangles": 0,
+      "pairs_with_required_tf": 141,
+      "quadrangles": 141,
+      "static_tf_messages": 6,
+      "static_transforms": 10
+    },
+    "look_pose": {
+      "header_stamp_zero_count": 141,
+      "used_as_pairing_key": false
+    },
+    "missing_required_tf": [],
+    "orphan_grid_maps": [],
+    "orphan_quadrangles": [],
+    "policy": {
+      "dynamic_tf": "exact TransformStamped Header.stamp only",
+      "grid_map_quadrangles": "exact Header.stamp only",
+      "nearest_or_future_tf_fallback": false,
+      "required_child_frame": "base_link",
+      "required_parent_frame": "world",
+      "static_tf": "valid for the entire source bag"
+    },
+    "topic_values": {
+      "/height_map_mode": {
+        "message_count": 0,
+        "value_counts": {}
+      },
+      "/height_map_mode_state": {
+        "message_count": 141,
+        "value_counts": {
+          "3": 141
+        }
+      }
+    }
+  },
+  "provenance": {
+    "exporter": "x30_livox_ros2_transfer/tools/export_x30_plane_seg_paired_fixtures.py",
+    "parser": "x30_livox_ros2_transfer/tools/analyze_x30_gridmap_baseline.py",
+    "selection": {
+      "algorithm": "evenly_spaced_complete_grid_map_quadrangles_pairs_inclusive_v1",
+      "requested_frame_count": 3,
+      "selected_complete_pair_indices": [
+        0,
+        70,
+        140
+      ],
+      "selected_pair_indices": [
+        0,
+        70,
+        140
+      ],
+      "source_complete_pair_count": 141,
+      "source_exact_pair_count": 141
+    },
+    "sidecars": [
+      {
+        "path": "x30_stair_baselines/mode3_object_probe_20260714_153211.bag.sha256",
+        "role": "bag_sha256",
+        "sha256": "20d6d1ebb1cfef2540db4b75f4dfee5975f67a16406202516f18935e235cb0fc",
+        "size_bytes": 135
+      },
+      {
+        "path": "x30_stair_baselines/mode3_object_probe_20260714_153211.metadata.txt",
+        "role": "capture_metadata",
+        "sha256": "85d4e7a42a2bce7cac7a8268b5ad561a3ad5697e35026a4b95c74eeeb75fac37",
+        "size_bytes": 377
+      },
+      {
+        "path": "x30_stair_baselines/mode3_object_probe_20260714_153211.info.yaml",
+        "role": "rosbag_info",
+        "sha256": "b1f68472158272668f39df39bfca2f36d18851cd4105d0355d7997967534b293",
+        "size_bytes": 2319
+      }
+    ],
+    "topics": {
+      "grid_map": "/deeprobotics_local_height_map_mid360/height_map",
+      "height_map_mode": "/height_map_mode",
+      "height_map_mode_state": "/height_map_mode_state",
+      "look_pose": "/plane_seg/look_pose",
+      "quadrangles": "/plane_seg/quadrangels",
+      "tf": "/tf",
+      "tf_static": "/tf_static"
+    }
+  },
+  "schema": "x30-plane-seg-paired-fixture/v1",
+  "source": {
+    "bag_path": "x30_stair_baselines/mode3_object_probe_20260714_153211.bag",
+    "bag_sha256": "d6e240e3024b13184c05411f90c4eb2dd9727be1079d1ade67e0fe8490ed2391",
+    "bag_size_bytes": 269395419,
+    "capture_metadata": {
+      "capture_time": "20260714_153211",
+      "duration_s": "15",
+      "gridmap_data_sent_by_script": "false",
+      "height_map_mode_state_after": "3",
+      "height_map_mode_state_before": "3",
+      "host": "ysc",
+      "interface": "eth1",
+      "label": "mode3_object_probe",
+      "robot_motion_command_sent": "false",
+      "scene_description": "box_object_probe",
+      "scene_robot_distance_m": "approximately_1.0",
+      "scene_step_depth_m": "unknown",
+      "scene_step_height_m": "unknown",
+      "scene_step_width_m": "unknown"
+    },
+    "declared_original_bag_path": "/home/ysc/x30_stair_baselines/mode3_object_probe_20260714_153211.bag"
+  },
+  "tf_static": [
+    {
+      "child_frame_id": "lidar_link",
+      "header": {
+        "frame_id": "base_link",
+        "sequence": 0,
+        "stamp_ns": 35512128671,
+        "stamp_nsec": 512128671,
+        "stamp_sec": 35
+      },
+      "normalized_child_frame_id": "lidar_link",
+      "normalized_frame_id": "base_link",
+      "record_time_ns": 8209842397377,
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_message_index": 0,
+      "source_transform_index": 0,
+      "topic": "/tf_static",
+      "translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "child_frame_id": "dummy",
+      "header": {
+        "frame_id": "base_link",
+        "sequence": 0,
+        "stamp_ns": 37557542585,
+        "stamp_nsec": 557542585,
+        "stamp_sec": 37
+      },
+      "normalized_child_frame_id": "dummy",
+      "normalized_frame_id": "base_link",
+      "record_time_ns": 8209842815627,
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_message_index": 1,
+      "source_transform_index": 0,
+      "topic": "/tf_static",
+      "translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "child_frame_id": "FL_FOOT",
+      "header": {
+        "frame_id": "FL_SHANK",
+        "sequence": 0,
+        "stamp_ns": 37598556464,
+        "stamp_nsec": 598556464,
+        "stamp_sec": 37
+      },
+      "normalized_child_frame_id": "FL_FOOT",
+      "normalized_frame_id": "FL_SHANK",
+      "record_time_ns": 8209866701671,
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_message_index": 2,
+      "source_transform_index": 0,
+      "topic": "/tf_static",
+      "translation_xyz": [
+        0.0,
+        0.0,
+        -0.31
+      ]
+    },
+    {
+      "child_frame_id": "FR_FOOT",
+      "header": {
+        "frame_id": "FR_SHANK",
+        "sequence": 0,
+        "stamp_ns": 37598568422,
+        "stamp_nsec": 598568422,
+        "stamp_sec": 37
+      },
+      "normalized_child_frame_id": "FR_FOOT",
+      "normalized_frame_id": "FR_SHANK",
+      "record_time_ns": 8209866701671,
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_message_index": 2,
+      "source_transform_index": 1,
+      "topic": "/tf_static",
+      "translation_xyz": [
+        0.0,
+        0.0,
+        -0.31
+      ]
+    },
+    {
+      "child_frame_id": "HL_FOOT",
+      "header": {
+        "frame_id": "HL_SHANK",
+        "sequence": 0,
+        "stamp_ns": 37598569589,
+        "stamp_nsec": 598569589,
+        "stamp_sec": 37
+      },
+      "normalized_child_frame_id": "HL_FOOT",
+      "normalized_frame_id": "HL_SHANK",
+      "record_time_ns": 8209866701671,
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_message_index": 2,
+      "source_transform_index": 2,
+      "topic": "/tf_static",
+      "translation_xyz": [
+        0.0,
+        0.0,
+        -0.31
+      ]
+    },
+    {
+      "child_frame_id": "HR_FOOT",
+      "header": {
+        "frame_id": "HR_SHANK",
+        "sequence": 0,
+        "stamp_ns": 37598570464,
+        "stamp_nsec": 598570464,
+        "stamp_sec": 37
+      },
+      "normalized_child_frame_id": "HR_FOOT",
+      "normalized_frame_id": "HR_SHANK",
+      "record_time_ns": 8209866701671,
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_message_index": 2,
+      "source_transform_index": 3,
+      "topic": "/tf_static",
+      "translation_xyz": [
+        0.0,
+        0.0,
+        -0.31
+      ]
+    },
+    {
+      "child_frame_id": "TORSO",
+      "header": {
+        "frame_id": "dummy",
+        "sequence": 0,
+        "stamp_ns": 37598571339,
+        "stamp_nsec": 598571339,
+        "stamp_sec": 37
+      },
+      "normalized_child_frame_id": "TORSO",
+      "normalized_frame_id": "dummy",
+      "record_time_ns": 8209866701671,
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_message_index": 2,
+      "source_transform_index": 4,
+      "topic": "/tf_static",
+      "translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "child_frame_id": "/livox_frame",
+      "header": {
+        "frame_id": "/base_link",
+        "sequence": 0,
+        "stamp_ns": 48729848499,
+        "stamp_nsec": 729848499,
+        "stamp_sec": 48
+      },
+      "normalized_child_frame_id": "livox_frame",
+      "normalized_frame_id": "base_link",
+      "record_time_ns": 8209867068588,
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_message_index": 3,
+      "source_transform_index": 0,
+      "topic": "/tf_static",
+      "translation_xyz": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "child_frame_id": "/depth_camera_link_2",
+      "header": {
+        "frame_id": "/base_link",
+        "sequence": 0,
+        "stamp_ns": 48744348126,
+        "stamp_nsec": 744348126,
+        "stamp_sec": 48
+      },
+      "normalized_child_frame_id": "depth_camera_link_2",
+      "normalized_frame_id": "base_link",
+      "record_time_ns": 8209867371629,
+      "rotation_xyzw": [
+        0.0,
+        0.9961947,
+        0.0,
+        0.0871557
+      ],
+      "source_message_index": 5,
+      "source_transform_index": 0,
+      "topic": "/tf_static",
+      "translation_xyz": [
+        -0.26914,
+        0.0,
+        0.00985
+      ]
+    },
+    {
+      "child_frame_id": "/depth_camera_link_1",
+      "header": {
+        "frame_id": "/base_link",
+        "sequence": 0,
+        "stamp_ns": 48755865752,
+        "stamp_nsec": 755865752,
+        "stamp_sec": 48
+      },
+      "normalized_child_frame_id": "depth_camera_link_1",
+      "normalized_frame_id": "base_link",
+      "record_time_ns": 8209867241254,
+      "rotation_xyzw": [
+        0.9961947,
+        0.0,
+        -0.0871557,
+        0.0
+      ],
+      "source_message_index": 4,
+      "source_transform_index": 0,
+      "topic": "/tf_static",
+      "translation_xyz": [
+        0.26914,
+        0.0,
+        0.00985
+      ]
+    }
+  ]
+}

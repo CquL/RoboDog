@@ -1,0 +1,13 @@
+{
+    "official_owner":  "unitreerobotics",
+    "repository":  "unitree_ros",
+    "source_url":  "https://github.com/unitreerobotics/unitree_ros",
+    "archive_url":  "https://github.com/unitreerobotics/unitree_ros/archive/d96d8f63ae17a7108d4f7229c00ef875ba7129c9.zip",
+    "commit":  "d96d8f63ae17a7108d4f7229c00ef875ba7129c9",
+    "role":  "ROS 1 simulation repository containing H2 URDF and meshes; not the H2 real-robot control base",
+    "retrieved_at":  "2026-07-15T07:05:58.3488208Z",
+    "archive_file":  "unitree_ros-d96d8f63ae17a7108d4f7229c00ef875ba7129c9.zip",
+    "archive_bytes":  450680906,
+    "archive_sha256":  "D85C54767A02F1B57339416569F8FA9519FE2A6DC019E38794D2F193D685DDBD",
+    "license_file":  "LICENSE"
+}

@@ -1,0 +1,272 @@
+{
+    "generated_at":  "2026-07-15T07:20:09.9872803Z",
+    "repo_root":  "D:\\Desktop\\RoboDog",
+    "applied":  true,
+    "preserved_root_items":  [
+                                 "robot_hardware",
+                                 "jezetek_navigation_amd64.tar"
+                             ],
+    "moves":  [
+                  {
+                      "source":  "docs",
+                      "destination":  "deep_robotics_x30\\docs",
+                      "kind":  "directory",
+                      "file_count":  12,
+                      "bytes":  271115,
+                      "sha256":  null,
+                      "applied":  true
+                  },
+                  {
+                      "source":  "launch",
+                      "destination":  "deep_robotics_x30\\factory\\launch",
+                      "kind":  "directory",
+                      "file_count":  8,
+                      "bytes":  7816,
+                      "sha256":  null,
+                      "applied":  true
+                  },
+                  {
+                      "source":  "message_transformer_cpp",
+                      "destination":  "deep_robotics_x30\\factory\\message_transformer_cpp",
+                      "kind":  "directory",
+                      "file_count":  5,
+                      "bytes":  16839736,
+                      "sha256":  null,
+                      "applied":  true
+                  },
+                  {
+                      "source":  "x30_plane_seg_bundle",
+                      "destination":  "deep_robotics_x30\\factory\\plane_seg_bundle",
+                      "kind":  "directory",
+                      "file_count":  88,
+                      "bytes":  12662645,
+                      "sha256":  null,
+                      "applied":  true
+                  },
+                  {
+                      "source":  "libgrid_map_transformer.so",
+                      "destination":  "deep_robotics_x30\\factory\\binaries\\libgrid_map_transformer.so",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  9901880,
+                      "sha256":  "5669EB5B5F2FA6590AE5EDE825541A3E43BC02CE7AEFFE8693085D03272DFE36",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "livox_ros_driver2",
+                      "destination":  "deep_robotics_x30\\sensors\\livox\\livox_ros_driver2",
+                      "kind":  "directory",
+                      "file_count":  109,
+                      "bytes":  912225,
+                      "sha256":  null,
+                      "applied":  true
+                  },
+                  {
+                      "source":  "livox_ros_driver2.zip",
+                      "destination":  "deep_robotics_x30\\sensors\\livox\\livox_ros_driver2.zip",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  262533,
+                      "sha256":  "9E6B155341355D0A34DAEACE5FC6442E89BDF7A9738D91475E1010BD588FAD76",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "multi_MID360_config.json",
+                      "destination":  "deep_robotics_x30\\sensors\\livox\\multi_MID360_config.json",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  3288,
+                      "sha256":  "1A24CBE6DD1A00906589E177E3DD7B2B9433B5805431EC0AE195CDB98D776F0D",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "third_party\\yesense_ros2_avalue",
+                      "destination":  "deep_robotics_x30\\sensors\\yesense\\yesense_ros2_avalue",
+                      "kind":  "directory",
+                      "file_count":  86,
+                      "bytes":  829478,
+                      "sha256":  null,
+                      "applied":  true
+                  },
+                  {
+                      "source":  "x30_cloud_test",
+                      "destination":  "deep_robotics_x30\\data\\cloud_test",
+                      "kind":  "directory",
+                      "file_count":  2,
+                      "bytes":  414062505,
+                      "sha256":  null,
+                      "applied":  true
+                  },
+                  {
+                      "source":  "x30_gridmap_captures",
+                      "destination":  "deep_robotics_x30\\data\\gridmap_captures",
+                      "kind":  "directory",
+                      "file_count":  18,
+                      "bytes":  2687700,
+                      "sha256":  null,
+                      "applied":  true
+                  },
+                  {
+                      "source":  "x30_stair_baselines",
+                      "destination":  "deep_robotics_x30\\data\\stair_baselines",
+                      "kind":  "directory",
+                      "file_count":  60,
+                      "bytes":  1092169403,
+                      "sha256":  null,
+                      "applied":  true
+                  },
+                  {
+                      "source":  "x30_udp_captures",
+                      "destination":  "deep_robotics_x30\\data\\udp_captures",
+                      "kind":  "directory",
+                      "file_count":  10,
+                      "bytes":  564343,
+                      "sha256":  null,
+                      "applied":  true
+                  },
+                  {
+                      "source":  "x30_livox_ros2_transfer",
+                      "destination":  "deep_robotics_x30\\docker\\x30_livox_ros2_transfer",
+                      "kind":  "directory",
+                      "file_count":  530,
+                      "bytes":  6488004,
+                      "sha256":  null,
+                      "applied":  true
+                  },
+                  {
+                      "source":  "x30_livox_ros2_transfer.tar.gz",
+                      "destination":  "deep_robotics_x30\\docker\\x30_livox_ros2_transfer.tar.gz",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  846791,
+                      "sha256":  "BF76C3BA07179EE6CFC446AA088C74E3C3E158047776AA6CE79BD0DE7033EA28",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "x30_migration_package_20260706",
+                      "destination":  "deep_robotics_x30\\migration\\x30_migration_package_20260706",
+                      "kind":  "directory",
+                      "file_count":  7,
+                      "bytes":  3502713912,
+                      "sha256":  null,
+                      "applied":  true
+                  },
+                  {
+                      "source":  "docker_offline_focal_amd64_fix1.tar.gz",
+                      "destination":  "deep_robotics_x30\\migration\\docker_offline_focal_amd64_fix1.tar.gz",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  1592450,
+                      "sha256":  "10C647CDBAAE72D2ED656C38F40FD46055CC9A599C5F282D86BB7D5E98934AA6",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "remote_bridge_probe.txt",
+                      "destination":  "deep_robotics_x30\\logs\\remote_bridge_probe.txt",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  1780,
+                      "sha256":  "C722A4A8B9DA4EF5080C94A7D8E530559B40DD17441D1FEE502EC0D171CEC88D",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "remote_build_yesense_output.txt",
+                      "destination":  "deep_robotics_x30\\logs\\remote_build_yesense_output.txt",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  4176,
+                      "sha256":  "5D8A75E73FCEF0FA7E236F4EC3352BB366B6B68C5E85DA1D5048D7BDBB157602",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "remote_imu_ros2_ros1_compare.txt",
+                      "destination":  "deep_robotics_x30\\logs\\remote_imu_ros2_ros1_compare.txt",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  2932,
+                      "sha256":  "1F3E0FBD89CE49CA0E6C8ED8B4386CBBC49D44E3C78AA63562CA02A104C1F209",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "remote_yesense_params.txt",
+                      "destination":  "deep_robotics_x30\\logs\\remote_yesense_params.txt",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  2963,
+                      "sha256":  "3BAAA1ED4CBBFFB8D7EC83C4DD5EE9775E1399BA432EC94EBCF8119981C64C4C",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "remote_yesense_probe.txt",
+                      "destination":  "deep_robotics_x30\\logs\\remote_yesense_probe.txt",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  52778,
+                      "sha256":  "1C0CDF477FBBF9FA17CCF621ED1B5F851359F761D3D83BE906D7B5D7394947A1",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "robot_hardware_x30_udp_transfer.tar.gz",
+                      "destination":  "deep_robotics_x30\\artifacts\\robot_hardware_x30_udp_transfer.tar.gz",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  360341,
+                      "sha256":  "AEA0953A9B5C34DF512F2A0C0CCE4DA9077073C24095E5E1B8C389D8078489F0",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "X30版本整包更新手册.pdf",
+                      "destination":  "deep_robotics_x30\\manuals\\X30版本整包更新手册.pdf",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  5034474,
+                      "sha256":  "AE6961331E216891B7C7BA484F8EC807F81636D90FDAAA23AF7198E2A5D9513D",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "绝影X30 Pro产品手册 V2.0.4(1).pdf",
+                      "destination":  "deep_robotics_x30\\manuals\\绝影X30 Pro产品手册 V2.0.4(1).pdf",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  7244357,
+                      "sha256":  "062DEF1D76A4F83C0E3A6B62B9266782B0B4441D6074175B78AFB10AEB28B2BE",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "绝影X30 Pro应用手册 V2.0.3(1).pdf",
+                      "destination":  "deep_robotics_x30\\manuals\\绝影X30 Pro应用手册 V2.0.3(1).pdf",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  7364168,
+                      "sha256":  "EE18AF7F577B060325F4FD1AFA6C496F2CDD21902A391C12DA35C726896133B1",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "绝影X30接口规格书（对外）ros+udp V1.0.4(1).pdf",
+                      "destination":  "deep_robotics_x30\\manuals\\绝影X30接口规格书（对外）ros+udp V1.0.4(1).pdf",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  3734247,
+                      "sha256":  "7460287044B8B3304074B1BA9BB71EB0F536931EC3087346CC3821A56F1597F2",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "大狗自主导航操作手册v1.0.docx",
+                      "destination":  "deep_robotics_x30\\manuals\\大狗自主导航操作手册v1.0.docx",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  4163880,
+                      "sha256":  "491CADCD28C9EA76E005325301033B7FECC5639B4B25B31AFA2B4D11F56B33B1",
+                      "applied":  true
+                  },
+                  {
+                      "source":  "山地.md",
+                      "destination":  "deep_robotics_x30\\manuals\\山地.md",
+                      "kind":  "file",
+                      "file_count":  1,
+                      "bytes":  6803,
+                      "sha256":  "2D2C4B36268C72D4F5AA5849BC9431B48ECC2FB0B5AF4F49B45DBB896D522A0D",
+                      "applied":  true
+                  }
+              ]
+}

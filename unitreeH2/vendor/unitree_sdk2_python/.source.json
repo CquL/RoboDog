@@ -1,0 +1,13 @@
+{
+    "official_owner":  "unitreerobotics",
+    "repository":  "unitree_sdk2_python",
+    "source_url":  "https://github.com/unitreerobotics/unitree_sdk2_python",
+    "archive_url":  "https://github.com/unitreerobotics/unitree_sdk2_python/archive/e4cd91f051aaa77a70600e3d2bf7f50889db1980.zip",
+    "commit":  "e4cd91f051aaa77a70600e3d2bf7f50889db1980",
+    "role":  "Optional Python SDK2 prototype interface",
+    "retrieved_at":  "2026-07-15T06:49:12.1627995Z",
+    "archive_file":  "unitree_sdk2_python-e4cd91f051aaa77a70600e3d2bf7f50889db1980.zip",
+    "archive_bytes":  431844,
+    "archive_sha256":  "21A99F0354A05849DB7832CBBB13D96FB34BEAE34329D5C5ADD95E1934A9871F",
+    "license_file":  "LICENSE"
+}

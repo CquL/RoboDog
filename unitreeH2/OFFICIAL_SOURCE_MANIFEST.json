@@ -1,0 +1,80 @@
+[
+    {
+        "official_owner":  "unitreerobotics",
+        "repository":  "unitree_sdk2",
+        "source_url":  "https://github.com/unitreerobotics/unitree_sdk2",
+        "archive_url":  "https://github.com/unitreerobotics/unitree_sdk2/archive/21d0a3b2c46ee48c8fdf2783becb6be3beb0a59b.zip",
+        "commit":  "21d0a3b2c46ee48c8fdf2783becb6be3beb0a59b",
+        "role":  "Required C++ SDK2 with H2 high-level and low-level examples",
+        "retrieved_at":  "2026-07-15T06:49:05.5041947Z",
+        "archive_file":  "unitree_sdk2-21d0a3b2c46ee48c8fdf2783becb6be3beb0a59b.zip",
+        "archive_bytes":  17294396,
+        "archive_sha256":  "1BF5DAC3A74C6CC6A02A7D2C91FECDAAFDA3E016E5BD16E4F96B3389893426CA",
+        "license_file":  "LICENSE"
+    },
+    {
+        "official_owner":  "unitreerobotics",
+        "repository":  "unitree_sdk2_python",
+        "source_url":  "https://github.com/unitreerobotics/unitree_sdk2_python",
+        "archive_url":  "https://github.com/unitreerobotics/unitree_sdk2_python/archive/e4cd91f051aaa77a70600e3d2bf7f50889db1980.zip",
+        "commit":  "e4cd91f051aaa77a70600e3d2bf7f50889db1980",
+        "role":  "Optional Python SDK2 prototype interface",
+        "retrieved_at":  "2026-07-15T06:49:12.1627995Z",
+        "archive_file":  "unitree_sdk2_python-e4cd91f051aaa77a70600e3d2bf7f50889db1980.zip",
+        "archive_bytes":  431844,
+        "archive_sha256":  "21A99F0354A05849DB7832CBBB13D96FB34BEAE34329D5C5ADD95E1934A9871F",
+        "license_file":  "LICENSE"
+    },
+    {
+        "official_owner":  "unitreerobotics",
+        "repository":  "unitree_ros2",
+        "source_url":  "https://github.com/unitreerobotics/unitree_ros2",
+        "archive_url":  "https://github.com/unitreerobotics/unitree_ros2/archive/668d1ec5a05d1c38d3306bdca7d59f2ba3581a88.zip",
+        "commit":  "668d1ec5a05d1c38d3306bdca7d59f2ba3581a88",
+        "role":  "ROS 2 IDL, examples and official CycloneDDS container reference",
+        "retrieved_at":  "2026-07-15T06:49:18.8891115Z",
+        "archive_file":  "unitree_ros2-668d1ec5a05d1c38d3306bdca7d59f2ba3581a88.zip",
+        "archive_bytes":  1526715,
+        "archive_sha256":  "6322F994FED43B095503E936F8E86677541305E521735F5A0C873EDFCC316FE6",
+        "license_file":  "LICENSE"
+    },
+    {
+        "official_owner":  "unitreerobotics",
+        "repository":  "unitree_ros",
+        "source_url":  "https://github.com/unitreerobotics/unitree_ros",
+        "archive_url":  "https://github.com/unitreerobotics/unitree_ros/archive/d96d8f63ae17a7108d4f7229c00ef875ba7129c9.zip",
+        "commit":  "d96d8f63ae17a7108d4f7229c00ef875ba7129c9",
+        "role":  "ROS 1 simulation repository containing H2 URDF and meshes; not the H2 real-robot control base",
+        "retrieved_at":  "2026-07-15T07:05:58.3488208Z",
+        "archive_file":  "unitree_ros-d96d8f63ae17a7108d4f7229c00ef875ba7129c9.zip",
+        "archive_bytes":  450680906,
+        "archive_sha256":  "D85C54767A02F1B57339416569F8FA9519FE2A6DC019E38794D2F193D685DDBD",
+        "license_file":  "LICENSE"
+    },
+    {
+        "official_owner":  "unitreerobotics",
+        "repository":  "unitree_model",
+        "source_url":  "https://github.com/unitreerobotics/unitree_model",
+        "archive_url":  "https://github.com/unitreerobotics/unitree_model/archive/b6a8942b0803b6c137e58cef12beb4b03e4a2fa7.zip",
+        "commit":  "b6a8942b0803b6c137e58cef12beb4b03e4a2fa7",
+        "role":  "Official H2/H2 Plus USD robot models",
+        "retrieved_at":  "2026-07-15T07:06:36.8459951Z",
+        "archive_file":  "unitree_model-b6a8942b0803b6c137e58cef12beb4b03e4a2fa7.zip",
+        "archive_bytes":  16305503,
+        "archive_sha256":  "1840B658D01694F56527651E903E06880FC0ECA05BFE7865A897E0085D2A3E5B",
+        "license_file":  "LICENSE"
+    },
+    {
+        "official_owner":  "unitreerobotics",
+        "repository":  "unitree_mujoco",
+        "source_url":  "https://github.com/unitreerobotics/unitree_mujoco",
+        "archive_url":  "https://github.com/unitreerobotics/unitree_mujoco/archive/ae6a8403e272733e9996ef59990880330496177f.zip",
+        "commit":  "ae6a8403e272733e9996ef59990880330496177f",
+        "role":  "Optional H2 MuJoCo low-level simulation environment",
+        "retrieved_at":  "2026-07-15T07:12:00.5818407Z",
+        "archive_file":  "unitree_mujoco-ae6a8403e272733e9996ef59990880330496177f.zip",
+        "archive_bytes":  107693566,
+        "archive_sha256":  "A5B8625EB85E6A53E6F18F929E248204534A537662CDFF7B3099F89BE46036BC",
+        "license_file":  "LICENSE"
+    }
+]

@@ -1,0 +1,18 @@
+<launch>
+
+    <node name="udp_receiver" pkg="message_transformer_cpp" type="udp_receiver" output="screen" respawn="true">
+        <param name="port_num" value="43897" />
+        <param name="add_tail" value="false"/>
+    </node>
+    <node name="udp_sender" pkg="message_transformer_cpp" type="udp_sender" output="screen" respawn="true">
+        <param name="motion_port" value="43893"/>
+        <param name="motion_ip" value="10.21.31.103"/>
+        <param name="perception_port" value="43897"/>
+        <param name="perception_ip" value="10.21.31.105"/>
+        <param name="eth_inf" value="enp3s0"/>
+        <param name="navigation_port" value="43897"/>
+        <param name="navigation_ip" value="10.21.31.106"/>
+        
+    </node>
+
+</launch>

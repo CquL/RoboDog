@@ -1,3 +1,38 @@
-robot_model: "unitree_dog" #机器人型号，可选：virtual_robot, unitree_dog, zsibot_zsl_one, deep_robotics_x30
-network_interface_card_name: "eth0"
-timeout: 25.0
+robot_model: "deep_robotics_x30"
+
+motion_ip: "192.168.1.103"
+motion_port: 43893
+
+# X30 app_port command endpoint, used only by optional velocity-source setup.
+perception_ip: "192.168.1.105"
+perception_port: 43899
+
+local_port: 0
+heartbeat_hz: 10
+motion_command_source: "navigation"
+
+# udp_navigation: factory /cmd_vel-equivalent UDP to 105:43897, then terrain safety layer.
+# udp_physical: factory /cmd_vel_corrected-equivalent UDP directly to 103:43893.
+# udp_axis: legacy joystick-axis UDP used by the earlier manual-mode tests.
+velocity_backend: "udp_navigation"
+navigation_velocity_ip: "192.168.1.105"
+navigation_velocity_port: 43897
+
+velocity_watchdog_hz: 50
+velocity_command_timeout_ms: 250
+velocity_zero_hold_ms: 3000
+
+# Safety ceiling for robot_test_x30_gait mountain_move. The CLI duration is
+# executed as requested unless a state interlock stops the test early.
+mountain_move_max_duration_s: 30.0
+
+max_vx: 1.0
+max_vy: 0.5
+max_omega: 1.2
+
+# Axis sign options apply only when velocity_backend is udp_axis.
+invert_vy_axis: true
+invert_omega_axis: true
+
+configure_non_manual_mode: false
+configure_navigation_velocity_source: false

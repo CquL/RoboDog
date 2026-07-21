@@ -1,0 +1,35 @@
+<launch>
+    <!-- 相机竖放或平放 vertical or horizontal -->
+    <arg name="camera_pose" default="vertical" />
+   
+    <group if="$(eval arg('camera_pose') == 'horizontal')">
+      <!-- 地形图 -->
+      <node pkg="deeprobotics_local_height_map" type="deeprobotics_local_height_map" name="deeprobotics_local_height_map" output="screen">
+        <rosparam command="load" file="$(find deeprobotics_local_height_map)/config/param_all_camera_h.yaml" />
+      </node>
+    </group>
+
+    <group if="$(eval arg('camera_pose') == 'vertical')">
+      <!-- 地形图 -->
+      <node pkg="deeprobotics_local_height_map" type="deeprobotics_local_height_map" name="deeprobotics_local_height_map" >
+        <rosparam command="load" file="$(find deeprobotics_local_height_map)/config/param_all_camera_v.yaml" />
+      </node>
+    </group>
+
+
+    <node name="plane_seg" pkg="plane_seg_ros" type="plane_seg_ros" output="screen"> </node>
+    
+    <node pkg="deeprobotics_grid_map_transformer" type="grid_map_transform_app" name="grid_map_transform_app" >
+      <param name = "sport_ip"    type ="string"  value="192.168.1.103" />
+    </node>
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base2frontleftcamera" args="0.42353 0.04592 0.02635 0.6532815 0.0308436 -0.2705981 0.7064338 /base_link /camera_front_left_link" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base2frontrightcamera" args="0.42353 -0.04592 0.02635 0.7064338 0.2705981 -0.0308436 0.6532815 /base_link /camera_front_right_link" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base2backcamera" args="-0.40476 -0.017 -0.01303 -0.258819 0 0.9659258 0  /base_link /camera_back_link" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base2leftcamera" args="-0.0753 0.15843 0.04206 0.6830127 0.6830127 -0.1830127 0.1830127 /base_link /camera_left_link" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base2rightcamera" args="-0.0753 -0.15843 0.04206 0.1830127 0.1830127 -0.6830127 0.6830127  /base_link /camera_right_link" />
+    
+   
+</launch>
+
+

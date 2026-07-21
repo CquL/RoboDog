@@ -1,0 +1,13 @@
+{
+    "official_owner":  "unitreerobotics",
+    "repository":  "unitree_ros2",
+    "source_url":  "https://github.com/unitreerobotics/unitree_ros2",
+    "archive_url":  "https://github.com/unitreerobotics/unitree_ros2/archive/668d1ec5a05d1c38d3306bdca7d59f2ba3581a88.zip",
+    "commit":  "668d1ec5a05d1c38d3306bdca7d59f2ba3581a88",
+    "role":  "ROS 2 IDL, examples and official CycloneDDS container reference",
+    "retrieved_at":  "2026-07-15T06:49:18.8891115Z",
+    "archive_file":  "unitree_ros2-668d1ec5a05d1c38d3306bdca7d59f2ba3581a88.zip",
+    "archive_bytes":  1526715,
+    "archive_sha256":  "6322F994FED43B095503E936F8E86677541305E521735F5A0C873EDFCC316FE6",
+    "license_file":  "LICENSE"
+}
