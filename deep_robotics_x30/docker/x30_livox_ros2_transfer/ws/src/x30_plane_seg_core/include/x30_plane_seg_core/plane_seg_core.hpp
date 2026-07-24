@@ -40,6 +40,8 @@ struct CandidateBlock
   Eigen::Vector3f size{Eigen::Vector3f::Zero()};
   Eigen::Isometry3f pose{Eigen::Isometry3f::Identity()};
   std::vector<Eigen::Vector3f> hull;
+  Eigen::Vector2d gravity_center{Eigen::Vector2d::Zero()};
+  std::vector<Eigen::Vector3f> contained_points;
 };
 
 struct CoreResult

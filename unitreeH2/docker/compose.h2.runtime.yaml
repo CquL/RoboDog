@@ -1,0 +1,45 @@
+services:
+  h2-runtime:
+    image: unitree_h2:amd64-runtime-candidate
+    container_name: unitree-h2-runtime
+    network_mode: host
+    init: true
+    privileged: false
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=256m
+    environment:
+      H2_DDS_INTERFACE: ${H2_DDS_INTERFACE:-eth0}
+      H2_DDS_DOMAIN: ${H2_DDS_DOMAIN:-0}
+      H2_CONFIG: /opt/robodog/config/unitree_h2_container_safe.yaml
+    command: ["bash"]
+
+  h2-state-probe:
+    image: unitree_h2:amd64-runtime-candidate
+    container_name: unitree-h2-state-probe
+    profiles: ["probe"]
+    network_mode: host
+    init: true
+    privileged: false
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=256m
+    environment:
+      H2_DDS_INTERFACE: ${H2_DDS_INTERFACE:-eth0}
+      H2_DDS_DOMAIN: ${H2_DDS_DOMAIN:-0}
+    command:
+      - bash
+      - -lc
+      - >-
+        exec /opt/robodog/bin/h2_hg_state_read_only_probe
+        --interface "$${H2_DDS_INTERFACE}"
+        --domain "$${H2_DDS_DOMAIN}"
+        --seconds 15

@@ -47,6 +47,7 @@ struct CommandLineOptions
   std::size_t expected_frame_count{kExpectedFrameCount};
   std::string expected_output_sha256;
   bool trace_frames{false};
+  bool include_contained_points{false};
 };
 
 std::string normalizeSha256Hex(const std::string & value, const char * const option)
@@ -117,6 +118,10 @@ CommandLineOptions parseCommandLine(const int argc, char ** argv)
       options.trace_frames = true;
       continue;
     }
+    if (argument == "--include-contained-points") {
+      options.include_contained_points = true;
+      continue;
+    }
     if (!argument.empty() && argument.front() == '-') {
       throw std::runtime_error("unknown option: " + argument);
     }
@@ -154,6 +159,7 @@ struct CanonicalCandidate
   std::array<float, 3> translation{};
   std::array<float, 4> quaternion_xyzw{};
   std::vector<std::array<float, 3>> hull;
+  std::vector<std::array<float, 3>> contained_points;
 };
 
 bool finite(const std::array<float, 3> & values)
@@ -229,6 +235,17 @@ CanonicalCandidate canonicalize(
     output.hull.push_back(xyz);
   }
   std::sort(output.hull.begin(), output.hull.end());
+
+  output.contained_points.reserve(candidate.contained_points.size());
+  for (const Eigen::Vector3f & point : candidate.contained_points) {
+    std::array<float, 3> xyz{{
+      canonicalZero(point.x()), canonicalZero(point.y()), canonicalZero(point.z()),
+    }};
+    require(
+      frame, finite(xyz), "candidate contained point cloud has a non-finite point");
+    output.contained_points.push_back(xyz);
+  }
+  std::sort(output.contained_points.begin(), output.contained_points.end());
   return output;
 }
 
@@ -305,7 +322,8 @@ void appendArray(std::ostream & output, const std::array<float, Size> & values)
 
 std::string frameJson(
   const ReplayFrame & frame, const CoreResult & result,
-  const std::vector<CanonicalCandidate> & candidates)
+  const std::vector<CanonicalCandidate> & candidates,
+  const bool include_contained_points)
 {
   std::ostringstream output;
   output.imbue(std::locale::classic());
@@ -337,13 +355,27 @@ std::string frameJson(
       }
       appendArray(output, candidate.hull[point_index]);
     }
-    output << "]}";
+    output << ']';
+    if (include_contained_points) {
+      output << ",\"contained_points\":[";
+      for (std::size_t point_index = 0;
+        point_index < candidate.contained_points.size(); ++point_index)
+      {
+        if (point_index != 0U) {
+          output << ',';
+        }
+        appendArray(output, candidate.contained_points[point_index]);
+      }
+      output << ']';
+    }
+    output << '}';
   }
   output << "]}";
   return output.str();
 }
 
-std::string runFrame(const ReplayFrame & frame)
+std::string runFrame(
+  const ReplayFrame & frame, const bool include_contained_points)
 {
   const std::uint64_t cell_count =
     static_cast<std::uint64_t>(frame.size_x) * static_cast<std::uint64_t>(frame.size_y);
@@ -418,7 +450,9 @@ std::string runFrame(const ReplayFrame & frame)
       "candidate block height differs from 0.142875 m");
   }
 
-  return frameJson(frame, result, canonicalize(frame, result.candidates));
+  return frameJson(
+    frame, result, canonicalize(frame, result.candidates),
+    include_contained_points);
 }
 
 }  // namespace
@@ -455,7 +489,7 @@ int main(int argc, char ** argv)
           " selected_index=" << frame.selected_index <<
           " stamp_ns=" << frame.stamp_ns << '\n';
       }
-      const std::string line = runFrame(frame);
+      const std::string line = runFrame(frame, options.include_contained_points);
       std::cout << line << '\n';
       output_hasher.update(line.data(), line.size());
       constexpr char newline = '\n';

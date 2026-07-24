@@ -31,6 +31,7 @@ add_library(x30_plane_seg_core SHARED
   src/grid_map_adapter.cpp
   src/plane_seg_core.cpp
   src/quadrangle_geometry.cpp
+  src/quadrangle_postprocessing.cpp
   src/factory_block_fitter.cpp
   src/factory_incremental_plane_estimator.cpp
   src/factory_plane_segmenter.cpp
@@ -116,6 +117,18 @@ if(BUILD_TESTING)
   add_test(
     NAME x30_plane_seg_core_quadrangle_geometry_test
     COMMAND x30_plane_seg_core_quadrangle_geometry_test
+  )
+
+  add_executable(x30_plane_seg_core_quadrangle_postprocessing_test
+    test/quadrangle_postprocessing_test.cpp
+  )
+  target_compile_features(
+    x30_plane_seg_core_quadrangle_postprocessing_test PUBLIC cxx_std_17)
+  target_link_libraries(
+    x30_plane_seg_core_quadrangle_postprocessing_test x30_plane_seg_core)
+  add_test(
+    NAME x30_plane_seg_core_quadrangle_postprocessing_test
+    COMMAND x30_plane_seg_core_quadrangle_postprocessing_test
   )
 
   add_executable(x30_plane_seg_core_replay_test

@@ -98,12 +98,22 @@ CoreResult PlaneSegCore::process(
   const planeseg::BlockFitter::Result core_result = fitter.go();
   result.success = core_result.mSuccess;
   result.candidates.reserve(core_result.mBlocks.size());
-  for (const planeseg::BlockFitter::Block & block : core_result.mBlocks) {
+  for (std::size_t index = 0U; index < core_result.mBlocks.size(); ++index) {
+    const planeseg::BlockFitter::Block & block = core_result.mBlocks[index];
     CandidateBlock candidate;
     candidate.type = block.type;
     candidate.size = block.mSize;
     candidate.pose = block.mPose;
     candidate.hull = block.mHull;
+    if (index < core_result.mGravityCenters.size()) {
+      candidate.gravity_center = core_result.mGravityCenters[index];
+    }
+    if (index < core_result.mPointClouds.size() && core_result.mPointClouds[index]) {
+      candidate.contained_points.reserve(core_result.mPointClouds[index]->size());
+      for (const pcl::PointXYZ & point : *core_result.mPointClouds[index]) {
+        candidate.contained_points.emplace_back(point.x, point.y, point.z);
+      }
+    }
     result.candidates.push_back(std::move(candidate));
   }
 

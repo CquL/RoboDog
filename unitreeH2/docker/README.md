@@ -1,5 +1,70 @@
 # H2 EDU HAL-only Docker 方案
 
+## 2026-07-22 runtime candidate 增量
+
+保留历史 `unitree_h2:amd64-offline` 不变，新增：
+
+```text
+unitree_h2:amd64-runtime-candidate
+image id: sha256:91649a9c5e4cde9bd4cfada646dee5bc99e10e26e76f08d8f1c999de40ee51d1
+architecture: amd64
+uncompressed size: 3,534,141,236 bytes
+```
+
+该候选镜像使用 `Dockerfile.runtime`，包含：
+
+- 当前统一 `robot_test_unitree_h2` 和 `librobot_hardware.so`；
+- 固定 SDK2 commit `21d0a3b2c46ee48c8fdf2783becb6be3beb0a59b`；
+- 原生 HG 只读订阅器 `h2_hg_state_read_only_probe`，可订阅 `rt/lowstate`、
+  `rt/secondary_imu`、低频状态、BMS 和 MainBoard；
+- 容器专用 locked/motion 两份配置；
+- Ubuntu 22.04 用户空间和 ROS 2 Humble 环境。
+
+它仍然不包含雷达驱动、相机驱动、导航算法、ROS 2 传感器桥或正式
+`h2_runtime`。HG 订阅器是一次性验收探针，不是生产型缓存/健康状态源。
+
+本机构建：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File `
+  unitreeH2\docker\build_h2_runtime_amd64.ps1
+```
+
+离线复核：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File `
+  unitreeH2\docker\verify_h2_runtime_image_offline.ps1
+```
+
+已生成传输包：
+
+```text
+unitreeH2/runtime_bundle/unitree_h2_amd64_runtime_candidate_20260722.tar.gz
+SHA256 defc9b86f6b65b2752326e1a51a7ad301d722e7790378845528f4d575f968f3a
+```
+
+PC2 安装并授权 Docker 后，先只做加载和状态订阅，不做运动：
+
+```bash
+sha256sum --check unitree_h2_amd64_runtime_candidate_20260722.tar.gz.sha256
+gzip -dc unitree_h2_amd64_runtime_candidate_20260722.tar.gz | docker load
+
+docker run --rm \
+  --network host \
+  --read-only \
+  --cap-drop ALL \
+  --security-opt no-new-privileges \
+  --tmpfs /tmp:rw,noexec,nosuid,size=64m \
+  unitree_h2:amd64-runtime-candidate \
+  /opt/robodog/bin/h2_hg_state_read_only_probe \
+    --interface eth0 --domain 0 --seconds 15
+```
+
+预期实机成功标记是 `H2_HG_SUBSCRIBE_ONLY_PROBE_OK`。没有该标记前，只能称为
+离线构建完成，不能称为 Docker 已收到 H2 数据。控制侧虽然已经装入同一 HAL，但
+仍应在传感器只读验收之后分开验证。
+
 ## 当前状态
 
 当前 `unitree_h2:amd64-offline` 是 **SDK2 + `robot_hardware` 的 HAL-only

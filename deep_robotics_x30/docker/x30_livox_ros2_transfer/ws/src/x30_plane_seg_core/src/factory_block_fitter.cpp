@@ -437,6 +437,25 @@ go() {
       block.mPose.rotation().col(2)*mBlockDimensions[2]/2;
     block.mHull = res.mConvexHull;
     result.mBlocks.push_back(block);
+
+    Eigen::Vector2d gravity_center = Eigen::Vector2d::Zero();
+    pcl::PointCloud<pcl::PointXYZ>::Ptr contained_points(
+      new pcl::PointCloud<pcl::PointXYZ>());
+    contained_points->reserve(static_cast<std::size_t>(planes[i].mPoints.rows()));
+    for (Eigen::Index row = 0; row < planes[i].mPoints.rows(); ++row) {
+      const Eigen::Vector3f point = planes[i].mPoints.row(row).transpose();
+      gravity_center += point.head<2>().cast<double>();
+      pcl::PointXYZ pcl_point;
+      pcl_point.x = point.x();
+      pcl_point.y = point.y();
+      pcl_point.z = point.z();
+      contained_points->push_back(pcl_point);
+    }
+    if (!contained_points->empty()) {
+      gravity_center /= static_cast<double>(contained_points->size());
+    }
+    result.mGravityCenters.push_back(gravity_center);
+    result.mPointClouds.push_back(std::move(contained_points));
   }
   if (mDebug) {
     std::cout << "Surviving blocks: " << result.mBlocks.size() << std::endl;

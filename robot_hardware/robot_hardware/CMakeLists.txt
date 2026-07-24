@@ -114,16 +114,6 @@ if(NOT BUILD_X30_ONLY)
   target_link_libraries(robot_test_unitree_h2 PUBLIC ${PROJECT_NAME})
   target_include_directories(robot_test_unitree_h2 PUBLIC include)
 
-  add_executable(robot_test_unitree_h2_live_motion
-    robot_test_unitree_h2_live_motion.cpp)
-  target_link_libraries(robot_test_unitree_h2_live_motion PUBLIC ${PROJECT_NAME})
-  target_include_directories(robot_test_unitree_h2_live_motion PUBLIC include)
-
-  add_executable(robot_test_unitree_h2_motion_mode
-    robot_test_unitree_h2_motion_mode.cpp)
-  target_link_libraries(robot_test_unitree_h2_motion_mode PUBLIC ${PROJECT_NAME})
-  target_include_directories(robot_test_unitree_h2_motion_mode PUBLIC include)
-
   add_executable(unitree_h2_factory_contract_test
     tests/unitree_h2_factory_contract_test.cpp)
   target_link_libraries(unitree_h2_factory_contract_test PUBLIC ${PROJECT_NAME})
@@ -161,29 +151,22 @@ if(NOT BUILD_X30_ONLY)
   set_tests_properties(unitree_h2_probe_rejects_conflicting_modes
     PROPERTIES WILL_FAIL TRUE)
 
-  add_test(NAME unitree_h2_live_motion_rejects_missing_interlocks
-    COMMAND robot_test_unitree_h2_live_motion --axis x-positive)
-  set_tests_properties(unitree_h2_live_motion_rejects_missing_interlocks
+  add_test(NAME unitree_h2_velocity_rejects_missing_execute
+    COMMAND robot_test_unitree_h2
+      --config ${CMAKE_CURRENT_SOURCE_DIR}/config/unitree_h2_live.yaml
+      --velocity --vx 0.50 --vy 0 --omega 0 --duration-ms 1000)
+  set_tests_properties(unitree_h2_velocity_rejects_missing_execute
     PROPERTIES WILL_FAIL TRUE)
 
-  add_test(NAME unitree_h2_live_motion_rejects_static_ack_without_one_time_gate
-    COMMAND robot_test_unitree_h2_live_motion
-      --config ${CMAKE_CURRENT_SOURCE_DIR}/config/unitree_h2.yaml
-      --axis x-positive
-      --expected-fsm 601
-      --live-motion
-      --acknowledge
-        H2_FALL_ARREST_STAND_FOUR_CASTERS_LOCKED_CLEAR_AREA_SECOND_OPERATOR_REMOTE_HIGH_LEVEL_STOP_CONFIRMED
-      --authorization-file
-        /home/unitree/p2_unitreeH2/build/h2_control_gate_state/invalid)
-  set_tests_properties(
-    unitree_h2_live_motion_rejects_static_ack_without_one_time_gate
+  add_test(NAME unitree_h2_velocity_rejects_above_project_envelope
+    COMMAND robot_test_unitree_h2
+      --config ${CMAKE_CURRENT_SOURCE_DIR}/config/unitree_h2_live.yaml
+      --velocity --vx 0.51 --vy 0 --omega 0 --duration-ms 1000 --execute)
+  set_tests_properties(unitree_h2_velocity_rejects_above_project_envelope
     PROPERTIES WILL_FAIL TRUE)
 
   install(TARGETS
     robot_test_unitree_h2
-    robot_test_unitree_h2_live_motion
-    robot_test_unitree_h2_motion_mode
     unitree_h2_factory_contract_test
     unitree_h2_direct_api_contract_test
     unitree_h2_live_motion_plan_test

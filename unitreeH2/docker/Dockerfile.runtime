@@ -1,0 +1,65 @@
+ARG BASE_IMAGE=jezetek:navigation_system_amd64
+FROM ${BASE_IMAGE}
+
+ARG UNITREE_SDK2_COMMIT=21d0a3b2c46ee48c8fdf2783becb6be3beb0a59b
+
+LABEL org.opencontainers.image.title="Unitree H2 runtime candidate"
+LABEL org.opencontainers.image.description="H2 HAL plus native HG state/IMU subscriber; no lidar driver or navigation algorithm"
+LABEL org.opencontainers.image.source="local RoboDog workspace"
+LABEL io.robodog.unitree_sdk2.commit="${UNITREE_SDK2_COMMIT}"
+LABEL io.robodog.h2.runtime.scope="hal-native-hg-state-candidate"
+
+COPY --from=sdk2 . /opt/src/unitree_sdk2
+COPY --from=robot_hardware . /opt/src/robot_hardware
+COPY --from=h2_state_probe . /opt/src/h2_state_probe
+COPY h2_entrypoint.sh /usr/local/bin/h2-entrypoint
+COPY config/unitree_h2_container_safe.yaml \
+  /opt/robodog/config/unitree_h2_container_safe.yaml
+COPY config/unitree_h2_container_motion.yaml \
+  /opt/robodog/config/unitree_h2_container_motion.yaml
+
+# Recreate SONAME links that GitHub ZIP extraction on Windows represents as
+# tiny text files, then build every component without network access.
+RUN set -eux; \
+    for libdir in /opt/src/unitree_sdk2/thirdparty/lib/x86_64 \
+                  /opt/src/unitree_sdk2/thirdparty/lib/aarch64; do \
+      if [ -d "$libdir" ]; then \
+        rm -f "$libdir/libddsc.so.0" "$libdir/libddscxx.so.0"; \
+        ln -s libddsc.so "$libdir/libddsc.so.0"; \
+        ln -s libddscxx.so "$libdir/libddscxx.so.0"; \
+      fi; \
+    done; \
+    cmake -S /opt/src/unitree_sdk2 -B /tmp/unitree_sdk2_build \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_INSTALL_PREFIX=/opt/unitree_robotics; \
+    cmake --install /tmp/unitree_sdk2_build; \
+    cmake -S /opt/src/robot_hardware -B /tmp/robot_hardware_build \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_PREFIX_PATH=/opt/unitree_robotics \
+      -DCMAKE_INSTALL_PREFIX=/opt/robodog; \
+    cmake --build /tmp/robot_hardware_build --parallel 2; \
+    ctest --test-dir /tmp/robot_hardware_build --output-on-failure; \
+    cmake --install /tmp/robot_hardware_build; \
+    cmake -S /opt/src/h2_state_probe -B /tmp/h2_state_probe_build \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_PREFIX_PATH=/opt/unitree_robotics; \
+    cmake --build /tmp/h2_state_probe_build --parallel 2; \
+    install -D -m 0755 \
+      /tmp/h2_state_probe_build/h2_hg_state_read_only_probe \
+      /opt/robodog/bin/h2_hg_state_read_only_probe; \
+    chmod 0755 /usr/local/bin/h2-entrypoint; \
+    rm -rf /tmp/unitree_sdk2_build /tmp/robot_hardware_build \
+      /tmp/h2_state_probe_build /opt/src
+
+ENV CMAKE_PREFIX_PATH=/opt/unitree_robotics:/opt/robodog
+ENV LD_LIBRARY_PATH=/opt/robodog/lib:/opt/unitree_robotics/lib
+ENV H2_DDS_INTERFACE=eth0
+ENV H2_DDS_DOMAIN=0
+ENV H2_CONFIG=/opt/robodog/config/unitree_h2_container_safe.yaml
+
+WORKDIR /opt/robodog
+
+# This entrypoint sources only the image's ROS 2 Humble installation. It does
+# not source the old Jezetek workspace and never starts a controller or driver.
+ENTRYPOINT ["/usr/local/bin/h2-entrypoint"]
+CMD ["bash"]

@@ -129,6 +129,18 @@ class ReplaySummaryTest(unittest.TestCase):
             ],
         )
 
+    def test_optional_contained_points_are_validated(self):
+        extended = frame()
+        extended["candidates"][0]["contained_points"] = [
+            [0.1, 0.2, 0.3],
+            [0.4, 0.5, 0.6],
+        ]
+
+        result = SUMMARY.build_summary(jsonl(extended))
+
+        self.assertEqual(result["frame_count"], 1)
+        self.assertEqual(result["candidates"]["total"], 1)
+
     def test_nonfinite_candidate_values_are_rejected(self):
         for token in ("NaN", "Infinity", "-Infinity", "1e400"):
             with self.subTest(token=token):

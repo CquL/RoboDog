@@ -34,6 +34,9 @@ powershell -ExecutionPolicy Bypass -File .\tools\fetch_official_h2_docs.ps1
 
 - 上层算法只依赖 `RobotHardwareInterface`：`initRobotHardware()`、
   `writeRobotVelocityCommand()` 和 `writeActionCommand()`。
+- 当前源码只保留一个 H2 实机测试入口 `robot_test_unitree_h2`；已移除长期
+  绕过抽象层的 vendor 运动测试入口。安全只读配置与显式实机配置分别是
+  `config/unitree_h2.yaml` 和 `config/unitree_h2_live.yaml`。
 - H2 控制不通过上层 ROS 2 控制 topic；`UnitreeH2` 直接调用宇树
   `LocoClient`。SDK2 内部使用 DDS 与 PC1 `sport` 服务交互，这是厂商传输实现，
   不是上层 ROS 2 耦合。
@@ -62,6 +65,11 @@ powershell -ExecutionPolicy Bypass -File .\tools\fetch_official_h2_docs.ps1
   `LocoClient` 或发送 DDS RPC。
 - Stage 06B 生产型状态源、导航传感器驱动和正式 `h2_runtime` 仍未完成；PC2 当前未安装
   Docker，本轮未安装。
+- 2026-07-22 已新增并离线验证 `unitree_h2:amd64-runtime-candidate`。它把当前统一 HAL
+  和 Stage 05 的 HG 状态/IMU 只读订阅器放入同一 Ubuntu 22.04 + ROS 2 Humble 镜像，
+  但尚未在 PC2 容器内实机订阅；订阅器仍是一次性探针，不等于 Stage 06B 生产状态源。
+- 当前实机确认“常规运控 2”对应 FSM 703 `PhaseWalk`；现有速度安全门仍锁定已经完成
+  前向短脉冲验证的 FSM 601，不自动切换或接受 703。
 - 不运行官方低层 ankle swing 示例，不切换站立/阻尼/FSM；非零速度仅允许通过分级
   native bundle、单轴短脉冲和现场人工门禁执行。
 - 软件 `StopMove()` 不是物理急停；实机阶段必须保留遥控器、硬件急停和防跌倒安全措施。

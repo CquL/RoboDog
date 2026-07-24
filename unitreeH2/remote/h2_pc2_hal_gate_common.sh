@@ -277,7 +277,7 @@ h2_run_getter_audit() {
   output="$(
     h2_isolated timeout --foreground --signal=INT --kill-after=3s 25s \
       "$H2_BIN_DIR/robot_test_unitree_h2" \
-      "$H2_CONFIG" --getter-audit 2>&1
+      --config "$H2_CONFIG" --getter-audit 2>&1
   )"
   rc=$?
   set -e
@@ -394,7 +394,7 @@ h2_prepare_gate() {
   h2_verify_sha256 "$H2_EXPECTED_DDSCXX_SHA256" "$H2_LIB_DIR/libddscxx.so"
 
   local binary ldd_output
-  for binary in robot_test_unitree_h2 robot_test_unitree_h2_live_motion; do
+  for binary in robot_test_unitree_h2; do
     [[ -x "$H2_BIN_DIR/$binary" ]] || h2_die "MISSING_EXECUTABLE=$binary" 16
     file "$H2_BIN_DIR/$binary"
     readelf -h "$H2_BIN_DIR/$binary" | grep -E 'Class:|Machine:'

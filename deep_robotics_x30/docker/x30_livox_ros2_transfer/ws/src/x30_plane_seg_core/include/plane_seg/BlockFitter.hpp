@@ -32,6 +32,8 @@ public:
     std::vector<Block> mBlocks;
     Eigen::Vector4f mGroundPlane;
     std::vector<Eigen::Vector3f> mGroundPolygon;
+    std::vector<Eigen::Vector2d> mGravityCenters;
+    std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr> mPointClouds;
   };
 
   BlockFitter();

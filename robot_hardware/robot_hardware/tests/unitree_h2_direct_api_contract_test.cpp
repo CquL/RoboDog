@@ -312,8 +312,22 @@ void testInvalidConfigurationAndDestructorBoundary()
 void testLiveMotionHardSafetyCeilings()
 {
     Recorder::Reset();
+    {
+        YAML::Node accepted_velocity = makeConfig(true, false);
+        accepted_velocity["max_vx"] = 0.50;
+        UnitreeH2 accepted_robot(accepted_velocity);
+        require(accepted_robot.initRobotHardware() == CMD_SUCCESS,
+                "verified 0.50 m/s vx ceiling was rejected");
+        RobotVelocityCommand command{1.0, 0.0, 0.0};
+        require(accepted_robot.writeRobotVelocityCommand(command) == CMD_SUCCESS,
+                "verified 0.50 m/s vx command failed");
+        require(near(Recorder::last_vx, 0.50f),
+                "verified vx ceiling was not applied to the SDK command");
+    }
+
+    Recorder::Reset();
     YAML::Node excessive_velocity = makeConfig(true, false);
-    excessive_velocity["max_vx"] = 0.21;
+    excessive_velocity["max_vx"] = 0.51;
     UnitreeH2 velocity_robot(excessive_velocity);
     require(velocity_robot.initRobotHardware() == ERROR_ROBOT_HARDWARE_INIT,
             "configuration above the absolute vx ceiling was accepted");

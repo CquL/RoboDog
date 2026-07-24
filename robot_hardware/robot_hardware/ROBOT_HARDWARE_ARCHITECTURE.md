@@ -46,6 +46,7 @@ virtual int32_t writeActionCommand(std::string action) = 0;
 include/unitree/unitree_h2.h
 src/unitree/unitree_h2.cpp
 config/unitree_h2.yaml
+config/unitree_h2_live.yaml
 robot_test_unitree_h2.cpp
 ```
 
@@ -71,8 +72,13 @@ allow_state_changing_actions: false
 
 非零速度会被拒绝；状态切换会被拒绝；速度经过有限值检查、限幅和超时看门狗。只有
 本对象实际发过控制命令后，析构时才执行尽力而为的 `StopMove()`；纯只读初始化不会
-写控制。探针默认或显式 `--read-only` 只读取 FSM，只有人员显式指定 `--zero-stop`
-才发送零速度和停止合同；两者都不能代替物理急停。
+写控制。`unitree_h2_live.yaml` 是显式运动配置，保持状态切换动作关闭，只允许在 FSM
+601 下发送项目限幅内的速度。
+
+H2 只保留一个实机测试入口 `robot_test_unitree_h2`，其互斥模式是
+`--read-only`、`--getter-audit`、`--zero-stop`、`--velocity` 和 `--action`。
+任何写操作都必须显式传入 `--execute`；速度模式不再在进程内覆盖 YAML，也不再保留
+绕过抽象层的 vendor 运动入口。软件停止不能代替物理急停。
 
 ### DeepRobotics X30
 

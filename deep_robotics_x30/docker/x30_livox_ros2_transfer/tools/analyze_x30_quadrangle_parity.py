@@ -64,6 +64,7 @@ CANDIDATE_KEYS = {
     "quaternion_xyzw",
     "hull",
 }
+OPTIONAL_CANDIDATE_KEYS = {"contained_points"}
 
 Point = tuple[float, float, float]
 FrameKey = tuple[str, int, int]
@@ -88,6 +89,8 @@ class ReplayFrame:
     selected_index: int
     expected_retained_count: int
     factory_points: tuple[Point, ...]
+    grid_resolution_m: float = 0.0
+    grid_center_xyz: Point = (0.0, 0.0, 0.0)
 
     @property
     def key(self) -> FrameKey:
@@ -109,6 +112,7 @@ class Candidate:
     translation: Point
     quaternion_xyzw: tuple[float, float, float, float]
     hull: tuple[Point, ...]
+    contained_points: tuple[Point, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -426,7 +430,15 @@ def parse_replay_pack(data: bytes) -> ReplayPack:
         if key in seen_keys:
             raise ParityAnalysisError(f"duplicate replay frame key: {key!r}")
         seen_keys.add(key)
-        placeholder = ReplayFrame(case, stamp_ns, selected_index, expected_retained_count, ())
+        placeholder = ReplayFrame(
+            case,
+            stamp_ns,
+            selected_index,
+            expected_retained_count,
+            (),
+            resolution,
+            tuple(center),
+        )
         pending_frames.append(
             (placeholder, elevation_ref, accessibility_ref, factory_ref, frame_input_digest)
         )
@@ -469,6 +481,8 @@ def parse_replay_pack(data: bytes) -> ReplayPack:
                 selected_index=placeholder.selected_index,
                 expected_retained_count=placeholder.expected_retained_count,
                 factory_points=factory_points,
+                grid_resolution_m=placeholder.grid_resolution_m,
+                grid_center_xyz=placeholder.grid_center_xyz,
             )
         )
 
@@ -573,7 +587,12 @@ def parse_replay_jsonl(data: bytes) -> tuple[ReplayOutputFrame, ...]:
             candidate_context = f"{context}.candidates[{candidate_index}]"
             if not isinstance(raw_candidate, dict):
                 raise ParityAnalysisError(f"{candidate_context} must be an object")
-            _exact_keys(raw_candidate, CANDIDATE_KEYS, candidate_context)
+            candidate_keys = frozenset(raw_candidate)
+            if candidate_keys not in {
+                frozenset(CANDIDATE_KEYS),
+                frozenset(CANDIDATE_KEYS | OPTIONAL_CANDIDATE_KEYS),
+            }:
+                _exact_keys(raw_candidate, CANDIDATE_KEYS, candidate_context)
             candidate_type = _integer(raw_candidate["type"], f"{candidate_context}.type")
             size = _vector(raw_candidate["size"], 3, f"{candidate_context}.size")
             translation = _vector(
@@ -591,6 +610,19 @@ def parse_replay_jsonl(data: bytes) -> tuple[ReplayOutputFrame, ...]:
                 _vector(point, 3, f"{candidate_context}.hull[{point_index}]")
                 for point_index, point in enumerate(raw_hull)
             )
+            raw_contained_points = raw_candidate.get("contained_points", [])
+            if not isinstance(raw_contained_points, list):
+                raise ParityAnalysisError(
+                    f"{candidate_context}.contained_points must be an array"
+                )
+            contained_points = tuple(
+                _vector(
+                    point,
+                    3,
+                    f"{candidate_context}.contained_points[{point_index}]",
+                )
+                for point_index, point in enumerate(raw_contained_points)
+            )
             candidates.append(
                 Candidate(
                     type=candidate_type,
@@ -598,6 +630,7 @@ def parse_replay_jsonl(data: bytes) -> tuple[ReplayOutputFrame, ...]:
                     translation=translation,  # type: ignore[arg-type]
                     quaternion_xyzw=quaternion,  # type: ignore[arg-type]
                     hull=hull,  # type: ignore[arg-type]
+                    contained_points=contained_points,  # type: ignore[arg-type]
                 )
             )
 

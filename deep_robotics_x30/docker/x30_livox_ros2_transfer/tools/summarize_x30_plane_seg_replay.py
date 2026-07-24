@@ -31,6 +31,7 @@ CANDIDATE_KEYS = {
     "quaternion_xyzw",
     "hull",
 }
+OPTIONAL_CANDIDATE_KEYS = {"contained_points"}
 
 
 class SummaryError(ValueError):
@@ -95,7 +96,11 @@ def _validate_candidate(candidate: Any, line_number: int, index: int) -> bool:
     context = f"line {line_number} candidate {index}"
     if not isinstance(candidate, dict):
         raise SummaryError(f"{context} must be an object")
-    _require_exact_keys(candidate, CANDIDATE_KEYS, context)
+    if frozenset(candidate) not in {
+        frozenset(CANDIDATE_KEYS),
+        frozenset(CANDIDATE_KEYS | OPTIONAL_CANDIDATE_KEYS),
+    }:
+        _require_exact_keys(candidate, CANDIDATE_KEYS, context)
     _require_int(candidate["type"], f"{context}.type")
     _require_vector(candidate["size"], 3, f"{context}.size")
     _require_vector(candidate["translation"], 3, f"{context}.translation")
@@ -107,6 +112,13 @@ def _validate_candidate(candidate: Any, line_number: int, index: int) -> bool:
         raise SummaryError(f"{context}.hull must be an array")
     for point_index, point in enumerate(hull):
         _require_vector(point, 3, f"{context}.hull[{point_index}]")
+    contained_points = candidate.get("contained_points", [])
+    if not isinstance(contained_points, list):
+        raise SummaryError(f"{context}.contained_points must be an array")
+    for point_index, point in enumerate(contained_points):
+        _require_vector(
+            point, 3, f"{context}.contained_points[{point_index}]"
+        )
     return (
         float(candidate["size"][0]) <= DEGENERATE_SIZE_EPSILON
         or float(candidate["size"][1]) <= DEGENERATE_SIZE_EPSILON

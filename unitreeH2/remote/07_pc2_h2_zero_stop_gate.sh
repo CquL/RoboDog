@@ -50,7 +50,7 @@ chmod 0600 "$zero_capture"
 set +e
 h2_isolated timeout --foreground --signal=INT --kill-after=3s 25s \
   "$H2_BIN_DIR/robot_test_unitree_h2" \
-  "$H2_CONFIG" --zero-stop 2>&1 | tee "$zero_capture"
+  --config "$H2_CONFIG" --zero-stop --execute 2>&1 | tee "$zero_capture"
 zero_status=("${PIPESTATUS[@]}")
 set -e
 zero_rc="${zero_status[0]}"

@@ -7,12 +7,14 @@
 
 namespace {
 
-// Initial H2 live-test ceiling. YAML may lower these values but cannot raise
-// them without a reviewed code change and a new offline/live acceptance round.
-constexpr double kAbsoluteMaxVx = 0.20;
-constexpr double kAbsoluteMaxVy = 0.10;
-constexpr double kAbsoluteMaxOmega = 0.30;
-constexpr float kAbsoluteMaxVelocityDurationS = 0.30f;
+// Project-reviewed H2 safety envelope, not Unitree-published API limits.
+// Unitree's public H2 documentation and SDK2 headers currently publish no
+// numeric SetVelocity ranges. The 0.50 m/s forward value is both the official
+// example value and verified on the delivered H2 EDU.
+constexpr double kProjectMaxVx = 0.50;
+constexpr double kProjectMaxVy = 0.10;
+constexpr double kProjectMaxOmega = 0.30;
+constexpr float kProjectMaxVelocityDurationS = 0.30f;
 
 template <typename T>
 T readYaml(const YAML::Node &node, const std::string &key, const T &default_value)
@@ -104,12 +106,12 @@ int32_t UnitreeH2::initRobotHardware()
         !std::isfinite(sdk_timeout_s_) || sdk_timeout_s_ <= 0.0f ||
         !std::isfinite(velocity_command_duration_s_) ||
         velocity_command_duration_s_ <= 0.0f ||
-        velocity_command_duration_s_ > kAbsoluteMaxVelocityDurationS ||
+        velocity_command_duration_s_ > kProjectMaxVelocityDurationS ||
         !std::isfinite(max_vx_) ||
         max_vx_ <= 0.0 || !std::isfinite(max_vy_) || max_vy_ <= 0.0 ||
         !std::isfinite(max_omega_) || max_omega_ <= 0.0 ||
-        max_vx_ > kAbsoluteMaxVx || max_vy_ > kAbsoluteMaxVy ||
-        max_omega_ > kAbsoluteMaxOmega ||
+        max_vx_ > kProjectMaxVx || max_vy_ > kProjectMaxVy ||
+        max_omega_ > kProjectMaxOmega ||
         velocity_watchdog_hz_ <= 0 ||
         velocity_command_timeout_ms_ <= 0 || velocity_zero_hold_ms_ < 0 ||
         required_motion_fsm_id_ <= 0 ||

@@ -13,14 +13,15 @@ POD GridMap geometry/layer views, or
 Current output:
 
 ```text
-core rectangle candidates only
+core rectangle candidates
+opt-in computeStairPose + correctQuadPose geometry prefix
 ```
 
 The package intentionally does **not** contain:
 
 ```text
 ROS publishers
-X30 stair-specific quadrangle post-processing
+the complete X30 stair-specific quadrangle post-processing chain
 TCP or UDP sockets
 192.168.1.103:49999 transmission
 robot gait or velocity commands
@@ -103,3 +104,20 @@ therefore does not claim vertical-plane output.
 Before this output can become `/x30/terrain/quadrangels`, the recorded factory
 post-processing sequence and all measured-step regression frames must match.
 Network transmission stays out of this package even after parity is reached.
+
+`quadrangle_postprocessing.hpp` now contains the first evidence-backed factory
+post-processing prefix:
+
+```text
+candidate top faces
+  -> computeStairPose least-squares fit
+  -> edge-direction consensus
+  -> correctQuadPose reconstruction from contained plane points
+```
+
+The recovered constants are explicit: eligible rectangles require a long edge
+greater than `0.8 m` and a short edge greater than `0.1 m`; pose correction
+requires at least four quadrangles and filters direction consensus with
+`cos(20 deg)`. This stage is still not the factory final output. The later
+`cutByX`, same-stair merge, unnecessary-quad filtering, intrusion/reference,
+and temporal error-repair stages remain required.
