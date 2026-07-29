@@ -43,3 +43,29 @@ services:
         --interface "$${H2_DDS_INTERFACE}"
         --domain "$${H2_DDS_DOMAIN}"
         --seconds 15
+
+  h2-imu-bridge:
+    image: unitree_h2:amd64-runtime-candidate
+    container_name: unitree-h2-imu-bridge
+    profiles: ["imu"]
+    network_mode: host
+    init: true
+    privileged: false
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    environment:
+      H2_DDS_INTERFACE: ${H2_DDS_INTERFACE:-eth0}
+      H2_DDS_DOMAIN: ${H2_DDS_DOMAIN:-0}
+      ROS_DOMAIN_ID: ${H2_ROS_DOMAIN_ID:-20}
+      RMW_IMPLEMENTATION: rmw_fastrtps_cpp
+      ROS_LOG_DIR: ${H2_ROS_LOG_DIR:-/tmp/ros_logs}
+    command:
+      - /opt/robodog/bin/unitree_h2_sensor_bridge
+      - --ros-args
+      - --params-file
+      - /opt/robodog/share/unitree_h2_sensor_bridge/config/unitree_h2_imu_bridge.yaml

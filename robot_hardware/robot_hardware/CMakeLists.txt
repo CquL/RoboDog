@@ -154,15 +154,22 @@ if(NOT BUILD_X30_ONLY)
   add_test(NAME unitree_h2_velocity_rejects_missing_execute
     COMMAND robot_test_unitree_h2
       --config ${CMAKE_CURRENT_SOURCE_DIR}/config/unitree_h2_live.yaml
-      --velocity --vx 0.50 --vy 0 --omega 0 --duration-ms 1000)
+      --velocity --vx 1.00 --vy 0 --omega 0.70 --duration-ms 1000)
   set_tests_properties(unitree_h2_velocity_rejects_missing_execute
     PROPERTIES WILL_FAIL TRUE)
 
   add_test(NAME unitree_h2_velocity_rejects_above_project_envelope
     COMMAND robot_test_unitree_h2
       --config ${CMAKE_CURRENT_SOURCE_DIR}/config/unitree_h2_live.yaml
-      --velocity --vx 0.51 --vy 0 --omega 0 --duration-ms 1000 --execute)
+      --velocity --vx 1.01 --vy 0 --omega 0 --duration-ms 1000 --execute)
   set_tests_properties(unitree_h2_velocity_rejects_above_project_envelope
+    PROPERTIES WILL_FAIL TRUE)
+
+  add_test(NAME unitree_h2_omega_rejects_above_project_envelope
+    COMMAND robot_test_unitree_h2
+      --config ${CMAKE_CURRENT_SOURCE_DIR}/config/unitree_h2_live.yaml
+      --velocity --vx 0 --vy 0 --omega 0.71 --duration-ms 1000 --execute)
+  set_tests_properties(unitree_h2_omega_rejects_above_project_envelope
     PROPERTIES WILL_FAIL TRUE)
 
   install(TARGETS

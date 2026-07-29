@@ -1,6 +1,6 @@
 # Unitree H2 EDU 输入与桥接合同（阶段 1）
 
-更新时间：2026-07-16
+更新时间：2026-07-28
 
 ## 结论
 
@@ -15,6 +15,22 @@ H2 应新增独立的 `unitree_h2_sensor_bridge`，不要把
 
 本文件先固定接口合同。实际 ROS 2 包要等交付的 H2 EDU 硬件配置、相机接口和坐标系
 资料核对后实现，避免虚构不存在的雷达或话题。
+
+## 2026-07-28 IMU 桥实现增量
+
+首个 `unitree_h2_sensor_bridge` 已实现并编译进
+`unitree_h2:amd64-runtime-candidate`：
+
+- `rt/lowstate.imu_state` -> `/h2/imu/pelvis`
+  (`sensor_msgs/msg/Imu`, frame `h2_pelvis_imu`)；
+- `rt/secondary_imu` -> `/h2/imu/torso`
+  (`sensor_msgs/msg/Imu`, frame `h2_torso_imu`)；
+- 默认发布频率 200 Hz，100 ms 过期门禁；
+- ROS Domain 20 与原厂 H2 DDS Domain 0 分离；
+- 字段映射合同和离线 ROS 2 endpoint 验收通过。
+
+本增量还未完成新镜像的 H2 实机 ROS 2 样本验收，且坐标轴、IMU 外参和协方差仍需
+实机标定。因此当前状态是“桥接实现和离线镜像完成”，不是“导航融合验收完成”。
 
 ## 2026-07-16 PC2 实机发现增量
 

@@ -9,12 +9,16 @@ $repoRoot = (Resolve-Path (Join-Path $scriptDir "..\..")).Path
 $sdkDir = Join-Path $repoRoot "unitreeH2\vendor\unitree_sdk2"
 $halDir = Join-Path $repoRoot "robot_hardware\robot_hardware"
 $stateProbeDir = Join-Path $repoRoot "unitreeH2\remote\05_hg_state_probe"
+$sensorBridgeDir = Join-Path $repoRoot "unitreeH2\sensor_bridge"
 
 if (-not (Test-Path (Join-Path $sdkDir ".source.json"))) {
     throw "Missing pinned Unitree SDK2 snapshot: $sdkDir"
 }
 if (-not (Test-Path (Join-Path $stateProbeDir "h2_hg_state_read_only_probe.cpp"))) {
     throw "Missing H2 HG state probe source: $stateProbeDir"
+}
+if (-not (Test-Path (Join-Path $sensorBridgeDir "src\unitree_h2_sensor_bridge.cpp"))) {
+    throw "Missing H2 sensor bridge source: $sensorBridgeDir"
 }
 
 docker info --format '{{.ServerVersion}}' | Out-Null
@@ -30,6 +34,7 @@ docker buildx build `
     --build-context "sdk2=$sdkDir" `
     --build-context "robot_hardware=$halDir" `
     --build-context "h2_state_probe=$stateProbeDir" `
+    --build-context "h2_sensor_bridge=$sensorBridgeDir" `
     --file (Join-Path $scriptDir "Dockerfile.runtime") `
     --tag $Image `
     $scriptDir

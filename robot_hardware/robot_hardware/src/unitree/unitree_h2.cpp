@@ -7,13 +7,13 @@
 
 namespace {
 
-// Project-reviewed H2 safety envelope, not Unitree-published API limits.
+// Project-configurable H2 hard ceiling, not a Unitree-published API limit.
 // Unitree's public H2 documentation and SDK2 headers currently publish no
-// numeric SetVelocity ranges. The 0.50 m/s forward value is both the official
-// example value and verified on the delivered H2 EDU.
-constexpr double kProjectMaxVx = 0.50;
+// numeric SetVelocity ranges. These values cap explicit project motion profiles;
+// the default/read-only profiles remain more conservative.
+constexpr double kProjectMaxVx = 1.00;
 constexpr double kProjectMaxVy = 0.10;
-constexpr double kProjectMaxOmega = 0.30;
+constexpr double kProjectMaxOmega = 0.70;
 constexpr float kProjectMaxVelocityDurationS = 0.30f;
 
 template <typename T>

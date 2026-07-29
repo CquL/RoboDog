@@ -4,14 +4,15 @@ FROM ${BASE_IMAGE}
 ARG UNITREE_SDK2_COMMIT=21d0a3b2c46ee48c8fdf2783becb6be3beb0a59b
 
 LABEL org.opencontainers.image.title="Unitree H2 runtime candidate"
-LABEL org.opencontainers.image.description="H2 HAL plus native HG state/IMU subscriber; no lidar driver or navigation algorithm"
+LABEL org.opencontainers.image.description="H2 HAL plus native HG DDS to ROS 2 IMU bridge; no lidar driver or navigation algorithm"
 LABEL org.opencontainers.image.source="local RoboDog workspace"
 LABEL io.robodog.unitree_sdk2.commit="${UNITREE_SDK2_COMMIT}"
-LABEL io.robodog.h2.runtime.scope="hal-native-hg-state-candidate"
+LABEL io.robodog.h2.runtime.scope="hal-native-hg-state-ros2-imu-candidate"
 
 COPY --from=sdk2 . /opt/src/unitree_sdk2
 COPY --from=robot_hardware . /opt/src/robot_hardware
 COPY --from=h2_state_probe . /opt/src/h2_state_probe
+COPY --from=h2_sensor_bridge . /opt/src/h2_sensor_bridge
 COPY h2_entrypoint.sh /usr/local/bin/h2-entrypoint
 COPY config/unitree_h2_container_safe.yaml \
   /opt/robodog/config/unitree_h2_container_safe.yaml
@@ -47,14 +48,26 @@ RUN set -eux; \
     install -D -m 0755 \
       /tmp/h2_state_probe_build/h2_hg_state_read_only_probe \
       /opt/robodog/bin/h2_hg_state_read_only_probe; \
+    set +u; \
+    . /opt/ros/humble/setup.sh; \
+    set -u; \
+    cmake -S /opt/src/h2_sensor_bridge -B /tmp/h2_sensor_bridge_build \
+      -DCMAKE_BUILD_TYPE=Release \
+      '-DCMAKE_PREFIX_PATH=/opt/ros/humble;/opt/unitree_robotics' \
+      -DCMAKE_INSTALL_PREFIX=/opt/robodog; \
+    cmake --build /tmp/h2_sensor_bridge_build --parallel 2; \
+    ctest --test-dir /tmp/h2_sensor_bridge_build --output-on-failure; \
+    cmake --install /tmp/h2_sensor_bridge_build; \
     chmod 0755 /usr/local/bin/h2-entrypoint; \
     rm -rf /tmp/unitree_sdk2_build /tmp/robot_hardware_build \
-      /tmp/h2_state_probe_build /opt/src
+      /tmp/h2_state_probe_build /tmp/h2_sensor_bridge_build /opt/src
 
-ENV CMAKE_PREFIX_PATH=/opt/unitree_robotics:/opt/robodog
+ENV CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/unitree_robotics:/opt/robodog
 ENV LD_LIBRARY_PATH=/opt/robodog/lib:/opt/unitree_robotics/lib
 ENV H2_DDS_INTERFACE=eth0
 ENV H2_DDS_DOMAIN=0
+ENV ROS_DOMAIN_ID=20
+ENV RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 ENV H2_CONFIG=/opt/robodog/config/unitree_h2_container_safe.yaml
 
 WORKDIR /opt/robodog

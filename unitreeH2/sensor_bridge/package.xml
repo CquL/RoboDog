@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>unitree_h2_sensor_bridge</name>
+  <version>0.1.0</version>
+  <description>
+    Subscribe to Unitree H2 native HG DDS IMU channels and publish project ROS 2 sensor_msgs/Imu topics.
+  </description>
+  <maintainer email="robotics@example.com">RoboDog Robotics</maintainer>
+  <license>Proprietary</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

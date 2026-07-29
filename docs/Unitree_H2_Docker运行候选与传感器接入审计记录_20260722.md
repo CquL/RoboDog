@@ -70,7 +70,8 @@ rt/lf/*           about 20.158 Hz
 
 这些数据有 quaternion、gyro、acceleration、RPY 和温度；`LowState` CRC 通过。因此
 H2 本体 IMU 不缺硬件驱动，容器侧需要的是 SDK2/HG DDS 订阅器。本轮已把同一只读探针
-编入新镜像，但尚未完成 PC2 Docker 内实机订阅。
+编入新镜像。2026-07-28 已在 PC2 Docker 内完成 15 秒实机订阅，结果见
+`docs/Unitree_H2_Docker实机DDS只读验收记录_20260728.md`。
 
 PC2 的 `/dog_imu_raw` 虽约 500 Hz，但样本 gyro/acceleration 为零，只能作为旧主机
 候选话题，不能替代原生 HG IMU 合同。
@@ -136,7 +137,7 @@ H2_RUNTIME_IMAGE_BUILD_OK
 传输包：
 
 ```text
-unitreeH2/runtime_bundle/unitree_h2_amd64_runtime_candidate_20260722.tar.gz
+unitreeH2/runtime_bundle/unitree_h2_amd64_runtime_candidate.tar.gz
 size: 1,233,391,298 bytes
 SHA256: defc9b86f6b65b2752326e1a51a7ad301d722e7790378845528f4d575f968f3a
 ```

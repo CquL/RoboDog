@@ -1,14 +1,14 @@
 # H2 EDU HAL-only Docker 方案
 
-## 2026-07-22 runtime candidate 增量
+## 当前 runtime candidate
 
 保留历史 `unitree_h2:amd64-offline` 不变，新增：
 
 ```text
 unitree_h2:amd64-runtime-candidate
-image id: sha256:91649a9c5e4cde9bd4cfada646dee5bc99e10e26e76f08d8f1c999de40ee51d1
+image id: sha256:f7cd06b3d28d90b68cffda3754050203a1cc438207ebf575cc090ad40b6e7d3c
 architecture: amd64
-uncompressed size: 3,534,141,236 bytes
+uncompressed size: 3,534,893,846 bytes
 ```
 
 该候选镜像使用 `Dockerfile.runtime`，包含：
@@ -17,11 +17,14 @@ uncompressed size: 3,534,141,236 bytes
 - 固定 SDK2 commit `21d0a3b2c46ee48c8fdf2783becb6be3beb0a59b`；
 - 原生 HG 只读订阅器 `h2_hg_state_read_only_probe`，可订阅 `rt/lowstate`、
   `rt/secondary_imu`、低频状态、BMS 和 MainBoard；
+- ROS 2 Humble `unitree_h2_sensor_bridge`，直接把原厂 DDS 的 pelvis/body IMU
+  转成 `/h2/imu/pelvis` 和 `/h2/imu/torso` 两个 `sensor_msgs/msg/Imu`；
 - 容器专用 locked/motion 两份配置；
 - Ubuntu 22.04 用户空间和 ROS 2 Humble 环境。
 
-它仍然不包含雷达驱动、相机驱动、导航算法、ROS 2 传感器桥或正式
-`h2_runtime`。HG 订阅器是一次性验收探针，不是生产型缓存/健康状态源。
+它仍然不包含雷达驱动、相机驱动、导航算法、JointState/RobotStatus 桥或正式
+`h2_runtime`。HG 订阅器是一次性验收探针；IMU 桥是首个可持续运行的生产候选节点，
+但坐标轴、外参、协方差和实机话题频率仍需逐台验收。
 
 本机构建：
 
@@ -40,15 +43,15 @@ powershell -ExecutionPolicy Bypass -File `
 已生成传输包：
 
 ```text
-unitreeH2/runtime_bundle/unitree_h2_amd64_runtime_candidate_20260722.tar.gz
-SHA256 defc9b86f6b65b2752326e1a51a7ad301d722e7790378845528f4d575f968f3a
+unitreeH2/runtime_bundle/unitree_h2_amd64_runtime_candidate.tar.gz
+SHA256 ba8025b3250d01544a41272dc50b8b71803d86f582856915ee6f8d7009a1f5a5
 ```
 
 PC2 安装并授权 Docker 后，先只做加载和状态订阅，不做运动：
 
 ```bash
-sha256sum --check unitree_h2_amd64_runtime_candidate_20260722.tar.gz.sha256
-gzip -dc unitree_h2_amd64_runtime_candidate_20260722.tar.gz | docker load
+sha256sum --check unitree_h2_amd64_runtime_candidate.tar.gz.sha256
+gzip -dc unitree_h2_amd64_runtime_candidate.tar.gz | docker load
 
 docker run --rm \
   --network host \
@@ -65,15 +68,24 @@ docker run --rm \
 离线构建完成，不能称为 Docker 已收到 H2 数据。控制侧虽然已经装入同一 HAL，但
 仍应在传感器只读验收之后分开验证。
 
+2026-07-28，H2 PC2 已用 Docker Engine `24.0.7` 完成上述 15 秒实机只读验收：
+`rt/lowstate` 收到 `15708` 个样本（`1047.659 Hz`，CRC 失败为 `0`），
+`rt/secondary_imu` 收到 `15710` 个样本（`1047.619 Hz`），四个低频状态源均约
+`20.146 Hz`，最终标记为 `H2_HG_SUBSCRIBE_ONLY_PROBE_OK`，进程返回码为 `0`。
+该结果证明旧候选镜像内原生 DDS 状态接收。2026-07-28 新候选镜像又完成了
+`unitree_h2_sensor_bridge` 编译、字段映射合同测试和离线 ROS 2 端点测试；
+导航闭环和新镜像 H2 实机 IMU 话题采样仍未验收。
+
 ## 当前状态
 
-当前 `unitree_h2:amd64-offline` 是 **SDK2 + `robot_hardware` 的 HAL-only
-离线构建/验证镜像**，不是最终的 H2 运行镜像。它目前不包含：
+历史 `unitree_h2:amd64-offline` 仍是 **SDK2 + `robot_hardware` 的 HAL-only
+离线构建/验证镜像**。当前 `unitree_h2:amd64-runtime-candidate` 已增加双 IMU
+ROS 2 桥，但仍不是最终 H2 运行镜像。它目前不包含：
 
-- `unitree_h2_sensor_bridge` 或其他传感器接收程序；
 - 导航、规划或控制算法；
+- 雷达、相机、Odometry、TF、JointState 和 RobotStatus 的生产桥；
 - 将算法输出直接调用 `RobotHardwareInterface` 的 `h2_runtime` 主程序；
-- 自动启动上述组件的 entrypoint。
+- 一键启动全部感知、算法和控制组件的正式 entrypoint。
 
 镜像和 `compose.h2.yaml` 默认都只进入 Bash，并已清除从导航底座继承的
 `/ros_entrypoint.sh` 自动入口，不会在 HAL-only 检查时隐式 source ROS 2。离线构建、Factory 合同测试和动态库

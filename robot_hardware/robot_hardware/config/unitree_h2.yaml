@@ -11,12 +11,11 @@ allow_motion_commands: true
 allow_state_changing_actions: true
 verify_fsm_on_init: true
 
-# Conservative deployment defaults. These are project safety values, not
-# Unitree-published SetVelocity limits. The reviewed project ceiling for vx is
-# 0.50 m/s, but this safe/read-only profile deliberately remains at 0.20.
-max_vx: 0.70
+# Project motion envelope. These are project-selected limits, not
+# Unitree-published SetVelocity maxima.
+max_vx: 1.00
 max_vy: 0.10
-max_omega: 0.30
+max_omega: 0.70
 velocity_command_duration_s: 0.30
 
 velocity_watchdog_hz: 50

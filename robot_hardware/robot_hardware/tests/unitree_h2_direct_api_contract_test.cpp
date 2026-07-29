@@ -314,25 +314,36 @@ void testLiveMotionHardSafetyCeilings()
     Recorder::Reset();
     {
         YAML::Node accepted_velocity = makeConfig(true, false);
-        accepted_velocity["max_vx"] = 0.50;
+        accepted_velocity["max_vx"] = 1.00;
+        accepted_velocity["max_omega"] = 0.70;
         UnitreeH2 accepted_robot(accepted_velocity);
         require(accepted_robot.initRobotHardware() == CMD_SUCCESS,
-                "verified 0.50 m/s vx ceiling was rejected");
-        RobotVelocityCommand command{1.0, 0.0, 0.0};
+                "configured project velocity ceilings were rejected");
+        RobotVelocityCommand command{2.0, 0.0, 2.0};
         require(accepted_robot.writeRobotVelocityCommand(command) == CMD_SUCCESS,
-                "verified 0.50 m/s vx command failed");
-        require(near(Recorder::last_vx, 0.50f),
-                "verified vx ceiling was not applied to the SDK command");
+                "configured project velocity command failed");
+        require(near(Recorder::last_vx, 1.00f) &&
+                    near(Recorder::last_omega, 0.70f),
+                "project velocity ceilings were not applied to the SDK command");
     }
 
     Recorder::Reset();
     YAML::Node excessive_velocity = makeConfig(true, false);
-    excessive_velocity["max_vx"] = 0.51;
+    excessive_velocity["max_vx"] = 1.01;
     UnitreeH2 velocity_robot(excessive_velocity);
     require(velocity_robot.initRobotHardware() == ERROR_ROBOT_HARDWARE_INIT,
             "configuration above the absolute vx ceiling was accepted");
     require(Recorder::channel_init_calls == 0,
             "excessive vx configuration reached ChannelFactory");
+
+    Recorder::Reset();
+    YAML::Node excessive_omega = makeConfig(true, false);
+    excessive_omega["max_omega"] = 0.71;
+    UnitreeH2 omega_robot(excessive_omega);
+    require(omega_robot.initRobotHardware() == ERROR_ROBOT_HARDWARE_INIT,
+            "configuration above the absolute omega ceiling was accepted");
+    require(Recorder::channel_init_calls == 0,
+            "excessive omega configuration reached ChannelFactory");
 
     Recorder::Reset();
     YAML::Node excessive_duration = makeConfig(true, false);

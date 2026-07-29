@@ -1,0 +1,17 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  ifupdown aufs-tools btrfs-progs cgroupfs-mount | cgroup-lite debootstrap
+  docker-doc rinse zfs-fuse | zfsutils
+The following NEW packages will be installed:
+  bridge-utils containerd docker.io pigz runc ubuntu-fan
+0 upgraded, 6 newly installed, 0 to remove and 535 not upgraded.
+Need to get 75.2 MB of archives.
+After this operation, 283 MB of additional disk space will be used.
+'http://cn.archive.ubuntu.com/ubuntu/pool/universe/p/pigz/pigz_2.6-1_amd64.deb' pigz_2.6-1_amd64.deb 63592 MD5Sum:a19c0781fc3bbbe2c02d8645d544600f
+'http://cn.archive.ubuntu.com/ubuntu/pool/main/b/bridge-utils/bridge-utils_1.7-1ubuntu3_amd64.deb' bridge-utils_1.7-1ubuntu3_amd64.deb 34418 MD5Sum:5664f0f4bad1316181bcf8b795f91cae
+'http://cn.archive.ubuntu.com/ubuntu/pool/main/r/runc-app/runc_1.1.12-0ubuntu2%7e22.04.1_amd64.deb' runc_1.1.12-0ubuntu2~22.04.1_amd64.deb 8404626 MD5Sum:6557d59e0455a50eb57f3146484d078f
+'http://cn.archive.ubuntu.com/ubuntu/pool/main/c/containerd-app/containerd_1.7.12-0ubuntu2%7e22.04.1_amd64.deb' containerd_1.7.12-0ubuntu2~22.04.1_amd64.deb 37807448 MD5Sum:40d5953bd383aa022d5154a8a8a8aa3a
+'http://cn.archive.ubuntu.com/ubuntu/pool/universe/d/docker.io-app/docker.io_24.0.7-0ubuntu2%7e22.04.1_amd64.deb' docker.io_24.0.7-0ubuntu2~22.04.1_amd64.deb 28812542 MD5Sum:dff312505aac1d7bf8acafe136ddf044
+'http://cn.archive.ubuntu.com/ubuntu/pool/universe/u/ubuntu-fan/ubuntu-fan_0.12.16_all.deb' ubuntu-fan_0.12.16_all.deb 35154 MD5Sum:be73d8110adc1fc309fabd669500c77c

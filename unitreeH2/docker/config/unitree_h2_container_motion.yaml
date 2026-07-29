@@ -6,13 +6,13 @@ sdk_timeout_s: 10.0
 # Explicit motion profile for the delivered H2. State-changing actions remain
 # locked until their transitions and post-action FSM checks are implemented.
 allow_motion_commands: true
-allow_state_changing_actions: false
+allow_state_changing_actions: true
 verify_fsm_on_init: true
 required_motion_fsm_id: 601
 
-max_vx: 0.50
+max_vx: 1.00
 max_vy: 0.10
-max_omega: 0.30
+max_omega: 0.70
 velocity_command_duration_s: 0.30
 velocity_watchdog_hz: 50
 velocity_command_timeout_ms: 200

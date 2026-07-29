@@ -9,7 +9,7 @@ if ($inspect.Architecture -ne "amd64") {
     throw "Unexpected image architecture: $($inspect.Architecture)"
 }
 if ($inspect.Config.Labels.'io.robodog.h2.runtime.scope' -ne
-    'hal-native-hg-state-candidate') {
+    'hal-native-hg-state-ros2-imu-candidate') {
     throw "Unexpected H2 runtime scope label"
 }
 

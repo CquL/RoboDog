@@ -1,0 +1,12 @@
+unitree_h2_sensor_bridge:
+  ros__parameters:
+    dds_interface: eth0
+    dds_domain: 0
+    pelvis_dds_topic: rt/lowstate
+    torso_dds_topic: rt/secondary_imu
+    pelvis_ros_topic: /h2/imu/pelvis
+    torso_ros_topic: /h2/imu/torso
+    pelvis_frame_id: h2_pelvis_imu
+    torso_frame_id: h2_torso_imu
+    publish_rate_hz: 200.0
+    stale_timeout_ms: 100

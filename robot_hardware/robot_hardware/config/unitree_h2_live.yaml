@@ -12,11 +12,11 @@ allow_state_changing_actions: true
 verify_fsm_on_init: true
 required_motion_fsm_id: 601
 
-# Project-reviewed envelope. Unitree publishes no H2 SetVelocity numeric range.
-# vx=0.50 m/s is the official example value and passed the delivered-H2 test.
-max_vx: 0.50
+# Project-selected envelope. Unitree publishes no H2 SetVelocity numeric range.
+# Raising these limits does not by itself command the robot to move.
+max_vx: 1.00
 max_vy: 0.10
-max_omega: 0.30
+max_omega: 0.70
 velocity_command_duration_s: 0.30
 
 velocity_watchdog_hz: 50
