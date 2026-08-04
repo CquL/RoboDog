@@ -1,11 +1,19 @@
+# 用途：启动 HAL-only 镜像的受限检查 Shell。
+# 输入：本地 unitree_h2:amd64-offline 镜像和只读挂载的 H2 YAML。
+# 输出：名为 unitree-h2-hal 的容器；默认不启动桥接、算法或控制程序。
+# 安全边界：host 网络只用于 DDS 可达性，容器保持非特权、只读根文件系统、
+#           丢弃全部 Linux capabilities，并禁止获得新权限。
 services:
   h2-hal:
+    # HAL 离线镜像与稳定容器名，便于显式 inspect/exec。
     image: unitree_h2:amd64-offline
     container_name: unitree-h2-hal
+    # SDK2/CycloneDDS 需要直接访问 PC2 网卡，故使用 host 网络；这不等于授权运动。
     network_mode: host
     ipc: host
     init: true
     privileged: false
+    # 最小权限防护：无 capabilities、无提权、根文件系统只读。
     cap_drop:
       - ALL
     security_opt:
@@ -13,8 +21,8 @@ services:
     read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid,size=256m
+    # 宿主配置只读挂载，容器不能回写项目文件。
     volumes:
       - ../../robot_hardware/robot_hardware/config/unitree_h2.yaml:/etc/robodog/unitree_h2.yaml:ro
-    # HAL-only inspection shell. No sensor bridge, algorithm or H2 runtime is
-    # installed in the current image.
+    # 仅启动检查 Shell；当前 HAL-only 镜像没有传感器桥、算法或正式运行时。
     command: ["/bin/bash"]

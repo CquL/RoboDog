@@ -1,7 +1,16 @@
+# 用途：提供 H2 runtime 候选镜像的三种独立入口：检查 Shell、只读状态探针、
+#       DDS→ROS 2 IMU 桥。
+# 输入：本地 runtime-candidate 镜像，以及可选 H2_DDS_INTERFACE/H2_DDS_DOMAIN/
+#       H2_ROS_DOMAIN_ID/H2_ROS_LOG_DIR 环境变量。
+# 输出：按默认服务或 probe/imu profile 创建相应容器。
+# 安全边界：所有服务非特权、只读、无 capabilities；只有显式运行测试二进制
+#           并选择 motion 配置才可能进入运动路径，compose 本身不发运动指令。
 services:
+  # 默认服务：提供受限 Shell，且强制默认 H2_CONFIG 使用只读 safe 配置。
   h2-runtime:
     image: unitree_h2:amd64-runtime-candidate
     container_name: unitree-h2-runtime
+    # DDS 发现依赖目标机物理网卡，使用 host 网络避免 Docker NAT 隔离组播。
     network_mode: host
     init: true
     privileged: false
@@ -12,12 +21,14 @@ services:
     read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid,size=256m
+    # 网卡/域可由宿主覆盖；配置路径固定为镜像内 safe profile。
     environment:
       H2_DDS_INTERFACE: ${H2_DDS_INTERFACE:-eth0}
       H2_DDS_DOMAIN: ${H2_DDS_DOMAIN:-0}
       H2_CONFIG: /opt/robodog/config/unitree_h2_container_safe.yaml
     command: ["bash"]
 
+  # profile=probe：运行 15 秒 HG 状态只读探针，不创建 DDS 写通道。
   h2-state-probe:
     image: unitree_h2:amd64-runtime-candidate
     container_name: unitree-h2-state-probe
@@ -35,6 +46,7 @@ services:
     environment:
       H2_DDS_INTERFACE: ${H2_DDS_INTERFACE:-eth0}
       H2_DDS_DOMAIN: ${H2_DDS_DOMAIN:-0}
+    # 双美元符号让变量在容器内展开，而不是被 Compose 提前替换。
     command:
       - bash
       - -lc
@@ -44,6 +56,7 @@ services:
         --domain "$${H2_DDS_DOMAIN}"
         --seconds 15
 
+  # profile=imu：把原厂 HG DDS 的两路 IMU 映射为容器内 ROS 2 Imu 话题。
   h2-imu-bridge:
     image: unitree_h2:amd64-runtime-candidate
     container_name: unitree-h2-imu-bridge
@@ -56,14 +69,17 @@ services:
     security_opt:
       - no-new-privileges:true
     read_only: true
+    # ROS 日志写入临时内存；根文件系统继续保持只读。
     tmpfs:
       - /tmp:rw,noexec,nosuid,size=64m
+    # DDS 域负责读 H2 原厂数据，ROS_DOMAIN_ID 负责容器内 ROS 2 话题发现。
     environment:
       H2_DDS_INTERFACE: ${H2_DDS_INTERFACE:-eth0}
       H2_DDS_DOMAIN: ${H2_DDS_DOMAIN:-0}
       ROS_DOMAIN_ID: ${H2_ROS_DOMAIN_ID:-20}
       RMW_IMPLEMENTATION: rmw_fastrtps_cpp
       ROS_LOG_DIR: ${H2_ROS_LOG_DIR:-/tmp/ros_logs}
+    # 节点使用镜像内参数文件发布 /h2/imu/pelvis 与 /h2/imu/torso。
     command:
       - /opt/robodog/bin/unitree_h2_sensor_bridge
       - --ros-args

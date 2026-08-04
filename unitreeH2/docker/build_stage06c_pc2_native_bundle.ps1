@@ -1,3 +1,10 @@
+# Purpose: extract an audited PC2-native Stage 06C-06E bundle from a pinned
+# H2 HAL candidate image, then verify the portable archive offline.
+# Input: exact image ID, bundle name, output directory, and repository-owned
+# PC2 gate scripts under unitreeH2/remote.
+# Output: deterministic tar.gz, companion sha256 file, and host gate marker.
+# Safety: refuse a different image/architecture/entrypoint/RMW and existing
+# output; packaging and verification containers have no network or privileges.
 param(
     [string]$Image = "unitree_h2:amd64-live-test-candidate",
     [string]$ExpectedImageId = "sha256:9a7fd813d6cb509efebb8064bae47613a196a64c9490fdee26270f2b3fd12035",
@@ -7,6 +14,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# Resolve repository inputs and the output root independently of the caller CWD.
 $unitreeH2Root = Split-Path -Parent $PSScriptRoot
 $remoteDirectory = Join-Path $unitreeH2Root "remote"
 if (-not $OutputDirectory) {
@@ -16,6 +24,7 @@ New-Item -ItemType Directory -Force -Path $OutputDirectory | Out-Null
 $OutputDirectory = (Resolve-Path -LiteralPath $OutputDirectory).Path
 $remoteDirectory = (Resolve-Path -LiteralPath $remoteDirectory).Path
 
+# Every gate script and its offline schema test must exist before packaging.
 $requiredInputs = @(
     "h2_pc2_hal_gate_common.sh",
     "06_pc2_h2_getters_rpc_gate.sh",
@@ -31,6 +40,7 @@ foreach ($name in $requiredInputs) {
     }
 }
 
+# Pin the exact audited image identity and enforce the HAL-only metadata boundary.
 $inspect = (docker image inspect $Image | ConvertFrom-Json)[0]
 if (-not $inspect) {
     throw "Image not found: $Image"
@@ -52,6 +62,7 @@ if (-not $sdkCommit) {
     throw "Missing pinned SDK2 commit label"
 }
 
+# Never replace a prior release artifact or its recorded hash.
 $archiveName = "$BundleName.tar.gz"
 $archivePath = Join-Path $OutputDirectory $archiveName
 $archiveHashPath = "$archivePath.sha256"
@@ -60,11 +71,15 @@ if ((Test-Path -LiteralPath $archivePath) -or
     throw "Refusing to overwrite existing bundle artifact: $archivePath"
 }
 
+# Container packaging phase: copy only the runtime allowlist, preserve library
+# symlinks, normalize text inputs, record provenance, and create a deterministic
+# archive with a full per-file manifest.
 $packageScript = @'
 set -euo pipefail
 root="/work/$BUNDLE_NAME"
 mkdir -p "$root/bin" "$root/lib" "$root/config" "$root/scripts/tests" "$root/meta"
 
+# Install the explicitly approved test and contract binaries.
 for binary in \
   robot_test_unitree_h2 \
   robot_test_unitree_h2_live_motion \
@@ -74,6 +89,7 @@ for binary in \
   install -m 0755 "/opt/robodog/bin/$binary" "$root/bin/$binary"
 done
 
+# Copy HAL/vendor/SDK runtime libraries with their SONAME symlinks intact.
 install -m 0644 /opt/robodog/lib/librobot_hardware.so \
   "$root/lib/librobot_hardware.so"
 install -m 0644 /opt/robodog/lib/libmc_sdk_zsl_1_x86_64.so \
@@ -90,6 +106,7 @@ cp -a /lib/x86_64-linux-gnu/libyaml-cpp.so \
 install -m 0644 /opt/robodog/config/unitree_h2.yaml \
   "$root/config/unitree_h2.yaml"
 
+# Copy PC2 gates from the read-only input mount and remove Windows CR endings.
 for script in \
   h2_pc2_hal_gate_common.sh \
   06_pc2_h2_getters_rpc_gate.sh \
@@ -104,6 +121,7 @@ sed -i 's/\r$//' "$root/scripts/tests/test_h2_gate_schema_offline.sh"
 install -m 0644 /input/README_PC2_H2_HAL_BUNDLE.md "$root/README.md"
 sed -i 's/\r$//' "$root/README.md"
 
+# Record image and SDK provenance plus the intended stage/scope boundary.
 printf '%s\n' "$IMAGE_ID" >"$root/meta/image-id.txt"
 printf '%s\n' "$SDK_COMMIT" >"$root/meta/sdk2-commit.txt"
 {
@@ -117,6 +135,7 @@ printf '%s\n' "$SDK_COMMIT" >"$root/meta/sdk2-commit.txt"
   printf 'pc2_docker_required=false\n'
 } >"$root/meta/build-info.txt"
 
+# Hash every release file, record symlink targets, and parse-check all shell.
 (
   cd "$root"
   find . -type l -printf '%p -> %l\n' | sort >meta/symlinks.txt
@@ -125,6 +144,7 @@ printf '%s\n' "$SDK_COMMIT" >"$root/meta/sdk2-commit.txt"
   bash -n scripts/*.sh scripts/tests/*.sh
 )
 
+# Fixed order, timestamp, owner, and group make the archive reproducible.
 cd /work
 tar --sort=name --mtime='UTC 2026-07-16 00:00:00' \
   --owner=0 --group=0 --numeric-owner \
@@ -134,9 +154,11 @@ sha256sum "$BUNDLE_NAME.tar.gz" >"$BUNDLE_NAME.tar.gz.sha256"
 printf 'H2_PC2_NATIVE_BUNDLE_CREATED=%s\n' "$BUNDLE_NAME.tar.gz"
 '@
 
+# Base64 preserves the multiline Bash payload across PowerShell and Docker.
 $packageEncoded = [Convert]::ToBase64String(
     [Text.Encoding]::UTF8.GetBytes($packageScript)
 )
+# Packaging is offline and unprivileged; only /out is writable persistently.
 $packageArgs = @(
     "run", "--rm",
     "--network", "none",
@@ -152,6 +174,7 @@ $packageArgs = @(
     $Image,
     "-lc", ("echo {0} | base64 -d | bash" -f $packageEncoded)
 )
+# Preserve Docker's native exit code without changing the global error policy.
 $savedErrorActionPreference = $ErrorActionPreference
 $ErrorActionPreference = "Continue"
 & docker @packageArgs
@@ -161,12 +184,16 @@ if ($packageExitCode -ne 0) {
     throw "Native bundle packaging failed with exit code $packageExitCode"
 }
 
+# Independent verification phase: unpack the finished artifact into a fresh
+# read-only container, verify hashes/symlinks/dependencies/contracts, and prove
+# that live paths still require their explicit authorization gates.
 $verifyScript = @'
 set -euo pipefail
 mkdir -p /verify
 tar -xzf "/out/$BUNDLE_NAME.tar.gz" -C /verify
 release="/verify/$BUNDLE_NAME"
 cd "$release"
+# Verify all packaged files and provenance before executing any binary.
 sha256sum --check --strict meta/manifest.sha256
 grep -Fx "$IMAGE_ID" meta/image-id.txt
 grep -Fx "$SDK_COMMIT" meta/sdk2-commit.txt
@@ -178,6 +205,7 @@ test "$(readlink lib/libddscxx.so.0)" = libddscxx.so
 test "$(readlink lib/libyaml-cpp.so.0.7)" = libyaml-cpp.so.0.7.0
 export LD_LIBRARY_PATH="$release/lib"
 
+# All runtime dependencies must resolve from the portable release, with no ROS.
 for binary in robot_test_unitree_h2 robot_test_unitree_h2_live_motion; do
   ldd_output="$(ldd "$release/bin/$binary")"
   printf '%s\n' "$ldd_output"
@@ -193,6 +221,7 @@ for binary in robot_test_unitree_h2 robot_test_unitree_h2_live_motion; do
   ! grep -Eq 'lib(rcl|rmw|ros)' <<<"$ldd_output"
 done
 
+# Run offline contracts and print every supported axis plan without DDS access.
 "$release/bin/unitree_h2_factory_contract_test"
 "$release/bin/unitree_h2_direct_api_contract_test"
 "$release/bin/unitree_h2_live_motion_plan_test"
@@ -200,6 +229,7 @@ for axis in x-positive x-negative y-positive y-negative yaw-positive yaw-negativ
   "$release/bin/robot_test_unitree_h2_live_motion" \
     --print-plan --axis "$axis"
 done
+# Negative tests ensure unsafe/incomplete invocations cannot accidentally pass.
 if "$release/bin/robot_test_unitree_h2" --read-only --zero-stop; then
   exit 61
 fi
@@ -228,6 +258,7 @@ grep -F 'Missing one-time Stage 06E authorization token.' \
 printf 'H2_PC2_NATIVE_BUNDLE_OFFLINE_OK\n'
 '@
 
+# Encode and execute the verifier in a separate offline, read-only container.
 $verifyEncoded = [Convert]::ToBase64String(
     [Text.Encoding]::UTF8.GetBytes($verifyScript)
 )
@@ -255,6 +286,7 @@ if ($verifyExitCode -ne 0) {
     throw "Native bundle verification failed with exit code $verifyExitCode"
 }
 
+# Recheck the exported artifact on the Windows host before publishing results.
 if (-not (Test-Path -LiteralPath $archivePath -PathType Leaf) -or
     -not (Test-Path -LiteralPath $archiveHashPath -PathType Leaf)) {
     throw "Bundle output is incomplete"
@@ -265,6 +297,7 @@ if ($actualHash -ne $expectedHash) {
     throw "Archive hash mismatch: expected $expectedHash, got $actualHash"
 }
 
+# Print immutable release identity only after every host/container gate passes.
 $archive = Get-Item -LiteralPath $archivePath
 Write-Host "IMAGE_ID=$($inspect.Id)"
 Write-Host "SDK2_COMMIT=$sdkCommit"

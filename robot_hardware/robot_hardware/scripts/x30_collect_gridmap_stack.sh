@@ -1,15 +1,19 @@
 #!/usr/bin/env bash
 
-# Read-only inventory of the factory X30 terrain/gridmap data path.
-# This script does not publish ROS messages, send network packets, or stop processes.
+# 只读采集厂家 X30 地形/gridmap 数据链清单。
+# 本脚本不发布 ROS 消息、不发送网络数据包，也不停止进程。
 
 set -u
 
+# 将全部输出同步写入便携日志；
+# 本采集器中的命令均不会发布数据、打开端口 49999 或改变进程。
 timestamp="$(date +%Y%m%d_%H%M%S)"
 output_file="${1:-$HOME/x30_gridmap_stack_${timestamp}.log}"
 mkdir -p "$(dirname "$output_file")"
 exec > >(tee "$output_file") 2>&1
 
+# helper 用于在不同厂家软件版本间统一记录命令来源，
+# 并一致处理非致命的缺失项。
 section()
 {
     printf '\n===== %s =====\n' "$1"
@@ -49,6 +53,8 @@ printf 'ROS_MASTER_URI=%s\n' "${ROS_MASTER_URI-}"
 printf 'ROS_IP=%s\n' "${ROS_IP-}"
 printf 'ROS_HOSTNAME=%s\n' "${ROS_HOSTNAME-}"
 
+# 106 可检查自身 ROS graph，但通常无法观测由感知主机 105 持有的
+# 单播 gridmap 进程和 TCP 数据流。
 if ! ip -4 -o address show 2>/dev/null | grep -q '192\.168\.1\.105/'; then
     echo "WARNING: this host does not own 192.168.1.105."
     echo "The X30 105 launch starts gridmap_port; the 106 launch does not."
@@ -56,6 +62,7 @@ if ! ip -4 -o address show 2>/dev/null | grep -q '192\.168\.1\.105/'; then
 fi
 
 section "Candidate ROS nodes"
+# 按功能发现节点，不假定固定的厂家节点列表。
 nodes="$(rosnode list 2>/dev/null | grep -Ei 'grid.?map|height.?map|vmap|fast.?lio|localization|terrain|obstacle|udp_sender|udp_receiver|app_port|pcl_concatenate' || true)"
 if [[ -z "$nodes" ]]; then
     echo "No candidate terrain nodes found."
@@ -69,6 +76,8 @@ else
 fi
 
 section "Candidate ROS topics"
+# 通过 Topic 类型及 publisher/subscriber 边建立实时地形数据流证据，
+# 无需采样大型点云 payload。
 topics="$(rostopic list 2>/dev/null | grep -Ei 'grid.?map|height.?map|vmap|terrain|obstacle|lidar_points|imu/data' || true)"
 if [[ -z "$topics" ]]; then
     echo "No candidate terrain topics found."
@@ -98,6 +107,8 @@ if [[ -z "$gridmap_pids" ]]; then
     echo "Repeat the inventory on host 192.168.1.105 before concluding that the factory gridmap path is stopped."
 else
     for pid in $gridmap_pids; do
+        # 检查实时进程映像、环境、映射库、文件和 socket，
+        # 确保结论对应实际发送数据的可执行文件。
         section "gridmap_port pid=$pid"
         executable="$(readlink -f "/proc/$pid/exe" 2>/dev/null || true)"
         run readlink -f "/proc/$pid/exe"
@@ -138,15 +149,20 @@ else
 fi
 
 section "TCP port 49999 sockets"
+# 连接状态只能确认传输存在，不能确认地形 payload 语义。
 sudo ss -tnap 2>/dev/null | grep -E '49999|gridmap_port' || true
 
 section "Locate libgrid_map_transformer.so"
+# 在可能的部署根目录搜索私有 transformer 依赖，
+# 并限制每次大目录遍历的时长。
 for root in /home/ysc /usr/local /opt; do
     [[ -d "$root" ]] || continue
     timeout 20 find "$root" -type f -name 'libgrid_map_transformer.so*' -print 2>/dev/null || true
 done
 
 section "Factory launch/config references"
+# 静态 launch/config 引用用于补充实时进程证据，
+# 并暴露可能仅在启动时读取的参数。
 for root in /home/ysc/jy_cog /home/ysc/jy_exe; do
     [[ -d "$root" ]] || continue
     timeout 30 grep -R -n -E \

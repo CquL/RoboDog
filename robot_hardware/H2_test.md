@@ -240,8 +240,8 @@ RC=0
   --velocity \
   --vx 0 \
   --vy 0 \
-  --omega 0.15 \
-  --duration-ms 1000 \
+  --omega 0.35 \
+  --duration-ms 3000 \
   --execute
 
 echo "RC=$?"

@@ -1,3 +1,9 @@
+# Purpose: create the r9 diagnostic bundle by rebuilding H2 diagnostic/runtime
+# binaries in WSL over the audited r8 dependency carrier.
+# Input: exact r8 parent, pinned yaml-cpp package, current HAL/SDK2, PC2 scripts.
+# Output: deterministic r9 tar.gz, sha256 companion, and host success marker.
+# Safety: parent/package hashes are mandatory, existing output is protected,
+# offline contracts run before packaging, and the final archive is reverified.
 param(
     [string]$ParentBundle = "",
     [string]$YamlDevDeb = "",
@@ -6,6 +12,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# Convert an existing drive-qualified Windows path to a WSL mount path.
 function ConvertTo-WslPath([string]$Path) {
     $resolved = (Resolve-Path -LiteralPath $Path).Path
     if ($resolved -notmatch '^[A-Za-z]:\\') {
@@ -16,6 +23,7 @@ function ConvertTo-WslPath([string]$Path) {
     return "/mnt/$drive$tail"
 }
 
+# Resolve release identity and all local source/dependency roots.
 $bundleName = "unitree_h2_pc2_native_amd64_stage06c_to_06e_20260722_r9"
 $unitreeH2Root = Split-Path -Parent $PSScriptRoot
 $workspaceRoot = Split-Path -Parent $unitreeH2Root
@@ -43,6 +51,7 @@ $remoteDirectory = (Resolve-Path -LiteralPath $remoteDirectory).Path
 New-Item -ItemType Directory -Force -Path $OutputDirectory | Out-Null
 $OutputDirectory = (Resolve-Path -LiteralPath $OutputDirectory).Path
 
+# Pin the reusable r8 carrier and offline yaml-cpp package.
 $expectedParentHash = "ac51bd6544eaea8467cf9472aea74bc29dba1889671c50a20b26d1976284e0cd"
 $expectedYamlHash = "28bc70ebbca5a5464609cb881c996c34c9e830c0fafcda37ada1c6928f81802a"
 if ((Get-FileHash $ParentBundle -Algorithm SHA256).Hash.ToLowerInvariant() -ne
@@ -54,12 +63,16 @@ if ((Get-FileHash $YamlDevDeb -Algorithm SHA256).Hash.ToLowerInvariant() -ne
     throw "yaml-cpp development package hash mismatch"
 }
 
+# Refuse to overwrite any prior r9 release artifact.
 $archivePath = Join-Path $OutputDirectory "$bundleName.tar.gz"
 $archiveHashPath = "$archivePath.sha256"
 if ((Test-Path $archivePath) -or (Test-Path $archiveHashPath)) {
     throw "Refusing to overwrite existing r9 artifact: $archivePath"
 }
 
+# WSL phase: verify/extract r8, rebuild diagnostic binaries from current source,
+# update approved scripts/metadata, run offline checks, create a reproducible
+# archive, and verify the extracted r9 release.
 $bash = @'
 set -Eeuo pipefail
 
@@ -227,6 +240,7 @@ printf 'R9_BUNDLE_SHA256=%s\n' "$(awk '{print $1}' "$hash_file")"
 printf 'R9_H2_DIAGNOSTIC_REPACKAGE_OK\n'
 '@
 
+# Base64 keeps the multiline Bash payload unchanged across process boundaries.
 $encoded = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($bash))
 $args = @(
     "-d", "Ubuntu-22.04", "--", "bash", "-lc",
@@ -239,11 +253,13 @@ $args = @(
         (ConvertTo-WslPath $YamlDevDeb),
         (ConvertTo-WslPath $OutputDirectory))
 )
+# Any WSL build/package/verification error aborts release publication.
 & wsl.exe @args
 if ($LASTEXITCODE -ne 0) {
     throw "WSL r9 rebuild/verification failed with exit code $LASTEXITCODE"
 }
 
+# Verify the final archive against its companion hash from the Windows host.
 $actual = (Get-FileHash $archivePath -Algorithm SHA256).Hash.ToLowerInvariant()
 $expected = ((Get-Content $archiveHashPath -Raw).Trim() -split '\s+')[0]
 if ($actual -ne $expected) {

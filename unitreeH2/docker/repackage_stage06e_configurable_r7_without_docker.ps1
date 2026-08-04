@@ -1,3 +1,10 @@
+# Purpose: produce r7 by rebuilding the configurable H2 motion components in
+# WSL while reusing only the audited dependency/runtime carrier from r6.
+# Input: exact r6 parent, pinned yaml-cpp development package, current HAL/SDK2,
+# repository PC2 gates, and output settings.
+# Output: deterministic r7 tar.gz, sha256 companion, and host success marker.
+# Safety: pin both parent and package hashes, refuse overwrite, rebuild in a
+# temporary WSL tree, run offline contracts, and verify the final manifest/ELF.
 param(
     [string]$ParentBundle = "",
     [string]$YamlDevDeb = "",
@@ -7,6 +14,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# Convert an existing drive-qualified Windows path to a WSL mount path.
 function ConvertTo-WslPath([string]$Path) {
     $resolved = (Resolve-Path -LiteralPath $Path).Path
     if ($resolved -notmatch '^[A-Za-z]:\\') {
@@ -17,6 +25,7 @@ function ConvertTo-WslPath([string]$Path) {
     return "/mnt/$drive$tail"
 }
 
+# Resolve the source, dependency, remote gate, and output roots.
 $unitreeH2Root = Split-Path -Parent $PSScriptRoot
 $workspaceRoot = Split-Path -Parent $unitreeH2Root
 $robotHardwareSource = Join-Path $workspaceRoot "robot_hardware\robot_hardware"
@@ -43,6 +52,7 @@ $remoteDirectory = (Resolve-Path -LiteralPath $remoteDirectory).Path
 New-Item -ItemType Directory -Force -Path $OutputDirectory | Out-Null
 $OutputDirectory = (Resolve-Path -LiteralPath $OutputDirectory).Path
 
+# Thin rebuild inputs must all be present before any WSL work begins.
 $requiredInputs = @(
     (Join-Path $robotHardwareSource "robot_test_unitree_h2_live_motion.cpp"),
     (Join-Path $robotHardwareSource "tests\unitree_h2_live_motion_plan_test.cpp"),
@@ -59,6 +69,7 @@ foreach ($path in $requiredInputs) {
     }
 }
 
+# Cryptographically pin the audited parent and offline yaml-cpp build package.
 $expectedParentHash = "0200c41efcd8840103ee3f97b50fc1a759f12c20db42061fe5883186a7cadb64"
 $actualParentHash = (Get-FileHash -LiteralPath $ParentBundle -Algorithm SHA256).Hash.ToLowerInvariant()
 if ($actualParentHash -ne $expectedParentHash) {
@@ -70,6 +81,7 @@ if ($actualYamlDebHash -ne $expectedYamlDebHash) {
     throw "yaml-cpp development package hash mismatch: expected $expectedYamlDebHash, got $actualYamlDebHash"
 }
 
+# Release artifacts are immutable; refuse pre-existing archive/hash paths.
 $archivePath = Join-Path $OutputDirectory "$BundleName.tar.gz"
 $archiveHashPath = "$archivePath.sha256"
 if ((Test-Path -LiteralPath $archivePath) -or
@@ -77,6 +89,9 @@ if ((Test-Path -LiteralPath $archivePath) -or
     throw "Refusing to overwrite existing r7 artifact: $archivePath"
 }
 
+# WSL phase: validate/extract r6, stage an isolated sysroot, rebuild only the
+# configurable HAL/test path, apply approved gates, run contracts, package with
+# deterministic metadata, then unpack and verify the result again.
 $bash = @'
 set -Eeuo pipefail
 
@@ -310,6 +325,7 @@ printf 'R7_BUNDLE_SHA256=%s\n' "$(awk '{print $1}' "$archive_hash")"
 printf 'R7_CONFIGURABLE_PROFILE_REPACKAGE_OK\n'
 '@
 
+# Base64 preserves the multiline Bash payload across PowerShell and WSL.
 $encoded = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($bash))
 $args = @(
     "-lc",
@@ -323,11 +339,13 @@ $args = @(
         (ConvertTo-WslPath $OutputDirectory),
         $BundleName)
 )
+# Any WSL build, test, package, or verification failure aborts publication.
 & bash @args
 if ($LASTEXITCODE -ne 0) {
     throw "WSL r7 thin rebuild/verification failed with exit code $LASTEXITCODE"
 }
 
+# Independently verify the output hash on Windows.
 $hash = (Get-FileHash -LiteralPath $archivePath -Algorithm SHA256).Hash.ToLowerInvariant()
 $expected = ((Get-Content -LiteralPath $archiveHashPath -Raw).Trim() -split '\s+')[0]
 if ($hash -ne $expected) {

@@ -1,3 +1,5 @@
+// 旧版 Stage 06E 单轴实机探测计划的纯离线测试。
+// 只验证数值包络、轴映射和时间顺序，不包含 SDK2，也不会发送机器人命令。
 #include "unitree/unitree_h2_live_motion_plan.h"
 
 #include <cmath>
@@ -9,6 +11,7 @@ namespace {
 
 void require(bool condition, const std::string &message)
 {
+    // 用异常集中报告首个违反运动计划契约的条件。
     if (!condition) {
         throw std::runtime_error(message);
     }
@@ -21,12 +24,14 @@ int main()
     using namespace unitree_h2_live_motion;
 
     try {
+        // 默认速度/时长是已记录的历史探测契约，改变时必须同步评审实机门禁。
         require(std::abs(kDefaultLinearSpeed - 0.10) < 1e-12,
                 "r9 default linear speed must be 0.10 m/s");
         require(kDefaultStreamMilliseconds == 1000,
                 "r9 default stream must remain one second");
 
         for (const char *axis : axisNames()) {
+            // 六种计划都必须存在、名称一致且只包含一个非零轴。
             const auto plan = planForAxis(axis);
             require(plan.has_value(), std::string("missing plan for ") + axis);
             require(plan->axis == axis,
@@ -58,6 +63,8 @@ int main()
                     -kDefaultYawSpeed,
                 "yaw-axis vector mapping changed");
 
+        // 核对默认计划的发送频率、RPC 次数、看门狗和厂商持续时间，保证脚本
+        // 记录可以从计划字段确定性复现。
         const auto default_plan = planForAxis("x-positive");
         require(default_plan.has_value(), "default r9 plan rejected");
         require(default_plan->command.vx == 0.10 &&
@@ -78,6 +85,7 @@ int main()
                             default_plan->vendor_duration_s * 1000.0f),
                 "bounded stream timing order invalid");
 
+        // 合法的较短探测仍必须按 50 ms 周期整除并得到准确 RPC 次数。
         const auto shortest_plan =
             planForAxis("x-positive", 0.10, 0.08, 250);
         require(shortest_plan.has_value() &&
@@ -90,6 +98,8 @@ int main()
                     half_second_plan->expected_rpc_count == 10,
                 "half-second diagnostic profile changed");
 
+        // 以下均为拒绝路径：超速、过长/过短、精度不合规、未标定方向词和
+        // 多轴组合都不得生成可执行计划。
         require(!planForAxis("x-positive", 0.90, 0.08, 1000).has_value(),
                 "0.90 m/s must remain rejected in Stage 06E");
         require(!planForAxis("x-positive", kMaxLinearSpeed + 0.001,
@@ -137,6 +147,7 @@ int main()
                     kMaxSendGapMilliseconds <
                         kWatchdogTimeoutMilliseconds,
                 "stream refresh/watchdog order changed");
+        // 时间关系要求：正常刷新 < 最大允许间隔 < 本地看门狗 < 厂商命令到期。
         require(kWatchdogTimeoutMilliseconds <
                     static_cast<int>(kVendorCommandDurationS * 1000.0f),
                 "watchdog must precede vendor command expiry");

@@ -1,14 +1,18 @@
 from pathlib import Path
 
 
+# 这些源码级检查保护证据采集器的两项契约：
+# 收集足够的厂家文件供离线分析，并始终保持只读。
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "x30_collect_plane_seg_bundle.sh"
 
 
+# 按打包后的实际形式读取部署脚本。
 def script_text() -> str:
     return SCRIPT.read_text(encoding="utf-8")
 
 
+# 搜索禁用的活动命令前，先移除注释和空行。
 def active_lines() -> list[str]:
     return [
         line.strip()
@@ -17,6 +21,8 @@ def active_lines() -> list[str]:
     ]
 
 
+# 确保归档包含运行节点、ROS 契约、可执行文件、链接库、
+# 符号、字符串和相关配置证据。
 def test_plane_seg_collector_captures_required_factory_evidence():
     source = script_text()
 
@@ -35,6 +41,7 @@ def test_plane_seg_collector_captures_required_factory_evidence():
     assert 'sha256sum "$archive_path"' in source
 
 
+# 即使未来扩大采集范围，也禁止控制、停止进程和发送地形数据的命令。
 def test_plane_seg_collector_has_no_active_control_or_process_stop_command():
     source = "\n".join(active_lines())
     forbidden = (

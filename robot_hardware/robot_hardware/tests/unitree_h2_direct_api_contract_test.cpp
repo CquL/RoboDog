@@ -1,3 +1,8 @@
+// UnitreeH2 HAL 的离线直接 API 契约测试。
+//
+// CMake 会让本文件和 unitree_h2.cpp 优先包含 tests/fakes 下的假 SDK2，
+// 因此测试不会创建真实 DDS 通道，也不会向实机发送命令。Recorder 用于断言
+// 抽象接口的输入被正确映射到 LocoClient，并覆盖错误、异常和看门狗路径。
 #include "unitree/unitree_h2.h"
 
 #include <chrono>
@@ -12,6 +17,7 @@ namespace {
 
 using Recorder = unitree::robot::test::H2LocoRecorder;
 
+// 轻量断言：失败时抛出带场景说明的异常，由 main 统一输出测试结果。
 void require(bool condition, const std::string &message)
 {
     if (!condition) {
@@ -21,12 +27,14 @@ void require(bool condition, const std::string &message)
 
 bool near(float lhs, float rhs)
 {
+    // SDK2 速度参数为 float，比较时使用固定容差而非直接比较计算结果。
     return std::abs(lhs - rhs) < 1e-6f;
 }
 
 template <typename Predicate>
 bool waitUntil(Predicate predicate, std::chrono::milliseconds timeout)
 {
+    // 等待后台看门狗产生可观察的 Recorder 变化；2 ms 轮询只用于离线测试。
     const auto deadline = std::chrono::steady_clock::now() + timeout;
     while (std::chrono::steady_clock::now() < deadline) {
         if (predicate()) {
@@ -39,6 +47,8 @@ bool waitUntil(Predicate predicate, std::chrono::milliseconds timeout)
 
 YAML::Node makeConfig(bool allow_motion = false, bool allow_actions = false)
 {
+    // 生成确定性的假网卡/Domain/超时配置。两个参数分别控制非零速度和状态动作
+    // 门禁；默认保持只读/停止可用的安全状态。
     YAML::Node config;
     config["robot_model"] = "unitree_h2";
     config["network_interface_card_name"] = "fake-h2-nic";
@@ -60,6 +70,8 @@ YAML::Node makeConfig(bool allow_motion = false, bool allow_actions = false)
 
 void testInitializationAndSafetyGates()
 {
+    // 验证初始化参数透传、重复初始化幂等，以及默认配置拒绝所有非零速度和
+    // 状态动作，同时仍允许零速度与 StopMove。
     Recorder::Reset();
     UnitreeH2 robot(makeConfig());
     require(robot.initRobotHardware() == CMD_SUCCESS, "H2 init failed");
@@ -83,6 +95,7 @@ void testInitializationAndSafetyGates()
             "rejected non-zero velocity reached SDK");
 
     RobotVelocityCommand tiny_nonzero{1e-12, 0.0, 0.0};
+    // 任意非零值都应触发门禁，不能用 epsilon 把微小运动当成零速度。
     require(robot.writeRobotVelocityCommand(tiny_nonzero) ==
                 ERROR_ROBOT_HARDWARE_SAFETY_INTERLOCK,
             "tiny non-zero velocity bypassed the motion interlock");
@@ -113,6 +126,8 @@ void testInitializationAndSafetyGates()
 
 void testVelocityAndActionMapping()
 {
+    // 打开测试许可后，验证速度逐轴限幅及所有受支持动作到 SDK2 RPC 的唯一映射。
+    // 每个状态动作还必须先成功调用 StopMove。
     Recorder::Reset();
     UnitreeH2 robot(makeConfig(true, true));
     require(robot.initRobotHardware() == CMD_SUCCESS, "enabled H2 init failed");
@@ -146,6 +161,7 @@ void testVelocityAndActionMapping()
     require(robot.writeActionCommand(ACTION_LIE_DOWN) ==
                 ERROR_ROBOT_HARDWARE_NOT_SUPPORTED,
             "lie_down must remain unsupported for H2");
+    // H2 的 lie_down 不得猜测映射为 Damp；未知动作也不得接触 SDK。
     require(Recorder::damp_calls == 1,
             "lie_down was incorrectly mapped to Damp");
     require(Recorder::stop_move_calls == 5,
@@ -159,6 +175,8 @@ void testVelocityAndActionMapping()
 
 void testSdkFailuresAndWatchdog()
 {
+    // 将假 SDK 配置为返回非零码或抛异常，确认 HAL 始终把它们转换为 int32
+    // 项目错误码，并在“命令可能已投递”的路径立即 StopMove/保留看门狗重试。
     Recorder::Reset();
     UnitreeH2 robot(makeConfig(true, true));
     require(robot.initRobotHardware() == CMD_SUCCESS, "failure-path H2 init failed");
@@ -173,6 +191,8 @@ void testSdkFailuresAndWatchdog()
 
     Recorder::set_velocity_result = 0;
     Recorder::throw_on_set_velocity = true;
+    // fake 在记录 SetVelocity 后才抛异常，模拟机器人可能已经收包、但客户端
+    // 未收到成功响应的安全关键不确定投递场景。
     const int stops_before_exception = Recorder::stop_move_attempts;
     require(robot.writeRobotVelocityCommand(command) == ERROR_ROBOT_HARDWARE_MOVE,
             "SDK velocity exception escaped the int32 contract");
@@ -209,6 +229,8 @@ void testSdkFailuresAndWatchdog()
     Recorder::throw_on_stop_move = true;
     require(robot.writeRobotVelocityCommand(command) == CMD_SUCCESS,
             "watchdog setup velocity failed");
+    // 首次 StopMove 抛异常时 active 状态不能清除；解除故障后看门狗必须继续
+    // 重试并最终记录一次成功停止。
     require(waitUntil(
                 [&]() { return Recorder::stop_move_attempts > attempts_before_watchdog; },
                 std::chrono::milliseconds(500)),
@@ -222,6 +244,8 @@ void testSdkFailuresAndWatchdog()
 
 void testReadinessAndInitializationFailures()
 {
+    // 覆盖连接就绪读取、ChannelFactory/LocoClient 初始化，以及三个只读 getter
+    // 的厂商错误码/异常归一化。所有失败都不得穿透抽象接口异常边界。
     Recorder::Reset();
     Recorder::get_fsm_result = -99;
     UnitreeH2 robot(makeConfig());
@@ -250,6 +274,8 @@ void testReadinessAndInitializationFailures()
     Recorder::Reset();
     YAML::Node no_readiness_config = makeConfig();
     no_readiness_config["verify_fsm_on_init"] = false;
+    // 关闭初始化 FSM 读取仅允许在 motion=false 时使用；对象初始化后仍可显式
+    // 调用 getter 获取状态。
     UnitreeH2 read_robot(no_readiness_config);
     require(read_robot.initRobotHardware() == CMD_SUCCESS,
             "H2 init without readiness probe failed");
@@ -287,6 +313,8 @@ void testReadinessAndInitializationFailures()
 
 void testInvalidConfigurationAndDestructorBoundary()
 {
+    // 非有限配置必须在 ChannelFactory 前被拒绝；析构阶段 StopMove 抛异常也不能
+    // 从 noexcept 的资源清理边界逃逸。
     Recorder::Reset();
     YAML::Node invalid_config = makeConfig();
     invalid_config["max_vx"] = std::numeric_limits<double>::quiet_NaN();
@@ -311,6 +339,8 @@ void testInvalidConfigurationAndDestructorBoundary()
 
 void testLiveMotionHardSafetyCeilings()
 {
+    // 验证当前项目硬上限 1.00/0.10/0.70 和 0.30 s：等于上限可配置，超过任一
+    // 项即在 SDK 初始化前失败。这里不把这些数值声明为宇树官方额定上限。
     Recorder::Reset();
     {
         YAML::Node accepted_velocity = makeConfig(true, false);
@@ -355,6 +385,7 @@ void testLiveMotionHardSafetyCeilings()
     Recorder::Reset();
     YAML::Node no_fsm_gate = makeConfig(true, false);
     no_fsm_gate["verify_fsm_on_init"] = false;
+    // 非零运动许可与初始化 FSM 门禁必须绑定，配置不能只开前者。
     UnitreeH2 no_fsm_robot(no_fsm_gate);
     require(no_fsm_robot.initRobotHardware() == ERROR_ROBOT_HARDWARE_INIT,
             "motion was enabled while the FSM readiness gate was disabled");
@@ -373,6 +404,8 @@ void testLiveMotionHardSafetyCeilings()
     require(changed_fsm_robot.initRobotHardware() == CMD_SUCCESS,
             "changed-FSM setup failed");
     Recorder::fsm_id = 1;
+    // 即使初始化时为 601，运行中状态改变后下一条非零速度仍必须被逐命令门禁
+    // 拒绝，并主动请求 StopMove。
     RobotVelocityCommand nonzero{0.05, 0.0, 0.0};
     const int stops_before_rejection = Recorder::stop_move_attempts;
     require(changed_fsm_robot.writeRobotVelocityCommand(nonzero) ==
@@ -389,6 +422,8 @@ void testLiveMotionHardSafetyCeilings()
 int main()
 {
     try {
+        // 按初始化/正常映射/故障/就绪/配置/硬上限分组执行，任何 require 失败
+        // 都终止并给 CTest 返回非零。
         testInitializationAndSafetyGates();
         testVelocityAndActionMapping();
         testSdkFailuresAndWatchdog();

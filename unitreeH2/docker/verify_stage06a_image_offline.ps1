@@ -1,3 +1,9 @@
+# Purpose: verify H2 HAL-only image architecture, entrypoint, dependencies, and
+# offline contracts from the host.
+# Input: image tag and optional exact ExpectedImageId.
+# Output: image identity and H2_STAGE06A_HOST_GATE_OK.
+# Safety: run offline, read-only, and without capabilities; reject ROS/RMW
+# coupling and inherited entrypoints. No live robot is contacted.
 param(
     [string]$Image = "unitree_h2:amd64-offline",
     [string]$ExpectedImageId = ""
@@ -5,6 +11,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# Verify image identity, amd64 architecture, and HAL-only metadata first.
 $inspect = (docker image inspect $Image | ConvertFrom-Json)[0]
 if (-not $inspect) {
     throw "Image not found: $Image"
@@ -22,6 +29,7 @@ if ($inspect.Config.Env | Where-Object { $_ -like "RMW_IMPLEMENTATION=*" }) {
     throw "HAL-only image must not select a ROS 2 RMW implementation"
 }
 
+# Inside the container, verify artifacts, dependencies, and both contracts.
 $containerCheck = @'
 set -euo pipefail
 test -x /opt/robodog/bin/unitree_h2_factory_contract_test
@@ -50,6 +58,7 @@ sha256sum \
 echo H2_STAGE06A_IMAGE_OFFLINE_OK
 '@
 
+# Force offline/read-only/no-capability execution and override the entrypoint.
 docker run --rm `
     --network none `
     --read-only `
@@ -62,6 +71,7 @@ if ($LASTEXITCODE -ne 0) {
     throw "Stage 06A container verification failed with exit code $LASTEXITCODE"
 }
 
+# Success proves the offline image contract, not PC2 live control.
 Write-Host "IMAGE_ID=$($inspect.Id)"
 Write-Host "IMAGE_ARCH=$($inspect.Architecture)"
 Write-Host "H2_STAGE06A_HOST_GATE_OK"

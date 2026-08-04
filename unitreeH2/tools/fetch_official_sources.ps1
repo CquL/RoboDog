@@ -1,15 +1,24 @@
+# Purpose: fetch pinned Unitree SDK, ROS interface, model, and simulator sources.
+# Input: optional Destination and official unitreerobotics GitHub ZIP archives.
+# Output: cached ZIPs, vendor snapshots, per-repository .source.json files, and
+#         OFFICIAL_SOURCE_MANIFEST.json.
+# Safety: only pinned commits are accepted; unknown vendor directories are not
+# overwritten, and temporary cleanup is constrained to the vendor root.
 param(
     [string]$Destination = (Join-Path $PSScriptRoot "..")
 )
 
+# Stop on any download, extraction, hash, or manifest-write failure.
 $ErrorActionPreference = "Stop"
 
+# Normalize the destination and create the cache and vendor roots.
 $root = [System.IO.Path]::GetFullPath($Destination)
 $downloadRoot = Join-Path $root "downloads"
 $vendorRoot = Join-Path $root "vendor"
 [System.IO.Directory]::CreateDirectory($downloadRoot) | Out-Null
 [System.IO.Directory]::CreateDirectory($vendorRoot) | Out-Null
 
+# This allowlist and its commits are immutable build/provenance inputs.
 $repos = @(
     @{
         name = "unitree_sdk2"
@@ -43,6 +52,7 @@ $repos = @(
     }
 )
 
+# Per repository: download/cache check, safe extraction, then provenance write.
 $results = @()
 foreach ($repo in $repos) {
     $name = $repo.name
@@ -53,6 +63,7 @@ foreach ($repo in $repos) {
     $vendorPath = Join-Path $vendorRoot $name
     $sourceMetadataPath = Join-Path $vendorPath ".source.json"
 
+    # Preserve a cached archive; download only when it is absent.
     if (-not (Test-Path -LiteralPath $archivePath)) {
         Write-Host "Downloading $name at $commit ..."
         Invoke-WebRequest -UseBasicParsing -Uri $archiveUrl -OutFile $archivePath -TimeoutSec 600
@@ -62,6 +73,8 @@ foreach ($repo in $repos) {
         throw "Downloaded archive is empty: $archivePath"
     }
 
+    # Existing vendor content must carry matching provenance metadata.
+    # Refuse to replace untracked content to protect manually managed files.
     if (Test-Path -LiteralPath $vendorPath) {
         if (-not (Test-Path -LiteralPath $sourceMetadataPath)) {
             throw "Refusing to replace an untracked vendor directory: $vendorPath"
@@ -71,6 +84,7 @@ foreach ($repo in $repos) {
             throw "Vendor directory $vendorPath contains commit $($existing.commit), expected $commit"
         }
     } else {
+        # Extract under vendor first; move only after validating the ZIP layout.
         $extractRoot = Join-Path $vendorRoot ".extract-$name-$commit"
         if (Test-Path -LiteralPath $extractRoot) {
             $resolvedExtract = [System.IO.Path]::GetFullPath($extractRoot)
@@ -89,6 +103,7 @@ foreach ($repo in $repos) {
         Remove-Item -LiteralPath $extractRoot -Recurse -Force
     }
 
+    # Record hash, size, and official URLs for later offline build audits.
     $hash = (Get-FileHash -LiteralPath $archivePath -Algorithm SHA256).Hash
     $metadata = [ordered]@{
         official_owner = "unitreerobotics"
@@ -112,6 +127,7 @@ foreach ($repo in $repos) {
     $results += [pscustomobject]$metadata
 }
 
+# The aggregate manifest indexes this run; it does not replace .source.json.
 $manifestPath = Join-Path $root "OFFICIAL_SOURCE_MANIFEST.json"
 $manifestJson = $results | ConvertTo-Json -Depth 6
 [System.IO.File]::WriteAllText(

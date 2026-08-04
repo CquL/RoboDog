@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
 
-# Synchronously record the factory ROS1 terrain pipeline and its TCP output.
-# This script is read-only: it publishes no ROS message and sends no robot data.
+# 同步记录厂家 ROS1 地形链及其 TCP 输出。
+# 本脚本只读：不发布 ROS 消息，也不发送机器人数据。
 
 set -u
 
+# 场景标签和测量值仅作为 metadata。
+# 脚本不会用它们配置地形处理或发送机器人命令。
 duration_s="${1:-15}"
 label="${2:-mode3_known_step}"
 output_root="${3:-$HOME}"
 motion_ip="${X30_MOTION_IP:-192.168.1.103}"
 gridmap_port="${X30_GRIDMAP_PORT:-49999}"
 
+# 最小时长保证 ROS Topic 和 TCP 输出有足够时间生成有效同步样本；
+# 最大时长限制磁盘占用。
 if ! [[ "$duration_s" =~ ^[0-9]+$ ]] || (( duration_s < 5 || duration_s > 120 )); then
     echo "duration must be an integer from 5 to 120 seconds" >&2
     exit 2
@@ -28,6 +32,7 @@ for command_name in rosbag rostopic tcpdump timeout sha256sum; do
     fi
 done
 
+# source 当前机器人镜像中实际存在的厂家 workspace。
 source_if_present()
 {
     local setup_file="$1"
@@ -41,11 +46,14 @@ source_if_present /opt/ros/noetic/setup.bash
 source_if_present /home/ysc/jy_cog/drivers/setup.bash
 source_if_present /home/ysc/jy_cog/system/devel/setup.bash
 
+# TCP 数据流由 105 单播发送，因此同步网络抓包必须在感知主机执行，
+# 不能在 106 开发主机执行。
 if ! ip -4 -o address show 2>/dev/null | grep -q '192\.168\.1\.105/'; then
     echo "Run this script on the X30 perception host 192.168.1.105." >&2
     exit 4
 fi
 
+# 若三项厂家地形链证据不可见，则立即失败。
 for topic in \
     /height_map_mode_state \
     /deeprobotics_local_height_map_mid360/height_map \
@@ -62,6 +70,8 @@ if [[ -z "$interface" ]]; then
     exit 6
 fi
 
+# 抓取前后各读取一次地形模式状态，
+# 用于发现采样期间处理模式发生变化的基线。
 read_mode_state()
 {
     timeout 4 rostopic echo -n 1 /height_map_mode_state 2>/dev/null \
@@ -87,6 +97,8 @@ hex_file="$pcap_dir/${timestamp}_${label}.hex.txt"
 
 mkdir -p "$bag_dir" "$pcap_dir"
 
+# 记录从传感器、里程计输入到高度图和平面分割的完整链路，
+# 并记录解释样本所需的控制状态上下文。
 topics=(
     /livox/lidar
     /imu/data
@@ -110,8 +122,8 @@ topics=(
     /robot_gait_state
 )
 
-# Calling the recorder binary directly avoids a ROS Noetic Python wrapper
-# SIGINT handler bug that prints a traceback after an otherwise valid bag closes.
+# 直接调用 recorder 二进制，避开 ROS Noetic Python wrapper 的
+# SIGINT handler 缺陷；该缺陷会在有效 bag 关闭后打印 traceback。
 rosbag_record_binary="/opt/ros/noetic/lib/rosbag/record"
 if [[ -x "$rosbag_record_binary" ]]; then
     record_command=("$rosbag_record_binary")
@@ -122,6 +134,8 @@ fi
 bag_pid=""
 capture_pid=""
 
+# 两个后台 recorder 都必须收到 SIGINT，
+# 以便脚本正常退出、失败或中断时刷新有效 PCAP/bag 索引。
 cleanup()
 {
     if [[ -n "$bag_pid" ]] && kill -0 "$bag_pid" 2>/dev/null; then
@@ -143,6 +157,8 @@ echo "Duration: ${duration_s}s"
 echo "ROS bag: $bag_file"
 echo "TCP pcap: $pcap_file"
 
+# 先启动 TCP 抓包并多保留四秒，
+# 使网络证据完整覆盖 ROS bag 时间区间。
 sudo -v
 capture_duration_s=$((duration_s + 4))
 sudo timeout --signal=INT "$capture_duration_s" \
@@ -162,11 +178,14 @@ wait "$capture_pid" 2>/dev/null || true
 capture_pid=""
 sudo chown "$(id -u):$(id -g)" "$pcap_file" 2>/dev/null || true
 
+# 仅在两个标准 recorder 停止并刷新文件后生成可读汇总。
 mode_after="$(read_mode_state)"
 rosbag info --yaml "$bag_file" > "$info_file"
 tcpdump -nn -tttt -q -r "$pcap_file" > "$packet_file" 2>&1 || true
 tcpdump -nn -tttt -r "$pcap_file" -XX > "$hex_file" 2>&1 || true
 
+# 将物理场景说明与机器数据放在一起。
+# 显式记录 unknown，避免把未测量物体误认为已标定楼梯工装。
 {
     echo "capture_time=$timestamp"
     echo "label=$label"
@@ -184,6 +203,7 @@ tcpdump -nn -tttt -r "$pcap_file" -XX > "$hex_file" 2>&1 || true
     echo "gridmap_data_sent_by_script=false"
 } > "$metadata_file"
 
+# 独立哈希用于校验大型 bag 和 PCAP 的传输完整性。
 sha256sum "$bag_file" > "${bag_file}.sha256"
 sha256sum "$pcap_file" > "${pcap_file}.sha256"
 
@@ -198,6 +218,7 @@ echo "Hex dump: $hex_file"
 echo "Bag SHA256: $(cut -d' ' -f1 "${bag_file}.sha256")"
 echo "PCAP SHA256: $(cut -d' ' -f1 "${pcap_file}.sha256")"
 
+# 即使两份记录本身有效，地形模式变化也会使前后对比产生歧义。
 if [[ "$mode_before" != "$mode_after" ]]; then
     echo "WARNING: height_map_mode_state changed during capture: $mode_before -> $mode_after" >&2
     exit 8

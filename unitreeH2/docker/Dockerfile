@@ -1,19 +1,26 @@
+# 用途：构建仅含 Unitree SDK2 与 robot_hardware HAL 的 H2 离线验证镜像。
+# 输入：本地基础镜像，以及 build-context 提供的 sdk2、robot_hardware 源码树。
+# 输出：/opt/unitree_robotics 下的 SDK2、/opt/robodog 下的 HAL/测试程序/配置。
+# 安全边界：构建时运行离线契约测试；镜像不内置传感器桥、导航算法，
+#           不选择 ROS 2 RMW，也不会自动启动任何机器人控制进程。
 ARG BASE_IMAGE=jezetek:navigation_system_amd64
 FROM ${BASE_IMAGE}
 
+# 固定提交号同时写入 OCI 标签，供镜像验收脚本核对源码来源。
 ARG UNITREE_SDK2_COMMIT=21d0a3b2c46ee48c8fdf2783becb6be3beb0a59b
 
+# 镜像元数据只描述离线 HAL 范围，不代表已经通过实机运动验收。
 LABEL org.opencontainers.image.title="RoboDog Unitree H2 HAL"
 LABEL org.opencontainers.image.description="Unitree H2 EDU SDK2 and HAL-only offline validation image"
 LABEL org.opencontainers.image.source="local RoboDog workspace"
 LABEL io.robodog.unitree_sdk2.commit="${UNITREE_SDK2_COMMIT}"
 
+# 两个命名构建上下文由 build_h2_amd64.sh/PowerShell 构建脚本显式传入。
 COPY --from=sdk2 . /opt/src/unitree_sdk2
 COPY --from=robot_hardware . /opt/src/robot_hardware
 
-# GitHub source ZIPs store Linux symlinks as tiny text files when extracted on
-# Windows. Recreate the two CycloneDDS SONAME links inside the Linux build
-# context before installing SDK2.
+# Windows 解压 GitHub ZIP 时会把 Linux 符号链接变成短文本文件；先在 Linux
+# 构建层内恢复 CycloneDDS SONAME 链接，再依次安装 SDK2、构建 HAL、执行测试。
 RUN for libdir in /opt/src/unitree_sdk2/thirdparty/lib/x86_64 \
                   /opt/src/unitree_sdk2/thirdparty/lib/aarch64; do \
         if [ -d "$libdir" ]; then \
@@ -45,19 +52,16 @@ RUN for libdir in /opt/src/unitree_sdk2/thirdparty/lib/x86_64 \
         /opt/robodog/config/unitree_h2.yaml && \
     rm -rf /tmp/unitree_sdk2_build /tmp/robot_hardware_build /opt/src
 
+# 为容器内的后续离线检查暴露 SDK/HAL CMake 包和动态库搜索路径。
 ENV CMAKE_PREFIX_PATH=/opt/unitree_robotics:/opt/robodog
 ENV LD_LIBRARY_PATH=/opt/robodog/lib:/opt/unitree_robotics/lib
 
-# SDK2 uses the CycloneDDS libraries installed under /opt/unitree_robotics
-# directly. This HAL-only image does not select a ROS 2 RMW implementation;
-# a future algorithm/runtime image must choose and install its own RMW.
+# SDK2 直接使用 /opt/unitree_robotics 中的 CycloneDDS；本镜像不设置
+# RMW_IMPLEMENTATION，ROS 2 算法镜像必须自行选择并安装匹配的 RMW。
 
 WORKDIR /opt/robodog
 
-# HAL-only inspection shell: no sensor bridge, algorithm or runtime process is
-# installed or auto-started by this image. Reset the ROS entrypoint inherited
-# from the navigation base so inspecting this HAL image does not source a host
-# or image ROS workspace implicitly. A future algorithm image must provide its
-# own explicit entrypoint if it intentionally uses ROS 2 internally.
+# 清除基础镜像继承的 ROS entrypoint；默认只进入检查 Shell，不隐式 source
+# 旧工作区，也不启动传感器、算法或控制进程。
 ENTRYPOINT []
 CMD ["/bin/bash"]

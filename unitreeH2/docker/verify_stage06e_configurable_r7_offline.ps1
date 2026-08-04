@@ -1,3 +1,8 @@
+# Purpose: verify r7 hashes, manifests, gates, and ELF dependencies via WSL.
+# Input: r7 tar.gz path and fixed ExpectedSha256.
+# Output: R7_BUNDLE_SHA256 and R7_OFFLINE_VERIFY_HOST_OK.
+# Safety: use only temporary extraction, print-plan, and offline contracts.
+# No DDS initialization or live control is performed.
 param(
     [string]$Bundle = "",
     [string]$ExpectedSha256 = "3612e704a0472ba25a751146824f994e41e2c358bd12b2eaf95aae76e1abbebe"
@@ -5,6 +10,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# Convert an existing drive-qualified Windows path to /mnt/<drive>.
 function ConvertTo-WslPath([string]$Path) {
     $resolved = (Resolve-Path -LiteralPath $Path).Path
     if ($resolved -notmatch '^[A-Za-z]:\\') {
@@ -14,6 +20,7 @@ function ConvertTo-WslPath([string]$Path) {
     return "/mnt/$drive$($resolved.Substring(2).Replace('\', '/'))"
 }
 
+# Resolve the bundle and verify its SHA256 on the host before WSL.
 $unitreeH2Root = Split-Path -Parent $PSScriptRoot
 if (-not $Bundle) {
     $Bundle = Join-Path $unitreeH2Root `
@@ -25,6 +32,8 @@ if ($actualHash -ne $ExpectedSha256.ToLowerInvariant()) {
     throw "r7 bundle hash mismatch: expected $ExpectedSha256, got $actualHash"
 }
 
+# WSL phase: archive/manifest, script syntax, contracts, print-plan bounds,
+# invalid-argument rejection, dependency provenance, and relative RUNPATH.
 $bash = @'
 set -Eeuo pipefail
 bundle="$1"
@@ -81,6 +90,7 @@ readelf -d "$release/bin/robot_test_unitree_h2_live_motion" |
 printf 'R7_OFFLINE_VERIFY_OK\n'
 '@
 
+# Base64 preserves the multiline Bash payload across PowerShell and WSL.
 $encoded = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($bash))
 $args = @(
     "-lc",
@@ -89,6 +99,7 @@ $args = @(
         (ConvertTo-WslPath $Bundle),
         $ExpectedSha256.ToLowerInvariant())
 )
+# Any nonzero WSL result prevents the host success marker.
 & bash @args
 if ($LASTEXITCODE -ne 0) {
     throw "r7 offline verification failed with exit code $LASTEXITCODE"

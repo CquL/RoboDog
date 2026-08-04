@@ -1,3 +1,8 @@
+# Purpose: verify r8 integrity, bounded-stream timing, and no-motion promotion.
+# Input: r8 tar.gz path and fixed ExpectedSha256.
+# Output: offline gate output, actual hash, and R8_OFFLINE_VERIFY_HOST_OK.
+# Safety: print-plan, contracts, script checks, and ELF audit only; no DDS
+# control path. No observed motion must never produce a Stage 06E gate.
 param(
     [string]$Bundle = "",
     [string]$ExpectedSha256 = "ac51bd6544eaea8467cf9472aea74bc29dba1889671c50a20b26d1976284e0cd"
@@ -5,6 +10,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# Map a drive-qualified Windows path to WSL; reject other path forms.
 function ConvertTo-WslPath([string]$Path) {
     $resolved = (Resolve-Path -LiteralPath $Path).Path
     if ($resolved -notmatch '^[A-Za-z]:\\') {
@@ -14,6 +20,7 @@ function ConvertTo-WslPath([string]$Path) {
     return "/mnt/$drive$($resolved.Substring(2).Replace('\', '/'))"
 }
 
+# Resolve the bundle and enforce its expected hash on the host.
 $unitreeH2Root = Split-Path -Parent $PSScriptRoot
 if (-not $Bundle) {
     $Bundle = Join-Path $unitreeH2Root `
@@ -26,6 +33,8 @@ if ($actualHash -ne $expectedLower) {
     throw "r8 bundle hash mismatch: expected $expectedLower, got $actualHash"
 }
 
+# WSL phase: manifest/syntax/contracts, timing plans, rejection cases,
+# Stage 06E observation order, dependencies, and RUNPATH.
 $bash = @'
 set -Eeuo pipefail
 bundle="$1"
@@ -79,6 +88,7 @@ shortest_plan="$("$release/bin/robot_test_unitree_h2_live_motion" \
 grep -F 'stream_ms=250' <<<"$shortest_plan" >/dev/null
 grep -F 'expected_rpc_count=5' <<<"$shortest_plan" >/dev/null
 
+# All out-of-range, misaligned, or duplicate arguments must exit with 64.
 expect_exit_64() {
   set +e
   "$release/bin/robot_test_unitree_h2_live_motion" "$@" >/dev/null 2>&1
@@ -94,6 +104,7 @@ expect_exit_64 --print-plan --axis x-positive --stream-ms 275
 expect_exit_64 --print-plan --axis x-positive --pulse-ms 200
 expect_exit_64 --print-plan --axis x-positive --stream-ms 1000 --stream-ms 1000
 
+# Statically confirm that physical observation precedes the final gate write.
 motion_gate="$release/scripts/08_pc2_h2_single_axis_motion_gate.sh"
 grep -F 'H2_LIVE_SINGLE_AXIS_STREAM_RPC_OK axis=$axis' "$motion_gate" >/dev/null
 grep -F 'max_observed_send_gap_ms' "$motion_gate" >/dev/null
@@ -133,6 +144,7 @@ printf 'R8_NO_MOTION_NO_PROMOTION_OFFLINE_OK\n'
 printf 'R8_OFFLINE_VERIFY_OK\n'
 '@
 
+# Base64 preserves the Bash payload across the PowerShell-to-WSL boundary.
 $encoded = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($bash))
 $args = @(
     "-lc",
@@ -141,6 +153,7 @@ $args = @(
         (ConvertTo-WslPath $Bundle),
         $expectedLower)
 )
+# Any WSL gate failure becomes a host error with no success marker.
 & bash @args
 if ($LASTEXITCODE -ne 0) {
     throw "r8 offline verification failed with exit code $LASTEXITCODE"

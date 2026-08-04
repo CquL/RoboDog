@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 
-# Passively capture the factory terrain stream sent to the X30 motion host.
-# Static analysis of gridmap_receiver confirms that port 49999 uses TCP.
-# This script does not publish ROS messages or send robot/control data.
+# 被动抓取发往 X30 运动主机的厂家地形数据流。
+# 对 gridmap_receiver 的静态分析确认端口 49999 使用 TCP。
+# 本脚本不发布 ROS 消息，也不发送机器人或控制数据。
 
 set -u
 
+# 端点可配置以支持迁移；默认值对应厂家 105 到 103 的地形数据流。
 motion_ip="${X30_MOTION_IP:-192.168.1.103}"
 gridmap_port="${X30_GRIDMAP_PORT:-49999}"
 duration_s="${1:-15}"
 label="${2:-factory_idle}"
 output_dir="${3:-$HOME/x30_gridmap_captures}"
 
+# 校验时长和标签，使生成的证据路径有界且符合 shell 安全要求。
 if ! [[ "$duration_s" =~ ^[0-9]+$ ]] || (( duration_s < 1 || duration_s > 120 )); then
     echo "duration must be an integer from 1 to 120 seconds" >&2
     exit 2
@@ -46,12 +48,16 @@ echo "Filter: TCP dst $motion_ip port $gridmap_port"
 echo "Duration: ${duration_s}s"
 echo "PCAP: $pcap_file"
 
+# 普通交换网络不会把 105 到 103 的单播镜像到 106；
+# 若在 106 运行则明确告警，避免静默生成空抓包。
 if ! ip -4 -o address show 2>/dev/null | grep -q '192\.168\.1\.105/'; then
     echo "WARNING: this host does not own 192.168.1.105."
     echo "The factory gridmap_port is started by the 105 launch, not the 106 launch."
     echo "A switched Ethernet interface on 106 normally cannot observe unicast traffic from 105 to 103."
 fi
 
+# 只抓取客户端发往运动主机的 TCP 数据包。
+# 脚本不会连接端口 49999，因此不会与厂家 gridmap_port 竞争。
 capture=(tcpdump -i "$interface" -nn -s 0 -U -w "$pcap_file" \
     "tcp and dst host $motion_ip and dst port $gridmap_port")
 
@@ -62,6 +68,7 @@ else
     sudo chown "$(id -u):$(id -g)" "$pcap_file" 2>/dev/null || true
 fi
 
+# 在标准 PCAP 旁生成精简数据包列表和完整 hex dump。
 tcpdump -nn -tttt -q -r "$pcap_file" > "$packet_file" 2>&1 || true
 tcpdump -nn -tttt -r "$pcap_file" -XX > "$hex_file" 2>&1 || true
 
@@ -74,4 +81,5 @@ fi
 echo "PCAP: $pcap_file"
 echo "Packet summary: $packet_file"
 echo "Hex dump: $hex_file"
+# 为全部产物生成哈希，便于在 Windows 校验从 105 复制的文件。
 sha256sum "$pcap_file" "$packet_file" "$hex_file" 2>/dev/null || true

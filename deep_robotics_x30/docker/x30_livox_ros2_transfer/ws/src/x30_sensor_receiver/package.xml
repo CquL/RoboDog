@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>x30_sensor_receiver</name>
+  <version>0.1.0</version>
+  <description>Passive TCP receiver for sensor data forwarded by the X30 ROS1 perception host.</description>
+
+  <maintainer email="dev@example.com">RoboDog Team</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,3 +1,9 @@
+# Purpose: repackage the audited r5 bundle as r6 with the Stage 06E TTY fix,
+# using WSL only and without Docker.
+# Input: r5 source bundle, current repository gate scripts, and output settings.
+# Output: deterministic r6 tar.gz, sha256 companion, and host success marker.
+# Safety: refuse existing output, verify the parent manifest, preserve payload
+# trees not in scope, parse-check scripts, and reverify the final archive.
 param(
     [string]$SourceBundle = "",
     [string]$BundleName = "unitree_h2_pc2_native_amd64_stage06c_to_06e_20260720_r6",
@@ -6,6 +12,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# Convert an existing drive-qualified Windows path to its WSL mount path.
 function ConvertTo-WslPath([string]$Path) {
     $resolved = (Resolve-Path -LiteralPath $Path).Path
     if ($resolved -notmatch '^[A-Za-z]:\\') {
@@ -16,6 +23,7 @@ function ConvertTo-WslPath([string]$Path) {
     return "/mnt/$drive$tail"
 }
 
+# Resolve defaults, repository inputs, and output paths.
 $unitreeH2Root = Split-Path -Parent $PSScriptRoot
 if (-not $SourceBundle) {
     $SourceBundle = Join-Path $unitreeH2Root `
@@ -30,12 +38,15 @@ $remoteDirectory = (Resolve-Path -LiteralPath (Join-Path $unitreeH2Root "remote"
 New-Item -ItemType Directory -Force -Path $OutputDirectory | Out-Null
 $OutputDirectory = (Resolve-Path -LiteralPath $OutputDirectory).Path
 
+# Never overwrite an existing release artifact or companion hash.
 $archivePath = Join-Path $OutputDirectory "$BundleName.tar.gz"
 $archiveHashPath = "$archivePath.sha256"
 if ((Test-Path -LiteralPath $archivePath) -or (Test-Path -LiteralPath $archiveHashPath)) {
     throw "Refusing to overwrite existing artifact: $archivePath"
 }
 
+# WSL phase: validate/extract r5, apply only the approved TTY script delta,
+# preserve all protected payloads, create a deterministic archive, and reverify.
 $bash = @'
 set -Eeuo pipefail
 
@@ -126,6 +137,7 @@ printf 'R6_BUNDLE_SHA256=%s\n' "$(awk '{print $1}' "$archive_hash")"
 printf 'R6_TTY_FIX_REPACKAGE_OK\n'
 '@
 
+# Base64 prevents PowerShell/WSL quoting from changing the Bash payload.
 $encoded = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($bash))
 $args = @(
     "-lc",
@@ -136,11 +148,13 @@ $args = @(
         (ConvertTo-WslPath $OutputDirectory),
         $BundleName)
 )
+# Abort the host flow on any WSL packaging or verification error.
 & bash @args
 if ($LASTEXITCODE -ne 0) {
     throw "WSL r6 repackage/verification failed with exit code $LASTEXITCODE"
 }
 
+# Independently verify the final tarball against its generated SHA256 file.
 $hash = (Get-FileHash -LiteralPath $archivePath -Algorithm SHA256).Hash.ToLowerInvariant()
 $expected = ((Get-Content -LiteralPath $archiveHashPath -Raw).Trim() -split '\s+')[0]
 if ($hash -ne $expected) {

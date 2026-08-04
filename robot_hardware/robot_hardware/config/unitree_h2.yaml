@@ -1,28 +1,39 @@
-# Official product name: Unitree H2 EDU. "H20" is not an official model name.
+# 工厂选择键：RobotFactory 看到 unitree_h2 后创建 UnitreeH2。
+# 产品名称使用 Unitree H2/H2 EDU；代码中不再使用旧误写 H20。
 robot_model: "unitree_h2"
 
-# Replace with the dedicated wired NIC connected to the H2 robot network.
+# SDK2/CycloneDDS 通信参数。network_interface_card_name 必须是直连 H2 原厂
+# 运动网络的网卡；dds_domain_id 必须与目标运动服务一致。
 network_interface_card_name: "eth0"
 dds_domain_id: 0
+
+# LocoClient RPC 等待超时（秒），不是速度命令持续时间。
 sdk_timeout_s: 10.0
 
-# Stage-1 safety defaults: initialization/read-only checks and zero velocity only.
+# 本文件当前是“允许运动和状态动作”的配置，不是只读配置：
+# - allow_motion_commands=true：允许非零 writeRobotVelocityCommand；
+# - allow_state_changing_actions=true：允许 StandUp/Start/Damp/Squat/Sit；
+# - verify_fsm_on_init=true：初始化时读取 FSM；运动许可开启时不可关闭。
+# 开关只授予调用权限，不会在加载 YAML 时自动让机器人站立或移动。
 allow_motion_commands: true
 allow_state_changing_actions: true
 verify_fsm_on_init: true
 
-# Project motion envelope. These are project-selected limits, not
-# Unitree-published SetVelocity maxima.
+# 项目软件速度包络：vx/vy 单位为 m/s，omega 单位为 rad/s。
+# 这些是项目选择并由适配器硬上限约束的值，不是宇树公布的额定最大速度。
 max_vx: 1.00
 max_vy: 0.10
 max_omega: 0.70
+
+# 传给每次 LocoClient::SetVelocity 的单条命令持续时间（秒）。
 velocity_command_duration_s: 0.30
 
+# 上层应持续刷新速度。超过 command_timeout_ms 未刷新时，看门狗按指定 Hz
+# 重复 StopMove，并在 zero_hold_ms 窗口后一次成功停止时解除活动状态。
 velocity_watchdog_hz: 50
 velocity_command_timeout_ms: 250
 velocity_zero_hold_ms: 1000
 
-# Every non-zero velocity command re-reads GetFsmId and is rejected unless the
-# current high-level locomotion FSM is this value. Initial live testing uses the
-# official Start wrapper ID; never auto-transition to it from this adapter.
+# 每一条非零速度在发送前都会重新 GetFsmId；当前值不等于 601 就拒绝并请求
+# 停止。本适配器不会为了满足该门禁而自动切换到 601。
 required_motion_fsm_id: 601

@@ -1,26 +1,36 @@
+# 用途：构建 H2 可迁移运行候选镜像，集成 HAL、HG 状态探针和 DDS→ROS 2 IMU 桥。
+# 输入：本地基础镜像及 sdk2、robot_hardware、h2_state_probe、h2_sensor_bridge
+#       四个命名 build-context。
+# 输出：/opt/robodog 中的测试/桥接程序、库、只读/运动配置和 ROS 2 资源。
+# 安全边界：镜像仍不包含雷达驱动或导航算法；默认 H2_CONFIG 指向安全配置，
+#           entrypoint 只准备环境，不会自动发送速度或状态切换动作。
 ARG BASE_IMAGE=jezetek:navigation_system_amd64
 FROM ${BASE_IMAGE}
 
+# 固定 SDK2 版本并写入镜像标签，供离线/目标机审计。
 ARG UNITREE_SDK2_COMMIT=21d0a3b2c46ee48c8fdf2783becb6be3beb0a59b
 
+# scope 标签用于 verify_h2_runtime_image_offline.ps1 拒绝错误镜像。
 LABEL org.opencontainers.image.title="Unitree H2 runtime candidate"
 LABEL org.opencontainers.image.description="H2 HAL plus native HG DDS to ROS 2 IMU bridge; no lidar driver or navigation algorithm"
 LABEL org.opencontainers.image.source="local RoboDog workspace"
 LABEL io.robodog.unitree_sdk2.commit="${UNITREE_SDK2_COMMIT}"
 LABEL io.robodog.h2.runtime.scope="hal-native-hg-state-ros2-imu-candidate"
 
+# 源码构建上下文只在构建阶段存在，安装完成后统一删除。
 COPY --from=sdk2 . /opt/src/unitree_sdk2
 COPY --from=robot_hardware . /opt/src/robot_hardware
 COPY --from=h2_state_probe . /opt/src/h2_state_probe
 COPY --from=h2_sensor_bridge . /opt/src/h2_sensor_bridge
+# entrypoint 和两份配置来自本 docker 目录；safe 是默认值，motion 需显式选用。
 COPY h2_entrypoint.sh /usr/local/bin/h2-entrypoint
 COPY config/unitree_h2_container_safe.yaml \
   /opt/robodog/config/unitree_h2_container_safe.yaml
 COPY config/unitree_h2_container_motion.yaml \
   /opt/robodog/config/unitree_h2_container_motion.yaml
 
-# Recreate SONAME links that GitHub ZIP extraction on Windows represents as
-# tiny text files, then build every component without network access.
+# 先修复 Windows ZIP 解压损坏的 SONAME 链接，再按 SDK2→HAL→状态探针→IMU 桥
+# 顺序离线构建；每个存在测试的组件都在镜像层内执行 ctest。
 RUN set -eux; \
     for libdir in /opt/src/unitree_sdk2/thirdparty/lib/x86_64 \
                   /opt/src/unitree_sdk2/thirdparty/lib/aarch64; do \
@@ -62,6 +72,9 @@ RUN set -eux; \
     rm -rf /tmp/unitree_sdk2_build /tmp/robot_hardware_build \
       /tmp/h2_state_probe_build /tmp/h2_sensor_bridge_build /opt/src
 
+# H2_DDS_* 是状态探针/IMU 桥的 DDS 默认值，ROS_DOMAIN_ID 控制桥输出的话题域；
+# HAL 的网卡/域从 H2_CONFIG 指向的 YAML 读取。上述值均可在运行时覆盖。
+# H2_CONFIG 默认使用禁止非零运动与状态切换的 safe 配置。
 ENV CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/unitree_robotics:/opt/robodog
 ENV LD_LIBRARY_PATH=/opt/robodog/lib:/opt/unitree_robotics/lib
 ENV H2_DDS_INTERFACE=eth0
@@ -72,7 +85,7 @@ ENV H2_CONFIG=/opt/robodog/config/unitree_h2_container_safe.yaml
 
 WORKDIR /opt/robodog
 
-# This entrypoint sources only the image's ROS 2 Humble installation. It does
-# not source the old Jezetek workspace and never starts a controller or driver.
+# entrypoint 只 source 镜像内 ROS 2 Humble，不 source 旧 Jezetek 工作区，
+# 也不自行启动控制器或驱动；CMD bash 仅提供默认交互入口。
 ENTRYPOINT ["/usr/local/bin/h2-entrypoint"]
 CMD ["bash"]

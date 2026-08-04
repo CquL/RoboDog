@@ -1,0 +1,26 @@
+# 用途：经人工确认后用于 H2 实机速度/动作测试的显式运动配置。
+# 输入：PC2 eth0、DDS 域 0，以及上层传入的 vx/vy/omega 或动作名称。
+# 输出：UnitreeH2 对速度包络、FSM、看门狗和命令超时的运行约束。
+# 安全边界：只有显式选用本文件才开放运动；仍要求 FSM=601，并由看门狗在
+#           命令超时后停止。这里的数值是软件限幅，不等同于官方机械安全极限。
+
+# 适配器选择与 SDK2 通信参数。
+robot_model: "unitree_h2"
+network_interface_card_name: "eth0"
+dds_domain_id: 0
+sdk_timeout_s: 10.0
+
+# 实机速度权限门禁；本迁移包默认不开放未验收的状态切换动作。
+allow_motion_commands: true
+allow_state_changing_actions: false
+verify_fsm_on_init: true
+required_motion_fsm_id: 601
+
+# 上层命令包络与底层看门狗参数；任何超限输入均应由适配器拒绝或钳制。
+max_vx: 1.00
+max_vy: 0.10
+max_omega: 0.70
+velocity_command_duration_s: 0.30
+velocity_watchdog_hz: 50
+velocity_command_timeout_ms: 200
+velocity_zero_hold_ms: 500

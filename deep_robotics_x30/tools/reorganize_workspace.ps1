@@ -1,4 +1,4 @@
-param(
+﻿param(
     [switch]$Apply
 )
 
@@ -54,7 +54,7 @@ $moves = @(
     @{ source = "x30_stair_baselines"; destination = "deep_robotics_x30/data/stair_baselines" },
     @{ source = "x30_udp_captures"; destination = "deep_robotics_x30/data/udp_captures" },
     @{ source = "x30_livox_ros2_transfer"; destination = "deep_robotics_x30/docker/x30_livox_ros2_transfer" },
-    @{ source = "x30_livox_ros2_transfer.tar.gz"; destination = "deep_robotics_x30/docker/x30_livox_ros2_transfer.tar.gz" },
+    @{ source = "x30_livox_ros2_transfer.tar.gz"; destination = "deep_robotics_x30/artifacts/x30_livox_ros2_transfer.tar.gz" },
     @{ source = "x30_migration_package_20260706"; destination = "deep_robotics_x30/migration/x30_migration_package_20260706" },
     @{ source = "docker_offline_focal_amd64_fix1.tar.gz"; destination = "deep_robotics_x30/migration/docker_offline_focal_amd64_fix1.tar.gz" },
     @{ source = "remote_bridge_probe.txt"; destination = "deep_robotics_x30/logs/remote_bridge_probe.txt" },
@@ -63,9 +63,8 @@ $moves = @(
     @{ source = "remote_yesense_params.txt"; destination = "deep_robotics_x30/logs/remote_yesense_params.txt" },
     @{ source = "remote_yesense_probe.txt"; destination = "deep_robotics_x30/logs/remote_yesense_probe.txt" },
     @{ source = "robot_hardware_x30_udp_transfer.tar.gz"; destination = "deep_robotics_x30/artifacts/robot_hardware_x30_udp_transfer.tar.gz" },
-    # Preserve the exact on-disk leaf name for non-ASCII manuals. Patterns are
-    # ASCII-only so Windows PowerShell 5 cannot corrupt them while parsing this
-    # UTF-8 (no BOM) script.
+    # 对非 ASCII 手册保留磁盘上的原始文件名。匹配模式只使用 ASCII，
+    # 避免 Windows PowerShell 5 在解析脚本时损坏文件名。
     @{ source_pattern = "X30*.pdf"; destination_dir = "deep_robotics_x30/manuals" },
     @{ source_pattern = "*V2.0.4(1).pdf"; destination_dir = "deep_robotics_x30/manuals" },
     @{ source_pattern = "*V2.0.3(1).pdf"; destination_dir = "deep_robotics_x30/manuals" },

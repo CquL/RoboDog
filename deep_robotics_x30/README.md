@@ -15,6 +15,7 @@ manuals/              绝影/X30 原厂及项目手册
 docker/               x30_livox_ros2_transfer 及其归档
 factory/              原厂 launch、二进制和 plane_seg 取证包
 sensors/              Livox 与 Yesense 源码/配置
+transport/            105/106 跨主机只读传感器转发
 data/                 点云、GridMap、步态和 UDP 抓包基线
 migration/            旧迁移包与离线安装材料
 logs/                 远端探测和构建输出
@@ -28,3 +29,24 @@ tools/                整理与校验工具
 历史来源证据保留，不代表当前 Windows 工作区路径。
 
 安全边界不变：当前 `x30_plane_seg_core` 仍是离线核心与合同验证，不代表已连接在线 GridMap、TCP `192.168.1.103:49999` 地形发送或运动控制。
+
+新 X30 机器人部署入口：
+
+- [Docker、105/106 传感器链与控制测试操作手册](X30_新机器人_Docker部署与控制测试操作手册_20260731.md)
+
+所有用于上传和同型号机器人迁移的当前交付物统一放在：
+
+```text
+artifacts/
+```
+
+`docker/` 只保存镜像构建上下文，不再保存同名传输压缩包。
+
+## Current X30 Control Entry
+
+- [Unified X30 control test](docs/X30_统一控制测试入口_20260731.md)
+- Executable: `robot_test_x30`
+- Commands: `status`, `zero`, `gait`, and `move`
+
+`factory/` is offline vendor evidence only. It is not copied into the
+production Docker image or deployment archives.

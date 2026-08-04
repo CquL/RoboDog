@@ -1,0 +1,20 @@
+<launch>
+  <!--
+    只读 ROS1-to-TCP 转发节点。此 launch 文件不会启动传感器驱动、
+    ROS 发布者、服务客户端或机器人控制进程。
+  -->
+  <arg name="receiver_host" default="192.168.1.106"/>
+  <arg name="config_file"
+       default="$(find x30_sensor_forwarder_ros1)/config/forwarder.yaml"/>
+
+  <node pkg="x30_sensor_forwarder_ros1"
+        type="x30_sensor_forwarder_node"
+        name="x30_sensor_forwarder"
+        output="screen"
+        required="true">
+    <!-- YAML 定义共享 Topic/端口合同；receiver_host 可按机器人覆盖，
+         无需修改包内配置。 -->
+    <rosparam command="load" file="$(arg config_file)"/>
+    <param name="receiver_host" value="$(arg receiver_host)"/>
+  </node>
+</launch>

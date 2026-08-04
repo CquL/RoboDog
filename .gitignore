@@ -24,6 +24,10 @@ Thumbs.db
 
 # Temp / diagnostic output
 deep_robotics_x30/tmp/
+/tmp/
+
+# Runtime sensor captures
+/x30_cloud_records/
 
 # Log files
 *.log

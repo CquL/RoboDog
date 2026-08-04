@@ -26,6 +26,8 @@ COMMAND_LABELS = {
 }
 
 
+# 去除 classic-PCAP、Ethernet、IPv4 和 UDP 封装后的标准化数据包记录。
+# 保留原始时间戳与四元组，供流量和频率检查使用。
 @dataclasses.dataclass(frozen=True)
 class UdpPacket:
     timestamp: float
@@ -36,6 +38,7 @@ class UdpPacket:
     payload: bytes
 
 
+# PCAP magic 同时决定字节序和微秒/纳秒时间戳尺度。
 def _pcap_format(magic: bytes) -> tuple[str, float]:
     formats = {
         b"\xd4\xc3\xb2\xa1": ("<", 1_000_000.0),
@@ -48,6 +51,8 @@ def _pcap_format(magic: bytes) -> tuple[str, float]:
     return formats[magic]
 
 
+# 只解析 classic PCAP 的 Ethernet/IPv4/UDP 帧。
+# 不支持的链路或协议记录直接跳过，避免猜测影响汇总可信度。
 def read_udp_packets(path: Path) -> list[UdpPacket]:
     data = path.read_bytes()
     if len(data) < 24:
@@ -58,6 +63,7 @@ def read_udp_packets(path: Path) -> list[UdpPacket]:
     packets: list[UdpPacket] = []
 
     while offset + 16 <= len(data):
+        # 每条记录的长度界定实际捕获字节，即使原始帧大于配置的抓取快照。
         seconds, fraction, captured_length, _ = struct.unpack_from(
             f"{endian}IIII", data, offset
         )
@@ -68,6 +74,7 @@ def read_udp_packets(path: Path) -> list[UdpPacket]:
         if len(frame) < 14:
             continue
 
+        # 接受普通 Ethernet II 或单层 802.1Q VLAN，随后要求 IPv4。
         ether_type = struct.unpack("!H", frame[12:14])[0]
         ip_offset = 14
         if ether_type == 0x8100 and len(frame) >= 18:
@@ -76,6 +83,7 @@ def read_udp_packets(path: Path) -> list[UdpPacket]:
         if ether_type != 0x0800 or len(frame) < ip_offset + 20:
             continue
 
+        # IPv4 IHL 用于跳过可选 IP 选项并定位 UDP；协议号 17 表示 UDP。
         ip_header_length = (frame[ip_offset] & 0x0F) * 4
         if ip_header_length < 20 or frame[ip_offset + 9] != 17:
             continue
@@ -104,12 +112,15 @@ def read_udp_packets(path: Path) -> list[UdpPacket]:
     return packets
 
 
+# X30 命令帧以 little-endian u32 命令码开头。
 def command_code(payload: bytes) -> int | None:
     if len(payload) < 4:
         return None
     return struct.unpack("<I", payload[:4])[0]
 
 
+# 报告流、payload 尺寸、命令值和平均频率，但不宣称机器人已执行；
+# PCAP 只能证明观测到网络流量。
 def summarize(path: Path) -> str:
     packets = read_udp_packets(path)
     lines = [f"===== {path.name} =====", f"UDP packets: {len(packets)}"]
@@ -147,6 +158,8 @@ def summarize(path: Path) -> str:
     lines.append(f"Unique UDP payloads: {len(payload_counts)}")
     for payload, count in payload_counts.most_common(20):
         interpretation = ""
+        # 只解析尺寸和头部已知的数据包布局。
+        # 未知 payload 保留 raw hex，供后续协议分析。
         if len(payload) == 12:
             word0, word1, word2 = struct.unpack("<III", payload)
             signed_word1 = struct.unpack("<i", payload[4:8])[0]
@@ -198,6 +211,7 @@ def summarize(path: Path) -> str:
     return "\n".join(lines)
 
 
+# 以确定顺序展开目录参数，同时保留显式文件参数。
 def pcap_paths(arguments: Iterable[str]) -> list[Path]:
     paths: list[Path] = []
     for argument in arguments:
@@ -209,6 +223,8 @@ def pcap_paths(arguments: Iterable[str]) -> list[Path]:
     return paths
 
 
+# 命令行层只负责选择输入并输出汇总；解析保留为纯函数，
+# 使抓包文件也能通过程序化测试。
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("paths", nargs="+", help="PCAP files or directories")

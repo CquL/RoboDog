@@ -1,0 +1,3 @@
+# Target-specific settings and generated runtime state are not portable.
+config/deployment.env
+state/

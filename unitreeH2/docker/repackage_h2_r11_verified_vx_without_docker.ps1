@@ -1,3 +1,9 @@
+# Purpose: create r11 with the current shared HAL and verified-vx test path,
+# using the audited r9 bundle only as a dependency/runtime carrier.
+# Input: exact r9 parent, pinned yaml-cpp package, current HAL/SDK2, PC2 scripts.
+# Output: deterministic r11 tar.gz, sha256 companion, and host success marker.
+# Safety: rebuild the HAL instead of reusing the parent's HAL, verify mapping via
+# fake SDK without DDS, refuse overwrite, and reverify the complete release.
 param(
     [string]$ParentBundle = "",
     [string]$YamlDevDeb = "",
@@ -6,6 +12,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# Convert an existing drive-qualified Windows path to a WSL mount path.
 function ConvertTo-WslPath([string]$Path) {
     $resolved = (Resolve-Path -LiteralPath $Path).Path
     if ($resolved -notmatch '^[A-Za-z]:\\') {
@@ -16,6 +23,7 @@ function ConvertTo-WslPath([string]$Path) {
     return "/mnt/$drive$tail"
 }
 
+# Resolve release identities and all source/dependency roots.
 $parentName = "unitree_h2_pc2_native_amd64_stage06c_to_06e_20260722_r9"
 $bundleName = "unitree_h2_pc2_native_amd64_stage06c_to_06e_20260722_r11"
 $unitreeH2Root = Split-Path -Parent $PSScriptRoot
@@ -36,6 +44,7 @@ if (-not $OutputDirectory) {
     $OutputDirectory = Join-Path $unitreeH2Root "runtime_bundle"
 }
 
+# Validate every source, dependency, script, and test input before WSL.
 $requiredInputs = @(
     $ParentBundle,
     $YamlDevDeb,
@@ -66,6 +75,7 @@ $remoteDirectory = (Resolve-Path -LiteralPath $remoteDirectory).Path
 New-Item -ItemType Directory -Force -Path $OutputDirectory | Out-Null
 $OutputDirectory = (Resolve-Path -LiteralPath $OutputDirectory).Path
 
+# Pin the r9 carrier and yaml-cpp development package exactly.
 $expectedParentHash = "8fd8fb3d5245a542cf2d0fe6677282bd284a6541b8962781c45e558426407738"
 $expectedYamlHash = "28bc70ebbca5a5464609cb881c996c34c9e830c0fafcda37ada1c6928f81802a"
 $actualParentHash =
@@ -79,6 +89,7 @@ if ($actualYamlHash -ne $expectedYamlHash) {
     throw "yaml-cpp development package hash mismatch: expected $expectedYamlHash, got $actualYamlHash"
 }
 
+# Release artifacts are immutable; never overwrite archive or hash.
 $archivePath = Join-Path $OutputDirectory "$bundleName.tar.gz"
 $archiveHashPath = "$archivePath.sha256"
 if ((Test-Path -LiteralPath $archivePath) -or
@@ -86,6 +97,9 @@ if ((Test-Path -LiteralPath $archivePath) -or
     throw "Refusing to overwrite existing r11 artifact: $archivePath"
 }
 
+# WSL phase: validate/extract r9, rebuild the shared HAL/current test programs,
+# run fake-SDK and offline contracts, update release metadata, create a
+# deterministic archive, and verify the result in a fresh extraction.
 $bash = @'
 set -Eeuo pipefail
 
@@ -298,6 +312,7 @@ printf 'R11_BUNDLE_SHA256=%s\n' "$(awk '{print $1}' "$hash_file")"
 printf 'R11_VERIFIED_VX_REPACKAGE_OK\n'
 '@
 
+# Base64 preserves the Bash payload through PowerShell-to-WSL parsing.
 $encoded = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($bash))
 $arguments = @(
     "-d", "Ubuntu-22.04", "--", "bash", "-lc",
@@ -310,11 +325,13 @@ $arguments = @(
         (ConvertTo-WslPath $YamlDevDeb),
         (ConvertTo-WslPath $OutputDirectory))
 )
+# Any WSL rebuild or verification failure prevents the r11 success marker.
 & wsl.exe @arguments
 if ($LASTEXITCODE -ne 0) {
     throw "WSL r11 rebuild/verification failed with exit code $LASTEXITCODE"
 }
 
+# Recompute and compare the final archive hash on Windows.
 $actual = (Get-FileHash -LiteralPath $archivePath -Algorithm SHA256).Hash.ToLowerInvariant()
 $expected = ((Get-Content -LiteralPath $archiveHashPath -Raw).Trim() -split '\s+')[0]
 if ($actual -ne $expected) {

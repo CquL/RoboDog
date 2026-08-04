@@ -1,12 +1,20 @@
+# H2 IMU 只读桥接节点参数。
+# 输入是原厂 SDK2/HG DDS；输出是 Docker 内的 ROS 2 sensor_msgs/Imu。
+# 本配置没有运动控制话题、RPC 或动作参数，不能让机器人运动。
 unitree_h2_sensor_bridge:
   ros__parameters:
+    # H2 PC2 与 PC1 的 DDS 网卡和 Domain；迁移到另一台 H2 时先核对网卡名。
     dds_interface: eth0
     dds_domain: 0
+    # 骨盆 IMU 位于 LowState.imu_state，躯干 IMU 来自独立 secondary_imu。
     pelvis_dds_topic: rt/lowstate
     torso_dds_topic: rt/secondary_imu
+    # 对上层算法公开的稳定 ROS 2 话题名称。
     pelvis_ros_topic: /h2/imu/pelvis
     torso_ros_topic: /h2/imu/torso
+    # TF 坐标系标签；本节点只写 frame_id，不发布静态或动态 TF。
     pelvis_frame_id: h2_pelvis_imu
     torso_frame_id: h2_torso_imu
+    # 以 200 Hz 检查缓存；超过 100 ms 的 DDS 样本视为过期并拒绝发布。
     publish_rate_hz: 200.0
     stale_timeout_ms: 100

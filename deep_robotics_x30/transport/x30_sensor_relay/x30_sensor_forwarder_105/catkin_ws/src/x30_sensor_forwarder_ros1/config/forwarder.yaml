@@ -1,0 +1,26 @@
+# 105 是 TCP 客户端，106 负责三路被动监听。
+receiver_host: "192.168.1.106"
+
+# 原厂 X30 程序继续管理并发布这些 ROS1 数据源。
+# 本转发节点只订阅，不在 ROS1 中重新发布。
+point_cloud_topic: "/lidar_points"
+imu_topic: "/imu/data"
+odometry_topic: "/leg_odom"
+
+# 每种消息使用独立 TCP 连接，避免大点云写入阻塞高频 IMU 和里程计。
+point_cloud_port: 56110
+imu_port: 56111
+odometry_port: 56112
+
+# 点云在代码中只保留最新帧，因此深度 1 可限制延迟和内存。
+# IMU 与里程计保留短有界 FIFO，用于吸收瞬时调度抖动。
+point_cloud_queue_depth: 1
+imu_queue_depth: 100
+odometry_queue_depth: 100
+
+# 所有超时均有上限：106 失联时不得阻塞 ROS1 回调线程，也不得影响
+# 105 上的原厂传感器与地形处理进程。
+connect_timeout_ms: 500
+send_timeout_ms: 1000
+reconnect_delay_ms: 250
+status_period_s: 5.0

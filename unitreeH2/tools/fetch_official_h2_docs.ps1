@@ -1,13 +1,21 @@
+# Purpose: snapshot the Chinese and English Unitree H2 developer documentation.
+# Input: optional Destination, the Unitree catalog API, and catalog page URLs.
+# Output: locale pages, catalog.json files, a hash manifest, and snapshot notice.
+# Safety: downloaded pages are data only; the snapshot is not immutable API
+# truth and does not imply redistribution rights or an official PDF manual.
 param(
     [string]$Destination = (Join-Path $PSScriptRoot "..")
 )
 
+# Stop on network, catalog, or file-write failure to avoid partial manifests.
 $ErrorActionPreference = "Stop"
 
+# Keep all generated documentation below unitreeH2/official_docs.
 $root = [System.IO.Path]::GetFullPath($Destination)
 $docsRoot = Join-Path $root "official_docs"
 [System.IO.Directory]::CreateDirectory($docsRoot) | Out-Null
 
+# Convert a catalog path to a cross-platform filename with stable fallbacks.
 function Convert-ToSafeName([string]$name) {
     if ([string]::IsNullOrWhiteSpace($name)) {
         return "index"
@@ -20,6 +28,7 @@ function Convert-ToSafeName([string]$name) {
     return $safe
 }
 
+# Flatten the catalog tree while retaining parent entries and directory order.
 function Get-DirectoryEntries($nodes) {
     $all = @()
     foreach ($node in @($nodes)) {
@@ -31,11 +40,13 @@ function Get-DirectoryEntries($nodes) {
     return $all
 }
 
+# Store Chinese and English snapshots separately to prevent name collisions.
 $results = @()
 foreach ($locale in @("zh", "en")) {
     $localeRoot = Join-Path $docsRoot $locale
     [System.IO.Directory]::CreateDirectory($localeRoot) | Out-Null
 
+    # The catalog supplies hierarchy, path, update time, and content URL.
     $catalogUrl = "https://robot-api.unitree.com/doc?space=H2_developer&locale=$locale"
     $catalogResponse = Invoke-RestMethod -Uri $catalogUrl -TimeoutSec 60
     if ($catalogResponse.code -ne 100) {
@@ -49,6 +60,7 @@ foreach ($locale in @("zh", "en")) {
         $catalogJson + [Environment]::NewLine,
         [System.Text.UTF8Encoding]::new($false))
 
+    # Save pages in stable order and record source, time, size, and SHA256.
     $entries = Get-DirectoryEntries $catalogResponse.data.directory
     $index = 0
     foreach ($entry in $entries) {
@@ -78,6 +90,7 @@ foreach ($locale in @("zh", "en")) {
     }
 }
 
+# The aggregate manifest supports page-by-page comparison on later refreshes.
 $manifestPath = Join-Path $docsRoot "H2_OFFICIAL_DOCS_MANIFEST.json"
 $manifestJson = $results | ConvertTo-Json -Depth 8
 [System.IO.File]::WriteAllText(
@@ -85,6 +98,7 @@ $manifestJson = $results | ConvertTo-Json -Depth 8
     $manifestJson + [Environment]::NewLine,
     [System.Text.UTF8Encoding]::new($false))
 
+# The notice states the snapshot and licensing boundary explicitly.
 $notice = @(
     "# Unitree H2 official online-document snapshot",
     "",

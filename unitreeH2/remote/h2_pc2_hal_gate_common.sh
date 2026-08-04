@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
 
-# Fail-closed checks shared by the H2 PC2 Stage 06C/06D/06E runners.
-# Sourcing this file never calls a robot API.
+# H2 PC2 Stage 06C/06D/06E 共用的 fail-closed 门禁库。
+# 用途：集中实现身份/网络/发布包/ABI 校验、离线契约、getter 读取、
+# 阶段门禁文件的严格 schema/继承关系以及日志隔离。
+# 边界：仅 source 本文件不会调用机器人 API；只有调用
+# h2_run_getter_audit 等显式函数才会产生对应的只读 RPC。非零运动只存在于
+# 06E 调用的统一测试二进制中，不由本文件自动触发。
 
+# 门禁代码对错误、未定义变量和管道失败一律立即退出。
 set -Eeuo pipefail
 
+# 交付 PC2、PC1、CycloneDDS 和库文件的固定身份契约；任何漂移都需要重新
+# 审核，不能静默接受。
 H2_ROOT=/home/unitree/p2_unitreeH2
 H2_CYCLONE_CONFIG=/home/unitree/slam_config/cyclone_go2_B2_ws/cyclonedds.xml
 H2_EXPECTED_CYCLONE_SHA256=bc977aacd0e44804cb8da24d24d6fe5ed654aad9ed7b15ed3ef36d32f27a1796
@@ -14,6 +21,7 @@ H2_EXPECTED_HOSTNAME=unitree-H2-pc2
 H2_EXPECTED_PC2_IPV4=192.168.123.162/24
 H2_EXPECTED_PC1_IPV4=192.168.123.161
 
+# 根据公共脚本位置解析同一发布包的 bin/lib/config/manifest，避免混用版本。
 H2_COMMON_DIR="$(cd -- "$(dirname -- "$BASH_SOURCE")" && pwd -P)"
 H2_RELEASE="$(cd -- "$H2_COMMON_DIR/.." && pwd -P)"
 H2_BIN_DIR="$H2_RELEASE/bin"
@@ -21,12 +29,15 @@ H2_LIB_DIR="$H2_RELEASE/lib"
 H2_CONFIG="$H2_RELEASE/config/unitree_h2.yaml"
 H2_MANIFEST="$H2_RELEASE/meta/manifest.sha256"
 H2_STATE_DIR="$H2_ROOT/build/h2_control_gate_state"
+# flock 使用的控制互斥锁；同一时刻只允许一个 06C/06D/06E 流程运行。
 H2_LOCK_FILE="$H2_STATE_DIR/h2_hal_control.lock"
 
+# 标准日志分节。
 h2_section() {
   printf '\n===== %s =====\n' "$1"
 }
 
+# 统一 fail-closed 退出：稳定错误键写 stderr，可选第二参数指定退出码。
 h2_die() {
   local code=1
   if [[ $# -ge 2 ]]; then code="$2"; fi
@@ -34,6 +45,7 @@ h2_die() {
   exit "$code"
 }
 
+# 把现场观察文本归一化为大写下划线形式，仅用于识别“完全没动”的同义表达。
 h2_normalize_motion_observation() {
   local observation="$1"
   printf '%s' "$observation" |
@@ -41,6 +53,7 @@ h2_normalize_motion_observation() {
     sed -E 's/[[:space:]-]+/_/g; s/^_+//; s/_+$//'
 }
 
+# 返回 0 表示观察者明确报告无运动；06E 不能把这种观察写成成功门禁。
 h2_observation_reports_no_motion() {
   local normalized
   normalized="$(h2_normalize_motion_observation "$1")"
@@ -57,6 +70,8 @@ h2_observation_reports_no_motion() {
   esac
 }
 
+# 校验 06E 单轴流的完整时序/速度配置与实际 RPC 统计。
+# 这些参数来自测试程序日志和门禁文件；任一字段格式或数值超界即拒绝。
 h2_validate_stage06e_stream_profile() {
   local linear_speed="$1"
   local yaw_speed="$2"
@@ -70,6 +85,7 @@ h2_validate_stage06e_stream_profile() {
   local watchdog_ms="${10}"
   local max_observed_send_gap_ms="${11}"
 
+  # 速度必须是正的小数文本，整数型时序/计数字段必须只有十进制数字。
   [[ "$linear_speed" =~ ^0\.[0-9]+$ ]] ||
     h2_die STAGE-06e-LINEAR-SPEED-INVALID 19
   [[ "$yaw_speed" =~ ^0\.[0-9]+$ ]] ||
@@ -84,6 +100,7 @@ h2_validate_stage06e_stream_profile() {
   [[ "$vendor_duration_s" == 0.300 ]] ||
     h2_die STAGE-06e-VENDOR-DURATION-INVALID 19
 
+  # Stage 06E 只允许极低的首次单轴速度和 250~1000 ms 的短脉冲。
   awk -v value="$linear_speed" \
     'BEGIN { exit !(value >= 0.01 && value <= 0.10) }' ||
     h2_die STAGE-06e-LINEAR-SPEED-OUT-OF-RANGE 19
@@ -92,6 +109,9 @@ h2_validate_stage06e_stream_profile() {
     h2_die STAGE-06e-YAW-SPEED-OUT-OF-RANGE 19
   (( stream_ms >= 250 && stream_ms <= 1000 && stream_ms % 50 == 0 )) ||
     h2_die STAGE-06e-STREAM-MS-OUT-OF-RANGE-OR-STEP 19
+
+  # 固定 20 Hz/50 ms 控制流、100 ms 最大间隙和 150 ms watchdog；
+  # 实际发送次数/最大间隙必须与计划完全一致。
   (( command_hz == 20 )) || h2_die STAGE-06e-COMMAND-HZ-INVALID 19
   (( command_period_ms == 50 )) ||
     h2_die STAGE-06e-COMMAND-PERIOD-MS-INVALID 19
@@ -106,10 +126,13 @@ h2_validate_stage06e_stream_profile() {
     h2_die STAGE-06e-OBSERVED-SEND-GAP-EXCEEDED 19
 }
 
+# 严格核对一个文件的 SHA256，供配置和私有库完整性检查复用。
 h2_verify_sha256() {
   printf '%s  %s\n' "$1" "$2" | sha256sum --check --strict -
 }
 
+# 在最小环境中运行发布包二进制：只保留必要身份、PATH、私有库路径和
+# CycloneDDS XML，隔离调用者 shell 中的 ROS/RMW/代理等变量。
 h2_isolated() {
   env -i \
     HOME=/home/unitree \
@@ -122,28 +145,34 @@ h2_isolated() {
     "$@"
 }
 
+# 拒绝在已有统一 H2 测试进程时开始新阶段，防止并发控制/读写归属不清。
 h2_check_no_probe_process() {
   if pgrep -af '[r]obot_test_unitree_h2'; then
     h2_die PREEXISTING_H2_HAL_PROBE_REFUSED 18
   fi
 }
 
+# 校验 stageXX.ok 的精确 schema、字段顺序和关键值。
+# 门禁文件不是普通日志：多行、少行、重复键、换序或伪造字段都会被拒绝。
 h2_validate_gate_schema() {
   local stage="$1"
   local gate="$2"
   local -a expected_keys gate_lines
   case "$stage" in
     06c)
+      # 06C 记录 getter-only 状态及“未调用 setter”的事实。
       expected_keys=(stage timestamp hostname boot_id release manifest_sha256 log \
         fsm_id fsm_mode mode_value_observation_only control_setter_invoked \
         getter_only_rpc_ok)
       ;;
     06d)
+      # 06D 记录零速/StopMove、现场观察和父 06C 哈希。
       expected_keys=(stage timestamp hostname boot_id release manifest_sha256 log \
         fsm_id fsm_mode observer nonzero_velocity_invoked zero_stop_rpc_ok \
         parent_stage06c_sha256)
       ;;
     06e)
+      # 06E 记录单轴速度、发送时序、观察方向、FSM 和两级父门禁哈希。
       expected_keys=(stage timestamp hostname boot_id release manifest_sha256 log \
         axis linear_speed yaw_speed stream_ms command_hz command_period_ms \
         max_send_gap_ms expected_rpc_count rpc_count max_observed_send_gap_ms \
@@ -154,6 +183,7 @@ h2_validate_gate_schema() {
     *) h2_die "UNKNOWN-GATE-SCHEMA-STAGE=$stage" 19 ;;
   esac
 
+  # 行数和键顺序必须与 schema 完全一致。
   mapfile -t gate_lines <"$gate"
   [[ "${#gate_lines[@]}" -eq "${#expected_keys[@]}" ]] ||
     h2_die "STAGE-$stage-GATE-LINE-COUNT=${#gate_lines[@]}" 19
@@ -167,11 +197,14 @@ h2_validate_gate_schema() {
     h2_die "STAGE-$stage-TIMESTAMP-INVALID" 19
   [[ "${gate_lines[6]}" =~ ^log=$H2_ROOT/logs/h2_pc2_stage${stage}_.+\.log$ ]] ||
     h2_die "STAGE-$stage-LOG-PATH-INVALID" 19
+
+  # 06C/06D 的 fsm_mode 仅作为原始观测整数，不在这里臆测其厂商语义。
   if [[ "$stage" == 06c || "$stage" == 06d ]]; then
     [[ "${gate_lines[8]}" =~ ^fsm_mode=-?[0-9]+$ ]] ||
       h2_die "STAGE-$stage-FSM-MODE-INVALID" 19
   fi
   if [[ "$stage" == 06e ]]; then
+    # 06E 只允许四个预定义单轴方向；成功门禁必须有可见物理方向。
     [[ "${gate_lines[7]}" =~ ^axis=(x|y|yaw)-(positive|negative)$ ]] ||
       h2_die STAGE-06e-AXIS-INVALID 19
     [[ "${gate_lines[19]}" =~ ^observed_physical_direction=.+$ ]] ||
@@ -180,6 +213,8 @@ h2_validate_gate_schema() {
     if h2_observation_reports_no_motion "$observed_physical_direction"; then
       h2_die STAGE-06e-NO-PHYSICAL-MOTION-CANNOT-BE-SUCCESS-GATE 19
     fi
+
+    # 成功时 FSM 必须仍为 601，观察确认精确匹配，且未调用状态切换动作。
     [[ "${gate_lines[20]}" == 'fsm_id=601' ]] ||
       h2_die STAGE-06e-FSM-ID-INVALID 19
     [[ "${gate_lines[21]}" == 'observer=BOUNDED_STREAM_OBSERVED_SAFE' ]] ||
@@ -188,6 +223,8 @@ h2_validate_gate_schema() {
       h2_die STAGE-06e-STATE-CHANGING-ACTION-FLAG-INVALID 19
     [[ "${gate_lines[23]}" == 'single_axis_stream_rpc_ok=1' ]] ||
       h2_die STAGE-06e-SINGLE-AXIS-STREAM-FLAG-INVALID 19
+
+    # 从有序字段取出流配置，再交给统一 profile 校验，防止只伪造成功标记。
     local linear_speed="${gate_lines[8]#*=}"
     local yaw_speed="${gate_lines[9]#*=}"
     local stream_ms="${gate_lines[10]#*=}"
@@ -207,6 +244,9 @@ h2_validate_gate_schema() {
   fi
 }
 
+# 读取并验收一个父阶段门禁：
+# - 必须是 unitree:600 的普通可读文件而非符号链接；
+# - schema、主机、boot_id、发布包 manifest 及调用者要求字段必须精确匹配。
 h2_require_gate() {
   local stage="$1"
   shift
@@ -218,6 +258,7 @@ h2_require_gate() {
     h2_die "STAGE-$stage-GATE-OWNER-OR-MODE-INVALID" 19
   h2_validate_gate_schema "$stage" "$gate"
 
+  # grep -Fxc 要求每个关键字段恰好出现一次。
   local field count
   for field in \
     "stage=$stage" \
@@ -234,6 +275,7 @@ h2_require_gate() {
   cat "$gate"
 }
 
+# 原子写入当前阶段门禁：先写私有临时文件、chmod 0600，再 mv 到正式路径。
 h2_write_gate() {
   local stage="$1"
   shift
@@ -252,6 +294,8 @@ h2_write_gate() {
   } >"$temporary"
   chmod 0600 "$temporary"
   mv -f "$temporary" "$gate"
+
+  # 上游门禁重新生成时作废所有下游结果，禁止复用旧物理观察。
   case "$stage" in
     06c)
       rm -f -- "$H2_STATE_DIR/stage06d.ok" "$H2_STATE_DIR/stage06e.ok"
@@ -263,6 +307,8 @@ h2_write_gate() {
   printf 'GATE_WRITTEN=%s\n' "$gate"
 }
 
+# 在无实机副作用的隔离环境中运行工厂、直接 API 和运动计划契约测试。
+# 这三项验证构造/映射/门禁计划，不发送 DDS 控制指令。
 h2_run_offline_contracts() {
   h2_section "OFFLINE CONTRACT TESTS"
   h2_isolated "$H2_BIN_DIR/unitree_h2_factory_contract_test"
@@ -271,6 +317,8 @@ h2_run_offline_contracts() {
   printf 'H2_PC2_BUNDLE_OFFLINE_CONTRACTS_OK\n'
 }
 
+# 运行统一测试入口的 getter-only 审计，并严格解析 FSM。
+# 这是只读 SDK2 RPC，但仍会创建 DDS participant 和 /api/sport 请求。
 h2_run_getter_audit() {
   local output rc
   set +e
@@ -287,6 +335,7 @@ h2_run_getter_audit() {
   grep -F H2_GETTER_ONLY_RPC_OK <<<"$output" >/dev/null ||
     h2_die GETTER_AUDIT_SUCCESS_MARKER_MISSING 30
 
+  # 从稳定日志行提取最后一次 FSM ID/mode；缺失或格式错误均 fail closed。
   H2_FSM_ID="$(
     sed -n 's/.*H2_GETTER_AUDIT fsm_id=\([-0-9][0-9]*\).*/\1/p' \
       <<<"$output" | tail -n 1
@@ -297,6 +346,9 @@ h2_run_getter_audit() {
   )"
   [[ -n "$H2_FSM_ID" && -n "$H2_FSM_MODE" ]] ||
     h2_die GETTER_AUDIT_STATE_PARSE_FAILED 30
+
+  # 当前运动门禁只接受 FSM 601，且可用列表也必须包含 601；
+  # 本函数不会自动调用 Start/StandUp 或切换 FSM。
   [[ "$H2_FSM_ID" == 601 ]] ||
     h2_die CURRENT_FSM_IS_NOT_601_NO_AUTOMATIC_TRANSITION 31
   grep -Eq '\[601(:|])' <<<"$output" ||
@@ -305,16 +357,20 @@ h2_run_getter_audit() {
     "$H2_FSM_ID" "$H2_FSM_MODE"
 }
 
+# 每个阶段的公共准备流程：建立日志/锁、核对主机网络/发布包/私有 ABI，
+# 并保证没有并行 H2 测试进程。函数本身不调用机器人 API。
 h2_prepare_gate() {
   local stage="$1"
   local run_id
   run_id="$(date +%Y%m%d_%H%M%S)_$BASHPID"
 
+  # 发布包必须位于项目 build 根下，拒绝任意外部路径或软拼装目录。
   case "$H2_RELEASE/" in
     "$H2_ROOT"/build/*/) ;;
     *) h2_die "RELEASE_OUTSIDE_APPROVED_PC2_BUILD_ROOT=$H2_RELEASE" 10 ;;
   esac
 
+  # 日志/门禁目录使用私有权限；符号链接目录被拒绝，避免路径逃逸。
   umask 077
   mkdir -p "$H2_ROOT/logs" "$H2_STATE_DIR"
   [[ ! -L "$H2_STATE_DIR" && -d "$H2_STATE_DIR" ]] ||
@@ -323,8 +379,8 @@ h2_prepare_gate() {
   printf -v H2_LOG '%s/logs/h2_pc2_stage%s_%s.log' \
     "$H2_ROOT" "$stage" "$run_id"
   export H2_LOG
-  # Keep the caller's original stdout before tee changes stdout into a pipe.
-  # Stage 06D/06E use FD 3 with stdin to validate real human interaction.
+  # tee 接管 stdout 前，把调用者原始终端保存在 FD 3。
+  # Stage 06D/06E 同时检查 stdin 和 FD 3，确保真人交互而非自动管道。
   exec 3>&1
   exec > >(tee -a "$H2_LOG") 2>&1
 
@@ -333,12 +389,14 @@ h2_prepare_gate() {
   printf 'DATE=%s\nHOSTNAME=%s\nUSER=%s\nARCH=%s\n' \
     "$(date --iso-8601=seconds)" "$(hostname)" "$(id -un)" "$(uname -m)"
 
+  # 门禁所需工具必须已存在；脚本不尝试联网安装。
   local tool
   for tool in bash sha256sum ldd file readelf strings grep sed tail ip ping \
     timeout flock pgrep readlink stat find hostname tee awk tr od rm chmod; do
     command -v "$tool" >/dev/null 2>&1 || h2_die "MISSING_TOOL=$tool" 11
   done
 
+  # 固定 unitree 用户、交付主机名、x86_64 与 Ubuntu 22.04。
   [[ "$(id -un)" == unitree ]] || h2_die MUST_RUN_AS_UNITREE_USER 12
   [[ "$(hostname)" == "$H2_EXPECTED_HOSTNAME" ]] ||
     h2_die "UNEXPECTED_HOSTNAME=$(hostname)" 12
@@ -348,15 +406,18 @@ h2_prepare_gate() {
   [[ "$ID" == ubuntu && "$VERSION_ID" == 22.04 ]] ||
     h2_die "UNEXPECTED_OS=$ID-$VERSION_ID" 12
 
+  # boot_id 将门禁限定在本次开机；重启后必须重新执行所有阶段。
   H2_BOOT_ID="$(tr -d '\r\n' </proc/sys/kernel/random/boot_id)"
   export H2_BOOT_ID
   printf 'BOOT_ID=%s\n' "$H2_BOOT_ID"
 
+  # 非阻塞独占锁：已有门禁流程运行时立即拒绝并发。
   exec 9>"$H2_LOCK_FILE"
   flock -n 9 || h2_die ANOTHER_H2_HAL_GATE_IS_RUNNING 13
   printf 'CONTROL_LOCK_OK=%s\n' "$H2_LOCK_FILE"
 
   h2_section "NETWORK AND VENDOR DDS CONFIG"
+  # eth0、PC2 固定地址、PC1 可达性和原厂 DDS XML 哈希必须全部满足。
   ip -o link show dev eth0 | grep -qE '<[^>]*(UP|LOWER_UP)[^>]*>' ||
     h2_die ETH0_NOT_UP 14
   ip -o -4 addr show dev eth0 | grep -F "$H2_EXPECTED_PC2_IPV4" >/dev/null ||
@@ -367,9 +428,12 @@ h2_prepare_gate() {
     h2_die CYCLONEDDS_CONFIG_NOT_READABLE 14
   h2_verify_sha256 "$H2_EXPECTED_CYCLONE_SHA256" "$H2_CYCLONE_CONFIG"
   printf 'ETH0_AND_PC1_REACHABILITY_OK\n'
+  # 只记录可能竞争控制通道的原厂进程，不在此停止它们。
   pgrep -af 'sport_switch|dog_cmd' || true
 
   h2_section "BUNDLE MANIFEST AND OWNERSHIP"
+  # 发布包清单必须可读且所有文件哈希通过；拒绝 world-writable 或非
+  # unitree 所有的内容，避免测试期间二进制被替换。
   [[ -f "$H2_MANIFEST" && -r "$H2_MANIFEST" ]] ||
     h2_die "BUNDLE_MANIFEST_MISSING=$H2_MANIFEST" 15
   H2_MANIFEST_SHA256="$(sha256sum "$H2_MANIFEST" | awk '{print $1}')"
@@ -384,6 +448,7 @@ h2_prepare_gate() {
   printf 'MANIFEST_SHA256=%s\n' "$H2_MANIFEST_SHA256"
 
   h2_section "PRIVATE LIBRARY CONTRACT"
+  # SONAME 链接和 DDS 实体库哈希必须匹配打包基线。
   [[ "$(readlink "$H2_LIB_DIR/libddsc.so.0")" == libddsc.so ]] ||
     h2_die DDSC_SONAME_LINK_INVALID 16
   [[ "$(readlink "$H2_LIB_DIR/libddscxx.so.0")" == libddscxx.so ]] ||
@@ -393,6 +458,8 @@ h2_prepare_gate() {
   h2_verify_sha256 "$H2_EXPECTED_DDSC_SHA256" "$H2_LIB_DIR/libddsc.so"
   h2_verify_sha256 "$H2_EXPECTED_DDSCXX_SHA256" "$H2_LIB_DIR/libddscxx.so"
 
+  # 统一测试二进制必须从发布包私有目录解析 HAL/YAML/SDK/DDS 库，
+  # 且不能动态依赖 ROS/rmw，保持直接 SDK2 HAL 路径。
   local binary ldd_output
   for binary in robot_test_unitree_h2; do
     [[ -x "$H2_BIN_DIR/$binary" ]] || h2_die "MISSING_EXECUTABLE=$binary" 16
@@ -422,6 +489,7 @@ h2_prepare_gate() {
   done
   printf 'PRIVATE_BUNDLE_LDD_OK\n'
 
+  # 所有静态前置条件通过后，最后确认没有残留统一测试进程。
   h2_check_no_probe_process
   printf 'H2_COMMON_GATE_PRECONDITIONS_OK\n'
 }
